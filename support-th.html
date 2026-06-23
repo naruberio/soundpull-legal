@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>การสนับสนุน — SoundPull</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1, h2 { font-weight: 600; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    a { color: #6366F1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
+    details { margin: 0.5rem 0; }
+    summary { cursor: pointer; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <nav><a href="./">← หน้าแรก</a></nav>
+  <div class="langbar">
+    <a href="./support.html">English</a> ·
+    <a href="./support-ja.html">日本語</a> ·
+    <a href="./support-zh-Hant.html">繁體中文</a> ·
+    <a href="./support-es.html">Español</a> ·
+    <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
+    <a href="./support-de.html">Deutsch</a> ·
+    <a href="./support-fr.html">Français</a> ·
+    <a href="./support-ko.html">한국어</a> ·
+    <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
+    <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
+    <strong>ไทย</strong>
+  </div>
+
+  <h1>การสนับสนุน — SoundPull</h1>
+
+  <h2>ติดต่อ</h2>
+  <p>สำหรับคำถาม การรายงานข้อบกพร่อง หรือคำขอคุณสมบัติ โปรดส่งอีเมลถึง:</p>
+  <p><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
+  <p>เราพยายามตอบกลับภายใน 3 วันทำการ SoundPull ต้องใช้ iOS 16.4 ขึ้นไปและทำงานบน iPhone</p>
+
+  <h2>คำถามที่พบบ่อย</h2>
+
+  <details>
+    <summary>SoundPull ทำงานอย่างไร และข้อมูลของฉันไปอยู่ที่ไหน?</summary>
+    <p>SoundPull อ่านวิดีโอที่คุณเลือกและสกัดแทร็กเสียงออกมาเป็นไฟล์ M4A (AAC) โดยตรงบน iPhone ของคุณ โดยใช้เฟรมเวิร์ก AVFoundation ของ Apple ไม่มีสิ่งใดถูกส่งไปยังเซิร์ฟเวอร์ของเราเพราะเราไม่มีเซิร์ฟเวอร์เลย วิดีโอของคุณและเสียงที่สกัดได้จะไม่ออกจากอุปกรณ์ของคุณ</p>
+  </details>
+
+  <details>
+    <summary>ฉันใช้ไฟล์ใดได้บ้าง และจะได้ผลลัพธ์อะไรออกมา?</summary>
+    <p>คุณสามารถเลือกวิดีโอจากคลังรูปภาพหรือแอป Files หรือส่งวิดีโอไปยัง SoundPull จากชีตแบ่งปันของแอปอื่นได้ ผลลัพธ์จะเป็นไฟล์ M4A ที่มีเสียง AAC คุณภาพสูงเสมอ วิดีโอบางรายการที่ไม่มีแทร็กเสียง มีตัวแปลงรหัส (codec) ที่ไม่รองรับ หรือมีการป้องกันด้วย DRM จะไม่สามารถประมวลผลได้</p>
+  </details>
+
+  <details>
+    <summary>ทำไม SoundPull จึงขอเข้าถึงคลังรูปภาพ?</summary>
+    <p>เพื่อให้คุณสามารถเลือกวิดีโอจากคลังของคุณเพื่อสกัดเสียงได้ SoundPull อ่านเฉพาะวิดีโอที่คุณเลือก ประมวลผลบนอุปกรณ์ของคุณ และไม่เคยอัปโหลดหรือสแกนคลังของคุณ</p>
+  </details>
+
+  <details>
+    <summary>มันแสดงว่า "วิดีโอนี้ไม่มีแทร็กเสียง" หรือ "ไม่สามารถใช้เนื้อหาที่มีการป้องกันได้" หมายความว่าอย่างไร?</summary>
+    <p>SoundPull สามารถสกัดเสียงได้เฉพาะจากวิดีโอที่มีแทร็กเสียงอยู่จริงและที่คุณมีสิทธิในการใช้งานเท่านั้น ไม่สามารถประมวลผลเนื้อหาที่ป้องกันด้วย DRM ได้ (เช่น ภาพยนตร์หรือรายการที่ซื้อหรือเช่าจากร้านค้า หรือสื่อที่สตรีมมา) และจะไม่ข้ามผ่านการป้องกันการคัดลอกใด ๆ โปรดใช้วิดีโอที่คุณบันทึกเองหรือเป็นเจ้าของสิทธิ</p>
+  </details>
+
+  <details>
+    <summary>การซื้อปลดล็อกอะไร?</summary>
+    <p>SoundPull มีจำนวนการสกัดฟรีจำนวนเล็กน้อย การซื้อแบบครั้งเดียว ("การปลดล็อก") จะยกเลิกขีดจำกัดนั้นเพื่อให้คุณสามารถสกัดเสียงได้โดยไม่มีข้อจำกัด เป็นการซื้อชนิดไม่สิ้นเปลือง (non-consumable) เพียงครั้งเดียว — ไม่มีการสมัครสมาชิก</p>
+  </details>
+
+  <details>
+    <summary>ฉันจะกู้คืนการซื้อบนอุปกรณ์ใหม่ได้อย่างไร?</summary>
+    <p>เปิดแอป ไปที่การตั้งค่า แล้วแตะ <strong>กู้คืนการซื้อ (Restore Purchase)</strong> ตรวจสอบให้แน่ใจว่าคุณลงชื่อเข้าใช้ด้วย Apple ID เดียวกันกับที่คุณใช้ในการซื้อครั้งแรก</p>
+  </details>
+
+  <details>
+    <summary>ฉันจะขอคืนเงินได้อย่างไร?</summary>
+    <p>Apple เป็นผู้จัดการการคืนเงินทั้งหมดสำหรับการซื้อใน App Store ไปที่ <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a></p>
+  </details>
+
+  <details>
+    <summary>ฉันจะบันทึกหรือแบ่งปันเสียงที่สกัดได้อย่างไร?</summary>
+    <p>หลังการสกัด ให้แตะ <strong>บันทึก / แบ่งปัน</strong> เพื่อเปิดชีตแบ่งปันของ iOS จากที่นั่นคุณสามารถเลือก <strong>บันทึกไปยัง Files</strong> ส่งผ่าน AirDrop หรือส่งไปยังแอปอื่นได้</p>
+  </details>
+
+  <details>
+    <summary>ฉันจะลบข้อมูลที่จัดเก็บโดยแอปได้อย่างไร?</summary>
+    <p>ถอนการติดตั้งแอปออกจากอุปกรณ์ของคุณ iOS จะลบข้อมูลที่จัดเก็บในเครื่องทั้งหมดโดยอัตโนมัติ</p>
+  </details>
+
+  <h2>ความเป็นส่วนตัวและข้อกำหนด</h2>
+  <ul>
+    <li><a href="./privacy-policy-th.html">นโยบายความเป็นส่วนตัว</a></li>
+    <li><a href="./terms-th.html">ข้อกำหนดการใช้งาน</a></li>
+  </ul>
+</body>
+</html>

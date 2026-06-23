@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — SoundPull</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1, h2 { font-weight: 600; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    a { color: #6366F1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #f6f8fa; }
+    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
+    code { background: #f6f8fa; padding: 0.1rem 0.3rem; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <nav><a href="./">← Home</a></nav>
+  <div class="langbar">
+    <strong>English</strong> ·
+    <a href="./privacy-policy-ja.html">日本語</a> ·
+    <a href="./privacy-policy-zh-Hant.html">繁體中文</a> ·
+    <a href="./privacy-policy-es.html">Español</a> ·
+    <a href="./privacy-policy-pt-BR.html">Português&nbsp;(BR)</a> ·
+    <a href="./privacy-policy-de.html">Deutsch</a> ·
+    <a href="./privacy-policy-fr.html">Français</a> ·
+    <a href="./privacy-policy-ko.html">한국어</a> ·
+    <a href="./privacy-policy-id.html">Bahasa&nbsp;Indonesia</a> ·
+    <a href="./privacy-policy-vi.html">Tiếng&nbsp;Việt</a> ·
+    <a href="./privacy-policy-th.html">ไทย</a>
+  </div>
+
+  <h1>Privacy Policy — SoundPull</h1>
+  <p><strong>Effective date: 2026-06-24</strong></p>
+  <p>This Privacy Policy describes how "SoundPull" (the "App") handles information about you when you use it. The App is published by <strong>naruberio</strong> ("we", "us", "our"). SoundPull extracts the audio track from videos you choose and saves it as an M4A (AAC) file — entirely on your device.</p>
+
+  <h2>1. Summary</h2>
+  <p><strong>We do not collect any personal data.</strong> Your videos, the audio we extract from them, and everything you do in the App stay on your device. We do not operate servers, and the App contains no analytics, advertising, or third-party tracking SDKs. The App does not require network access to work.</p>
+
+  <h2>2. Information We Do Not Collect</h2>
+  <p>We do <strong>not</strong> collect, transmit, store on our servers, or share any of the following:</p>
+  <ul>
+    <li>Account information (email, name, profile) — the App has no accounts or sign-in</li>
+    <li>Your videos, the audio tracks we extract, or any file you import or export</li>
+    <li>Contacts, location, calendar, microphone, or camera data</li>
+    <li>Your photo library contents — see section 6</li>
+    <li>Device identifiers used for advertising or tracking</li>
+    <li>Crash reports or analytics events sent to third parties</li>
+  </ul>
+
+  <h2>3. How Your Videos and Audio Are Processed</h2>
+  <p>Audio extraction happens <strong>entirely on your device</strong> using Apple's AVFoundation framework. When you select a video, the App reads it locally, writes the extracted M4A file to a temporary on-device location, and lets you preview, save, or share it. Your videos and the extracted audio are <strong>never uploaded</strong> to us or to any third party. Temporary working files are removed after processing, and any audio you do not save is discarded.</p>
+
+  <h2>4. Information Stored Locally on Your Device</h2>
+  <p>The App stores the following small pieces of data <strong>only on your device</strong> (using iOS local storage). This data never leaves your device.</p>
+  <table>
+    <thead><tr><th>Data</th><th>Purpose</th><th>Storage</th></tr></thead>
+    <tbody>
+      <tr><td>Count of free extractions used</td><td>Enforce the free allowance before the one-time unlock</td><td>On-device local storage</td></tr>
+      <tr><td>Unlock (purchase) status</td><td>Reflect your in-app purchase locally so premium features stay unlocked</td><td>On-device local storage</td></tr>
+      <tr><td>Onboarding-completed flag and app preferences</td><td>App configuration (e.g., not showing onboarding again)</td><td>On-device local storage</td></tr>
+    </tbody>
+  </table>
+  <p>When you uninstall the App, iOS deletes all of this data.</p>
+
+  <h2>5. Apple App Store and In-App Purchases</h2>
+  <p>SoundPull offers a single one-time, non-consumable in-app purchase that unlocks unlimited extractions. The purchase is processed by <strong>Apple Inc.</strong> through the App Store using StoreKit. We do not receive your name, email, payment card, or any other personal information from Apple — we only receive a signed receipt indicating that a purchase occurred, which is verified on your device. Apple's handling of your purchase data is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+
+  <h2>6. Permissions</h2>
+  <p>The App requests the minimum permissions needed and only when you use the related feature:</p>
+  <table>
+    <thead><tr><th>Permission</th><th>Why it is requested</th></tr></thead>
+    <tbody>
+      <tr><td>Photo Library (<code>NSPhotoLibraryUsageDescription</code>)</td><td>So you can choose a video from your library to extract its audio. The App reads only the video you pick, and processing happens on your device. SoundPull does not scan, upload, or index your photo library.</td></tr>
+    </tbody>
+  </table>
+  <p>The App does <strong>not</strong> use the camera, microphone, or location, and it does <strong>not</strong> request network access. App Tracking Transparency is <strong>never</strong> requested because the App does not track users.</p>
+
+  <h2>7. Privacy Manifest</h2>
+  <p>The App ships with an Apple Privacy Manifest declaring:</p>
+  <ul>
+    <li><strong>Tracking</strong>: None</li>
+    <li><strong>Tracking domains</strong>: None</li>
+    <li><strong>Collected data types</strong>: None</li>
+    <li><strong>Required reason APIs used</strong>: <code>FileTimestamp (C617.1)</code> — used solely for on-device file handling during extraction</li>
+  </ul>
+
+  <h2>8. Children's Privacy</h2>
+  <p>The App is suitable for general audiences. Because we collect no personal data, the App does not knowingly collect information from children under 13 or any other age threshold under any jurisdiction.</p>
+
+  <h2>9. Your Rights</h2>
+  <p>Because we do not collect personal data, there is nothing on our side to access, correct, port, or delete. To delete all data stored by the App, uninstall it from your device.</p>
+  <p>For users in the EU (GDPR), the UK, California (CCPA/CPRA), Brazil (LGPD), or other privacy regimes: the App does not act as a controller or processor of your personal data, since none is collected by us.</p>
+
+  <h2>10. International Use</h2>
+  <p>The App is available globally. Because no data is transmitted off your device, no cross-border data transfer occurs.</p>
+
+  <h2>11. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy. Material changes will be reflected by updating the "Effective date" above and by publishing the revised policy at the URL listed in section 12. Continued use of the App after a change indicates acceptance of the revised policy.</p>
+
+  <h2>12. Contact</h2>
+  <table>
+    <tbody>
+      <tr><td>Publisher</td><td>naruberio</td></tr>
+      <tr><td>Contact email</td><td><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></td></tr>
+      <tr><td>Canonical URL</td><td><a href="https://naruberio.github.io/soundpull-legal/privacy-policy.html">https://naruberio.github.io/soundpull-legal/privacy-policy.html</a></td></tr>
+    </tbody>
+  </table>
+  <p>If you have questions about this Privacy Policy, contact us at the email above.</p>
+</body>
+</html>
