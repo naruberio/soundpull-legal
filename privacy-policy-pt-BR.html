@@ -35,8 +35,8 @@
   </div>
 
   <h1>Política de Privacidade — SoundPull</h1>
-  <p><strong>Data de vigência: 2026-06-24</strong></p>
-  <p>Esta Política de Privacidade descreve como o "SoundPull" (o "Aplicativo") trata as informações sobre você quando você o utiliza. O Aplicativo é publicado por <strong>naruberio</strong> ("nós", "nos", "nosso"). O SoundPull extrai a trilha de áudio dos vídeos que você escolhe e a salva como um arquivo M4A (AAC) — inteiramente no seu dispositivo.</p>
+  <p><strong>Data de vigência: 2026-08-31</strong></p>
+  <p>Esta Política de Privacidade descreve como o «SoundPull» (o «Aplicativo») trata as informações sobre você quando você o utiliza. O Aplicativo é publicado pela <strong>naruberio</strong> («nós», «nosso»). O SoundPull extrai a trilha de áudio dos vídeos que você escolhe e a salva como um arquivo de áudio (M4A, MP3, WAV ou M4R para toques). Ele também pode exportar uma cópia do vídeo sem o áudio e transcrever em texto o áudio extraído usando reconhecimento de fala no dispositivo. Todo o processamento acontece no seu dispositivo.</p>
 
   <h2>1. Resumo</h2>
   <p><strong>Não coletamos nenhum dado pessoal.</strong> Seus vídeos, o áudio que extraímos deles e tudo o que você faz no Aplicativo permanecem no seu dispositivo. Não operamos servidores, e o Aplicativo não contém SDKs de análise, publicidade ou rastreamento de terceiros. O Aplicativo não requer acesso à rede para funcionar.</p>
@@ -53,22 +53,23 @@
   </ul>
 
   <h2>3. Como Seus Vídeos e Áudio São Processados</h2>
-  <p>A extração de áudio acontece <strong>inteiramente no seu dispositivo</strong> usando o framework AVFoundation da Apple. Quando você seleciona um vídeo, o Aplicativo o lê localmente, grava o arquivo M4A extraído em um local temporário no dispositivo e permite que você visualize, salve ou compartilhe. Seus vídeos e o áudio extraído <strong>nunca são enviados</strong> para nós nem para qualquer terceiro. Os arquivos de trabalho temporários são removidos após o processamento, e qualquer áudio que você não salvar é descartado.</p>
+  <p>A extração de áudio acontece <strong>inteiramente no seu dispositivo</strong> usando o framework AVFoundation da Apple. Quando você seleciona um vídeo, o Aplicativo o lê localmente, grava o resultado — um arquivo de áudio (M4A, MP3, WAV ou M4R) ou uma cópia do vídeo sem o áudio — em um local temporário no dispositivo e permite que você visualize, salve ou compartilhe.</p>
+  <p>A <strong>transcrição</strong> (transformar em texto o áudio que você já extraiu) usa o framework Speech da Apple e <strong>exige ser executada no seu dispositivo</strong>. Se o reconhecimento no dispositivo não estiver disponível para o seu idioma ou aparelho, o Aplicativo informa você e não executa o recurso — ele nunca recorre ao envio do áudio para um servidor. Nem o áudio nem o texto resultante são enviados para a Apple ou para nós.</p>
+  <p>Seus vídeos, o áudio extraído e qualquer transcrição <strong>nunca são enviados</strong> para nós nem para qualquer terceiro.</p>
+  <p>Os arquivos de trabalho temporários são excluídos assim que deixam de ser necessários: a cópia importada do seu vídeo quando a extração termina, e o arquivo extraído quando você inicia outra extração ou descarta o resultado. A cópia criada para a folha de compartilhamento do iOS é mantida até a próxima abertura do Aplicativo, porque o app com o qual você compartilhou pode ainda estar lendo o arquivo; o Aplicativo remove todos os arquivos temporários remanescentes na próxima abertura. Tudo o que você não salvar é descartado.</p>
 
   <h2>4. Informações Armazenadas Localmente no Seu Dispositivo</h2>
   <p>O Aplicativo armazena os seguintes pequenos dados <strong>somente no seu dispositivo</strong> (usando o armazenamento local do iOS). Esses dados nunca saem do seu dispositivo.</p>
   <table>
     <thead><tr><th>Dados</th><th>Finalidade</th><th>Armazenamento</th></tr></thead>
     <tbody>
-      <tr><td>Contagem de extrações gratuitas usadas</td><td>Aplicar o limite gratuito antes do desbloqueio único</td><td>Armazenamento local no dispositivo</td></tr>
-      <tr><td>Status de desbloqueio (compra)</td><td>Refletir sua compra dentro do aplicativo localmente para que os recursos premium permaneçam desbloqueados</td><td>Armazenamento local no dispositivo</td></tr>
-      <tr><td>Indicador de integração concluída e preferências do aplicativo</td><td>Configuração do aplicativo (por exemplo, não exibir a integração novamente)</td><td>Armazenamento local no dispositivo</td></tr>
+      <tr><td>Indicador de integração concluída e preferências do aplicativo (formato de saída, normalização de volume)</td><td>Configuração do aplicativo — por exemplo, não exibir a integração novamente e lembrar o formato escolhido da última vez</td><td>Armazenamento local no dispositivo</td></tr>
     </tbody>
   </table>
   <p>Quando você desinstala o Aplicativo, o iOS exclui todos esses dados.</p>
 
-  <h2>5. Apple App Store e Compras Dentro do Aplicativo</h2>
-  <p>O SoundPull oferece uma única compra dentro do aplicativo, do tipo única e não consumível, que desbloqueia extrações ilimitadas. A compra é processada pela <strong>Apple Inc.</strong> por meio da App Store usando o StoreKit. Não recebemos seu nome, e-mail, cartão de pagamento ou qualquer outra informação pessoal da Apple — recebemos apenas um recibo assinado indicando que uma compra ocorreu, que é verificado no seu dispositivo. O tratamento dos seus dados de compra pela Apple é regido pela <a href="https://www.apple.com/legal/privacy/">Política de Privacidade da Apple</a>.</p>
+  <h2>5. Apple App Store</h2>
+  <p>O SoundPull é um <strong>aplicativo pago</strong>: você o compra uma única vez na App Store e todos os recursos estão incluídos. <strong>Não há compras dentro do aplicativo, nem assinaturas, nem publicidade.</strong> A compra é processada pela <strong>Apple Inc.</strong> por meio da App Store. Não recebemos seu nome, e-mail, cartão de pagamento ou qualquer outra informação pessoal da Apple. O tratamento dos seus dados de compra pela Apple é regido pela <a href="https://www.apple.com/legal/privacy/">Política de Privacidade da Apple</a>.</p>
 
   <h2>6. Permissões</h2>
   <p>O Aplicativo solicita as permissões mínimas necessárias e somente quando você usa o recurso relacionado:</p>
@@ -76,9 +77,10 @@
     <thead><tr><th>Permissão</th><th>Por que é solicitada</th></tr></thead>
     <tbody>
       <tr><td>Biblioteca de Fotos (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Para que você possa escolher um vídeo da sua biblioteca para extrair o áudio. O Aplicativo lê apenas o vídeo que você seleciona, e o processamento acontece no seu dispositivo. O SoundPull não escaneia, envia nem indexa sua biblioteca de fotos.</td></tr>
+      <tr><td>Reconhecimento de Fala (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Para que você possa transcrever o áudio que já extraiu. Esta permissão só é solicitada quando você inicia uma transcrição. O reconhecimento <strong>precisa ser executado no seu dispositivo</strong> (<code>requiresOnDeviceRecognition</code>); se o reconhecimento no dispositivo não estiver disponível, o Aplicativo não executa o recurso em vez de enviar seu áudio para um servidor. Nem o áudio nem o texto resultante são enviados para a Apple ou para nós.</td></tr>
     </tbody>
   </table>
-  <p>O Aplicativo <strong>não</strong> usa a câmera, o microfone nem a localização, e <strong>não</strong> solicita acesso à rede. A Transparência de Rastreamento de Aplicativos <strong>nunca</strong> é solicitada porque o Aplicativo não rastreia usuários.</p>
+  <p>O Aplicativo <strong>não</strong> grava pelo microfone e <strong>não</strong> usa a câmera nem a localização — o reconhecimento de fala lê um arquivo que você já extraiu, e não a entrada ao vivo do microfone. O Aplicativo <strong>não</strong> solicita acesso à rede. A Transparência de Rastreamento de Aplicativos <strong>nunca</strong> é solicitada porque o Aplicativo não rastreia usuários.</p>
 
   <h2>7. Manifesto de Privacidade</h2>
   <p>O Aplicativo é distribuído com um Manifesto de Privacidade da Apple que declara:</p>
@@ -86,7 +88,7 @@
     <li><strong>Rastreamento</strong>: Nenhum</li>
     <li><strong>Domínios de rastreamento</strong>: Nenhum</li>
     <li><strong>Tipos de dados coletados</strong>: Nenhum</li>
-    <li><strong>APIs de motivo obrigatório utilizadas</strong>: <code>FileTimestamp (C617.1)</code> — usada exclusivamente para o tratamento de arquivos no dispositivo durante a extração</li>
+    <li><strong>APIs de motivo obrigatório utilizadas</strong>: <code>FileTimestamp (C617.1)</code> — para o tratamento de arquivos no dispositivo durante a extração; <code>DiskSpace (85F4.1)</code> — para verificar se há espaço livre suficiente antes de gravar um arquivo</li>
   </ul>
 
   <h2>8. Privacidade de Crianças</h2>

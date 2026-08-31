@@ -35,8 +35,8 @@
   </div>
 
   <h1>Datenschutzerklärung — SoundPull</h1>
-  <p><strong>Gültig ab: 2026-06-24</strong></p>
-  <p>Diese Datenschutzerklärung beschreibt, wie „SoundPull“ (die „App“) mit Informationen über Sie umgeht, wenn Sie die App verwenden. Die App wird von <strong>naruberio</strong> („wir“, „uns“, „unser“) herausgegeben. SoundPull extrahiert die Audiospur aus von Ihnen ausgewählten Videos und speichert sie als M4A-Datei (AAC) — vollständig auf Ihrem Gerät.</p>
+  <p><strong>Gültig ab: 2026-08-31</strong></p>
+  <p>Diese Datenschutzerklärung beschreibt, wie „SoundPull“ (die „App“) mit Informationen über Sie umgeht, wenn Sie die App verwenden. Die App wird von <strong>naruberio</strong> („wir“, „uns“, „unser“) herausgegeben. SoundPull extrahiert die Audiospur aus von Ihnen ausgewählten Videos und speichert sie als Audiodatei (M4A, MP3, WAV oder M4R für Klingeltöne). Die App kann außerdem eine Kopie des Videos ohne Ton exportieren und extrahiertes Audio mittels Spracherkennung auf dem Gerät in Text umwandeln. Die gesamte Verarbeitung erfolgt auf Ihrem Gerät.</p>
 
   <h2>1. Zusammenfassung</h2>
   <p><strong>Wir erheben keinerlei personenbezogene Daten.</strong> Ihre Videos, das von uns daraus extrahierte Audio und alles, was Sie in der App tun, verbleiben auf Ihrem Gerät. Wir betreiben keine Server, und die App enthält keine Analyse-, Werbe- oder Tracking-SDKs von Drittanbietern. Die App benötigt für ihren Betrieb keinen Netzwerkzugriff.</p>
@@ -53,22 +53,23 @@
   </ul>
 
   <h2>3. Wie Ihre Videos und Ihr Audio verarbeitet werden</h2>
-  <p>Die Audioextraktion erfolgt <strong>vollständig auf Ihrem Gerät</strong> unter Verwendung des AVFoundation-Frameworks von Apple. Wenn Sie ein Video auswählen, liest die App es lokal, schreibt die extrahierte M4A-Datei an einen temporären Speicherort auf dem Gerät und ermöglicht Ihnen, sie in der Vorschau anzuzeigen, zu speichern oder zu teilen. Ihre Videos und das extrahierte Audio werden <strong>niemals hochgeladen</strong> — weder zu uns noch zu Dritten. Temporäre Arbeitsdateien werden nach der Verarbeitung entfernt, und jegliches Audio, das Sie nicht speichern, wird verworfen.</p>
+  <p>Die Audioextraktion erfolgt <strong>vollständig auf Ihrem Gerät</strong> unter Verwendung des AVFoundation-Frameworks von Apple. Wenn Sie ein Video auswählen, liest die App es lokal, schreibt das Ergebnis — eine Audiodatei (M4A, MP3, WAV oder M4R) oder eine Kopie des Videos ohne Tonspur — an einen temporären Speicherort auf dem Gerät und ermöglicht Ihnen, es in der Vorschau anzuzeigen, zu speichern oder zu teilen.</p>
+  <p>Die <strong>Transkription</strong> (Umwandlung bereits extrahierten Audios in Text) verwendet das Speech-Framework von Apple und <strong>muss auf Ihrem Gerät ausgeführt werden</strong>. Ist die Erkennung auf dem Gerät für Ihre Sprache oder Ihr Gerät nicht verfügbar, teilt die App Ihnen dies mit und führt die Funktion nicht aus — sie sendet das Audio niemals ersatzweise an einen Server. Weder das Audio noch der entstehende Text werden an Apple oder an uns gesendet.</p>
+  <p>Ihre Videos, das extrahierte Audio und jede Transkription werden <strong>niemals hochgeladen</strong> — weder zu uns noch zu Dritten.</p>
+  <p>Temporäre Arbeitsdateien werden gelöscht, sobald sie nicht mehr benötigt werden: die importierte Kopie Ihres Videos, sobald die Extraktion abgeschlossen ist, und die extrahierte Datei, sobald Sie eine weitere Extraktion starten oder das Ergebnis verwerfen. Eine für das iOS-Teilen-Menü erstellte Kopie bleibt bis zum nächsten Start der App erhalten, da die App, mit der Sie geteilt haben, sie möglicherweise noch liest; beim nächsten Start entfernt die App alle verbliebenen temporären Dateien. Alles, was Sie nicht speichern, wird verworfen.</p>
 
   <h2>4. Lokal auf Ihrem Gerät gespeicherte Informationen</h2>
   <p>Die App speichert die folgenden kleinen Datenmengen <strong>ausschließlich auf Ihrem Gerät</strong> (unter Verwendung des lokalen iOS-Speichers). Diese Daten verlassen Ihr Gerät niemals.</p>
   <table>
     <thead><tr><th>Daten</th><th>Zweck</th><th>Speicherung</th></tr></thead>
     <tbody>
-      <tr><td>Anzahl der verwendeten kostenlosen Extraktionen</td><td>Durchsetzung des kostenlosen Kontingents vor der einmaligen Freischaltung</td><td>Lokaler Speicher auf dem Gerät</td></tr>
-      <tr><td>Freischaltungsstatus (Kauf)</td><td>Lokale Abbildung Ihres In-App-Kaufs, damit Premium-Funktionen freigeschaltet bleiben</td><td>Lokaler Speicher auf dem Gerät</td></tr>
-      <tr><td>Kennzeichen für abgeschlossenes Onboarding und App-Einstellungen</td><td>App-Konfiguration (z. B. das Onboarding nicht erneut anzuzeigen)</td><td>Lokaler Speicher auf dem Gerät</td></tr>
+      <tr><td>Kennzeichen für abgeschlossenes Onboarding und App-Einstellungen (Ausgabeformat, Lautstärke-Normalisierung)</td><td>App-Konfiguration — zum Beispiel das Onboarding nicht erneut anzuzeigen und das zuletzt gewählte Format zu merken</td><td>Lokaler Speicher auf dem Gerät</td></tr>
     </tbody>
   </table>
   <p>Wenn Sie die App deinstallieren, löscht iOS all diese Daten.</p>
 
-  <h2>5. Apple App Store und In-App-Käufe</h2>
-  <p>SoundPull bietet einen einzigen einmaligen, nicht verbrauchbaren In-App-Kauf an, der unbegrenzte Extraktionen freischaltet. Der Kauf wird von <strong>Apple Inc.</strong> über den App Store mittels StoreKit abgewickelt. Wir erhalten von Apple weder Ihren Namen, Ihre E-Mail-Adresse, Ihre Zahlungskarte noch sonstige personenbezogene Informationen — wir erhalten lediglich einen signierten Beleg, der angibt, dass ein Kauf stattgefunden hat, und der auf Ihrem Gerät überprüft wird. Der Umgang von Apple mit Ihren Kaufdaten unterliegt der <a href="https://www.apple.com/legal/privacy/">Datenschutzrichtlinie von Apple</a>.</p>
+  <h2>5. Apple App Store</h2>
+  <p>SoundPull ist eine <strong>kostenpflichtige App</strong>: Sie kaufen sie einmalig im App Store, und alle Funktionen sind enthalten. Es gibt <strong>keine In-App-Käufe, keine Abonnements und keine Werbung</strong>. Der Kauf wird von <strong>Apple Inc.</strong> über den App Store abgewickelt. Wir erhalten von Apple weder Ihren Namen, Ihre E-Mail-Adresse, Ihre Zahlungskarte noch sonstige personenbezogene Informationen. Der Umgang von Apple mit Ihren Kaufdaten unterliegt der <a href="https://www.apple.com/legal/privacy/">Datenschutzrichtlinie von Apple</a>.</p>
 
   <h2>6. Berechtigungen</h2>
   <p>Die App fordert die minimal erforderlichen Berechtigungen an und nur dann, wenn Sie die zugehörige Funktion verwenden:</p>
@@ -76,9 +77,10 @@
     <thead><tr><th>Berechtigung</th><th>Warum sie angefordert wird</th></tr></thead>
     <tbody>
       <tr><td>Fotomediathek (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Damit Sie ein Video aus Ihrer Mediathek auswählen können, um dessen Audio zu extrahieren. Die App liest nur das von Ihnen ausgewählte Video, und die Verarbeitung erfolgt auf Ihrem Gerät. SoundPull durchsucht, lädt oder indexiert Ihre Fotomediathek nicht.</td></tr>
+      <tr><td>Spracherkennung (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Damit Sie bereits extrahiertes Audio in Text umwandeln können. Diese Berechtigung wird nur angefordert, wenn Sie eine Transkription starten. Die Erkennung <strong>muss auf Ihrem Gerät ausgeführt werden</strong> (<code>requiresOnDeviceRecognition</code>); ist die Erkennung auf dem Gerät nicht verfügbar, führt die App die Funktion nicht aus, statt Ihr Audio an einen Server zu senden. Weder das Audio noch der entstehende Text werden an Apple oder an uns gesendet.</td></tr>
     </tbody>
   </table>
-  <p>Die App verwendet <strong>nicht</strong> die Kamera, das Mikrofon oder den Standort und fordert <strong>keinen</strong> Netzwerkzugriff an. App Tracking Transparency wird <strong>niemals</strong> angefordert, da die App Nutzer nicht trackt.</p>
+  <p>Die App nimmt <strong>nicht</strong> über das Mikrofon auf und verwendet <strong>weder</strong> die Kamera noch Ihren Standort — die Spracherkennung liest eine bereits von Ihnen extrahierte Datei, keine Live-Eingabe des Mikrofons. Die App fordert <strong>keinen</strong> Netzwerkzugriff an. App Tracking Transparency wird <strong>niemals</strong> angefordert, da die App Nutzer nicht trackt.</p>
 
   <h2>7. Privacy Manifest</h2>
   <p>Die App wird mit einem Apple Privacy Manifest ausgeliefert, das Folgendes deklariert:</p>
@@ -86,7 +88,7 @@
     <li><strong>Tracking</strong>: Keines</li>
     <li><strong>Tracking-Domains</strong>: Keine</li>
     <li><strong>Erhobene Datentypen</strong>: Keine</li>
-    <li><strong>Verwendete APIs mit erforderlicher Begründung</strong>: <code>FileTimestamp (C617.1)</code> — wird ausschließlich für die Dateiverarbeitung auf dem Gerät während der Extraktion verwendet</li>
+    <li><strong>Verwendete APIs mit erforderlicher Begründung</strong>: <code>FileTimestamp (C617.1)</code> — für die Dateiverarbeitung auf dem Gerät während der Extraktion; <code>DiskSpace (85F4.1)</code> — zur Prüfung, ob vor dem Schreiben einer Datei genügend freier Speicherplatz vorhanden ist</li>
   </ul>
 
   <h2>8. Datenschutz von Kindern</h2>
