@@ -35,7 +35,7 @@
   </div>
 
   <h1>Política de Privacidad — SoundPull</h1>
-  <p><strong>Fecha de entrada en vigor: 2026-08-31</strong></p>
+  <p><strong>Fecha de entrada en vigor: 2026-09-01</strong></p>
   <p>Esta Política de Privacidad describe cómo «SoundPull» (la «App») trata la información sobre usted cuando la utiliza. La App es publicada por <strong>naruberio</strong> («nosotros», «nos», «nuestro»). SoundPull extrae la pista de audio de los vídeos que usted elige y la guarda como un archivo de audio (M4A, MP3, WAV o M4R para tonos de llamada). También puede exportar una copia del vídeo sin su audio y transcribir a texto el audio extraído mediante reconocimiento de voz en el dispositivo. Todo el procesamiento ocurre en su dispositivo.</p>
 
   <h2>1. Resumen</h2>
@@ -54,7 +54,7 @@
 
   <h2>3. Cómo se Procesan sus Vídeos y Audio</h2>
   <p>La extracción de audio ocurre <strong>íntegramente en su dispositivo</strong> mediante el framework AVFoundation de Apple. Cuando usted selecciona un vídeo, la App lo lee localmente, escribe el resultado —un archivo de audio (M4A, MP3, WAV o M4R) o una copia del vídeo sin su audio— en una ubicación temporal del dispositivo y le permite previsualizarlo, guardarlo o compartirlo.</p>
-  <p>La <strong>transcripción</strong> (convertir en texto el audio que ya ha extraído) utiliza el framework Speech de Apple y <strong>exige ejecutarse en su dispositivo</strong>. Si el reconocimiento en el dispositivo no está disponible para su idioma o su dispositivo, la App se lo indica y no ejecuta la función: nunca recurre a enviar el audio a un servidor. Ni el audio ni el texto resultante se envían a Apple ni a nosotros.</p>
+  <p>La <strong>transcripción</strong> (convertir en texto el audio que ya ha extraído) utiliza el framework Speech de Apple y <strong>debe ejecutarse obligatoriamente en su dispositivo</strong>. Si el reconocimiento en el dispositivo no está disponible para su idioma o su dispositivo, la App se lo indica y no ejecuta la función: nunca recurre a enviar el audio a un servidor. Ni el audio ni el texto resultante se envían a Apple ni a nosotros.</p>
   <p>Sus vídeos, el audio extraído y cualquier transcripción <strong>nunca se suben</strong> a nosotros ni a ningún tercero.</p>
   <p>Los archivos temporales de trabajo se eliminan en cuanto dejan de ser necesarios: la copia importada de su vídeo al terminar la extracción, y el archivo extraído cuando usted inicia otra extracción o descarta el resultado. La copia creada para la hoja de compartir de iOS se conserva hasta el siguiente inicio de la App, porque la app con la que compartió puede seguir leyéndola; la App elimina en ese siguiente inicio todos los archivos temporales que hayan quedado. Todo lo que no guarde se descarta.</p>
 
@@ -77,10 +77,10 @@
     <thead><tr><th>Permiso</th><th>Por qué se solicita</th></tr></thead>
     <tbody>
       <tr><td>Biblioteca de fotos (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Para que pueda elegir un vídeo de su biblioteca y extraer su audio. La App lee únicamente el vídeo que usted selecciona, y el procesamiento ocurre en su dispositivo. SoundPull no escanea, sube ni indexa su biblioteca de fotos.</td></tr>
-      <tr><td>Reconocimiento de voz (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Para que pueda transcribir audio que ya ha extraído. Este permiso solo se solicita cuando usted inicia una transcripción. El reconocimiento <strong>debe ejecutarse en su dispositivo</strong> (<code>requiresOnDeviceRecognition</code>); si no está disponible en el dispositivo, la App no ejecuta la función en lugar de enviar su audio a un servidor. Ni el audio ni el texto resultante se envían a Apple ni a nosotros.</td></tr>
+      <tr><td>Reconocimiento de voz (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Para que pueda transcribir audio que ya ha extraído. Este permiso solo se solicita cuando usted inicia una transcripción. El reconocimiento <strong>debe ejecutarse en su dispositivo</strong> (<code>requiresOnDeviceRecognition</code>); si no está disponible en el dispositivo, la App simplemente no ejecuta la función y en ningún caso envía su audio a un servidor. Ni el audio ni el texto resultante se envían a Apple ni a nosotros.</td></tr>
     </tbody>
   </table>
-  <p>La App <strong>no</strong> graba desde el micrófono y <strong>no</strong> utiliza la cámara ni su ubicación: el reconocimiento de voz lee un archivo que usted ya ha extraído, no la entrada en directo del micrófono. La App <strong>no</strong> solicita acceso a la red. Nunca se solicita la Transparencia de Seguimiento de Aplicaciones (App Tracking Transparency) porque la App no realiza seguimiento de los usuarios.</p>
+  <p>La App <strong>no</strong> graba desde el micrófono y <strong>no</strong> utiliza la cámara ni su ubicación: el reconocimiento de voz lee un archivo que usted ya ha extraído, no la entrada en directo del micrófono. La App <strong>no</strong> solicita acceso a la red. <strong>Nunca</strong> se solicita la Transparencia de Seguimiento de Aplicaciones (App Tracking Transparency) porque la App no realiza seguimiento de los usuarios.</p>
 
   <h2>7. Manifiesto de Privacidad</h2>
   <p>La App incluye un Manifiesto de Privacidad de Apple que declara:</p>
@@ -88,7 +88,7 @@
     <li><strong>Seguimiento</strong>: Ninguno</li>
     <li><strong>Dominios de seguimiento</strong>: Ninguno</li>
     <li><strong>Tipos de datos recopilados</strong>: Ninguno</li>
-    <li><strong>API de motivo requerido utilizadas</strong>: <code>FileTimestamp (C617.1)</code> — para la gestión de archivos en el dispositivo durante la extracción; <code>DiskSpace (85F4.1)</code> — para comprobar que hay espacio libre suficiente antes de escribir un archivo</li>
+    <li><strong>API de motivo requerido utilizadas</strong>: <code>FileTimestamp (C617.1)</code> — para la gestión de archivos en el dispositivo durante la extracción; <code>DiskSpace (E174.1)</code> — para comprobar que hay espacio libre suficiente antes de escribir un archivo</li>
   </ul>
 
   <h2>8. Privacidad de los Menores</h2>

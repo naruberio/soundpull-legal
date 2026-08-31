@@ -35,8 +35,8 @@
   </div>
 
   <h1>Chính sách quyền riêng tư — SoundPull</h1>
-  <p><strong>Ngày có hiệu lực: 2026-08-31</strong></p>
-  <p>Chính sách quyền riêng tư này mô tả cách «SoundPull» («Ứng dụng») xử lý thông tin về bạn khi bạn sử dụng Ứng dụng. Ứng dụng do <strong>naruberio</strong> («chúng tôi») phát hành. SoundPull trích xuất bản âm thanh từ video bạn chọn và lưu thành tệp âm thanh (M4A, MP3, WAV hoặc M4R dùng làm nhạc chuông). Ứng dụng cũng có thể xuất một bản sao video đã gỡ bỏ âm thanh, và chuyển âm thanh đã trích xuất thành văn bản bằng nhận dạng giọng nói trên thiết bị. Toàn bộ quá trình xử lý diễn ra trên thiết bị của bạn.</p>
+  <p><strong>Ngày có hiệu lực: 2026-09-01</strong></p>
+  <p>Chính sách quyền riêng tư này mô tả cách "SoundPull" ("Ứng dụng") xử lý thông tin về bạn khi bạn sử dụng Ứng dụng. Ứng dụng do <strong>naruberio</strong> ("chúng tôi") phát hành. SoundPull trích xuất bản âm thanh từ video bạn chọn và lưu thành tệp âm thanh (M4A, MP3, WAV hoặc M4R dùng làm nhạc chuông). Ứng dụng cũng có thể xuất một bản sao video đã gỡ bỏ âm thanh, và chuyển âm thanh đã trích xuất thành văn bản bằng nhận dạng giọng nói trên thiết bị. Toàn bộ quá trình xử lý diễn ra trên thiết bị của bạn.</p>
 
   <h2>1. Tóm tắt</h2>
   <p><strong>Chúng tôi không thu thập bất kỳ dữ liệu cá nhân nào.</strong> Video của bạn, âm thanh chúng tôi trích xuất từ chúng, và mọi thao tác bạn thực hiện trong Ứng dụng đều ở lại trên thiết bị của bạn. Chúng tôi không vận hành máy chủ, và Ứng dụng không chứa bất kỳ SDK phân tích, quảng cáo hay theo dõi của bên thứ ba nào. Ứng dụng không yêu cầu truy cập mạng để hoạt động.</p>
@@ -77,7 +77,7 @@
     <thead><tr><th>Quyền truy cập</th><th>Lý do được yêu cầu</th></tr></thead>
     <tbody>
       <tr><td>Thư viện ảnh (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Để bạn có thể chọn một video từ thư viện của mình nhằm trích xuất âm thanh của nó. Ứng dụng chỉ đọc video bạn chọn, và việc xử lý diễn ra trên thiết bị của bạn. SoundPull không quét, tải lên, hay lập chỉ mục thư viện ảnh của bạn.</td></tr>
-      <tr><td>Nhận dạng giọng nói (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Để bạn có thể chuyển âm thanh đã trích xuất thành văn bản. Quyền này chỉ được yêu cầu khi bạn bắt đầu chuyển lời nói thành văn bản. Việc nhận dạng <strong>bắt buộc chạy trên thiết bị của bạn</strong> (<code>requiresOnDeviceRecognition</code>); nếu nhận dạng trên thiết bị không khả dụng, Ứng dụng sẽ không chạy tính năng này thay vì gửi âm thanh của bạn lên máy chủ. Cả âm thanh lẫn văn bản thu được đều không được gửi tới Apple hay tới chúng tôi.</td></tr>
+      <tr><td>Nhận dạng giọng nói (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Để bạn có thể chuyển âm thanh đã trích xuất thành văn bản. Quyền này chỉ được yêu cầu khi bạn bắt đầu chuyển lời nói thành văn bản. Việc nhận dạng <strong>bắt buộc chạy trên thiết bị của bạn</strong> (<code>requiresOnDeviceRecognition</code>); nếu nhận dạng trên thiết bị không khả dụng, Ứng dụng sẽ dừng tính năng này chứ không gửi âm thanh của bạn lên máy chủ. Cả âm thanh lẫn văn bản thu được đều không được gửi tới Apple hay tới chúng tôi.</td></tr>
     </tbody>
   </table>
   <p>Ứng dụng <strong>không</strong> ghi âm từ micrô và <strong>không</strong> sử dụng camera hay vị trí của bạn — nhận dạng giọng nói đọc tệp mà bạn đã trích xuất, không phải đầu vào trực tiếp từ micrô. Ứng dụng <strong>không</strong> yêu cầu truy cập mạng. App Tracking Transparency <strong>không bao giờ</strong> được yêu cầu vì Ứng dụng không theo dõi người dùng.</p>
@@ -88,7 +88,7 @@
     <li><strong>Theo dõi</strong>: Không có</li>
     <li><strong>Miền theo dõi</strong>: Không có</li>
     <li><strong>Loại dữ liệu được thu thập</strong>: Không có</li>
-    <li><strong>API có lý do bắt buộc được sử dụng</strong>: <code>FileTimestamp (C617.1)</code> — dùng cho việc xử lý tệp trên thiết bị trong quá trình trích xuất; <code>DiskSpace (85F4.1)</code> — dùng để kiểm tra còn đủ dung lượng trống trước khi ghi tệp</li>
+    <li><strong>API có lý do bắt buộc được sử dụng</strong>: <code>FileTimestamp (C617.1)</code> — dùng cho việc xử lý tệp trên thiết bị trong quá trình trích xuất; <code>DiskSpace (E174.1)</code> — dùng để kiểm tra còn đủ dung lượng trống trước khi ghi tệp</li>
   </ul>
 
   <h2>8. Quyền riêng tư của trẻ em</h2>

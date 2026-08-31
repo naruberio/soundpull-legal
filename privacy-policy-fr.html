@@ -35,7 +35,7 @@
   </div>
 
   <h1>Politique de confidentialité — SoundPull</h1>
-  <p><strong>Date d'entrée en vigueur : 2026-08-31</strong></p>
+  <p><strong>Date d'entrée en vigueur : 2026-09-01</strong></p>
   <p>La présente Politique de confidentialité décrit la manière dont « SoundPull » (l'« Application ») traite les informations vous concernant lorsque vous l'utilisez. L'Application est publiée par <strong>naruberio</strong> (« nous », « notre », « nos »). SoundPull extrait la piste audio des vidéos que vous choisissez et l'enregistre sous forme de fichier audio (M4A, MP3, WAV ou M4R pour les sonneries). L'Application peut également exporter une copie de la vidéo dont l'audio a été retiré, et transcrire en texte l'audio extrait grâce à la reconnaissance vocale sur l'appareil. Tout le traitement s'effectue sur votre appareil.</p>
 
   <h2>1. Résumé</h2>
@@ -63,7 +63,7 @@
   <table>
     <thead><tr><th>Donnée</th><th>Finalité</th><th>Stockage</th></tr></thead>
     <tbody>
-      <tr><td>Indicateur de fin d'intégration et préférences de l'application (format de sortie, normalisation du volume)</td><td>Configuration de l'application — par exemple, ne plus afficher l'intégration et mémoriser le format choisi la dernière fois</td><td>Stockage local sur l'appareil</td></tr>
+      <tr><td>Indicateur de fin du tutoriel de bienvenue et préférences de l'application (format de sortie, normalisation du volume)</td><td>Configuration de l'application — par exemple, ne plus afficher le tutoriel de bienvenue et mémoriser le format choisi la dernière fois</td><td>Stockage local sur l'appareil</td></tr>
     </tbody>
   </table>
   <p>Lorsque vous désinstallez l'Application, iOS supprime toutes ces données.</p>
@@ -77,7 +77,7 @@
     <thead><tr><th>Autorisation</th><th>Pourquoi elle est demandée</th></tr></thead>
     <tbody>
       <tr><td>Photothèque (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Pour que vous puissiez choisir une vidéo dans votre photothèque afin d'en extraire l'audio. L'Application ne lit que la vidéo que vous sélectionnez, et le traitement s'effectue sur votre appareil. SoundPull n'analyse, ne transfère ni n'indexe votre photothèque.</td></tr>
-      <tr><td>Reconnaissance vocale (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Pour que vous puissiez transcrire un audio que vous avez déjà extrait. Cette autorisation n'est demandée que lorsque vous lancez une transcription. La reconnaissance <strong>doit s'exécuter sur votre appareil</strong> (<code>requiresOnDeviceRecognition</code>) ; si elle n'est pas disponible sur l'appareil, l'Application n'exécute pas la fonctionnalité au lieu d'envoyer votre audio à un serveur. Ni l'audio ni le texte obtenu ne sont transmis à Apple ni à nous.</td></tr>
+      <tr><td>Reconnaissance vocale (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Pour que vous puissiez transcrire un audio que vous avez déjà extrait. Cette autorisation n'est demandée que lorsque vous lancez une transcription. La reconnaissance <strong>doit s'exécuter sur votre appareil</strong> (<code>requiresOnDeviceRecognition</code>) ; si elle n'est pas disponible sur l'appareil, l'Application n'exécute tout simplement pas la fonctionnalité et n'envoie en aucun cas votre audio à un serveur. Ni l'audio ni le texte obtenu ne sont transmis à Apple ni à nous.</td></tr>
     </tbody>
   </table>
   <p>L'Application <strong>n'enregistre pas</strong> depuis le microphone et <strong>n'utilise pas</strong> la caméra ni votre localisation — la reconnaissance vocale lit un fichier que vous avez déjà extrait, et non l'entrée en direct du microphone. L'Application <strong>ne demande pas</strong> d'accès au réseau. L'App Tracking Transparency n'est <strong>jamais</strong> demandée, car l'Application ne suit pas les utilisateurs.</p>
@@ -88,7 +88,7 @@
     <li><strong>Suivi</strong> : Aucun</li>
     <li><strong>Domaines de suivi</strong> : Aucun</li>
     <li><strong>Types de données collectées</strong> : Aucun</li>
-    <li><strong>API à motif requis utilisées</strong> : <code>FileTimestamp (C617.1)</code> — pour la gestion des fichiers sur l'appareil pendant l'extraction ; <code>DiskSpace (85F4.1)</code> — pour vérifier qu'il reste assez d'espace libre avant d'écrire un fichier</li>
+    <li><strong>API à motif requis utilisées</strong> : <code>FileTimestamp (C617.1)</code> — pour la gestion des fichiers sur l'appareil pendant l'extraction ; <code>DiskSpace (E174.1)</code> — pour vérifier qu'il reste assez d'espace libre avant d'écrire un fichier</li>
   </ul>
 
   <h2>8. Confidentialité des enfants</h2>
