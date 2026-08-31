@@ -35,8 +35,8 @@
   </div>
 
   <h1>Chính sách quyền riêng tư — SoundPull</h1>
-  <p><strong>Ngày có hiệu lực: 2026-06-24</strong></p>
-  <p>Chính sách quyền riêng tư này mô tả cách "SoundPull" ("Ứng dụng") xử lý thông tin về bạn khi bạn sử dụng. Ứng dụng được phát hành bởi <strong>naruberio</strong> ("chúng tôi"). SoundPull trích xuất bản âm thanh từ các video bạn chọn và lưu dưới dạng tệp M4A (AAC) — hoàn toàn trên thiết bị của bạn.</p>
+  <p><strong>Ngày có hiệu lực: 2026-08-31</strong></p>
+  <p>Chính sách quyền riêng tư này mô tả cách «SoundPull» («Ứng dụng») xử lý thông tin về bạn khi bạn sử dụng Ứng dụng. Ứng dụng do <strong>naruberio</strong> («chúng tôi») phát hành. SoundPull trích xuất bản âm thanh từ video bạn chọn và lưu thành tệp âm thanh (M4A, MP3, WAV hoặc M4R dùng làm nhạc chuông). Ứng dụng cũng có thể xuất một bản sao video đã gỡ bỏ âm thanh, và chuyển âm thanh đã trích xuất thành văn bản bằng nhận dạng giọng nói trên thiết bị. Toàn bộ quá trình xử lý diễn ra trên thiết bị của bạn.</p>
 
   <h2>1. Tóm tắt</h2>
   <p><strong>Chúng tôi không thu thập bất kỳ dữ liệu cá nhân nào.</strong> Video của bạn, âm thanh chúng tôi trích xuất từ chúng, và mọi thao tác bạn thực hiện trong Ứng dụng đều ở lại trên thiết bị của bạn. Chúng tôi không vận hành máy chủ, và Ứng dụng không chứa bất kỳ SDK phân tích, quảng cáo hay theo dõi của bên thứ ba nào. Ứng dụng không yêu cầu truy cập mạng để hoạt động.</p>
@@ -53,22 +53,23 @@
   </ul>
 
   <h2>3. Cách video và âm thanh của bạn được xử lý</h2>
-  <p>Việc trích xuất âm thanh diễn ra <strong>hoàn toàn trên thiết bị của bạn</strong> bằng khung AVFoundation của Apple. Khi bạn chọn một video, Ứng dụng đọc nó cục bộ, ghi tệp M4A đã trích xuất vào một vị trí tạm thời trên thiết bị, và cho phép bạn xem trước, lưu hoặc chia sẻ. Video của bạn và âm thanh đã trích xuất <strong>không bao giờ được tải lên</strong> chúng tôi hay bất kỳ bên thứ ba nào. Các tệp làm việc tạm thời được xóa sau khi xử lý, và bất kỳ âm thanh nào bạn không lưu đều bị loại bỏ.</p>
+  <p>Việc trích xuất âm thanh diễn ra <strong>hoàn toàn trên thiết bị của bạn</strong> bằng khung AVFoundation của Apple. Khi bạn chọn một video, Ứng dụng đọc nó cục bộ, ghi kết quả — một tệp âm thanh (M4A, MP3, WAV hoặc M4R), hoặc một bản sao video đã gỡ bỏ âm thanh — vào một vị trí tạm thời trên thiết bị, và cho phép bạn xem trước, lưu hoặc chia sẻ.</p>
+  <p><strong>Chuyển lời nói thành văn bản</strong> (chuyển âm thanh bạn đã trích xuất thành văn bản) sử dụng khung Speech của Apple và <strong>bắt buộc chạy trên thiết bị của bạn</strong>. Nếu nhận dạng trên thiết bị không khả dụng với ngôn ngữ hoặc thiết bị của bạn, Ứng dụng sẽ thông báo và không chạy tính năng này — Ứng dụng không bao giờ chuyển sang gửi âm thanh lên máy chủ. Cả âm thanh lẫn văn bản thu được đều không được gửi tới Apple hay tới chúng tôi.</p>
+  <p>Video của bạn, âm thanh đã trích xuất và mọi bản chuyển văn bản <strong>không bao giờ được tải lên</strong> chúng tôi hay bất kỳ bên thứ ba nào.</p>
+  <p>Các tệp làm việc tạm thời được xóa ngay khi không còn cần thiết: bản sao video đã nhập được xóa ngay khi trích xuất kết thúc, còn tệp đã trích xuất được xóa khi bạn bắt đầu lần trích xuất tiếp theo hoặc loại bỏ kết quả. Bản sao được tạo cho bảng chia sẻ của iOS được giữ lại cho tới lần mở Ứng dụng kế tiếp, vì ứng dụng bạn chia sẻ tới có thể vẫn đang đọc tệp đó; ở lần mở kế tiếp, Ứng dụng sẽ xóa mọi tệp tạm còn sót lại. Bất kỳ thứ gì bạn không lưu đều bị loại bỏ.</p>
 
   <h2>4. Thông tin được lưu trữ cục bộ trên thiết bị của bạn</h2>
   <p>Ứng dụng lưu trữ những phần dữ liệu nhỏ sau đây <strong>chỉ trên thiết bị của bạn</strong> (sử dụng bộ nhớ cục bộ của iOS). Dữ liệu này không bao giờ rời khỏi thiết bị của bạn.</p>
   <table>
     <thead><tr><th>Dữ liệu</th><th>Mục đích</th><th>Lưu trữ</th></tr></thead>
     <tbody>
-      <tr><td>Số lần trích xuất miễn phí đã sử dụng</td><td>Thực thi hạn mức miễn phí trước khi mở khóa một lần</td><td>Bộ nhớ cục bộ trên thiết bị</td></tr>
-      <tr><td>Trạng thái mở khóa (mua hàng)</td><td>Phản ánh giao dịch mua trong ứng dụng của bạn cục bộ để các tính năng cao cấp luôn được mở khóa</td><td>Bộ nhớ cục bộ trên thiết bị</td></tr>
-      <tr><td>Cờ đã hoàn tất giới thiệu và tùy chọn ứng dụng</td><td>Cấu hình ứng dụng (ví dụ: không hiển thị lại phần giới thiệu)</td><td>Bộ nhớ cục bộ trên thiết bị</td></tr>
+      <tr><td>Cờ đã hoàn tất giới thiệu và tùy chọn ứng dụng (định dạng đầu ra, chuẩn hóa âm lượng)</td><td>Cấu hình ứng dụng — ví dụ: không hiển thị lại phần giới thiệu và ghi nhớ định dạng bạn đã chọn lần trước</td><td>Bộ nhớ cục bộ trên thiết bị</td></tr>
     </tbody>
   </table>
   <p>Khi bạn gỡ cài đặt Ứng dụng, iOS sẽ xóa toàn bộ dữ liệu này.</p>
 
-  <h2>5. Apple App Store và mua hàng trong ứng dụng</h2>
-  <p>SoundPull cung cấp một giao dịch mua hàng trong ứng dụng dạng một lần, không tiêu hao duy nhất, mở khóa số lần trích xuất không giới hạn. Giao dịch mua được xử lý bởi <strong>Apple Inc.</strong> thông qua App Store bằng StoreKit. Chúng tôi không nhận được tên, email, thẻ thanh toán, hay bất kỳ thông tin cá nhân nào khác của bạn từ Apple — chúng tôi chỉ nhận được một biên nhận đã ký xác nhận rằng một giao dịch mua đã diễn ra, được xác minh trên thiết bị của bạn. Việc Apple xử lý dữ liệu mua hàng của bạn tuân theo <a href="https://www.apple.com/legal/privacy/">Chính sách quyền riêng tư của Apple</a>.</p>
+  <h2>5. Apple App Store</h2>
+  <p>SoundPull là <strong>ứng dụng trả phí</strong>: bạn mua một lần trên App Store và tất cả tính năng đều được bao gồm. <strong>Không có mua hàng trong ứng dụng, không có gói đăng ký và không có quảng cáo.</strong> Giao dịch mua được xử lý bởi <strong>Apple Inc.</strong> thông qua App Store. Chúng tôi không nhận được tên, email, thẻ thanh toán hay bất kỳ thông tin cá nhân nào khác của bạn từ Apple. Việc Apple xử lý dữ liệu mua hàng của bạn tuân theo <a href="https://www.apple.com/legal/privacy/">Chính sách quyền riêng tư của Apple</a>.</p>
 
   <h2>6. Quyền truy cập</h2>
   <p>Ứng dụng yêu cầu các quyền truy cập tối thiểu cần thiết và chỉ khi bạn sử dụng tính năng liên quan:</p>
@@ -76,9 +77,10 @@
     <thead><tr><th>Quyền truy cập</th><th>Lý do được yêu cầu</th></tr></thead>
     <tbody>
       <tr><td>Thư viện ảnh (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Để bạn có thể chọn một video từ thư viện của mình nhằm trích xuất âm thanh của nó. Ứng dụng chỉ đọc video bạn chọn, và việc xử lý diễn ra trên thiết bị của bạn. SoundPull không quét, tải lên, hay lập chỉ mục thư viện ảnh của bạn.</td></tr>
+      <tr><td>Nhận dạng giọng nói (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Để bạn có thể chuyển âm thanh đã trích xuất thành văn bản. Quyền này chỉ được yêu cầu khi bạn bắt đầu chuyển lời nói thành văn bản. Việc nhận dạng <strong>bắt buộc chạy trên thiết bị của bạn</strong> (<code>requiresOnDeviceRecognition</code>); nếu nhận dạng trên thiết bị không khả dụng, Ứng dụng sẽ không chạy tính năng này thay vì gửi âm thanh của bạn lên máy chủ. Cả âm thanh lẫn văn bản thu được đều không được gửi tới Apple hay tới chúng tôi.</td></tr>
     </tbody>
   </table>
-  <p>Ứng dụng <strong>không</strong> sử dụng camera, micrô, hay vị trí, và <strong>không</strong> yêu cầu truy cập mạng. App Tracking Transparency <strong>không bao giờ</strong> được yêu cầu vì Ứng dụng không theo dõi người dùng.</p>
+  <p>Ứng dụng <strong>không</strong> ghi âm từ micrô và <strong>không</strong> sử dụng camera hay vị trí của bạn — nhận dạng giọng nói đọc tệp mà bạn đã trích xuất, không phải đầu vào trực tiếp từ micrô. Ứng dụng <strong>không</strong> yêu cầu truy cập mạng. App Tracking Transparency <strong>không bao giờ</strong> được yêu cầu vì Ứng dụng không theo dõi người dùng.</p>
 
   <h2>7. Tệp kê khai quyền riêng tư (Privacy Manifest)</h2>
   <p>Ứng dụng đi kèm một Tệp kê khai quyền riêng tư của Apple, khai báo:</p>
@@ -86,7 +88,7 @@
     <li><strong>Theo dõi</strong>: Không có</li>
     <li><strong>Miền theo dõi</strong>: Không có</li>
     <li><strong>Loại dữ liệu được thu thập</strong>: Không có</li>
-    <li><strong>API có lý do bắt buộc được sử dụng</strong>: <code>FileTimestamp (C617.1)</code> — chỉ được dùng cho việc xử lý tệp trên thiết bị trong quá trình trích xuất</li>
+    <li><strong>API có lý do bắt buộc được sử dụng</strong>: <code>FileTimestamp (C617.1)</code> — dùng cho việc xử lý tệp trên thiết bị trong quá trình trích xuất; <code>DiskSpace (85F4.1)</code> — dùng để kiểm tra còn đủ dung lượng trống trước khi ghi tệp</li>
   </ul>
 
   <h2>8. Quyền riêng tư của trẻ em</h2>

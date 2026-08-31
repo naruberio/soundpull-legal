@@ -35,8 +35,8 @@
   </div>
 
   <h1>隱私權政策 — SoundPull</h1>
-  <p><strong>生效日期：2026-06-24</strong></p>
-  <p>本隱私權政策說明「SoundPull」（以下稱「本應用程式」）在您使用時如何處理與您相關的資訊。本應用程式由 <strong>naruberio</strong>（以下稱「我們」）發行。SoundPull 會從您所選擇的影片中擷取音訊軌，並將其儲存為 M4A（AAC）檔案——全程在您的裝置上完成。</p>
+  <p><strong>生效日期：2026-08-31</strong></p>
+  <p>本隱私權政策說明「SoundPull」（以下稱「本 App」）在您使用時如何處理與您有關的資訊。本 App 由 <strong>naruberio</strong>（以下稱「我們」）發行。SoundPull 會從您選擇的影片中擷取音訊軌，並儲存為音訊檔（M4A、MP3、WAV，或用於鈴聲的 M4R）。此外，本 App 也可以匯出已移除音訊的影片副本，並使用裝置端語音辨識將擷取的音訊轉為文字。所有處理皆在您的裝置上完成。</p>
 
   <h2>1. 摘要</h2>
   <p><strong>我們不會蒐集任何個人資料。</strong>您的影片、我們從中擷取的音訊，以及您在本應用程式中所進行的一切操作，皆保留在您的裝置上。我們不營運任何伺服器，本應用程式亦不含任何分析、廣告或第三方追蹤 SDK。本應用程式無需網路連線即可運作。</p>
@@ -52,41 +52,43 @@
     <li>傳送至第三方的當機報告或分析事件</li>
   </ul>
 
-  <h2>3. 您的影片與音訊如何被處理</h2>
-  <p>音訊擷取<strong>全程在您的裝置上</strong>透過 Apple 的 AVFoundation 框架完成。當您選擇一段影片時，本應用程式會在本機讀取該影片、將擷取出的 M4A 檔案寫入裝置上的暫存位置，並讓您預覽、儲存或分享。您的影片與擷取出的音訊<strong>絕不會被上傳</strong>至我們或任何第三方。暫存的工作檔案會在處理後被移除，您未儲存的任何音訊亦會被捨棄。</p>
+  <h2>3. 我們如何處理您的影片與音訊</h2>
+  <p>音訊擷取<strong>完全在您的裝置上</strong>使用 Apple 的 AVFoundation 框架進行。當您選擇影片後，本 App 會在本機讀取該影片，將結果（M4A、MP3、WAV 或 M4R 音訊檔，或已移除音訊的影片副本）寫入裝置上的暫存位置，並讓您預覽、儲存或分享。</p>
+  <p><strong>語音轉文字</strong>（將已擷取的音訊轉為文字）使用 Apple 的 Speech 框架，並<strong>要求在裝置端執行辨識</strong>。若您的語言或裝置無法使用裝置端辨識，本 App 會告知您並且不執行此功能，絕不會改以將音訊傳送至伺服器的方式進行。音訊與產生的文字都不會傳送給 Apple 或我們。</p>
+  <p>您的影片、擷取的音訊以及任何轉錄文字<strong>絕不會上傳</strong>給我們或任何第三方。</p>
+  <p>暫存的工作檔案會在不再需要時刪除：匯入的影片副本在擷取完成時刪除，擷取的檔案則在您開始下一次擷取或捨棄結果時刪除。為 iOS 分享工作表建立的副本會保留到本 App 下次啟動為止（因為您分享的目標 App 可能仍在讀取該檔案），本 App 會在下次啟動時清除所有殘留的暫存檔案。您未儲存的內容都會被捨棄。</p>
 
-  <h2>4. 儲存在您裝置本機上的資訊</h2>
-  <p>本應用程式<strong>僅於您的裝置上</strong>（使用 iOS 本機儲存）儲存下列少量資料。這些資料絕不會離開您的裝置。</p>
+  <h2>4. 儲存在您裝置上的本機資訊</h2>
+  <p>本 App 僅<strong>在您的裝置上</strong>（使用 iOS 本機儲存空間）儲存下列少量資料。這些資料絕不會離開您的裝置。</p>
   <table>
     <thead><tr><th>資料</th><th>用途</th><th>儲存位置</th></tr></thead>
     <tbody>
-      <tr><td>已使用的免費擷取次數</td><td>在一次性解鎖前計算免費額度</td><td>裝置本機儲存</td></tr>
-      <tr><td>解鎖（購買）狀態</td><td>在本機反映您的應用程式內購買，以維持進階功能解鎖狀態</td><td>裝置本機儲存</td></tr>
-      <tr><td>引導完成標記與應用程式偏好設定</td><td>應用程式設定（例如：不再顯示引導畫面）</td><td>裝置本機儲存</td></tr>
+      <tr><td>導覽完成標記與 App 偏好設定（輸出格式、音量正規化）</td><td>App 設定，例如不再顯示導覽、記住您上次選擇的格式</td><td>裝置上的本機儲存空間</td></tr>
     </tbody>
   </table>
-  <p>當您解除安裝本應用程式時，iOS 會刪除所有這些資料。</p>
+  <p>當您解除安裝本 App 時，iOS 會刪除所有這些資料。</p>
 
-  <h2>5. Apple App Store 與應用程式內購買</h2>
-  <p>SoundPull 提供單一一次性、非消耗性的應用程式內購買，可解鎖無限次擷取。該購買由 <strong>Apple Inc.</strong> 透過 App Store 使用 StoreKit 處理。我們不會從 Apple 收到您的姓名、電子郵件、付款卡或任何其他個人資訊——我們僅會收到一份表示購買已發生的簽署收據，並於您的裝置上進行驗證。Apple 對您購買資料的處理方式，受 <a href="https://www.apple.com/legal/privacy/">Apple 隱私權政策</a> 規範。</p>
+  <h2>5. Apple App Store</h2>
+  <p>SoundPull 是<strong>付費 App</strong>：您在 App Store 購買一次即可使用所有功能。本 App <strong>沒有 App 內購買、沒有訂閱、也沒有廣告</strong>。購買由 <strong>Apple Inc.</strong> 透過 App Store 處理。我們不會從 Apple 取得您的姓名、電子郵件、付款卡片或任何其他個人資訊。Apple 對您購買資料的處理方式受 <a href="https://www.apple.com/legal/privacy/">Apple 隱私權政策</a>規範。</p>
 
   <h2>6. 權限</h2>
-  <p>本應用程式僅在您使用相關功能時，請求所需的最低限度權限：</p>
+  <p>本 App 僅要求最低限度的必要權限，且只在您使用相關功能時要求：</p>
   <table>
-    <thead><tr><th>權限</th><th>請求原因</th></tr></thead>
+    <thead><tr><th>權限</th><th>要求原因</th></tr></thead>
     <tbody>
-      <tr><td>相片圖庫（<code>NSPhotoLibraryUsageDescription</code>）</td><td>讓您能從圖庫中選擇影片以擷取其音訊。本應用程式僅讀取您所挑選的影片，且處理過程在您的裝置上完成。SoundPull 不會掃描、上傳或索引您的相片圖庫。</td></tr>
+      <tr><td>照片圖庫（<code>NSPhotoLibraryUsageDescription</code>）</td><td>讓您可以從圖庫中選擇影片以擷取其音訊。本 App 僅讀取您選擇的影片，且處理在您的裝置上進行。SoundPull 不會掃描、上傳或索引您的照片圖庫。</td></tr>
+      <tr><td>語音辨識（<code>NSSpeechRecognitionUsageDescription</code>）</td><td>讓您可以將已擷取的音訊轉為文字。只有在您開始轉錄時才會要求此權限。辨識<strong>必須在您的裝置上執行</strong>（<code>requiresOnDeviceRecognition</code>）；若無法使用裝置端辨識，本 App 會停止此功能，而不會將您的音訊傳送至伺服器。音訊與產生的文字都不會傳送給 Apple 或我們。</td></tr>
     </tbody>
   </table>
-  <p>本應用程式<strong>不會</strong>使用相機、麥克風或位置，亦<strong>不會</strong>請求網路存取權限。由於本應用程式不追蹤使用者，因此<strong>絕不會</strong>請求「App 追蹤透明度」。</p>
+  <p>本 App <strong>不會</strong>透過麥克風錄音，也<strong>不會</strong>使用相機或您的位置資訊——語音辨識讀取的是您已擷取的檔案，而非即時麥克風輸入。本 App 也<strong>不會</strong>要求網路存取權。由於本 App 不追蹤使用者，因此<strong>絕不會</strong>要求 App 追蹤透明度（App Tracking Transparency）。</p>
 
-  <h2>7. 隱私權聲明（Privacy Manifest）</h2>
-  <p>本應用程式隨附一份 Apple 隱私權聲明，宣告以下內容：</p>
+  <h2>7. 隱私權資訊清單</h2>
+  <p>本 App 隨附 Apple 隱私權資訊清單，其中聲明：</p>
   <ul>
     <li><strong>追蹤</strong>：無</li>
     <li><strong>追蹤網域</strong>：無</li>
-    <li><strong>蒐集的資料類型</strong>：無</li>
-    <li><strong>使用之須說明原因 API</strong>：<code>FileTimestamp (C617.1)</code>——僅用於擷取期間的裝置本機檔案處理</li>
+    <li><strong>收集的資料類型</strong>：無</li>
+    <li><strong>使用的必要理由 API</strong>：<code>FileTimestamp (C617.1)</code> — 用於擷取期間在裝置上的檔案處理；<code>DiskSpace (85F4.1)</code> — 用於在寫入檔案前確認可用空間是否足夠</li>
   </ul>
 
   <h2>8. 兒童隱私</h2>

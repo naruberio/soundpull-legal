@@ -35,8 +35,8 @@
   </div>
 
   <h1>Privacy Policy — SoundPull</h1>
-  <p><strong>Effective date: 2026-06-24</strong></p>
-  <p>This Privacy Policy describes how "SoundPull" (the "App") handles information about you when you use it. The App is published by <strong>naruberio</strong> ("we", "us", "our"). SoundPull extracts the audio track from videos you choose and saves it as an M4A (AAC) file — entirely on your device.</p>
+  <p><strong>Effective date: 2026-08-31</strong></p>
+  <p>This Privacy Policy describes how "SoundPull" (the "App") handles information about you when you use it. The App is published by <strong>naruberio</strong> ("we", "us", "our"). SoundPull extracts the audio track from videos you choose and saves it as an audio file (M4A, MP3, WAV, or M4R for ringtones). It can also export a copy of a video with the audio removed, and transcribe extracted audio to text using on-device speech recognition. Everything happens on your device.</p>
 
   <h2>1. Summary</h2>
   <p><strong>We do not collect any personal data.</strong> Your videos, the audio we extract from them, and everything you do in the App stay on your device. We do not operate servers, and the App contains no analytics, advertising, or third-party tracking SDKs. The App does not require network access to work.</p>
@@ -53,22 +53,23 @@
   </ul>
 
   <h2>3. How Your Videos and Audio Are Processed</h2>
-  <p>Audio extraction happens <strong>entirely on your device</strong> using Apple's AVFoundation framework. When you select a video, the App reads it locally, writes the extracted M4A file to a temporary on-device location, and lets you preview, save, or share it. Your videos and the extracted audio are <strong>never uploaded</strong> to us or to any third party. Temporary working files are removed after processing, and any audio you do not save is discarded.</p>
+  <p>Audio extraction happens <strong>entirely on your device</strong> using Apple's AVFoundation framework. When you select a video, the App reads it locally, writes the result — an audio file (M4A, MP3, WAV or M4R), or a copy of the video with its audio removed — to a temporary on-device location, and lets you preview, save, or share it.</p>
+  <p><strong>Transcription</strong> (turning audio you have already extracted into text) uses Apple's Speech framework and is <strong>required to run on your device</strong>. If on-device recognition is not available for your language or device, the App tells you so and does not run the feature — it never falls back to sending audio to a server. Neither the audio nor the resulting text is sent to Apple or to us.</p>
+  <p>Your videos, the extracted audio, and any transcript are <strong>never uploaded</strong> to us or to any third party.</p>
+  <p>Temporary working files are deleted once they are no longer needed: the imported copy of your video as soon as extraction finishes, and the extracted file when you start another extraction or discard the result. A copy created for the iOS share sheet is kept until the App is next launched, because the app you shared to may still be reading it; the App removes any leftover temporary files at the next launch. Anything you do not save is discarded.</p>
 
   <h2>4. Information Stored Locally on Your Device</h2>
   <p>The App stores the following small pieces of data <strong>only on your device</strong> (using iOS local storage). This data never leaves your device.</p>
   <table>
     <thead><tr><th>Data</th><th>Purpose</th><th>Storage</th></tr></thead>
     <tbody>
-      <tr><td>Count of free extractions used</td><td>Enforce the free allowance before the one-time unlock</td><td>On-device local storage</td></tr>
-      <tr><td>Unlock (purchase) status</td><td>Reflect your in-app purchase locally so premium features stay unlocked</td><td>On-device local storage</td></tr>
-      <tr><td>Onboarding-completed flag and app preferences</td><td>App configuration (e.g., not showing onboarding again)</td><td>On-device local storage</td></tr>
+      <tr><td>Onboarding-completed flag and app preferences (output format, volume normalisation)</td><td>App configuration — for example, not showing onboarding again and remembering the format you chose last time</td><td>On-device local storage</td></tr>
     </tbody>
   </table>
   <p>When you uninstall the App, iOS deletes all of this data.</p>
 
-  <h2>5. Apple App Store and In-App Purchases</h2>
-  <p>SoundPull offers a single one-time, non-consumable in-app purchase that unlocks unlimited extractions. The purchase is processed by <strong>Apple Inc.</strong> through the App Store using StoreKit. We do not receive your name, email, payment card, or any other personal information from Apple — we only receive a signed receipt indicating that a purchase occurred, which is verified on your device. Apple's handling of your purchase data is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+  <h2>5. Apple App Store</h2>
+  <p>SoundPull is a <strong>paid app</strong>: you buy it once on the App Store and every feature is included. There are <strong>no in-app purchases, no subscriptions, and no advertising</strong>. The purchase is processed by <strong>Apple Inc.</strong> through the App Store. We do not receive your name, email, payment card, or any other personal information from Apple. Apple's handling of your purchase data is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
 
   <h2>6. Permissions</h2>
   <p>The App requests the minimum permissions needed and only when you use the related feature:</p>
@@ -76,9 +77,10 @@
     <thead><tr><th>Permission</th><th>Why it is requested</th></tr></thead>
     <tbody>
       <tr><td>Photo Library (<code>NSPhotoLibraryUsageDescription</code>)</td><td>So you can choose a video from your library to extract its audio. The App reads only the video you pick, and processing happens on your device. SoundPull does not scan, upload, or index your photo library.</td></tr>
+      <tr><td>Speech Recognition (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>So you can transcribe audio you have already extracted. You are asked for this permission only when you start a transcription. Recognition is required to run on your device (<code>requiresOnDeviceRecognition</code>); if on-device recognition is unavailable, the App does not run the feature instead of sending your audio to a server. Neither the audio nor the resulting text is sent to Apple or to us.</td></tr>
     </tbody>
   </table>
-  <p>The App does <strong>not</strong> use the camera, microphone, or location, and it does <strong>not</strong> request network access. App Tracking Transparency is <strong>never</strong> requested because the App does not track users.</p>
+  <p>The App does <strong>not</strong> record from the microphone and does <strong>not</strong> use the camera or your location — speech recognition reads a file you already extracted, not live microphone input. The App does <strong>not</strong> request network access. App Tracking Transparency is <strong>never</strong> requested because the App does not track users.</p>
 
   <h2>7. Privacy Manifest</h2>
   <p>The App ships with an Apple Privacy Manifest declaring:</p>
@@ -86,7 +88,7 @@
     <li><strong>Tracking</strong>: None</li>
     <li><strong>Tracking domains</strong>: None</li>
     <li><strong>Collected data types</strong>: None</li>
-    <li><strong>Required reason APIs used</strong>: <code>FileTimestamp (C617.1)</code> — used solely for on-device file handling during extraction</li>
+    <li><strong>Required reason APIs used</strong>: <code>FileTimestamp (C617.1)</code> — on-device file handling during extraction; <code>DiskSpace (85F4.1)</code> — checking that there is enough free space before writing a file</li>
   </ul>
 
   <h2>8. Children's Privacy</h2>
