@@ -35,7 +35,7 @@
   </div>
 
   <h1>Privacy Policy — SoundPull</h1>
-  <p><strong>Effective date: 2026-08-31</strong></p>
+  <p><strong>Effective date: 2026-09-01</strong></p>
   <p>This Privacy Policy describes how "SoundPull" (the "App") handles information about you when you use it. The App is published by <strong>naruberio</strong> ("we", "us", "our"). SoundPull extracts the audio track from videos you choose and saves it as an audio file (M4A, MP3, WAV, or M4R for ringtones). It can also export a copy of a video with the audio removed, and transcribe extracted audio to text using on-device speech recognition. Everything happens on your device.</p>
 
   <h2>1. Summary</h2>
@@ -77,7 +77,7 @@
     <thead><tr><th>Permission</th><th>Why it is requested</th></tr></thead>
     <tbody>
       <tr><td>Photo Library (<code>NSPhotoLibraryUsageDescription</code>)</td><td>So you can choose a video from your library to extract its audio. The App reads only the video you pick, and processing happens on your device. SoundPull does not scan, upload, or index your photo library.</td></tr>
-      <tr><td>Speech Recognition (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>So you can transcribe audio you have already extracted. You are asked for this permission only when you start a transcription. Recognition is required to run on your device (<code>requiresOnDeviceRecognition</code>); if on-device recognition is unavailable, the App does not run the feature instead of sending your audio to a server. Neither the audio nor the resulting text is sent to Apple or to us.</td></tr>
+      <tr><td>Speech Recognition (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>So you can transcribe audio you have already extracted. You are asked for this permission only when you start a transcription. Recognition is required to run on your device (<code>requiresOnDeviceRecognition</code>); if on-device recognition is unavailable, the App does not run the feature and never sends your audio to a server. Neither the audio nor the resulting text is sent to Apple or to us.</td></tr>
     </tbody>
   </table>
   <p>The App does <strong>not</strong> record from the microphone and does <strong>not</strong> use the camera or your location — speech recognition reads a file you already extracted, not live microphone input. The App does <strong>not</strong> request network access. App Tracking Transparency is <strong>never</strong> requested because the App does not track users.</p>
@@ -88,7 +88,7 @@
     <li><strong>Tracking</strong>: None</li>
     <li><strong>Tracking domains</strong>: None</li>
     <li><strong>Collected data types</strong>: None</li>
-    <li><strong>Required reason APIs used</strong>: <code>FileTimestamp (C617.1)</code> — on-device file handling during extraction; <code>DiskSpace (85F4.1)</code> — checking that there is enough free space before writing a file</li>
+    <li><strong>Required reason APIs used</strong>: <code>FileTimestamp (C617.1)</code> — on-device file handling during extraction; <code>DiskSpace (E174.1)</code> — checking that there is enough free space before writing a file</li>
   </ul>
 
   <h2>8. Children's Privacy</h2>

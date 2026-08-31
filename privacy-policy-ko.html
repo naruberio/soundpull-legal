@@ -35,8 +35,8 @@
   </div>
 
   <h1>개인정보 처리방침 — SoundPull</h1>
-  <p><strong>시행일: 2026-08-31</strong></p>
-  <p>본 개인정보 처리방침은 「SoundPull」(이하 「본 앱」)을 이용하실 때 본 앱이 귀하에 관한 정보를 어떻게 취급하는지 설명합니다. 본 앱은 <strong>naruberio</strong>(이하 「당사」)가 배포합니다. SoundPull은 귀하가 선택한 동영상에서 오디오 트랙을 추출하여 오디오 파일(M4A, MP3, WAV 또는 벨소리용 M4R)로 저장합니다. 또한 오디오를 제거한 동영상 사본을 내보내거나, 추출한 오디오를 기기 내 음성 인식으로 텍스트로 옮길 수 있습니다. 모든 처리는 귀하의 기기에서 이루어집니다.</p>
+  <p><strong>시행일: 2026-09-01</strong></p>
+  <p>본 개인정보 처리방침은 "SoundPull"(이하 "본 앱")을 이용하실 때 본 앱이 귀하에 관한 정보를 어떻게 취급하는지 설명합니다. 본 앱은 <strong>naruberio</strong>(이하 "당사")가 배포합니다. SoundPull은 귀하가 선택한 동영상에서 오디오 트랙을 추출하여 오디오 파일(M4A, MP3, WAV 또는 벨소리용 M4R)로 저장합니다. 또한 오디오를 제거한 동영상 사본을 내보내거나, 추출한 오디오를 기기 내 음성 인식으로 텍스트로 옮길 수 있습니다. 모든 처리는 귀하의 기기에서 이루어집니다.</p>
 
   <h2>1. 요약</h2>
   <p><strong>당사는 어떠한 개인정보도 수집하지 않습니다.</strong> 귀하의 동영상, 당사가 그로부터 추출한 오디오, 그리고 귀하가 본 앱에서 수행하는 모든 작업은 귀하의 기기 내에 머무릅니다. 당사는 서버를 운영하지 않으며, 본 앱에는 분석, 광고 또는 제3자 추적 SDK가 포함되어 있지 않습니다. 본 앱은 작동을 위해 네트워크 접속을 필요로 하지 않습니다.</p>
@@ -77,7 +77,7 @@
     <thead><tr><th>권한</th><th>요청하는 이유</th></tr></thead>
     <tbody>
       <tr><td>사진 라이브러리(<code>NSPhotoLibraryUsageDescription</code>)</td><td>귀하가 라이브러리에서 동영상을 선택하여 그 오디오를 추출할 수 있도록 하기 위함입니다. 본 앱은 귀하가 선택한 동영상만을 읽으며, 처리는 귀하의 기기에서 이루어집니다. SoundPull은 귀하의 사진 라이브러리를 스캔, 업로드 또는 인덱싱하지 않습니다.</td></tr>
-      <tr><td>음성 인식(<code>NSSpeechRecognitionUsageDescription</code>)</td><td>이미 추출한 오디오를 텍스트로 옮길 수 있도록 하기 위함입니다. 이 권한은 귀하가 받아쓰기를 시작할 때에만 요청됩니다. 인식은 <strong>귀하의 기기에서 실행되어야 하며</strong>(<code>requiresOnDeviceRecognition</code>), 기기 내 인식을 사용할 수 없는 경우 본 앱은 오디오를 서버로 전송하는 대신 기능을 실행하지 않습니다. 오디오도 생성된 텍스트도 Apple이나 당사로 전송되지 않습니다.</td></tr>
+      <tr><td>음성 인식(<code>NSSpeechRecognitionUsageDescription</code>)</td><td>이미 추출한 오디오를 텍스트로 옮길 수 있도록 하기 위함입니다. 이 권한은 귀하가 받아쓰기를 시작할 때에만 요청됩니다. 인식은 <strong>귀하의 기기에서 실행되어야 하며</strong>(<code>requiresOnDeviceRecognition</code>), 기기 내 인식을 사용할 수 없는 경우, 본 앱은 오디오를 서버로 전송하지 않으며 해당 기능 자체를 실행하지 않습니다. 오디오도 생성된 텍스트도 Apple이나 당사로 전송되지 않습니다.</td></tr>
     </tbody>
   </table>
   <p>본 앱은 마이크로 녹음하지 <strong>않으며</strong>, 카메라나 위치도 사용하지 <strong>않습니다</strong>. 음성 인식은 귀하가 이미 추출한 파일을 읽는 것이며 마이크의 실시간 입력이 아닙니다. 본 앱은 네트워크 접속도 요청하지 <strong>않습니다</strong>. 본 앱은 사용자를 추적하지 않으므로 App Tracking Transparency는 <strong>절대</strong> 요청되지 않습니다.</p>
@@ -88,7 +88,7 @@
     <li><strong>추적</strong>: 없음</li>
     <li><strong>추적 도메인</strong>: 없음</li>
     <li><strong>수집되는 데이터 유형</strong>: 없음</li>
-    <li><strong>사용되는 필수 사유 API</strong>: <code>FileTimestamp (C617.1)</code> — 추출 중 기기 내 파일 처리에 사용됩니다. <code>DiskSpace (85F4.1)</code> — 파일을 기록하기 전에 여유 공간이 충분한지 확인하는 데 사용됩니다</li>
+    <li><strong>사용되는 필수 사유 API</strong>: <code>FileTimestamp (C617.1)</code> — 추출 중 기기 내 파일 처리에 사용됩니다. <code>DiskSpace (E174.1)</code> — 파일을 기록하기 전에 여유 공간이 충분한지 확인하는 데 사용됩니다</li>
   </ul>
 
   <h2>8. 아동의 개인정보 보호</h2>

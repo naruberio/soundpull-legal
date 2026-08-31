@@ -35,7 +35,7 @@
   </div>
 
   <h1>プライバシーポリシー — SoundPull</h1>
-  <p><strong>発効日: 2026-08-31</strong></p>
+  <p><strong>発効日: 2026-09-01</strong></p>
   <p>本プライバシーポリシーは、「SoundPull」（以下「本アプリ」）をご利用いただく際に、本アプリがお客様に関する情報をどのように取り扱うかを説明するものです。本アプリは <strong>naruberio</strong>（以下「当社」）が提供します。SoundPull は、お客様が選択した動画から音声トラックを抽出し、音声ファイル（M4A、MP3、WAV、または着信音用の M4R）として保存します。また、音声を取り除いた動画の書き出しや、抽出した音声の端末内音声認識による文字起こしも行えます。これらの処理はすべてお客様のデバイス上で完結します。</p>
 
   <h2>1. 概要</h2>
@@ -77,10 +77,10 @@
     <thead><tr><th>権限</th><th>要求する理由</th></tr></thead>
     <tbody>
       <tr><td>写真ライブラリ（<code>NSPhotoLibraryUsageDescription</code>）</td><td>お客様がライブラリから動画を選択し、その音声を抽出できるようにするため。本アプリは選択された動画のみを読み込み、処理はお客様のデバイス上で行われます。SoundPull はお客様の写真ライブラリをスキャン、アップロード、またはインデックス化することはありません。</td></tr>
-      <tr><td>音声認識（<code>NSSpeechRecognitionUsageDescription</code>）</td><td>抽出済みの音声を文字に起こせるようにするため。この権限は、お客様が文字起こしを開始したときにのみ要求されます。認識は<strong>端末内での実行を必須</strong>としており（<code>requiresOnDeviceRecognition</code>）、端末内認識を利用できない場合、音声をサーバーへ送信するのではなく機能を実行しません。音声も生成されたテキストも、Apple にも当社にも送信されません。</td></tr>
+      <tr><td>音声認識（<code>NSSpeechRecognitionUsageDescription</code>）</td><td>抽出済みの音声を文字に起こせるようにするため。この権限は、お客様が文字起こしを開始したときにのみ要求されます。認識は<strong>端末内での実行を必須</strong>としており（<code>requiresOnDeviceRecognition</code>）、端末内認識を利用できない場合、本アプリは音声をサーバーへ送信することはせず、当該機能自体を実行しません。音声も生成されたテキストも、Apple にも当社にも送信されません。</td></tr>
     </tbody>
   </table>
-  <p>本アプリはマイクによる録音を<strong>行わず</strong>、カメラおよび位置情報も<strong>使用しません</strong>。音声認識が読み込むのは抽出済みのファイルであり、マイクからの入力ではありません。また、ネットワークアクセスも<strong>要求しません</strong>。本アプリはユーザーをトラッキングしないため、App Tracking Transparency が要求されることは<strong>決してありません</strong>。</p>
+  <p>本アプリはマイクによる録音を<strong>行わず</strong>、カメラおよび位置情報も<strong>使用しません</strong>。音声認識が読み込むのは抽出済みのファイルであり、マイクからのライブ入力ではありません。また、ネットワークアクセスも<strong>要求しません</strong>。本アプリはユーザーをトラッキングしないため、App Tracking Transparency が要求されることは<strong>決してありません</strong>。</p>
 
   <h2>7. プライバシーマニフェスト</h2>
   <p>本アプリには、以下を宣言する Apple のプライバシーマニフェストが同梱されています。</p>
@@ -88,7 +88,7 @@
     <li><strong>トラッキング</strong>: なし</li>
     <li><strong>トラッキングドメイン</strong>: なし</li>
     <li><strong>収集するデータの種類</strong>: なし</li>
-    <li><strong>使用する Required Reason API</strong>: <code>FileTimestamp (C617.1)</code> — 抽出時のデバイス上でのファイル処理のために使用／<code>DiskSpace (85F4.1)</code> — ファイル書き出し前に十分な空き容量があるかを確認するために使用</li>
+    <li><strong>使用する Required Reason API</strong>: <code>FileTimestamp (C617.1)</code> — 抽出時のデバイス上でのファイル処理のために使用／<code>DiskSpace (E174.1)</code> — ファイル書き出し前に十分な空き容量があるかを確認するために使用</li>
   </ul>
 
   <h2>8. 子どものプライバシー</h2>

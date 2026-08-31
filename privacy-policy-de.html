@@ -35,7 +35,7 @@
   </div>
 
   <h1>Datenschutzerklärung — SoundPull</h1>
-  <p><strong>Gültig ab: 2026-08-31</strong></p>
+  <p><strong>Gültig ab: 2026-09-01</strong></p>
   <p>Diese Datenschutzerklärung beschreibt, wie „SoundPull“ (die „App“) mit Informationen über Sie umgeht, wenn Sie die App verwenden. Die App wird von <strong>naruberio</strong> („wir“, „uns“, „unser“) herausgegeben. SoundPull extrahiert die Audiospur aus von Ihnen ausgewählten Videos und speichert sie als Audiodatei (M4A, MP3, WAV oder M4R für Klingeltöne). Die App kann außerdem eine Kopie des Videos ohne Ton exportieren und extrahiertes Audio mittels Spracherkennung auf dem Gerät in Text umwandeln. Die gesamte Verarbeitung erfolgt auf Ihrem Gerät.</p>
 
   <h2>1. Zusammenfassung</h2>
@@ -76,8 +76,8 @@
   <table>
     <thead><tr><th>Berechtigung</th><th>Warum sie angefordert wird</th></tr></thead>
     <tbody>
-      <tr><td>Fotomediathek (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Damit Sie ein Video aus Ihrer Mediathek auswählen können, um dessen Audio zu extrahieren. Die App liest nur das von Ihnen ausgewählte Video, und die Verarbeitung erfolgt auf Ihrem Gerät. SoundPull durchsucht, lädt oder indexiert Ihre Fotomediathek nicht.</td></tr>
-      <tr><td>Spracherkennung (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Damit Sie bereits extrahiertes Audio in Text umwandeln können. Diese Berechtigung wird nur angefordert, wenn Sie eine Transkription starten. Die Erkennung <strong>muss auf Ihrem Gerät ausgeführt werden</strong> (<code>requiresOnDeviceRecognition</code>); ist die Erkennung auf dem Gerät nicht verfügbar, führt die App die Funktion nicht aus, statt Ihr Audio an einen Server zu senden. Weder das Audio noch der entstehende Text werden an Apple oder an uns gesendet.</td></tr>
+      <tr><td>Fotomediathek (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Damit Sie ein Video aus Ihrer Mediathek auswählen können, um dessen Audio zu extrahieren. Die App liest nur das von Ihnen ausgewählte Video, und die Verarbeitung erfolgt auf Ihrem Gerät. SoundPull durchsucht oder indexiert Ihre Fotomediathek nicht und lädt sie niemals hoch.</td></tr>
+      <tr><td>Spracherkennung (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Damit Sie bereits extrahiertes Audio in Text umwandeln können. Diese Berechtigung wird nur angefordert, wenn Sie eine Transkription starten. Die Erkennung <strong>muss auf Ihrem Gerät ausgeführt werden</strong> (<code>requiresOnDeviceRecognition</code>); ist die Erkennung auf dem Gerät nicht verfügbar, führt die App die Funktion einfach nicht aus und sendet Ihr Audio niemals an einen Server. Weder das Audio noch der entstehende Text werden an Apple oder an uns gesendet.</td></tr>
     </tbody>
   </table>
   <p>Die App nimmt <strong>nicht</strong> über das Mikrofon auf und verwendet <strong>weder</strong> die Kamera noch Ihren Standort — die Spracherkennung liest eine bereits von Ihnen extrahierte Datei, keine Live-Eingabe des Mikrofons. Die App fordert <strong>keinen</strong> Netzwerkzugriff an. App Tracking Transparency wird <strong>niemals</strong> angefordert, da die App Nutzer nicht trackt.</p>
@@ -88,7 +88,7 @@
     <li><strong>Tracking</strong>: Keines</li>
     <li><strong>Tracking-Domains</strong>: Keine</li>
     <li><strong>Erhobene Datentypen</strong>: Keine</li>
-    <li><strong>Verwendete APIs mit erforderlicher Begründung</strong>: <code>FileTimestamp (C617.1)</code> — für die Dateiverarbeitung auf dem Gerät während der Extraktion; <code>DiskSpace (85F4.1)</code> — zur Prüfung, ob vor dem Schreiben einer Datei genügend freier Speicherplatz vorhanden ist</li>
+    <li><strong>Verwendete APIs mit erforderlicher Begründung</strong>: <code>FileTimestamp (C617.1)</code> — für die Dateiverarbeitung auf dem Gerät während der Extraktion; <code>DiskSpace (E174.1)</code> — zur Prüfung, ob vor dem Schreiben einer Datei genügend freier Speicherplatz vorhanden ist</li>
   </ul>
 
   <h2>8. Datenschutz von Kindern</h2>

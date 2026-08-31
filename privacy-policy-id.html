@@ -35,8 +35,8 @@
   </div>
 
   <h1>Kebijakan Privasi — SoundPull</h1>
-  <p><strong>Tanggal berlaku: 2026-08-31</strong></p>
-  <p>Kebijakan Privasi ini menjelaskan bagaimana «SoundPull» (the «Aplikasi») menangani informasi tentang Anda saat Anda menggunakannya. Aplikasi ini diterbitkan oleh <strong>naruberio</strong> («kami»). SoundPull mengekstrak trek audio dari video yang Anda pilih dan menyimpannya sebagai berkas audio (M4A, MP3, WAV, atau M4R untuk nada dering). Aplikasi juga dapat mengekspor salinan video tanpa audionya, serta mentranskripsikan audio yang telah diekstrak menjadi teks menggunakan pengenalan ucapan di perangkat. Seluruh pemrosesan terjadi di perangkat Anda.</p>
+  <p><strong>Tanggal berlaku: 2026-09-01</strong></p>
+  <p>Kebijakan Privasi ini menjelaskan bagaimana "SoundPull" ("Aplikasi") menangani informasi tentang Anda saat Anda menggunakannya. Aplikasi ini diterbitkan oleh <strong>naruberio</strong> ("kami"). SoundPull mengekstrak trek audio dari video yang Anda pilih dan menyimpannya sebagai berkas audio (M4A, MP3, WAV, atau M4R untuk nada dering). Aplikasi juga dapat mengekspor salinan video tanpa audionya, serta mentranskripsikan audio yang telah diekstrak menjadi teks menggunakan pengenalan ucapan di perangkat. Seluruh pemrosesan terjadi di perangkat Anda.</p>
 
   <h2>1. Ringkasan</h2>
   <p><strong>Kami tidak mengumpulkan data pribadi apa pun.</strong> Video Anda, audio yang kami ekstrak darinya, dan segala hal yang Anda lakukan di Aplikasi tetap berada di perangkat Anda. Kami tidak mengoperasikan server, dan Aplikasi tidak memuat SDK analitik, periklanan, atau pelacakan pihak ketiga. Aplikasi tidak memerlukan akses jaringan untuk berfungsi.</p>
@@ -63,7 +63,7 @@
   <table>
     <thead><tr><th>Data</th><th>Tujuan</th><th>Penyimpanan</th></tr></thead>
     <tbody>
-      <tr><td>Penanda penyelesaian orientasi dan preferensi aplikasi (format keluaran, normalisasi volume)</td><td>Konfigurasi aplikasi — misalnya tidak menampilkan orientasi lagi dan mengingat format yang terakhir Anda pilih</td><td>Penyimpanan lokal di perangkat</td></tr>
+      <tr><td>Penanda penyelesaian pengenalan awal dan preferensi aplikasi (format keluaran, normalisasi volume)</td><td>Konfigurasi aplikasi — misalnya tidak menampilkan pengenalan awal lagi dan mengingat format yang terakhir Anda pilih</td><td>Penyimpanan lokal di perangkat</td></tr>
     </tbody>
   </table>
   <p>Saat Anda menghapus instalasi Aplikasi, iOS akan menghapus seluruh data ini.</p>
@@ -77,7 +77,7 @@
     <thead><tr><th>Izin</th><th>Alasan diminta</th></tr></thead>
     <tbody>
       <tr><td>Pustaka Foto (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Agar Anda dapat memilih video dari pustaka Anda untuk mengekstrak audionya. Aplikasi hanya membaca video yang Anda pilih, dan pemrosesan terjadi di perangkat Anda. SoundPull tidak memindai, mengunggah, atau mengindeks pustaka foto Anda.</td></tr>
-      <tr><td>Pengenalan Ucapan (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Agar Anda dapat mentranskripsikan audio yang telah Anda ekstrak. Izin ini hanya diminta ketika Anda memulai transkripsi. Pengenalan <strong>harus berjalan di perangkat Anda</strong> (<code>requiresOnDeviceRecognition</code>); jika pengenalan di perangkat tidak tersedia, Aplikasi tidak menjalankan fitur tersebut alih-alih mengirim audio Anda ke server. Baik audio maupun teks yang dihasilkan tidak dikirimkan kepada Apple maupun kepada kami.</td></tr>
+      <tr><td>Pengenalan Ucapan (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Agar Anda dapat mentranskripsikan audio yang telah Anda ekstrak. Izin ini hanya diminta ketika Anda memulai transkripsi. Pengenalan <strong>harus berjalan di perangkat Anda</strong> (<code>requiresOnDeviceRecognition</code>); jika pengenalan di perangkat tidak tersedia, Aplikasi tidak menjalankan fitur tersebut dan tidak pernah mengirim audio Anda ke server. Baik audio maupun teks yang dihasilkan tidak dikirimkan kepada Apple maupun kepada kami.</td></tr>
     </tbody>
   </table>
   <p>Aplikasi <strong>tidak</strong> merekam dari mikrofon dan <strong>tidak</strong> menggunakan kamera atau lokasi Anda — pengenalan ucapan membaca berkas yang sudah Anda ekstrak, bukan masukan mikrofon secara langsung. Aplikasi <strong>tidak</strong> meminta akses jaringan. App Tracking Transparency <strong>tidak pernah</strong> diminta karena Aplikasi tidak melacak pengguna.</p>
@@ -88,7 +88,7 @@
     <li><strong>Pelacakan</strong>: Tidak ada</li>
     <li><strong>Domain pelacakan</strong>: Tidak ada</li>
     <li><strong>Jenis data yang dikumpulkan</strong>: Tidak ada</li>
-    <li><strong>API dengan alasan wajib yang digunakan</strong>: <code>FileTimestamp (C617.1)</code> — untuk penanganan berkas di perangkat selama ekstraksi; <code>DiskSpace (85F4.1)</code> — untuk memeriksa apakah ruang kosong mencukupi sebelum menulis berkas</li>
+    <li><strong>API dengan alasan wajib yang digunakan</strong>: <code>FileTimestamp (C617.1)</code> — untuk penanganan berkas di perangkat selama ekstraksi; <code>DiskSpace (E174.1)</code> — untuk memeriksa apakah ruang kosong mencukupi sebelum menulis berkas</li>
   </ul>
 
   <h2>8. Privasi Anak</h2>
