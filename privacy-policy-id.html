@@ -88,7 +88,14 @@
     <li><strong>Pelacakan</strong>: Tidak ada</li>
     <li><strong>Domain pelacakan</strong>: Tidak ada</li>
     <li><strong>Jenis data yang dikumpulkan</strong>: Tidak ada</li>
-    <li><strong>API dengan alasan wajib yang digunakan</strong>: <code>FileTimestamp (C617.1)</code> — untuk penanganan berkas di perangkat selama ekstraksi; <code>DiskSpace (E174.1)</code> — untuk memeriksa apakah ruang kosong mencukupi sebelum menulis berkas</li>
+    <li><strong>API dengan alasan wajib yang digunakan</strong>:
+      <ul>
+        <li><code>FileTimestamp (C617.1)</code> — untuk penanganan berkas di perangkat selama ekstraksi</li>
+        <li><code>DiskSpace (E174.1)</code> — untuk memeriksa apakah ruang kosong mencukupi sebelum menulis berkas</li>
+        <li><code>UserDefaults (CA92.1)</code> — untuk menyimpan pengaturan milik Aplikasi sendiri di perangkat Anda</li>
+        <li><code>SystemBootTime (35F9.1)</code> — untuk mengukur waktu yang berlalu antar kejadian di dalam Aplikasi (pengatur waktu)</li>
+      </ul>
+    </li>
   </ul>
 
   <h2>8. Privasi Anak</h2>

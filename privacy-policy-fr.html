@@ -88,7 +88,14 @@
     <li><strong>Suivi</strong> : Aucun</li>
     <li><strong>Domaines de suivi</strong> : Aucun</li>
     <li><strong>Types de données collectées</strong> : Aucun</li>
-    <li><strong>API à motif requis utilisées</strong> : <code>FileTimestamp (C617.1)</code> — pour la gestion des fichiers sur l'appareil pendant l'extraction ; <code>DiskSpace (E174.1)</code> — pour vérifier qu'il reste assez d'espace libre avant d'écrire un fichier</li>
+    <li><strong>API à motif requis utilisées</strong> : 
+      <ul>
+        <li><code>FileTimestamp (C617.1)</code> — pour la gestion des fichiers sur l'appareil pendant l'extraction</li>
+        <li><code>DiskSpace (E174.1)</code> — pour vérifier qu'il reste assez d'espace libre avant d'écrire un fichier</li>
+        <li><code>UserDefaults (CA92.1)</code> — pour enregistrer sur votre appareil les réglages propres à l'Application</li>
+        <li><code>SystemBootTime (35F9.1)</code> — pour mesurer le temps écoulé entre des événements au sein de l'Application (minuteurs)</li>
+      </ul>
+    </li>
   </ul>
 
   <h2>8. Confidentialité des enfants</h2>
