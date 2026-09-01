@@ -88,7 +88,14 @@
     <li><strong>Rastreamento</strong>: Nenhum</li>
     <li><strong>Domínios de rastreamento</strong>: Nenhum</li>
     <li><strong>Tipos de dados coletados</strong>: Nenhum</li>
-    <li><strong>APIs de motivo obrigatório utilizadas</strong>: <code>FileTimestamp (C617.1)</code> — para o tratamento de arquivos no dispositivo durante a extração; <code>DiskSpace (E174.1)</code> — para verificar se há espaço livre suficiente antes de gravar um arquivo</li>
+    <li><strong>APIs de motivo obrigatório utilizadas</strong>:
+      <ul>
+        <li><code>FileTimestamp (C617.1)</code> — para o tratamento de arquivos no dispositivo durante a extração</li>
+        <li><code>DiskSpace (E174.1)</code> — para verificar se há espaço livre suficiente antes de gravar um arquivo</li>
+        <li><code>UserDefaults (CA92.1)</code> — para guardar no seu dispositivo as configurações do próprio Aplicativo</li>
+        <li><code>SystemBootTime (35F9.1)</code> — para medir o tempo decorrido entre eventos dentro do Aplicativo (temporizadores)</li>
+      </ul>
+    </li>
   </ul>
 
   <h2>8. Privacidade de Crianças</h2>

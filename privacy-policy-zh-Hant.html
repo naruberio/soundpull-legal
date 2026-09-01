@@ -88,7 +88,14 @@
     <li><strong>追蹤</strong>：無</li>
     <li><strong>追蹤網域</strong>：無</li>
     <li><strong>收集的資料類型</strong>：無</li>
-    <li><strong>使用的必要理由 API</strong>：<code>FileTimestamp (C617.1)</code> — 用於擷取期間在裝置上的檔案處理；<code>DiskSpace (E174.1)</code> — 用於在寫入檔案前確認可用空間是否足夠</li>
+    <li><strong>使用的必要理由 API</strong>：
+      <ul>
+        <li><code>FileTimestamp (C617.1)</code> — 用於擷取期間在裝置上的檔案處理</li>
+        <li><code>DiskSpace (E174.1)</code> — 用於在寫入檔案前確認可用空間是否足夠</li>
+        <li><code>UserDefaults (CA92.1)</code> — 用於在您的裝置上儲存本應用程式自身的設定</li>
+        <li><code>SystemBootTime (35F9.1)</code> — 用於測量本應用程式內事件之間經過的時間（計時器）</li>
+      </ul>
+    </li>
   </ul>
 
   <h2>8. 兒童隱私</h2>

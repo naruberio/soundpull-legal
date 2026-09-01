@@ -88,7 +88,14 @@
     <li><strong>Tracking</strong>: None</li>
     <li><strong>Tracking domains</strong>: None</li>
     <li><strong>Collected data types</strong>: None</li>
-    <li><strong>Required reason APIs used</strong>: <code>FileTimestamp (C617.1)</code> — on-device file handling during extraction; <code>DiskSpace (E174.1)</code> — checking that there is enough free space before writing a file</li>
+    <li><strong>Required reason APIs used</strong>:
+      <ul>
+        <li><code>FileTimestamp (C617.1)</code> — on-device file handling during extraction</li>
+        <li><code>DiskSpace (E174.1)</code> — checking that there is enough free space before writing a file</li>
+        <li><code>UserDefaults (CA92.1)</code> — storing the App's own settings on your device</li>
+        <li><code>SystemBootTime (35F9.1)</code> — measuring how much time passes between events inside the App (timers)</li>
+      </ul>
+    </li>
   </ul>
 
   <h2>8. Children's Privacy</h2>

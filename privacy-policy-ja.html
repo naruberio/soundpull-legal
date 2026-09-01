@@ -88,7 +88,14 @@
     <li><strong>トラッキング</strong>: なし</li>
     <li><strong>トラッキングドメイン</strong>: なし</li>
     <li><strong>収集するデータの種類</strong>: なし</li>
-    <li><strong>使用する Required Reason API</strong>: <code>FileTimestamp (C617.1)</code> — 抽出時のデバイス上でのファイル処理のために使用／<code>DiskSpace (E174.1)</code> — ファイル書き出し前に十分な空き容量があるかを確認するために使用</li>
+    <li><strong>使用する Required Reason API</strong>：
+      <ul>
+        <li><code>FileTimestamp (C617.1)</code> — 抽出時のデバイス上でのファイル処理のために使用</li>
+        <li><code>DiskSpace (E174.1)</code> — ファイル書き出し前に十分な空き容量があるかを確認するために使用</li>
+        <li><code>UserDefaults (CA92.1)</code> — 本アプリ自身の設定をデバイス上に保存するために使用</li>
+        <li><code>SystemBootTime (35F9.1)</code> — 本アプリ内での処理の経過時間の計測（タイマー）に使用</li>
+      </ul>
+    </li>
   </ul>
 
   <h2>8. 子どものプライバシー</h2>
