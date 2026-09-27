@@ -77,7 +77,7 @@
       <li>SoundPull has no account, no sign-in and no server of ours behind it.</li>
       <li>The videos, audio files, transcripts and subtitles you work with are processed on your iPhone and are never uploaded, whether to us or to anyone else.</li>
       <li>The app contains no analytics, advertising, crash-reporting or tracking code, and it needs no internet connection to do its work.</li>
-      <li>Between launches, SoundPull remembers only three settings and the counts behind the rating prompt, all stored on the device (see <a href="#kept">What stays on your iPhone</a>).</li>
+      <li>Between launches, SoundPull remembers only three settings and the counts behind the rating prompt, all stored on the device. Copies made when you pick a file or when another app sends one to SoundPull can also remain on the device (see <a href="#kept">What stays on your iPhone</a>).</li>
     </ul>
 
     <h2 id="flow">What happens to a file you open in SoundPull</h2>
@@ -87,7 +87,7 @@
       <li><strong>The copy is converted on the iPhone.</strong> With Apple's AVFoundation framework, SoundPull writes an M4A, MP3, WAV or M4R (ringtone) file, or, if you asked for one, a copy of the video with its soundtrack removed. When you merge, the items you lined up are joined in your order into a single file. MP3 files are encoded by the LAME library that is built into the app. None of these steps sends anything over the network.</li>
       <li><strong>If you ask for a transcript, that happens on the iPhone too.</strong> Apple's Speech framework recognises the words with on-device recognition only (<code>requiresOnDeviceRecognition</code>). When your iPhone has no on-device recognition for the language, SoundPull says so and stops; it never passes the audio to a server instead. You can export the text as a .txt file, or as an .srt subtitle file whose timings come from the same on-device recognition. Neither the audio nor the text is sent to Apple or to us.</li>
       <li><strong>You decide where the result goes.</strong> You can play it back and then send it through the iOS share sheet: Save to Files, AirDrop or another app. Once a file arrives where you sent it, what happens to it there is up to that destination, not SoundPull.</li>
-      <li><strong>The working files are cleared away.</strong> SoundPull deletes its copy of your original once the job no longer needs it: right after a conversion, and for a merge once the merge succeeds or, at the latest, when you leave the merge screen. A result is deleted when you start another job, discard it or leave the screen where it was made. Copies handed to the share sheet, transcript and subtitle files included, are kept until SoundPull next starts, because the receiving app may still be reading them. Each time SoundPull starts, it deletes any of its own working files that earlier sessions left behind. The copies made by the iOS pickers or the share sheet are not part of that clean-up: they stay in the app's container until iOS clears them, which it may do when storage runs low, and they are always removed together with the app.</li>
+      <li><strong>The working files are cleared away.</strong> SoundPull deletes its copy of your original once the job no longer needs it: right after a conversion, and for a merge once the merge succeeds or, at the latest, when you leave the merge screen. A result is deleted when you start another job, discard it or leave the screen where it was made. Copies handed to the share sheet, transcript and subtitle files included, are kept until SoundPull next starts, because the receiving app may still be reading them. Each time SoundPull starts, it deletes any of its own working files that earlier sessions left behind. The copies that the pickers and the share sheet leave of their own (see step 2) are not part of that clean-up. Those left by the pickers are kept in the app's cache and temporary folders, which iOS may clear when storage runs low. When another app sends a file to SoundPull through the share sheet, iOS may copy it into the app's Inbox folder; iOS does not clear that folder on its own, so such a copy stays until you delete SoundPull. Deleting the app always removes both kinds from the iPhone.</li>
     </ol>
 
     <h2 id="kept">What stays on your iPhone between launches</h2>
@@ -105,6 +105,7 @@
     </div>
     <p>An iPhone that once ran an early version of SoundPull with a free tier may also still hold that version's usage count (<code>soundpull.freeQuota.usedCount</code>). Current versions neither read nor update it.</p>
     <p>Deleting SoundPull from your iPhone deletes these values along with it. We have no way to read them.</p>
+    <p>Apart from these values, the copies that the pickers and the share sheet leave of their own when you pick a file or when another app sends one to SoundPull are not cleared by the app and can remain on the device between launches. Step 6 under <a href="#flow">What happens to a file you open in SoundPull</a> explains where each kind is kept and when it goes.</p>
 
     <h2 id="rating">The rating prompt, added in version 1.4</h2>
     <p>After your 3rd, 15th and 50th successful extraction or merge, SoundPull asks iOS to show Apple's standard prompt for rating the app, through the review request in Apple's StoreKit framework. iOS decides whether the prompt actually appears and limits how often any app may show it. SoundPull is not told whether the prompt appeared or what you did with it. If you rate or review SoundPull, Apple collects that under your Apple Account; a written review is published on the App Store under the nickname you choose, where anyone, us included, can read it; as the developer, we may also post a public reply there.</p>
@@ -141,14 +142,14 @@
 
     <h2 id="laws">Privacy laws and your choices</h2>
     <p>Laws such as the EU and UK GDPR, the California Consumer Privacy Act as amended by the CPRA, and Brazil's LGPD give you rights over personal data that a business holds about you. The app sends us no personal data about you, so for your use of SoundPull there is nothing on our side to show you, correct, hand over or erase, and we are neither a controller nor a processor of your personal data in connection with the app. Because the app sends nothing off your iPhone, it transfers no data to another country either. Email you send us is covered under <a href="#contact">Questions</a> below.</p>
-    <p>What SoundPull keeps is in your hands: deleting the app removes the stored values described above, and files you saved stay wherever you put them until you delete them yourself.</p>
+    <p>What SoundPull keeps is in your hands: deleting the app removes the stored values described above and any copies left in the app's cache, temporary or Inbox folders, and files you saved stay wherever you put them until you delete them yourself.</p>
 
     <h2 id="changes">When this policy changes</h2>
     <p>We may revise this policy, for instance when a new version of SoundPull changes what happens on the device. Every material revision gets a new date at the top of this page, and the current text is always published at <a href="https://naruberio.github.io/soundpull-legal/privacy-policy.html">naruberio.github.io/soundpull-legal/privacy-policy.html</a>. If you keep using SoundPull after a revision takes effect, you accept the revised policy.</p>
 
     <h2 id="contact">Questions</h2>
     <p>Send questions about this policy to <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>. SoundPull is published by naruberio.</p>
-    <p>When you email us, whether about this policy or for support, we receive only what you put in the message, such as your email address, your text and any attachment, and we use it only to reply to you. You can ask us at any time to delete that correspondence.</p>
+    <p>When you email us, whether about this policy or for support, we receive only what you put in the message, such as your email address, your text and any attachment. We use it to reply to you and to look into and fix the problem you describe. For that, we may copy a description of the problem, without your name, email address or attachments, into the online issue tracker we use to organise our work. You can ask us at any time to delete that correspondence; we will then delete the emails and anything copied from them into the tracker.</p>
   </main>
 
   <footer class="foot">
