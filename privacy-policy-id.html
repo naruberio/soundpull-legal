@@ -3,122 +3,156 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kebijakan Privasi — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Kebijakan Privasi SoundPull</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
-    th { background: #f6f8fa; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    code { background: #f6f8fa; padding: 0.1rem 0.3rem; border-radius: 3px; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← Beranda</a></nav>
-  <div class="langbar">
-    <a href="./privacy-policy.html">English</a> ·
-    <a href="./privacy-policy-ja.html">日本語</a> ·
-    <a href="./privacy-policy-zh-Hant.html">繁體中文</a> ·
-    <a href="./privacy-policy-es.html">Español</a> ·
-    <a href="./privacy-policy-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./privacy-policy-de.html">Deutsch</a> ·
-    <a href="./privacy-policy-fr.html">Français</a> ·
-    <a href="./privacy-policy-ko.html">한국어</a> ·
-    <strong>Bahasa&nbsp;Indonesia</strong> ·
-    <a href="./privacy-policy-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./privacy-policy-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · semua dokumen</a>
+    <nav class="langs" aria-label="Bahasa">
+      <a href="./privacy-policy.html">English</a> ·
+      <a href="./privacy-policy-ja.html">日本語</a> ·
+      <a href="./privacy-policy-zh-Hant.html">繁體中文</a> ·
+      <a href="./privacy-policy-es.html">Español</a> ·
+      <a href="./privacy-policy-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./privacy-policy-de.html">Deutsch</a> ·
+      <a href="./privacy-policy-fr.html">Français</a> ·
+      <a href="./privacy-policy-ko.html">한국어</a> ·
+      <strong aria-current="page">Bahasa&nbsp;Indonesia</strong> ·
+      <a href="./privacy-policy-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./privacy-policy-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>Kebijakan Privasi — SoundPull</h1>
-  <p><strong>Tanggal berlaku: 2026-09-01</strong></p>
-  <p>Kebijakan Privasi ini menjelaskan bagaimana "SoundPull" ("Aplikasi") menangani informasi tentang Anda saat Anda menggunakannya. Aplikasi ini diterbitkan oleh <strong>naruberio</strong> ("kami"). SoundPull mengekstrak trek audio dari video yang Anda pilih dan menyimpannya sebagai berkas audio (M4A, MP3, WAV, atau M4R untuk nada dering). Aplikasi juga dapat mengekspor salinan video tanpa audionya, serta mentranskripsikan audio yang telah diekstrak menjadi teks menggunakan pengenalan ucapan di perangkat. Seluruh pemrosesan terjadi di perangkat Anda.</p>
+  <main>
+    <h1>Kebijakan Privasi SoundPull</h1>
+    <p class="stamp">Mulai berlaku 2026-09-27 · disusun untuk SoundPull 1.4</p>
+    <p>SoundPull adalah aplikasi iPhone untuk mengambil suara dari video, mengonversi dan menyambung file audio, serta mengubah ucapan yang terekam menjadi teks. Kebijakan ini mengikuti perjalanan sebuah file di dalam aplikasi, langkah demi langkah, lalu merinci semua yang disimpan SoundPull di iPhone Anda. SoundPull dikembangkan dan diterbitkan oleh naruberio; dalam kebijakan ini, kata "kami" merujuk pada naruberio.</p>
 
-  <h2>1. Ringkasan</h2>
-  <p><strong>Kami tidak mengumpulkan data pribadi apa pun.</strong> Video Anda, audio yang kami ekstrak darinya, dan segala hal yang Anda lakukan di Aplikasi tetap berada di perangkat Anda. Kami tidak mengoperasikan server, dan Aplikasi tidak memuat SDK analitik, periklanan, atau pelacakan pihak ketiga. Aplikasi tidak memerlukan akses jaringan untuk berfungsi.</p>
+    <h2 id="brief">Ringkasnya</h2>
+    <ul class="gist">
+      <li>SoundPull tidak memakai akun, tidak meminta login, dan tidak terhubung ke server milik kami.</li>
+      <li>Video, file audio, transkrip, dan subtitle yang Anda olah diproses di iPhone Anda dan tidak pernah diunggah, baik ke kami maupun ke pihak lain mana pun.</li>
+      <li>Di dalam aplikasi tidak ada kode analitik, iklan, pelaporan crash, atau pelacakan, dan aplikasi ini bekerja tanpa koneksi internet.</li>
+      <li>Di antara satu pembukaan aplikasi dan pembukaan berikutnya, SoundPull hanya mengingat tiga pengaturan dan angka-angka hitungan yang mendasari permintaan rating, semuanya tersimpan di perangkat (lihat <a href="#kept">Yang tetap tersimpan di iPhone Anda</a>).</li>
+    </ul>
 
-  <h2>2. Informasi yang Tidak Kami Kumpulkan</h2>
-  <p>Kami <strong>tidak</strong> mengumpulkan, mengirimkan, menyimpan di server kami, atau membagikan hal-hal berikut:</p>
-  <ul>
-    <li>Informasi akun (email, nama, profil) — Aplikasi tidak memiliki akun atau proses masuk</li>
-    <li>Video Anda, trek audio yang kami ekstrak, atau berkas apa pun yang Anda impor atau ekspor</li>
-    <li>Data kontak, lokasi, kalender, mikrofon, atau kamera</li>
-    <li>Isi pustaka foto Anda — lihat bagian 6</li>
-    <li>Pengidentifikasi perangkat yang digunakan untuk periklanan atau pelacakan</li>
-    <li>Laporan kerusakan atau peristiwa analitik yang dikirim ke pihak ketiga</li>
-  </ul>
+    <h2 id="flow">Apa yang terjadi pada file yang Anda buka di SoundPull</h2>
+    <ol class="flow">
+      <li><strong>Anda memilihnya.</strong> Anda dapat memilih video lewat pemilih Foto, memilih video atau file audio (m4a, mp3, wav, aac, caf, aif, aiff, atau flac) di app Files, atau mengirimnya dari lembar berbagi aplikasi lain, termasuk Memo Suara. iOS hanya menyerahkan item yang Anda pilih kepada SoundPull; aplikasi tidak menelusuri isi lain dari perpustakaan foto atau folder Anda.</li>
+      <li><strong>SoundPull membuat salinan kerja.</strong> Item tersebut disalin ke folder sementara di dalam sandbox milik aplikasi, sehingga file asli Anda tidak pernah diubah. Pemilih Foto dan Files, begitu pula lembar berbagi, mungkin juga meninggalkan salinannya sendiri di dalam kontainer aplikasi.</li>
+      <li><strong>Salinan itu dikonversi di iPhone.</strong> Dengan framework AVFoundation dari Apple, SoundPull menulis file M4A, MP3, WAV, atau M4R (nada dering), atau, bila Anda memintanya, salinan video yang trek suaranya sudah dilepas. Saat Anda menggabungkan, item yang Anda susun disambung sesuai urutan Anda menjadi satu file. File MP3 dikodekan oleh pustaka LAME yang tertanam di dalam aplikasi. Tak satu pun dari langkah ini mengirim apa pun melalui jaringan.</li>
+      <li><strong>Jika Anda meminta transkrip, prosesnya juga berlangsung di iPhone.</strong> Framework Speech dari Apple mengenali kata-kata hanya dengan pengenalan di perangkat (<code>requiresOnDeviceRecognition</code>). Bila iPhone Anda tidak memiliki pengenalan di perangkat untuk bahasa tersebut, SoundPull memberi tahu Anda lalu berhenti; aplikasi tidak pernah mengalihkan audio ke server sebagai gantinya. Teksnya dapat Anda ekspor sebagai file .txt, atau sebagai file subtitle .srt yang pewaktuannya berasal dari pengenalan di perangkat yang sama. Baik audio maupun teksnya tidak dikirim ke Apple ataupun ke kami.</li>
+      <li><strong>Anda yang menentukan ke mana hasilnya pergi.</strong> Anda dapat memutarnya, lalu mengirimnya melalui lembar berbagi iOS: Simpan ke Files, AirDrop, atau aplikasi lain. Setelah file sampai di tujuan yang Anda pilih, apa yang terjadi padanya di sana diatur oleh tujuan itu, bukan oleh SoundPull.</li>
+      <li><strong>File kerja dibersihkan.</strong> SoundPull menghapus salinan file asli Anda begitu pekerjaan tidak lagi membutuhkannya: segera setelah konversi, dan untuk penggabungan begitu penggabungan berhasil atau, paling lambat, ketika Anda meninggalkan layar penggabungan. Hasil dihapus ketika Anda memulai pekerjaan lain, membuangnya, atau meninggalkan layar tempat hasil itu dibuat. Salinan yang diserahkan ke lembar berbagi, termasuk file transkrip dan subtitle, disimpan sampai SoundPull dibuka lagi, karena aplikasi penerima mungkin masih membacanya. Setiap kali SoundPull dibuka, aplikasi menghapus file kerjanya sendiri yang tertinggal dari sesi sebelumnya. Salinan yang dibuat oleh pemilih iOS atau lembar berbagi tidak termasuk dalam pembersihan itu: salinan tersebut tetap berada di kontainer aplikasi sampai iOS membersihkannya, yang dapat terjadi ketika ruang penyimpanan menipis, dan selalu ikut terhapus bersama aplikasi.</li>
+    </ol>
 
-  <h2>3. Bagaimana Video dan Audio Anda Diproses</h2>
-  <p>Ekstraksi audio terjadi <strong>sepenuhnya di perangkat Anda</strong> menggunakan kerangka kerja AVFoundation dari Apple. Saat Anda memilih sebuah video, Aplikasi membacanya secara lokal, menulis hasilnya — berkas audio (M4A, MP3, WAV, atau M4R) atau salinan video tanpa trek audionya — ke lokasi sementara di perangkat, dan memungkinkan Anda untuk mempratinjau, menyimpan, atau membagikannya.</p>
-  <p><strong>Transkripsi</strong> (mengubah audio yang telah Anda ekstrak menjadi teks) menggunakan kerangka kerja Speech dari Apple dan <strong>diwajibkan berjalan di perangkat Anda</strong>. Jika pengenalan di perangkat tidak tersedia untuk bahasa atau perangkat Anda, Aplikasi memberi tahu Anda dan tidak menjalankan fitur tersebut — Aplikasi tidak pernah beralih mengirim audio ke server. Baik audio maupun teks yang dihasilkan tidak dikirimkan kepada Apple maupun kepada kami.</p>
-  <p>Video Anda, audio yang diekstrak, dan transkripsi apa pun <strong>tidak pernah diunggah</strong> kepada kami atau pihak ketiga mana pun.</p>
-  <p>Berkas kerja sementara dihapus segera setelah tidak lagi diperlukan: salinan video yang diimpor dihapus begitu ekstraksi selesai, dan berkas hasil ekstraksi dihapus saat Anda memulai ekstraksi berikutnya atau membuang hasilnya. Salinan yang dibuat untuk lembar berbagi iOS disimpan sampai Aplikasi dijalankan berikutnya, karena aplikasi tujuan berbagi mungkin masih membacanya; pada peluncuran berikutnya Aplikasi menghapus semua berkas sementara yang tersisa. Apa pun yang tidak Anda simpan akan dibuang.</p>
+    <h2 id="kept">Yang tetap tersimpan di iPhone Anda di antara pembukaan aplikasi</h2>
+    <p>SoundPull menyimpan empat nilai kecil di penyimpanannya sendiri di perangkat (React Native AsyncStorage, di dalam sandbox aplikasi). Tidak satu pun berisi nama file, rekaman, transkrip, atau apa pun yang dapat mengenali Anda, dan tidak satu pun pernah dikirim ke mana pun.</p>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Nilai yang disimpan</th><th>Isinya</th><th>Alasan disimpan</th></tr></thead>
+        <tbody>
+          <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>Apakah Anda sudah menyelesaikan layar sambutan</td><td>Agar pengenalan aplikasi hanya muncul sekali</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>Format keluaran yang terakhir Anda pilih (M4A, MP3, WAV, atau M4R)</td><td>Agar pekerjaan berikutnya dimulai dengan format yang sama</td></tr>
+          <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>Apakah "Samakan volume" sedang aktif</td><td>Agar pilihan Anda terbawa ke pekerjaan berikutnya</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code> (baru di 1.4)</td><td>Dua bilangan bulat: berapa kali ekstraksi atau penggabungan berhasil, dan berapa banyak tonggak permintaan rating yang sudah terpakai</td><td>Untuk menentukan kapan meminta iOS menampilkan permintaan rating (lihat <a href="#rating">di bawah</a>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>iPhone yang pernah menjalankan versi awal SoundPull dengan kuota gratis mungkin juga masih menyimpan hitungan pemakaian dari versi itu (<code>soundpull.freeQuota.usedCount</code>). Versi saat ini tidak membaca maupun memperbaruinya.</p>
+    <p>Menghapus SoundPull dari iPhone Anda ikut menghapus nilai-nilai ini. Kami sama sekali tidak dapat membacanya.</p>
 
-  <h2>4. Informasi yang Disimpan Secara Lokal di Perangkat Anda</h2>
-  <p>Aplikasi menyimpan potongan-potongan kecil data berikut <strong>hanya di perangkat Anda</strong> (menggunakan penyimpanan lokal iOS). Data ini tidak pernah meninggalkan perangkat Anda.</p>
-  <table>
-    <thead><tr><th>Data</th><th>Tujuan</th><th>Penyimpanan</th></tr></thead>
-    <tbody>
-      <tr><td>Penanda penyelesaian pengenalan awal dan preferensi aplikasi (format keluaran, normalisasi volume)</td><td>Konfigurasi aplikasi — misalnya tidak menampilkan pengenalan awal lagi dan mengingat format yang terakhir Anda pilih</td><td>Penyimpanan lokal di perangkat</td></tr>
-    </tbody>
-  </table>
-  <p>Saat Anda menghapus instalasi Aplikasi, iOS akan menghapus seluruh data ini.</p>
+    <h2 id="rating">Permintaan rating, ditambahkan di versi 1.4</h2>
+    <p>Setelah ekstraksi atau penggabungan Anda yang berhasil untuk ke-3, ke-15, dan ke-50 kalinya, SoundPull meminta iOS menampilkan jendela standar Apple untuk memberi rating aplikasi, melalui fitur permintaan ulasan di framework StoreKit milik Apple. iOS yang memutuskan apakah jendela itu benar-benar muncul, dan iOS pula yang membatasi seberapa sering aplikasi mana pun boleh menampilkannya. SoundPull tidak diberi tahu apakah jendela itu muncul atau apa yang Anda lakukan di sana. Jika Anda memberi rating atau ulasan untuk SoundPull, Apple mengumpulkannya atas Akun Apple Anda; ulasan tertulis diterbitkan di App Store dengan nama panggilan yang Anda pilih, dan di sana kami bisa membacanya serta membalasnya seperti orang lain.</p>
+    <p>Untuk menghentikan permintaan seperti ini bagi semua aplikasi, buka app Pengaturan iOS, masuk ke App Store, lalu matikan Peringkat &amp; Ulasan Dalam App (In-App Ratings &amp; Reviews).</p>
+    <p>Permintaan rating adalah satu-satunya keperluan SoundPull memakai StoreKit. Aplikasi ini tidak punya layar pembelian dan tidak mengajukan permintaan pembelian sendiri.</p>
 
-  <h2>5. Apple App Store</h2>
-  <p>SoundPull adalah <strong>aplikasi berbayar</strong>: Anda membelinya satu kali di App Store dan seluruh fitur sudah termasuk. <strong>Tidak ada pembelian dalam aplikasi, tidak ada langganan, dan tidak ada iklan.</strong> Pembelian diproses oleh <strong>Apple Inc.</strong> melalui App Store. Kami tidak menerima nama, email, kartu pembayaran, atau informasi pribadi lainnya dari Apple. Penanganan data pembelian Anda oleh Apple diatur oleh <a href="https://www.apple.com/legal/privacy/">Kebijakan Privasi Apple</a>.</p>
+    <h2 id="permissions">Izin yang mungkin ditampilkan iOS</h2>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Izin</th><th>Kapan dan mengapa</th></tr></thead>
+        <tbody>
+          <tr><td>Foto<br><code>NSPhotoLibraryUsageDescription</code></td><td>Hanya dipakai untuk membaca video yang Anda ketuk di pemilih foto. SoundPull tidak menelusuri, mengindeks, atau mengunggah perpustakaan foto Anda.</td></tr>
+          <tr><td>Pengenalan Ucapan<br><code>NSSpeechRecognitionUsageDescription</code></td><td>Diminta saat pertama kali Anda memulai transkripsi. Pengenalan dibatasi di perangkat saja (<code>requiresOnDeviceRecognition</code>) dan bekerja pada file yang sudah ada di SoundPull, tidak pernah pada suara langsung dari mikrofon.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Membuka file dari app Files atau dari lembar berbagi tidak memerlukan izin, karena iOS hanya meneruskan item yang Anda pilih. SoundPull tidak memakai kamera, mikrofon, lokasi, maupun kontak Anda, dan tidak meminta akses jaringan. Jendela App Tracking Transparency tidak pernah ditampilkan, karena aplikasi ini tidak melacak siapa pun.</p>
 
-  <h2>6. Izin</h2>
-  <p>Aplikasi meminta izin minimum yang diperlukan dan hanya saat Anda menggunakan fitur terkait:</p>
-  <table>
-    <thead><tr><th>Izin</th><th>Alasan diminta</th></tr></thead>
-    <tbody>
-      <tr><td>Pustaka Foto (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Agar Anda dapat memilih video dari pustaka Anda untuk mengekstrak audionya. Aplikasi hanya membaca video yang Anda pilih, dan pemrosesan terjadi di perangkat Anda. SoundPull tidak memindai, mengunggah, atau mengindeks pustaka foto Anda.</td></tr>
-      <tr><td>Pengenalan Ucapan (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Agar Anda dapat mentranskripsikan audio yang telah Anda ekstrak. Izin ini hanya diminta ketika Anda memulai transkripsi. Pengenalan <strong>harus berjalan di perangkat Anda</strong> (<code>requiresOnDeviceRecognition</code>); jika pengenalan di perangkat tidak tersedia, Aplikasi tidak menjalankan fitur tersebut dan tidak pernah mengirim audio Anda ke server. Baik audio maupun teks yang dihasilkan tidak dikirimkan kepada Apple maupun kepada kami.</td></tr>
-    </tbody>
-  </table>
-  <p>Aplikasi <strong>tidak</strong> merekam dari mikrofon dan <strong>tidak</strong> menggunakan kamera atau lokasi Anda — pengenalan ucapan membaca berkas yang sudah Anda ekstrak, bukan masukan mikrofon secara langsung. Aplikasi <strong>tidak</strong> meminta akses jaringan. App Tracking Transparency <strong>tidak pernah</strong> diminta karena Aplikasi tidak melacak pengguna.</p>
+    <h2 id="paying">Membayar SoundPull</h2>
+    <p>SoundPull dijual sebagai unduhan berbayar di App Store. Pembelian tunggal itu mencakup semua fitur; tidak ada pembelian dalam aplikasi, tidak ada langganan, dan tidak ada iklan. Pembayaran diterima oleh Apple, dan Apple tidak meneruskan nama, alamat email, data kartu, atau informasi pribadi lain milik Anda kepada kami. Cara Apple memperlakukan informasi pembayaran dan akun Anda dijelaskan dalam <a href="https://www.apple.com/legal/privacy/">Kebijakan Privasi Apple</a>.</p>
 
-  <h2>7. Manifes Privasi</h2>
-  <p>Aplikasi disertai dengan Privacy Manifest Apple yang menyatakan:</p>
-  <ul>
-    <li><strong>Pelacakan</strong>: Tidak ada</li>
-    <li><strong>Domain pelacakan</strong>: Tidak ada</li>
-    <li><strong>Jenis data yang dikumpulkan</strong>: Tidak ada</li>
-    <li><strong>API dengan alasan wajib yang digunakan</strong>:
-      <ul>
-        <li><code>FileTimestamp (C617.1)</code> — untuk penanganan berkas di perangkat selama ekstraksi</li>
-        <li><code>DiskSpace (E174.1)</code> — untuk memeriksa apakah ruang kosong mencukupi sebelum menulis berkas</li>
-        <li><code>UserDefaults (CA92.1)</code> — untuk menyimpan pengaturan milik Aplikasi sendiri di perangkat Anda</li>
-        <li><code>SystemBootTime (35F9.1)</code> — untuk mengukur waktu yang berlalu antar kejadian di dalam Aplikasi (pengatur waktu)</li>
-      </ul>
-    </li>
-  </ul>
+    <h2 id="manifest">Isi pernyataan manifes privasi</h2>
+    <p>SoundPull disertai manifes privasi Apple. Manifes itu menyatakan bahwa aplikasi tidak melakukan pelacakan, tidak menghubungi domain pelacakan, dan tidak mengumpulkan jenis data apa pun. Manifes itu juga mencantumkan empat API yang menurut Apple harus disertai alasan oleh pengembang, dan masing-masing hanya dipakai untuk tujuan yang ditunjukkan kode alasannya:</p>
+    <ul>
+      <li><code>FileTimestamp</code>, alasan <code>C617.1</code>: membaca tanggal dan ukuran file di dalam kontainer milik SoundPull sendiri, misalnya untuk membedakan file kerja sisa sesi sebelumnya dari file yang sedang dipakai.</li>
+      <li><code>DiskSpace</code>, alasan <code>E174.1</code>: memeriksa apakah ada cukup ruang untuk menulis file keluaran; jika tidak cukup, SoundPull berhenti dan memberi tahu Anda.</li>
+      <li><code>UserDefaults</code>, alasan <code>CA92.1</code>: membaca dan menulis nilai yang hanya dipakai oleh aplikasi itu sendiri.</li>
+      <li><code>SystemBootTime</code>, alasan <code>35F9.1</code>: mengukur waktu yang berlalu di antara peristiwa di dalam aplikasi, misalnya untuk pengatur waktu.</li>
+    </ul>
+    <p>Dua yang pertama dinyatakan oleh SoundPull sendiri; dua lainnya ditambahkan atas nama framework yang dipakai untuk membangun aplikasi.</p>
 
-  <h2>8. Privasi Anak</h2>
-  <p>Aplikasi cocok untuk khalayak umum. Karena kami tidak mengumpulkan data pribadi, Aplikasi tidak dengan sengaja mengumpulkan informasi dari anak di bawah usia 13 tahun atau ambang usia lainnya berdasarkan yurisdiksi mana pun.</p>
+    <h2 id="children">Anak-anak</h2>
+    <p>SoundPull ditujukan untuk khalayak umum. Aplikasi ini tidak menghimpun informasi pribadi dari siapa pun yang memakainya, jadi aplikasi ini pun tidak secara sadar menghimpunnya dari anak-anak, baik batas usia yang berlaku di tempat Anda 13 tahun maupun usia lain.</p>
 
-  <h2>9. Hak Anda</h2>
-  <p>Karena kami tidak mengumpulkan data pribadi, tidak ada apa pun di pihak kami untuk diakses, dikoreksi, dipindahkan, atau dihapus. Untuk menghapus semua data yang disimpan oleh Aplikasi, hapus instalasinya dari perangkat Anda.</p>
-  <p>Bagi pengguna di Uni Eropa (GDPR), Inggris, California (CCPA/CPRA), Brasil (LGPD), atau rezim privasi lainnya: Aplikasi tidak bertindak sebagai pengendali (controller) atau pemroses (processor) data pribadi Anda, karena tidak ada yang dikumpulkan oleh kami.</p>
+    <h2 id="laws">Hukum privasi dan pilihan Anda</h2>
+    <p>Hukum seperti GDPR Uni Eropa dan GDPR Inggris, California Consumer Privacy Act sebagaimana diubah oleh CPRA, serta LGPD Brasil memberi Anda hak atas data pribadi yang dipegang suatu pelaku usaha tentang Anda. Aplikasi ini tidak mengirimkan data pribadi apa pun tentang Anda kepada kami, sehingga untuk pemakaian SoundPull oleh Anda tidak ada yang perlu kami tunjukkan, koreksi, serahkan, atau hapus di pihak kami, dan dalam kaitannya dengan aplikasi ini kami tidak berkedudukan sebagai pengendali ataupun pemroses atas data pribadi Anda. Karena aplikasi tidak mengirim apa pun keluar dari iPhone Anda, aplikasi juga tidak memindahkan data ke negara lain. Email yang Anda kirim kepada kami dibahas di bagian <a href="#contact">Pertanyaan</a> di bawah.</p>
+    <p>Apa yang disimpan SoundPull sepenuhnya ada di tangan Anda: menghapus aplikasi akan menghapus nilai-nilai yang dijelaskan di atas, sedangkan file yang Anda simpan tetap berada di tempat Anda meletakkannya sampai Anda sendiri menghapusnya.</p>
 
-  <h2>10. Penggunaan Internasional</h2>
-  <p>Aplikasi tersedia secara global. Karena tidak ada data yang dikirimkan keluar dari perangkat Anda, tidak terjadi transfer data lintas batas.</p>
+    <h2 id="changes">Jika kebijakan ini berubah</h2>
+    <p>Kami dapat merevisi kebijakan ini, misalnya ketika versi baru SoundPull mengubah apa yang terjadi di perangkat. Setiap revisi yang material mendapat tanggal baru di bagian atas halaman ini, dan teks terbarunya selalu diterbitkan di <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-id.html">naruberio.github.io/soundpull-legal/privacy-policy-id.html</a>. Jika Anda tetap memakai SoundPull setelah sebuah revisi berlaku, berarti Anda menerima kebijakan yang telah direvisi.</p>
 
-  <h2>11. Perubahan pada Kebijakan Ini</h2>
-  <p>Kami dapat memperbarui Kebijakan Privasi ini. Perubahan material akan dicerminkan dengan memperbarui "Tanggal berlaku" di atas dan dengan menerbitkan kebijakan yang telah direvisi pada URL yang tercantum di bagian 12. Penggunaan Aplikasi yang berkelanjutan setelah suatu perubahan menandakan penerimaan atas kebijakan yang telah direvisi.</p>
+    <h2 id="contact">Pertanyaan</h2>
+    <p>Pertanyaan seputar kebijakan ini dapat dikirim ke <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>. SoundPull diterbitkan oleh naruberio.</p>
+    <p>Ketika Anda mengirim email kepada kami, baik tentang kebijakan ini maupun untuk meminta bantuan, kami hanya menerima apa yang Anda cantumkan dalam pesan itu, seperti alamat email, isi tulisan, dan lampiran apa pun, dan kami memakainya semata-mata untuk membalas Anda. Anda dapat meminta kami kapan saja untuk menghapus korespondensi tersebut.</p>
+  </main>
 
-  <h2>12. Kontak</h2>
-  <table>
-    <tbody>
-      <tr><td>Penerbit</td><td>naruberio</td></tr>
-      <tr><td>Email kontak</td><td><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></td></tr>
-      <tr><td>URL kanonis</td><td><a href="https://naruberio.github.io/soundpull-legal/privacy-policy-id.html">https://naruberio.github.io/soundpull-legal/privacy-policy-id.html</a></td></tr>
-    </tbody>
-  </table>
-  <p>Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, hubungi kami melalui email di atas.</p>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> · <a href="./terms-id.html">Ketentuan Penggunaan</a> · <a href="./support-id.html">Dukungan</a></p>
+  </footer>
 </body>
 </html>

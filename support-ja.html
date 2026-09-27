@@ -3,93 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>サポート — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>SoundPull サポート</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    details { margin: 0.5rem 0; }
-    summary { cursor: pointer; font-weight: 500; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← ホーム</a></nav>
-  <div class="langbar">
-    <a href="./support.html">English</a> ·
-    <strong>日本語</strong> ·
-    <a href="./support-zh-Hant.html">繁體中文</a> ·
-    <a href="./support-es.html">Español</a> ·
-    <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./support-de.html">Deutsch</a> ·
-    <a href="./support-fr.html">Français</a> ·
-    <a href="./support-ko.html">한국어</a> ·
-    <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./support-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · 文書の一覧</a>
+    <nav class="langs" aria-label="言語">
+      <a href="./support.html">English</a> ·
+      <strong aria-current="page">日本語</strong> ·
+      <a href="./support-zh-Hant.html">繁體中文</a> ·
+      <a href="./support-es.html">Español</a> ·
+      <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./support-de.html">Deutsch</a> ·
+      <a href="./support-fr.html">Français</a> ·
+      <a href="./support-ko.html">한국어</a> ·
+      <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./support-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>サポート — SoundPull</h1>
+  <main>
+    <h1>SoundPull サポート</h1>
+    <p class="stamp">2026-09-27 更新 · SoundPull 1.4 に対応 · iOS 16.4 以降の iPhone で動作</p>
 
-  <h2>お問い合わせ</h2>
-  <p>ご質問、不具合のご報告、機能のご要望は、以下のメールアドレスまでお送りください。</p>
-  <p><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
-  <p>当社は 3 営業日以内の返信を心がけています。SoundPull は iOS 16.4 以降が必要で、iPhone で動作します。</p>
+    <h2 id="write">連絡のしかた</h2>
+    <p>うまく動かないこと、わからないこと、こうしてほしいという案があれば、<a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> までメールをください。3 営業日以内の返信を目安にしています。</p>
+    <p>何かがうまくいかなかったときは、次のことを書いてもらえると、こちらで同じ状況を再現しやすくなります。</p>
+    <ul>
+      <li>SoundPull のバージョン（アプリの「設定」画面に出ています）と、iOS のバージョン</li>
+      <li>開いたもの（例:「写真から選んだ MOV の動画」「ファイルから選んだ MP3」）と、選んだ出力形式</li>
+      <li>どの段階でつまずいたか、そのとき画面に出た文言そのもの</li>
+    </ul>
+    <p>ファイルそのものを添付する必要はありません。見本があると助かる場合は、こちらからお願いします。SoundPull が自分から私たちに何かを送ることはないので、不具合を私たちが知る手段はあなたからのメールだけです。</p>
 
-  <h2>よくある質問</h2>
+    <h2 id="in">ファイルを SoundPull に取り込む</h2>
+    <h3>どこからファイルを開けますか？</h3>
+    <p><strong>動画を選択</strong>は写真の選択画面を開き、動画だけが表示されます。<strong>ファイルから選択</strong>では、動画と音声ファイルのどちらも選べます。ボイスメモを含むほかのアプリの共有シートから、SoundPull にファイルを送ることもできます。一度に複数送った場合は、最初の 1 つを使います。SoundPull が処理中のときに送られたファイルは手が空くまで待たされ、どうすれば始まるかが画面に表示されます。待っているあいだにさらに届いた場合、待つのは最後に届いた 1 つだけです。</p>
+    <h3>変換できる音声ファイルは？</h3>
+    <p>M4A、MP3、WAV、AAC、CAF、AIF/AIFF、FLAC です。音声ファイルも動画と同じ手順で扱えます。区間を切り出す、音量をそろえる、文字起こしする、どの出力形式でも保存する、のいずれもできます。音声を消した動画は映像が要るため、その設定をオンにしているあいだは動画しか選べません。</p>
+    <h3>写真ライブラリへのアクセスを申告しているのはなぜ？</h3>
+    <p>iOS は、写真から動画を読み込むアプリに、その理由を示すよう求めています。SoundPull が読むのはそこで選んだ動画だけで、ライブラリ全体を調べたりアップロードしたりはしません。</p>
 
-  <details>
-    <summary>SoundPull はどのように動作し、私のデータはどこへ行きますか？</summary>
-    <p>SoundPull は、お客様が選択した動画を読み込み、Apple の AVFoundation フレームワークを使用して、その音声トラックを M4A（AAC）ファイルとしてお客様の iPhone 上で直接抽出します。当社はサーバーを保有していないため、当社のサーバーに送信されるものは何もありません。お客様の動画および抽出した音声がデバイスの外に出ることは決してありません。</p>
-  </details>
+    <h2 id="make">変換・結合・着信音</h2>
+    <h3>SoundPull が作れる形式は？</h3>
+    <p>M4A（AAC）、MP3、WAV、それに着信音用の M4R です。音を取り除いた動画のコピーも書き出せます。映像は変換し直さないので、画質は変わりません。</p>
+    <h3>いくつかのファイルを 1 本にまとめるには？</h3>
+    <p>ホーム画面の下にある<strong>音声を結合</strong>をタップし、動画や音声ファイルを 2 つ以上加えて、それぞれの横にある ↑ と ↓ のボタンで並べ替えます。音声の無いものや SoundPull が読めないものは除かれ、その件数が画面に表示されます。結合したファイルの形式は、その画面で選んだ出力形式になります。ホーム画面で「音量をそろえる」をオンにしていれば、音量の調整は結合後のファイル全体に一度だけかかります。</p>
+    <h3>たくさんのファイルをまとめて変換できますか？</h3>
+    <p>できます。同じくホーム画面の下にある<strong>一括抽出</strong>に、動画や音声ファイルを複数渡すと、同じ出力形式で 1 つずつ順に処理します。</p>
+    <h3>着信音が作れなかったのはなぜ？</h3>
+    <p>iPhone の着信音は最長 30 秒です。1 つのファイルなら、先に 30 秒以内の区間を指定してください。結合する場合は、つないだあとの長さが 30 秒に収まる必要があり、どれか 1 つでも長さを確かめられない素材があると、その組み合わせからは着信音を作りません。iOS はアプリ自身が着信音を登録することを認めていないので、M4R ファイルを GarageBand か「ファイル」に共有し、そちらで設定してください。</p>
 
-  <details>
-    <summary>どのファイルを使用でき、何が出力されますか？</summary>
-    <p>写真ライブラリまたはファイル App から動画を選択するか、他の App の共有シートから SoundPull に動画を送ることができます。出力は常に、高品質な AAC 音声を含む M4A ファイルです。音声トラックのない動画、非対応のコーデック、または DRM で保護された一部の動画は処理できません。</p>
-  </details>
+    <h2 id="text">文字起こしと字幕</h2>
+    <h3>どの言語で認識しますか？</h3>
+    <p>iPhone に設定している言語です。始める前に画面に表示されます。認識は端末の中だけで行うため、その言語の端末内音声認識をあなたの iPhone が備えている場合にだけ使えます。備えていない場合、SoundPull は音声をどこかへ送る代わりに、使えないことをお知らせします。</p>
+    <h3>字幕はどうやって作りますか？</h3>
+    <p>文字起こしが終わったら<strong>字幕を保存（SRT）</strong>をタップすると、動画編集アプリやプレーヤーで読み込める .srt ファイルを共有できます。字幕は 1 つずつ短くまとめ、文の終わりか間（ま）で区切ります。このボタンは、iOS が単語ごとの時刻を返したときだけ表示されます。テキストだけなら、いつでも<strong>テキストを保存 / 共有</strong>から取り出せます。</p>
+    <h3>どのくらい正確ですか？</h3>
+    <p>言語、録音の状態、周りの雑音によって変わります。長い録音はいくつかに分けて認識してからつなぐので、テキストを使う前にひととおり読み返してください。</p>
 
-  <details>
-    <summary>SoundPull はなぜ写真ライブラリへのアクセスを求めるのですか？</summary>
-    <p>お客様がライブラリから動画を選択し、その音声を抽出できるようにするためです。SoundPull は選択された特定の動画のみを読み込み、お客様のデバイス上で処理を行い、ライブラリをアップロードまたはスキャンすることは決してありません。</p>
-  </details>
+    <h2 id="messages">画面に出るメッセージ</h2>
+    <dl>
+      <dt>「この動画には音声トラックがありません。」</dt>
+      <dd>ファイルに、SoundPull が取り出せる音が入っていません。写真や「ファイル」で再生して、音があるか確かめてください。</dd>
+      <dt>「保護されたコンテンツは使用できません。ご自身の権利がある動画をご利用ください。」</dt>
+      <dd>ストアで購入・レンタルした映画や番組のように、DRM で保護されたファイルです。SoundPull は保護されたコンテンツを処理せず、コピー防止を回避することもしません。</dd>
+      <dt>「抽出するための空き容量が足りません。」</dt>
+      <dd>SoundPull は結果を書き出す前に空き容量を確かめます。ストレージに空きを作ってから、もう一度お試しください。</dd>
+      <dt>「この言語の端末内音声認識は、この iPhone では利用できません。」</dt>
+      <dd>上の「<a href="#text">文字起こしと字幕</a>」をご覧ください。</dd>
+      <dt>「このファイルは処理できません。」</dt>
+      <dd>形式またはコーデックを読み取れませんでした。よくある種類のファイルで何度も起きる場合は、このページの最初に挙げた情報を添えてご連絡ください。</dd>
+    </dl>
 
-  <details>
-    <summary>「この動画には音声トラックがありません」または「保護されたコンテンツは使用できません」と表示されます。どういう意味ですか？</summary>
-    <p>SoundPull は、実際に音声トラックを含み、かつお客様が使用する権利を有している動画からのみ音声を抽出できます。DRM で保護されたコンテンツ（例: ストアで購入もしくはレンタルした映画やテレビ番組、またはストリーミングされたメディア）は処理できず、いかなるコピープロテクションも迂回しません。お客様自身が撮影した、またはその他の方法で権利を有している動画をご使用ください。</p>
-  </details>
+    <h2 id="buying">購入・ほかの端末・返金</h2>
+    <h3>アプリの中で追加で買うものはありますか？</h3>
+    <p>ありません。SoundPull は一度の支払いですべての機能が使える有料アプリです。アプリ内課金・サブスクリプション・広告はありません。</p>
+    <h3>別の iPhone に入れるには？</h3>
+    <p>SoundPull を買ったときの Apple アカウントでサインインし、App Store から無料でもう一度ダウンロードしてください。アプリ側で別に復元の操作をする必要はありません。</p>
+    <h3>返金してほしいときは？</h3>
+    <p>App Store での購入の返金は Apple が決めます。<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> から申し込めます。</p>
+    <h3>SoundPull が評価をお願いしてきたのはなぜ？</h3>
+    <p>抽出か結合が 3 回目・15 回目・50 回目にうまくいったあと、SoundPull は Apple 標準の評価画面を出すよう iOS に頼みます。実際に表示するかどうかは iOS が決めます。この依頼は、設定アプリの「App Store」にある「App内評価とレビュー」で、すべてのアプリについてまとめてオフにできます。</p>
 
-  <details>
-    <summary>アプリ内で追加の購入は必要ですか？</summary>
-    <p>いいえ。SoundPull は有料アプリで、App Store で一度ご購入いただければすべての機能をご利用いただけます。アプリ内購入、サブスクリプション、広告はいずれもありません。</p>
-  </details>
+    <h2 id="data">ファイルとデータ</h2>
+    <h3>作ったファイルはどこへ行きますか？</h3>
+    <p>あなたの iPhone に残ります。変換・結合・文字起こしはすべて端末の中で行われ、SoundPull には送り先となるサーバーがありません。処理が終わったら<strong>保存 / 共有</strong>をタップして、「ファイル」に保存する、AirDrop で送る、ほかのアプリに渡す、のいずれかをしてください。保存しなかった結果は SoundPull が削除します。</p>
+    <h3>SoundPull が保存したものをすべて消すには？</h3>
+    <p>アプリを削除してください。設定と作業用のファイルは iOS がアプリと一緒に消し、あなたが別の場所に保存したファイルはそのまま残ります。</p>
 
-  <details>
-    <summary>新しいデバイスで SoundPull を使うにはどうすればよいですか？</summary>
-    <p>購入時と同じ Apple アカウントで新しいデバイスにサインインし、App Store から再度ダウンロードしてください。有料アプリは追加の料金なく再ダウンロードできます。アプリ内に「購入の復元」の操作はありません。</p>
-  </details>
+    <h2 id="docs">ポリシー</h2>
+    <p><a href="./privacy-policy-ja.html">プライバシーポリシー</a> · <a href="./terms-ja.html">利用規約</a></p>
+  </main>
 
-  <details>
-    <summary>返金を申請するにはどうすればよいですか？</summary>
-    <p>App Store での購入に関するすべての返金は Apple が対応します。<a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a> にアクセスしてください。</p>
-  </details>
-
-  <details>
-    <summary>抽出した音声を保存または共有するにはどうすればよいですか？</summary>
-    <p>抽出後、<strong>保存／共有</strong>をタップすると iOS の共有シートが開きます。そこから<strong>ファイルに保存</strong>を選択したり、AirDrop で送信したり、他の App に送ったりできます。</p>
-  </details>
-
-  <details>
-    <summary>本アプリが保存したデータを削除するにはどうすればよいですか？</summary>
-    <p>お客様のデバイスから本アプリをアンインストールしてください。iOS がローカルに保存されたすべてのデータを自動的に削除します。</p>
-  </details>
-
-  <h2>プライバシーと規約</h2>
-  <ul>
-    <li><a href="./privacy-policy-ja.html">プライバシーポリシー</a></li>
-    <li><a href="./terms-ja.html">利用規約</a></li>
-  </ul>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
+  </footer>
 </body>
 </html>

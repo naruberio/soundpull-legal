@@ -3,93 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>支援 — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>SoundPull 支援</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    details { margin: 0.5rem 0; }
-    summary { cursor: pointer; font-weight: 500; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← 首頁</a></nav>
-  <div class="langbar">
-    <a href="./support.html">English</a> ·
-    <a href="./support-ja.html">日本語</a> ·
-    <strong>繁體中文</strong> ·
-    <a href="./support-es.html">Español</a> ·
-    <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./support-de.html">Deutsch</a> ·
-    <a href="./support-fr.html">Français</a> ·
-    <a href="./support-ko.html">한국어</a> ·
-    <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./support-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · 所有文件</a>
+    <nav class="langs" aria-label="語言">
+      <a href="./support.html">English</a> ·
+      <a href="./support-ja.html">日本語</a> ·
+      <strong aria-current="page">繁體中文</strong> ·
+      <a href="./support-es.html">Español</a> ·
+      <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./support-de.html">Deutsch</a> ·
+      <a href="./support-fr.html">Français</a> ·
+      <a href="./support-ko.html">한국어</a> ·
+      <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./support-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>支援 — SoundPull</h1>
+  <main>
+    <h1>SoundPull 支援</h1>
+    <p class="stamp">2026-09-27 更新，適用於 SoundPull 1.4 · 可在搭載 iOS 16.4 或以上版本的 iPhone 上使用</p>
 
-  <h2>聯絡方式</h2>
-  <p>如有問題、錯誤回報或功能建議，請來信：</p>
-  <p><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
-  <p>我們會盡力於 3 個工作日內回覆。SoundPull 需要 iOS 16.4 或以上版本，並可在 iPhone 上執行。</p>
+    <h2 id="write">寫信給我們</h2>
+    <p>遇到問題、有疑問或想到什麼點子，都歡迎寄信到 <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>。我們以三個工作天內回覆為目標。</p>
+    <p>如果有功能沒有正常運作，附上下列資訊能幫助我們重現狀況：</p>
+    <ul>
+      <li>SoundPull 的版本（顯示在 App 的「設定」畫面）以及您的 iOS 版本；</li>
+      <li>您開啟的是什麼，例如「來自照片的 MOV 影片」或「來自檔案的 MP3」，以及您選的輸出格式；</li>
+      <li>在哪一個步驟出錯，以及畫面上顯示的完整訊息。</li>
+    </ul>
+    <p>不需要附上檔案本身；如果需要樣本，我們會再請您提供。SoundPull 從來不會自行傳任何東西給我們，所以您的來信是我們得知問題的唯一途徑。</p>
 
-  <h2>常見問題</h2>
+    <h2 id="in">把檔案帶進 SoundPull</h2>
+    <h3>可以從哪裡開啟檔案？</h3>
+    <p>點<strong>選擇影片</strong>會開啟照片的挑選畫面，那裡只會列出影片。<strong>從檔案選取</strong>則同時接受影片與音訊檔。您也可以從其他 App 的分享表單把檔案傳給 SoundPull，「語音備忘錄」也不例外。一次分享多個檔案時，SoundPull 只會接收第一個。SoundPull 正在忙時收到的分享檔案，會先保留到 App 空下來為止，畫面也會說明它將如何開始處理；在這段期間若又有檔案傳進來，只有最後傳來的那一個會排隊等候。</p>
+    <h3>哪些音訊檔可以轉換？</h3>
+    <p>M4A、MP3、WAV、AAC、CAF、AIF/AIFF 與 FLAC。音訊檔和影片走的是同樣的步驟：可以指定區間、統一音量、轉錄文字，並把結果存成任一種輸出格式。無聲影片必須要有畫面，因此開啟該選項時，只能選擇影片。</p>
+    <h3>為什麼會提到相片圖庫的存取？</h3>
+    <p>iOS 要求每個 App 說明為何要從「照片」讀取影片。SoundPull 只讀取您在那裡挑選的影片，絕不會掃描或上傳您的圖庫。</p>
 
-  <details>
-    <summary>SoundPull 如何運作？我的資料會去哪裡？</summary>
-    <p>SoundPull 會讀取您所選擇的影片，並使用 Apple 的 AVFoundation 框架，直接在您的 iPhone 上將其音訊軌擷取為 M4A（AAC）檔案。由於我們沒有任何伺服器，因此不會有任何內容被傳送至我們的伺服器。您的影片與擷取出的音訊絕不會離開您的裝置。</p>
-  </details>
+    <h2 id="make">轉換、合併與鈴聲</h2>
+    <h3>SoundPull 能做出哪些格式？</h3>
+    <p>M4A（AAC）、MP3、WAV，以及鈴聲用的 M4R。它也能匯出一份拿掉聲音的影片副本；畫面不會重新編碼，所以畫質維持不變。</p>
+    <h3>如何把多個檔案串成一個？</h3>
+    <p>點按首頁底部的<strong>合併音訊</strong>，加入兩個以上的影片或音訊檔，再用每個項目旁邊的 ↑ 與 ↓ 按鈕排好順序。沒有音訊或 SoundPull 讀不了的項目不會被加入，畫面會告訴您有幾個。合併出來的檔案採用在該畫面選擇的輸出格式。若首頁的「統一音量」已開啟，整個合併檔案會套用同一個音量調整。</p>
+    <h3>可以一次轉換很多檔案嗎？</h3>
+    <p>可以。同樣位於首頁底部的<strong>批次擷取</strong>，可以一次放入多部影片或多個音訊檔，並以同一種輸出格式依序處理。</p>
+    <h3>為什麼我的鈴聲做不出來？</h3>
+    <p>iPhone 的鈴聲最長只能 30 秒。單一檔案時，請先指定 30 秒以內的區段。合併時，合計長度必須在 30 秒以內；只要其中有一個項目 SoundPull 讀不出長度，就不會用這一組檔案製作鈴聲。iOS 不允許 App 自行安裝鈴聲：請把 M4R 檔分享到 GarageBand 或「檔案」，再從那裡設定。</p>
 
-  <details>
-    <summary>我可以使用哪些檔案？又會得到什麼輸出？</summary>
-    <p>您可以從相片圖庫或「檔案」App 中挑選影片，或從其他 App 的分享選單將影片傳送至 SoundPull。輸出一律為包含高品質 AAC 音訊的 M4A 檔案。部分沒有音訊軌、編碼不支援或受 DRM 保護的影片無法被處理。</p>
-  </details>
+    <h2 id="text">轉錄文字與字幕</h2>
+    <h3>用的是哪一種語言？</h3>
+    <p>用的是您 iPhone 所設定的語言，開始之前會顯示出來。辨識只在裝置上執行，所以只有當您的 iPhone 具備該語言的裝置端語音辨識時才能使用。不具備時，SoundPull 會告訴您無法使用，而不會把音訊送到任何地方。</p>
+    <h3>怎樣取得字幕？</h3>
+    <p>轉錄結束後，點按<strong>儲存字幕（SRT）</strong>，就能分享影片剪輯軟體和播放器都能載入的 .srt 檔。每一則字幕都保持簡短，並在句子結尾或停頓處斷開。只有在 iOS 提供了每個字詞的時間資訊時，才會出現這個按鈕；純文字則隨時都能透過<strong>儲存／分享文字</strong>取得。</p>
+    <h3>準確度如何？</h3>
+    <p>要看語言、錄音狀況以及背景噪音而定。較長的錄音會先分段辨識、再接在一起，所以在依據這些文字做任何事之前，請先從頭讀過一遍。</p>
 
-  <details>
-    <summary>SoundPull 為何要求存取相片圖庫？</summary>
-    <p>這是為了讓您能從圖庫中選擇影片以擷取其音訊。SoundPull 僅讀取您所挑選的特定影片，並於您的裝置上進行處理，絕不會上傳或掃描您的圖庫。</p>
-  </details>
+    <h2 id="messages">您可能會看到的訊息</h2>
+    <dl>
+      <dt>「這部影片沒有音訊軌。」</dt>
+      <dd>檔案裡沒有可供 SoundPull 取出的聲音。請在「照片」或「檔案」中播放看看，確認它是否有聲音。</dd>
+      <dt>「無法使用受保護的內容。請使用您擁有的影片。」</dt>
+      <dd>這個檔案受 DRM 保護，例如從商店購買或租借的電影、節目。SoundPull 不處理受保護的內容，也不會繞過防拷保護。</dd>
+      <dt>「可用儲存空間不足，無法擷取。」</dt>
+      <dd>SoundPull 在寫出結果之前會先確認空間。請騰出一些儲存空間後再試一次。</dd>
+      <dt>「這部 iPhone 不支援此語言的裝置端語音辨識。」</dt>
+      <dd>請參閱上方的〈<a href="#text">轉錄文字與字幕</a>〉。</dd>
+      <dt>「無法處理這個檔案。」</dt>
+      <dd>無法讀取該格式或編解碼器。如果常見類型的檔案也一再出現這個訊息，請附上本頁開頭列出的資訊來信告訴我們。</dd>
+    </dl>
 
-  <details>
-    <summary>它顯示「此影片沒有音訊軌」或「無法使用受保護的內容。」這是什麼意思？</summary>
-    <p>SoundPull 只能從確實包含音訊軌、且您有權使用的影片中擷取音訊。它無法處理受 DRM 保護的內容（例如從商店購買或租借的電影、節目，或串流媒體），亦不會繞過任何防拷保護。請使用您自行錄製或以其他方式擁有權利的影片。</p>
-  </details>
+    <h2 id="buying">購買、其他裝置與退款</h2>
+    <h3>App 裡還有別的東西要買嗎？</h3>
+    <p>沒有。SoundPull 是付一次費就包含所有功能的 App，沒有 App 內購買、沒有訂閱，也沒有廣告。</p>
+    <h3>要怎麼裝到另一部 iPhone 上？</h3>
+    <p>用購買 SoundPull 時的 Apple 帳號登入，再從 App Store 免費重新下載即可。App 裡沒有另外的回復步驟。</p>
+    <h3>要怎麼退款？</h3>
+    <p>App Store 購買項目能否退款，由 Apple 決定。您可以到 <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> 提出申請。</p>
+    <h3>SoundPull 為什麼請我評分？</h3>
+    <p>在第 3、第 15 與第 50 次成功擷取或合併之後，SoundPull 會請 iOS 顯示 Apple 標準的評分提示，實際會不會出現則由 iOS 決定。若想讓所有 App 都不再顯示這類提示，可以在「設定」App 的 App Store 中，關閉「App 內評分與評論」（In-App Ratings &amp; Reviews）。</p>
 
-  <details>
-    <summary>我需要在 App 內另外購買什麼嗎？</summary>
-    <p>不需要。SoundPull 是付費應用程式：您在 App Store 購買一次即可使用所有功能。本應用程式沒有應用程式內購買、沒有訂閱，也沒有廣告。</p>
-  </details>
+    <h2 id="data">您的檔案與資料</h2>
+    <h3>我的檔案會去哪裡？</h3>
+    <p>哪裡都不去，一直留在您的 iPhone 上。轉換、合併與轉錄全都在裝置上完成，SoundPull 也沒有可以接收資料的伺服器。工作完成後，點按<strong>儲存 / 分享</strong>，就能把結果存到「檔案」、用 AirDrop 傳送，或交給其他 App。您沒有儲存的結果，SoundPull 會把它刪除。</p>
+    <h3>如何移除 SoundPull 所儲存的一切？</h3>
+    <p>刪除 App 即可。iOS 會一併移除它的設定與所有工作檔案；您存放在其他地方的檔案則會留在原處。</p>
 
-  <details>
-    <summary>我該如何在新裝置上使用 SoundPull？</summary>
-    <p>請以購買時所用的同一個 Apple 帳號登入新裝置，然後從 App Store 重新下載——付費 App 可免額外費用重新下載。App 內沒有另外的「回復購買」步驟。</p>
-  </details>
+    <h2 id="docs">相關政策</h2>
+    <p><a href="./privacy-policy-zh-Hant.html">隱私權政策</a> · <a href="./terms-zh-Hant.html">使用條款</a></p>
+  </main>
 
-  <details>
-    <summary>我該如何申請退款？</summary>
-    <p>所有 App Store 購買的退款皆由 Apple 處理。請前往 <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a>。</p>
-  </details>
-
-  <details>
-    <summary>我該如何儲存或分享擷取出的音訊？</summary>
-    <p>擷取完成後，點按<strong>「儲存／分享」</strong>以開啟 iOS 分享選單。您可從中選擇<strong>「儲存到檔案」</strong>、以 AirDrop 傳送，或傳送至其他 App。</p>
-  </details>
-
-  <details>
-    <summary>我該如何刪除本應用程式所儲存的資料？</summary>
-    <p>請將本應用程式從您的裝置上解除安裝。iOS 會自動刪除所有本機儲存的資料。</p>
-  </details>
-
-  <h2>隱私與條款</h2>
-  <ul>
-    <li><a href="./privacy-policy-zh-Hant.html">隱私權政策</a></li>
-    <li><a href="./terms-zh-Hant.html">使用條款</a></li>
-  </ul>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
+  </footer>
 </body>
 </html>

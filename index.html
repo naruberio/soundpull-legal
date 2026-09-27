@@ -3,101 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SoundPull — Legal &amp; Support</title>
+  <meta name="color-scheme" content="light dark">
+  <title>SoundPull Policies and Help</title>
+  <!-- 言語の入口。KAN-874 で、言語ごとの見出し＋箇条書きから「言語 × 文書」の表に組み替えた -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1 { font-weight: 600; }
-    h2 { font-weight: 600; margin-top: 2rem; }
-    ul { padding-left: 1.2rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer { margin-top: 3rem; color: #666; font-size: 0.9rem; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    main { padding-block: 2rem 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 1.2rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .grid tbody th { font-weight: 600; white-space: nowrap; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <h1>SoundPull</h1>
-  <p>Legal documents and support resources for the <strong>SoundPull</strong> iOS app — extract the audio track from your own videos as M4A, fully on your device.</p>
+  <main>
+    <h1>SoundPull</h1>
+    <p>Policies and help for SoundPull, the iPhone app that pulls the sound out of videos, converts and merges audio files, and transcribes speech into text or subtitles, all on the device.</p>
+    <p>Pick your language and the document you need.</p>
 
-  <h2>English</h2>
-  <ul>
-    <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-    <li><a href="./terms.html">Terms of Use</a></li>
-    <li><a href="./support.html">Support</a></li>
-  </ul>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Language</th><th>Privacy Policy</th><th>Terms of Use</th><th>Support</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">English</th><td><a href="./privacy-policy.html">Privacy</a></td><td><a href="./terms.html">Terms</a></td><td><a href="./support.html">Help</a></td></tr>
+          <tr lang="ja"><th scope="row">日本語</th><td><a href="./privacy-policy-ja.html">プライバシー</a></td><td><a href="./terms-ja.html">利用規約</a></td><td><a href="./support-ja.html">サポート</a></td></tr>
+          <tr lang="zh-Hant"><th scope="row">繁體中文</th><td><a href="./privacy-policy-zh-Hant.html">隱私權</a></td><td><a href="./terms-zh-Hant.html">使用條款</a></td><td><a href="./support-zh-Hant.html">支援</a></td></tr>
+          <tr lang="es"><th scope="row">Español</th><td><a href="./privacy-policy-es.html">Privacidad</a></td><td><a href="./terms-es.html">Términos</a></td><td><a href="./support-es.html">Ayuda</a></td></tr>
+          <tr lang="pt-BR"><th scope="row">Português (BR)</th><td><a href="./privacy-policy-pt-BR.html">Privacidade</a></td><td><a href="./terms-pt-BR.html">Termos</a></td><td><a href="./support-pt-BR.html">Ajuda</a></td></tr>
+          <tr lang="de"><th scope="row">Deutsch</th><td><a href="./privacy-policy-de.html">Datenschutz</a></td><td><a href="./terms-de.html">Bedingungen</a></td><td><a href="./support-de.html">Hilfe</a></td></tr>
+          <tr lang="fr"><th scope="row">Français</th><td><a href="./privacy-policy-fr.html">Confidentialité</a></td><td><a href="./terms-fr.html">Conditions</a></td><td><a href="./support-fr.html">Aide</a></td></tr>
+          <tr lang="ko"><th scope="row">한국어</th><td><a href="./privacy-policy-ko.html">개인정보</a></td><td><a href="./terms-ko.html">이용약관</a></td><td><a href="./support-ko.html">도움말</a></td></tr>
+          <tr lang="id"><th scope="row">Bahasa Indonesia</th><td><a href="./privacy-policy-id.html">Privasi</a></td><td><a href="./terms-id.html">Ketentuan</a></td><td><a href="./support-id.html">Bantuan</a></td></tr>
+          <tr lang="vi"><th scope="row">Tiếng Việt</th><td><a href="./privacy-policy-vi.html">Quyền riêng tư</a></td><td><a href="./terms-vi.html">Điều khoản</a></td><td><a href="./support-vi.html">Trợ giúp</a></td></tr>
+          <tr lang="th"><th scope="row">ไทย</th><td><a href="./privacy-policy-th.html">ความเป็นส่วนตัว</a></td><td><a href="./terms-th.html">ข้อกำหนด</a></td><td><a href="./support-th.html">ความช่วยเหลือ</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
 
-  <h2>日本語</h2>
-  <ul>
-    <li><a href="./privacy-policy-ja.html">プライバシーポリシー</a></li>
-    <li><a href="./terms-ja.html">利用規約</a></li>
-    <li><a href="./support-ja.html">サポート</a></li>
-  </ul>
-
-  <h2>繁體中文</h2>
-  <ul>
-    <li><a href="./privacy-policy-zh-Hant.html">隱私權政策</a></li>
-    <li><a href="./terms-zh-Hant.html">使用條款</a></li>
-    <li><a href="./support-zh-Hant.html">支援</a></li>
-  </ul>
-
-  <h2>Español</h2>
-  <ul>
-    <li><a href="./privacy-policy-es.html">Política de Privacidad</a></li>
-    <li><a href="./terms-es.html">Términos de Uso</a></li>
-    <li><a href="./support-es.html">Soporte</a></li>
-  </ul>
-
-  <h2>Português do Brasil</h2>
-  <ul>
-    <li><a href="./privacy-policy-pt-BR.html">Política de Privacidade</a></li>
-    <li><a href="./terms-pt-BR.html">Termos de Uso</a></li>
-    <li><a href="./support-pt-BR.html">Suporte</a></li>
-  </ul>
-
-  <h2>Deutsch</h2>
-  <ul>
-    <li><a href="./privacy-policy-de.html">Datenschutzerklärung</a></li>
-    <li><a href="./terms-de.html">Nutzungsbedingungen</a></li>
-    <li><a href="./support-de.html">Support</a></li>
-  </ul>
-
-  <h2>Français</h2>
-  <ul>
-    <li><a href="./privacy-policy-fr.html">Politique de confidentialité</a></li>
-    <li><a href="./terms-fr.html">Conditions d'utilisation</a></li>
-    <li><a href="./support-fr.html">Assistance</a></li>
-  </ul>
-
-  <h2>한국어</h2>
-  <ul>
-    <li><a href="./privacy-policy-ko.html">개인정보 처리방침</a></li>
-    <li><a href="./terms-ko.html">이용약관</a></li>
-    <li><a href="./support-ko.html">지원</a></li>
-  </ul>
-
-  <h2>Bahasa Indonesia</h2>
-  <ul>
-    <li><a href="./privacy-policy-id.html">Kebijakan Privasi</a></li>
-    <li><a href="./terms-id.html">Ketentuan Penggunaan</a></li>
-    <li><a href="./support-id.html">Dukungan</a></li>
-  </ul>
-
-  <h2>Tiếng Việt</h2>
-  <ul>
-    <li><a href="./privacy-policy-vi.html">Chính sách quyền riêng tư</a></li>
-    <li><a href="./terms-vi.html">Điều khoản sử dụng</a></li>
-    <li><a href="./support-vi.html">Hỗ trợ</a></li>
-  </ul>
-
-  <h2>ไทย</h2>
-  <ul>
-    <li><a href="./privacy-policy-th.html">นโยบายความเป็นส่วนตัว</a></li>
-    <li><a href="./terms-th.html">ข้อกำหนดการใช้งาน</a></li>
-    <li><a href="./support-th.html">การสนับสนุน</a></li>
-  </ul>
-
-  <footer>
-    <p>Publisher: naruberio · Contact: <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
-    <p>Source: <a href="https://github.com/naruberio/soundpull-legal">github.com/naruberio/soundpull-legal</a></p>
+  <footer class="foot">
+    <p>Published by naruberio. Contact <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>. These pages are maintained in <a href="https://github.com/naruberio/soundpull-legal">naruberio/soundpull-legal</a> on GitHub.</p>
   </footer>
 </body>
 </html>

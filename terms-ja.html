@@ -3,107 +3,132 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>利用規約 — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>SoundPull 利用規約</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、アプリが実際にすること（端末内の変換・結合・文字起こし）から組み立て直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
-    th { background: #f6f8fa; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← ホーム</a></nav>
-  <div class="langbar">
-    <a href="./terms.html">English</a> ·
-    <strong>日本語</strong> ·
-    <a href="./terms-zh-Hant.html">繁體中文</a> ·
-    <a href="./terms-es.html">Español</a> ·
-    <a href="./terms-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./terms-de.html">Deutsch</a> ·
-    <a href="./terms-fr.html">Français</a> ·
-    <a href="./terms-ko.html">한국어</a> ·
-    <a href="./terms-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./terms-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./terms-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · 文書の一覧</a>
+    <nav class="langs" aria-label="言語">
+      <a href="./terms.html">English</a> ·
+      <strong aria-current="page">日本語</strong> ·
+      <a href="./terms-zh-Hant.html">繁體中文</a> ·
+      <a href="./terms-es.html">Español</a> ·
+      <a href="./terms-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./terms-de.html">Deutsch</a> ·
+      <a href="./terms-fr.html">Français</a> ·
+      <a href="./terms-ko.html">한국어</a> ·
+      <a href="./terms-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./terms-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./terms-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>利用規約 — SoundPull</h1>
-  <p><strong>発効日: 2026-09-01</strong></p>
-  <p>本利用規約（以下「本規約」）は、<strong>naruberio</strong>（以下「当社」）が提供するモバイルアプリケーション「SoundPull」（以下「本アプリ」）のご利用を規律するものです。本アプリをダウンロード、インストール、または使用することにより、お客様は本規約に同意したものとみなされます。</p>
+  <main>
+    <h1>SoundPull 利用規約</h1>
+    <p class="stamp">2026-09-27 施行 · SoundPull 1.4 に対応</p>
+    <p>この規約は、SoundPull の開発・配信元である naruberio（以下「私たち」）とあなたとのあいだで、アプリをどう使えるかを定める取り決めです。SoundPull をインストールし、開き、または使った時点で、あなたはこの規約を受け入れたことになります。受け入れない場合は、SoundPull を使わないでください。</p>
+    <p>この規約を受け入れられるのは、お住まいの地域の法律のもとで、拘束力のある契約を結べる年齢に達している方に限ります。あわせて、SoundPull を入手した App Store の規約にも従ってください。</p>
 
-  <h2>1. ライセンス — Apple 標準 EULA</h2>
-  <p>本アプリのご利用は、お客様に対して販売されるものではなく、<strong>Apple 標準のライセンス対象アプリケーションエンドユーザー使用許諾契約</strong>（以下「Apple EULA」）に基づきライセンスされるものです。Apple EULA は以下で入手できます。</p>
-  <p><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
-  <p>Apple EULA は、参照により本規約に組み込まれます。本規約と Apple EULA が矛盾する場合、<strong>Apple EULA が対象とする事項に関しては</strong> Apple EULA が優先し、その他のすべての事項については本規約が優先します。</p>
+    <h2 id="service">SoundPull がすること、代金で得られるもの</h2>
+    <p>SoundPull はすべて iPhone の中で動きます。動画の音を取り出す、音声ファイルを変換する、いくつかの動画や音声ファイルの音を 1 本の音声ファイルにつなぐ、音を取り除いた動画を書き出す、録音された話し声をテキストや SRT 字幕にする、といったことができます。音声は M4A・MP3・WAV・M4R（着信音）のファイルとして保存され、処理したものが私たちにアップロードされることはありません。ファイルが具体的にどう扱われるかは<a href="./privacy-policy-ja.html">プライバシーポリシー</a>で説明しています。</p>
+    <ul>
+      <li><strong>一度の支払いで全機能。</strong>SoundPull は有料アプリで、App Store で一度買えばすべての機能を使えます。アプリ内課金・サブスクリプション・広告はありません。</li>
+      <li><strong>支払いの処理は Apple。</strong>購入は Apple Inc. が App Store を通じて扱い、価格は私たちが選んだ価格帯をもとに、あなたの国や地域の通貨で表示されます。</li>
+      <li><strong>返金を決めるのは Apple。</strong>私たちは代金を直接受け取らないため、私たちの手で返金することはできません。返金を求めるときは <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> から申し込んでください。Apple が自らの方針に沿って判断します。</li>
+      <li><strong>ほかの端末。</strong>購入に使った Apple アカウントでサインインしている端末なら、追加の費用なしで SoundPull をもう一度ダウンロードできます。</li>
+    </ul>
 
-  <h2>2. 利用資格</h2>
-  <p>お客様は、お客様の管轄区域の法令に基づき拘束力のある契約を締結するために必要な最低年齢以上である必要があり、また本アプリを取得した App Store の規約を遵守する必要があります。</p>
+    <h2 id="media">使う権利のある素材にだけ使ってください</h2>
+    <p>SoundPull は、あなた自身の録音や、あなたが使うことを認められている素材のためのアプリです。自分で撮った動画、自分で録ったボイスメモ、編集の許諾を受けた音声などがこれにあたります。SoundPull で何かを開く、変換する、結合する、文字起こしするたびに、あなたは、そのために必要な権利を、関わるすべての素材と作成するファイルについて持っていることを表明し、保証します。</p>
+    <p>次の目的に SoundPull を使ってはいけません。</p>
+    <ul>
+      <li>DRM・暗号化その他のコピー防止を回避すること、または回避を試みること</li>
+      <li>購入・レンタル・ストリーミングした作品など、保護された素材のうち複製する権利を持たないものから、音声を取り出し、変換し、または保存すること</li>
+      <li>他人の著作権・商標その他の知的財産権、またはプライバシーを侵害すること（文字起こしや共有をする録音に声が入っている人のプライバシーを含みます）</li>
+    </ul>
+    <p>SoundPull は DRM で保護されたコンテンツの処理を拒み、コピー防止を外したり回避したりする手段を持ちません。アプリの使い方が法律と他人の権利を守っているかを確かめる責任は、あなただけが負います。</p>
 
-  <h2>3. 本アプリの機能</h2>
-  <p>SoundPull は、お客様が提供する動画から音声トラックを抽出し、音声ファイル（M4A、MP3、WAV、または着信音用の M4R）として保存します。また、音声を取り除いた動画のコピーを書き出すこと、および抽出した音声を端末内の音声認識でテキストに起こすこともできます。すべての処理は、Apple の AVFoundation および Speech フレームワークを使用してお客様のデバイス上で行われます。本アプリは、お客様の動画、音声、文字起こしのテキストをいかなるサーバーにもアップロードしません。</p>
+    <h2 id="yours">あなたのファイルはあなたのもの</h2>
+    <p>SoundPull に持ち込んだ素材と、それをもとに作ったもの（音声ファイル、結合したファイル、音のない動画、文字起こし、字幕。以下「あなたのコンテンツ」）の所有権は、すべてあなたに残ります。あなたのコンテンツは端末の中で処理されて私たちには届かないので、私たちはそれを見ることができず、いかなる権利も主張しません。</p>
+    <p>あなたのコンテンツについての責任はあなたにあり、残しておきたいもののバックアップを取ることもそれに含まれます。SoundPull はプライバシーポリシーに書いたとおり自分の作業用コピーを削除し、アプリを削除すれば端末に保存されていたものも消えます。</p>
 
-  <h2>4. お客様のコンテンツに関する権利 — 利用する権利を有している必要があります</h2>
-  <p>SoundPull は、お客様が所有する、またはその他の方法で使用を許可されている動画コンテンツ（例: お客様自身が撮影した動画）にのみ使用することを意図しています。本アプリを使用することにより、お客様は、処理する動画およびそこから抽出する音声に対して必要なすべての権利を有していることを表明し、保証します。</p>
-  <p>お客様は、以下の目的で本アプリを使用しては<strong>なりません</strong>。</p>
-  <ul>
-    <li>デジタル著作権管理（DRM）、暗号化、またはコピープロテクションを回避、無効化、もしくは迂回すること。</li>
-    <li>DRM で保護された、購入した、レンタルした、またはストリーミングされたメディアを含め、お客様が所有しない、または使用を許可されていないコンテンツから音声を抽出、複製、もしくは保存すること。</li>
-    <li>いかなる個人または企業の著作権、商標、その他の知的財産権またはプライバシー権を侵害すること。</li>
-  </ul>
-  <p>これを支援するため、本アプリは <strong>DRM で保護されたコンテンツの処理を拒否し</strong>、コンテンツ保護を解除または迂回する手段を一切提供しません。本アプリのご利用が適用法令および第三者の権利に準拠していることを確保する責任は、お客様が単独で負います。</p>
+    <h2 id="conduct">してはいけないこと</h2>
+    <ul>
+      <li>適用される法律がこの制限にかかわらず明示的に認める範囲を超えて、SoundPull を逆コンパイル・逆アセンブルその他の方法で解析すること、またはソースコードを割り出そうとすること</li>
+      <li>違法なことに SoundPull を使うこと、または「<a href="#media">使う権利のある素材にだけ使ってください</a>」の項に反する使い方をすること</li>
+      <li>SoundPull の動作を妨げること、または乱すこと</li>
+    </ul>
 
-  <h2>5. お客様のコンテンツ</h2>
-  <p>お客様は、提供する動画および抽出する音声（以下「お客様のコンテンツ」）の完全な所有権を保持します。すべての処理はお客様のデバイス上でローカルに行われ、当社には何も送信されないため、当社はお客様のコンテンツにアクセスできず、これに対していかなる権利も主張しません。お客様のコンテンツ、およびそれを保存しておきたい場合のバックアップについては、お客様が単独で責任を負います。</p>
+    <h2 id="apple">Apple の標準ライセンス</h2>
+    <p>SoundPull は売り渡されるのではなく、使用を許諾されるものです。その許諾は、Apple の標準エンドユーザ使用許諾契約（Licensed Application End User License Agreement。以下「Apple EULA」）によります。Apple EULA は <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">apple.com/legal/internet-services/itunes/dev/stdeula</a> で公開されており、この規約の一部を成します。両者が食い違うときは、Apple EULA が扱っている事項については Apple EULA が、それ以外のすべての事項についてはこの規約が優先します。</p>
 
-  <h2>6. 購入</h2>
-  <p>本アプリは<strong>有料アプリ</strong>です。App Store で一度ご購入いただければ、すべての機能をご利用いただけます。<strong>アプリ内購入</strong>および<strong>サブスクリプション</strong>はありません。本アプリのご購入について、以下のとおりです。</p>
-  <ul>
-    <li>App Store を通じて <strong>Apple Inc.</strong> により処理されます。</li>
-    <li>当社による<strong>返金は行いません</strong>。返金のご請求は <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a> より Apple へお申し出ください。</li>
-    <li>同一の Apple アカウントでサインインしているデバイスであれば、追加の料金なく再度ダウンロードできます。</li>
-  </ul>
-  <p>価格は購入時にお客様の現地通貨で表示され、当社が選択した価格帯に基づいて Apple が設定します。</p>
+    <h2 id="warranty">保証しないこと</h2>
+    <p class="loud">SoundPull は「現状のまま」かつ「提供できる範囲で」提供されます。法律が許す最大限の範囲で、私たちは明示・黙示を問わずいかなる保証もせず、とりわけ商品性、特定の目的への適合性、第三者の権利を侵害しないことについての黙示の保証をはっきりと否認します。</p>
+    <p>具体的には、SoundPull が中断やエラーなく動くこと、あらゆる動画・音声ファイル・コーデックを開けること、文字起こしや字幕の時刻が正確であること、あなたの言語で端末内認識が使えること、不具合が直されることを、私たちは約束しません。</p>
 
-  <h2>7. 許容される利用</h2>
-  <p>お客様は、以下の行為を行わないことに同意します。</p>
-  <ul>
-    <li>適用法令で認められる範囲を除き、本アプリをリバースエンジニアリング、逆コンパイル、またはソースコードの抽出を試みること。</li>
-    <li>本アプリを違法な目的のために、または第 4 章に違反して使用すること。</li>
-    <li>本アプリの動作を妨害または混乱させること。</li>
-  </ul>
+    <h2 id="liability">責任の範囲</h2>
+    <p class="loud">適用される法律が許す限り、naruberio も Apple も、SoundPull の利用から生じ、またはそれに関連する間接的・付随的・特別・結果的・懲罰的な損害（録音その他のデータを失ったことによる損害を含みます）について、種類を問わず責任を負いません。</p>
+    <p>SoundPull に関するすべての請求を合わせても、私たちがあなたに負う責任の総額は、請求をする前の 12 か月間にあなたがアプリの代金として支払った額（支払っていなければゼロ）を上限とします。</p>
 
-  <h2>8. 保証の否認</h2>
-  <p>本アプリは「現状有姿」かつ「提供可能な範囲」で提供され、明示または黙示を問わず、いかなる種類の保証もありません。これには、商品性、特定目的への適合性、および非侵害に関する黙示の保証が含まれますが、これらに限られません。当社は、本アプリが中断されないこと、エラーがないこと、あらゆる動画またはコーデックが処理できること、または不具合が修正されることを保証しません。</p>
+    <h2 id="ending">利用をやめるとき、アプリが変わるとき</h2>
+    <p>あなたは、SoundPull を削除することで、いつでも好きなときに利用をやめられます。私たちは、SoundPull やその機能を、いつでも予告なく変更し、一時的に止め、または提供をやめることがあります。利用が終わったあとも、保証・責任・準拠法の項など、性質上その後も続くべき定めは引き続き適用されます。</p>
 
-  <h2>9. 責任の制限</h2>
-  <p>適用法令で認められる最大限の範囲において、当社または Apple は、お客様の本アプリの使用に起因または関連して生じる、データの損失を含むいかなる間接的、付随的、特別、結果的、または懲罰的損害についても、いかなる場合も責任を負いません。</p>
-  <p>本アプリに起因または関連して生じる当社の累積総責任は、請求に先立つ 12 か月間にお客様が本アプリに対して支払った金額（もしあれば）を超えないものとします。</p>
+    <h2 id="revisions">この規約を改めるとき</h2>
+    <p>私たちはこの規約を改めることがあります。重要な改定のたびにページ上部の日付が変わり、最新の本文はいつでも <a href="https://naruberio.github.io/soundpull-legal/terms-ja.html">naruberio.github.io/soundpull-legal/terms-ja.html</a> にあります。改定が効力を持ったあとに SoundPull を使った場合、改定後の規約を受け入れたものとします。</p>
 
-  <h2>10. データとプライバシー</h2>
-  <p>本アプリは一切の個人データを収集しません。詳細は<a href="./privacy-policy-ja.html">プライバシーポリシー</a>をご参照ください。お客様が本アプリで作成したコンテンツ、およびそれが重要である場合のバックアップについては、お客様が責任を負います。本アプリをアンインストールすると、ローカルに保存されたすべてのデータが削除されます。</p>
+    <h2 id="law">準拠法と裁判所</h2>
+    <p>この規約には日本法が適用され、法の抵触に関する日本の規則は適用しません。この規約または SoundPull から生じ、またはこれらに関連する紛争は、日本の福岡市にある裁判所が専属的に管轄します。ただし、あなたに適用される消費者保護法がこのような合意を認めない場合は、この限りではありません。</p>
 
-  <h2>11. 終了</h2>
-  <p>お客様はいつでも本アプリの使用を停止し、アンインストールすることができます。当社は、予告なくいつでも本アプリを中止、停止、または変更することがあります。本規約のうち、その性質上終了後も存続すべき条項（例: 保証の否認、責任の制限）については、引き続き効力を有します。</p>
+    <h2 id="contact">お問い合わせ</h2>
+    <p>この規約についてのご質問は <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> へお送りください。</p>
+  </main>
 
-  <h2>12. 本規約の変更</h2>
-  <p>当社は本規約を更新することがあります。重要な変更は、上記の「発効日」を更新することで反映されます。変更後も本アプリを継続してご利用になることは、改訂後の本規約への同意を示すものとみなされます。</p>
-
-  <h2>13. 準拠法</h2>
-  <p>本規約は、抵触法の規定を除き、<strong>日本</strong>の法律に準拠します。本規約または本アプリに起因または関連するあらゆる紛争は、適用される消費者保護法令で禁止される場合を除き、<strong>日本国福岡市</strong>の裁判所を専属的管轄として解決されるものとします。</p>
-
-  <h2>14. お問い合わせ</h2>
-  <table>
-    <tbody>
-      <tr><td>提供者</td><td>naruberio</td></tr>
-      <tr><td>連絡先メールアドレス</td><td><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></td></tr>
-      <tr><td>正規 URL</td><td><a href="https://naruberio.github.io/soundpull-legal/terms-ja.html">https://naruberio.github.io/soundpull-legal/terms-ja.html</a></td></tr>
-    </tbody>
-  </table>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> · <a href="./privacy-policy-ja.html">プライバシーポリシー</a> · <a href="./support-ja.html">サポート</a></p>
+  </footer>
 </body>
 </html>

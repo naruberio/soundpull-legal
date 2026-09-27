@@ -3,93 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Suporte — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Suporte do SoundPull</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    details { margin: 0.5rem 0; }
-    summary { cursor: pointer; font-weight: 500; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← Início</a></nav>
-  <div class="langbar">
-    <a href="./support.html">English</a> ·
-    <a href="./support-ja.html">日本語</a> ·
-    <a href="./support-zh-Hant.html">繁體中文</a> ·
-    <a href="./support-es.html">Español</a> ·
-    <strong>Português&nbsp;(BR)</strong> ·
-    <a href="./support-de.html">Deutsch</a> ·
-    <a href="./support-fr.html">Français</a> ·
-    <a href="./support-ko.html">한국어</a> ·
-    <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./support-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · todos os documentos</a>
+    <nav class="langs" aria-label="Idioma">
+      <a href="./support.html">English</a> ·
+      <a href="./support-ja.html">日本語</a> ·
+      <a href="./support-zh-Hant.html">繁體中文</a> ·
+      <a href="./support-es.html">Español</a> ·
+      <strong aria-current="page">Português&nbsp;(BR)</strong> ·
+      <a href="./support-de.html">Deutsch</a> ·
+      <a href="./support-fr.html">Français</a> ·
+      <a href="./support-ko.html">한국어</a> ·
+      <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./support-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>Suporte — SoundPull</h1>
+  <main>
+    <h1>Suporte do SoundPull</h1>
+    <p class="stamp">Atualizado em 2026-09-27 para o SoundPull 1.4 · funciona no iPhone com iOS 16.4 ou posterior</p>
 
-  <h2>Contato</h2>
-  <p>Para dúvidas, relatos de erros ou solicitações de recursos, envie um e-mail para:</p>
-  <p><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
-  <p>Procuramos responder dentro de 3 dias úteis. O SoundPull requer iOS 16.4 ou posterior e funciona no iPhone.</p>
+    <h2 id="write">Fale conosco</h2>
+    <p>Mande um e-mail para <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> com um problema, uma pergunta ou uma ideia. Nossa meta é responder em até três dias úteis.</p>
+    <p>Se algo não funcionou, estas informações nos ajudam a reproduzir o problema:</p>
+    <ul>
+      <li>a versão do SoundPull (aparece na tela Ajustes do app) e a versão do iOS;</li>
+      <li>o que você abriu, por exemplo “um vídeo MOV do Fotos” ou “um MP3 do Arquivos”, e o formato de saída que escolheu;</li>
+      <li>a etapa em que deu errado e a mensagem exata que apareceu na tela.</li>
+    </ul>
+    <p>Não é preciso anexar o próprio arquivo; se uma amostra ajudar, nós pediremos. O SoundPull nunca nos envia nada por conta própria, então o seu e-mail é a única forma de ficarmos sabendo de um problema.</p>
 
-  <h2>Perguntas Frequentes</h2>
+    <h2 id="in">Como levar arquivos para o SoundPull</h2>
+    <h3>De onde posso abrir arquivos?</h3>
+    <p><strong>Escolher vídeo</strong> abre o seletor do Fotos, que mostra apenas vídeos. <strong>Dos Arquivos</strong> aceita tanto vídeos quanto arquivos de áudio. Você também pode mandar um arquivo para o SoundPull pelo menu de compartilhamento de outro app, inclusive o Gravador. Se você compartilhar vários arquivos de uma vez, o SoundPull pega o primeiro. Um arquivo compartilhado enquanto o SoundPull está ocupado fica aguardando até o app ficar livre, e a tela mostra como ele será iniciado; se outros chegarem nesse meio-tempo, só o mais recente fica na espera.</p>
+    <h3>Quais arquivos de áudio posso converter?</h3>
+    <p>M4A, MP3, WAV, AAC, CAF, AIF/AIFF e FLAC. Um arquivo de áudio passa pelas mesmas etapas que um vídeo: dá para recortar um trecho, igualar o volume, transcrevê-lo e salvar o resultado em qualquer formato de saída. Um vídeo sem som precisa de imagem, por isso, enquanto essa opção estiver ativada, só é possível escolher vídeos.</p>
+    <h3>Por que aparece o acesso à fototeca?</h3>
+    <p>O iOS exige que todo app explique por que lê vídeos do Fotos. O SoundPull lê apenas o vídeo que você escolhe ali e nunca vasculha nem envia a sua fototeca.</p>
 
-  <details>
-    <summary>Como o SoundPull funciona e para onde vão os meus dados?</summary>
-    <p>O SoundPull lê o vídeo que você escolhe e extrai sua trilha de áudio como um arquivo M4A (AAC) diretamente no seu iPhone, usando o framework AVFoundation da Apple. Nada é enviado para os nossos servidores, porque não temos nenhum. Seus vídeos e o áudio extraído nunca saem do seu dispositivo.</p>
-  </details>
+    <h2 id="make">Conversão, junção e toques</h2>
+    <h3>Quais formatos o SoundPull cria?</h3>
+    <p>M4A (AAC), MP3, WAV e, para toques, M4R. Ele também pode exportar uma cópia do vídeo sem o som; a imagem não é recodificada, então a qualidade dela não muda.</p>
+    <h3>Como junto vários arquivos em um só?</h3>
+    <p>Toque em <strong>Juntar áudios</strong>, na parte de baixo da tela inicial, adicione dois ou mais vídeos ou arquivos de áudio e coloque-os na ordem certa com os botões ↑ e ↓ ao lado de cada item. Itens sem áudio, ou que o SoundPull não consegue ler, ficam de fora, e a tela informa quantos foram. O arquivo unido sai no formato de saída escolhido nessa mesma tela. Se “Igualar o volume” estiver ativado na tela inicial, um único ajuste de volume é aplicado ao arquivo unido inteiro.</p>
+    <h3>Dá para converter muitos arquivos de uma vez?</h3>
+    <p>Sim. A <strong>Extração em lote</strong>, também na parte de baixo da tela inicial, recebe vários vídeos ou arquivos de áudio e os processa um depois do outro, todos no mesmo formato de saída.</p>
+    <h3>Por que o meu toque foi recusado?</h3>
+    <p>Um toque de iPhone pode ter no máximo 30 segundos. Para um arquivo só, recorte antes um trecho de 30 segundos ou menos. Numa junção, a duração somada precisa ficar dentro dos 30 segundos, e, se o SoundPull não conseguir ler a duração de algum dos itens, ele não gera um toque a partir desse conjunto. O iOS não deixa os apps instalarem toques sozinhos: compartilhe o arquivo M4R com o GarageBand ou com o Arquivos e defina o toque a partir de lá.</p>
 
-  <details>
-    <summary>Quais arquivos posso usar e o que recebo de saída?</summary>
-    <p>Você pode escolher um vídeo da sua biblioteca de fotos ou do aplicativo Arquivos, ou enviar um para o SoundPull a partir da folha de compartilhamento de outro aplicativo. A saída é sempre um arquivo M4A contendo áudio AAC de alta qualidade. Alguns vídeos sem trilha de áudio, com codecs não compatíveis ou proteção DRM não podem ser processados.</p>
-  </details>
+    <h2 id="text">Transcrições e legendas</h2>
+    <h3>Qual idioma é usado?</h3>
+    <p>O idioma configurado no seu iPhone; ele aparece antes de você começar. O reconhecimento acontece só no aparelho, então só funciona quando o seu iPhone tem reconhecimento de fala no dispositivo para esse idioma. Quando não tem, o SoundPull avisa que o recurso não está disponível, em vez de mandar o áudio para qualquer lugar.</p>
+    <h3>Como obtenho legendas?</h3>
+    <p>Quando uma transcrição termina, toque em <strong>Salvar legendas (SRT)</strong> para compartilhar um arquivo .srt que editores e players de vídeo conseguem carregar. Cada legenda é mantida curta e quebra no fim de uma frase ou numa pausa. O botão só aparece quando o iOS forneceu os tempos das palavras; o texto simples fica sempre disponível em <strong>Salvar / Compartilhar texto</strong>.</p>
+    <h3>Qual é a precisão?</h3>
+    <p>Depende do idioma, da gravação e do ruído de fundo. Gravações longas são reconhecidas em partes que depois são unidas, por isso leia o texto inteiro antes de confiar nele.</p>
 
-  <details>
-    <summary>Por que o SoundPull pede acesso à biblioteca de fotos?</summary>
-    <p>Para que você possa escolher um vídeo da sua biblioteca para extrair o áudio. O SoundPull lê apenas o vídeo específico que você seleciona, processa-o no seu dispositivo e nunca envia nem escaneia sua biblioteca.</p>
-  </details>
+    <h2 id="messages">Mensagens que podem aparecer</h2>
+    <dl>
+      <dt>“Este vídeo não tem faixa de áudio.”</dt>
+      <dd>O arquivo não contém som para o SoundPull extrair. Reproduza-o no Fotos ou no Arquivos para verificar se há algum.</dd>
+      <dt>“Não é possível usar conteúdo protegido. Use vídeos que sejam seus.”</dt>
+      <dd>O arquivo tem proteção DRM, como um filme ou uma série comprados ou alugados em uma loja. O SoundPull não processa conteúdo protegido e não contorna proteções contra cópia.</dd>
+      <dt>“Espaço livre insuficiente para extrair.”</dt>
+      <dd>O SoundPull confere se há espaço antes de gravar o resultado. Libere um pouco de armazenamento e tente de novo.</dd>
+      <dt>“O reconhecimento de fala no dispositivo não está disponível para este idioma neste iPhone.”</dt>
+      <dd>Veja <a href="#text">Transcrições e legendas</a>, mais acima.</dd>
+      <dt>“Não é possível processar este arquivo.”</dt>
+      <dd>Não foi possível ler o formato ou o codec. Se isso se repetir com um tipo de arquivo comum, escreva para nós com as informações listadas no começo desta página.</dd>
+    </dl>
 
-  <details>
-    <summary>Aparece "Este vídeo não tem trilha de áudio" ou "Não é possível usar conteúdo protegido." O que isso significa?</summary>
-    <p>O SoundPull só pode extrair áudio de vídeos que realmente contêm uma trilha de áudio e que você tem o direito de usar. Ele não pode processar conteúdo protegido por DRM (por exemplo, filmes ou programas comprados ou alugados em uma loja, ou mídia transmitida em streaming), e não burla qualquer proteção contra cópia. Use vídeos que você mesmo gravou ou sobre os quais detém os direitos.</p>
-  </details>
+    <h2 id="buying">Compra, outros aparelhos e reembolsos</h2>
+    <h3>Existe mais alguma coisa para comprar dentro do app?</h3>
+    <p>Não. O SoundPull é um app pago com uma única compra e todos os recursos incluídos. Ele não tem compras dentro do app, assinaturas nem anúncios.</p>
+    <h3>Como instalo o app em outro iPhone?</h3>
+    <p>Entre com a Conta Apple usada para comprar o SoundPull e baixe-o de novo na App Store, sem custo. O app não tem uma etapa separada para restaurar a compra.</p>
+    <h3>Como peço reembolso?</h3>
+    <p>Quem decide sobre reembolsos de compras na App Store é a Apple. Você pode fazer o pedido em <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+    <h3>Por que o SoundPull me pediu uma avaliação?</h3>
+    <p>Depois da 3ª, da 15ª e da 50ª extração ou junção concluída, o SoundPull pede ao iOS que mostre o aviso padrão de avaliação da Apple, e é o iOS que decide se ele realmente aparece. Para desativar esses avisos em todos os apps, abra o app Ajustes, entre em App Store e desligue a opção de avaliações dentro dos apps (em inglês, “In-App Ratings &amp; Reviews”).</p>
 
-  <details>
-    <summary>Preciso comprar algo mais dentro do aplicativo?</summary>
-    <p>Não. O SoundPull é um aplicativo pago: você o compra uma única vez na App Store e todos os recursos estão incluídos. Não há compras dentro do aplicativo, nem assinaturas, nem anúncios.</p>
-  </details>
+    <h2 id="data">Seus arquivos e dados</h2>
+    <h3>Para onde vão os meus arquivos?</h3>
+    <p>Eles ficam no seu iPhone. Converter, juntar e transcrever acontece tudo no aparelho, e o SoundPull não tem servidor algum para onde mandar qualquer coisa. Ao fim de uma tarefa, toque em <strong>Salvar / Compartilhar</strong> para salvar o resultado no Arquivos, enviá-lo por AirDrop ou mandá-lo para outro app. Os resultados que você não salva são apagados pelo SoundPull.</p>
+    <h3>Como removo tudo o que o SoundPull guardou?</h3>
+    <p>Apague o app. O iOS remove junto os ajustes e os arquivos de trabalho dele, enquanto os arquivos que você salvou em outro lugar continuam onde você os deixou.</p>
 
-  <details>
-    <summary>Como faço para ter o SoundPull em um novo dispositivo?</summary>
-    <p>Conecte-se no novo dispositivo com a mesma Conta Apple que usou para comprar o SoundPull e baixe o aplicativo novamente na App Store — aplicativos pagos podem ser baixados de novo sem custo adicional. Não existe uma etapa separada de "Restaurar compra" dentro do aplicativo.</p>
-  </details>
+    <h2 id="docs">Políticas</h2>
+    <p><a href="./privacy-policy-pt-BR.html">Política de Privacidade</a> · <a href="./terms-pt-BR.html">Termos de Uso</a></p>
+  </main>
 
-  <details>
-    <summary>Como solicito um reembolso?</summary>
-    <p>A Apple gerencia todos os reembolsos de compras na App Store. Acesse <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a>.</p>
-  </details>
-
-  <details>
-    <summary>Como salvo ou compartilho o áudio extraído?</summary>
-    <p>Após a extração, toque em <strong>Salvar / Compartilhar</strong> para abrir a folha de compartilhamento do iOS. A partir daí, você pode escolher <strong>Salvar em Arquivos</strong>, enviar por AirDrop ou enviar para outro aplicativo.</p>
-  </details>
-
-  <details>
-    <summary>Como excluo os dados armazenados pelo Aplicativo?</summary>
-    <p>Desinstale o Aplicativo do seu dispositivo. O iOS excluirá automaticamente todos os dados armazenados localmente.</p>
-  </details>
-
-  <h2>Privacidade e Termos</h2>
-  <ul>
-    <li><a href="./privacy-policy-pt-BR.html">Política de Privacidade</a></li>
-    <li><a href="./terms-pt-BR.html">Termos de Uso</a></li>
-  </ul>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
+  </footer>
 </body>
 </html>
