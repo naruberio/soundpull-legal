@@ -3,93 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dukungan — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Dukungan SoundPull</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    details { margin: 0.5rem 0; }
-    summary { cursor: pointer; font-weight: 500; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← Beranda</a></nav>
-  <div class="langbar">
-    <a href="./support.html">English</a> ·
-    <a href="./support-ja.html">日本語</a> ·
-    <a href="./support-zh-Hant.html">繁體中文</a> ·
-    <a href="./support-es.html">Español</a> ·
-    <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./support-de.html">Deutsch</a> ·
-    <a href="./support-fr.html">Français</a> ·
-    <a href="./support-ko.html">한국어</a> ·
-    <strong>Bahasa&nbsp;Indonesia</strong> ·
-    <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./support-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · semua dokumen</a>
+    <nav class="langs" aria-label="Bahasa">
+      <a href="./support.html">English</a> ·
+      <a href="./support-ja.html">日本語</a> ·
+      <a href="./support-zh-Hant.html">繁體中文</a> ·
+      <a href="./support-es.html">Español</a> ·
+      <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./support-de.html">Deutsch</a> ·
+      <a href="./support-fr.html">Français</a> ·
+      <a href="./support-ko.html">한국어</a> ·
+      <strong aria-current="page">Bahasa&nbsp;Indonesia</strong> ·
+      <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./support-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>Dukungan — SoundPull</h1>
+  <main>
+    <h1>Dukungan SoundPull</h1>
+    <p class="stamp">Diperbarui 2026-10-02 untuk SoundPull 1.4 · berjalan di iPhone dengan iOS 16.4 atau yang lebih baru</p>
 
-  <h2>Kontak</h2>
-  <p>Untuk pertanyaan, laporan bug, atau permintaan fitur, silakan kirim email ke:</p>
-  <p><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
-  <p>Kami berupaya merespons dalam waktu 3 hari kerja. SoundPull memerlukan iOS 16.4 atau yang lebih baru dan berjalan di iPhone.</p>
+    <h2 id="write">Hubungi kami</h2>
+    <p>Kirim email ke <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> jika Anda menemui masalah, punya pertanyaan, atau punya ide. Kami berusaha membalas dalam tiga hari kerja.</p>
+    <p>Jika ada yang tidak berjalan, keterangan berikut membantu kami mengulang masalahnya:</p>
+    <ul>
+      <li>versi SoundPull (tertera di layar Pengaturan aplikasi) dan versi iOS Anda;</li>
+      <li>apa yang Anda buka, misalnya "video MOV dari Foto" atau "MP3 dari Files", serta format keluaran yang Anda pilih;</li>
+      <li>langkah saat masalah terjadi, dan pesan persis yang tampil di layar.</li>
+    </ul>
+    <p>Anda tidak perlu melampirkan file-nya; jika contoh file akan membantu, kami akan memintanya. SoundPull tidak mengirim apa pun kepada kami dengan sendirinya, jadi email dari Anda adalah cara paling pasti untuk memberi tahu kami tentang suatu masalah.</p>
 
-  <h2>FAQ</h2>
+    <h2 id="in">Memasukkan file ke SoundPull</h2>
+    <h3>Dari mana saja saya bisa membuka file?</h3>
+    <p><strong>Pilih Video</strong> membuka pemilih Foto, yang hanya menampilkan video. <strong>Dari Files</strong> menerima video maupun file audio. Anda juga bisa mengirim file ke SoundPull dari lembar berbagi aplikasi lain, termasuk Memo Suara. File yang dibagikan saat SoundPull sedang sibuk akan ditahan sampai aplikasi luang, dan layar memberi tahu bagaimana file itu akan dimulai; jika ada file lain yang datang sementara itu, hanya yang terbaru yang menunggu.</p>
+    <h3>File audio apa saja yang bisa dikonversi?</h3>
+    <p>M4A, MP3, WAV, AAC, CAF, AIF/AIFF, dan FLAC. File audio melewati langkah yang sama dengan video: Anda bisa memotong satu bagian, menyamakan volume, mentranskripsikannya, dan menyimpan hasilnya dalam format keluaran mana pun. Video tanpa suara memerlukan gambar, jadi selama opsi itu aktif, hanya video yang dapat dipilih.</p>
+    <h3>Mengapa akses perpustakaan foto disebut?</h3>
+    <p>iOS mewajibkan setiap aplikasi menjelaskan alasannya membaca video dari Foto. SoundPull hanya membaca video yang Anda pilih di sana, dan tidak pernah memindai atau mengunggah perpustakaan Anda.</p>
 
-  <details>
-    <summary>Bagaimana cara kerja SoundPull, dan ke mana data saya disimpan?</summary>
-    <p>SoundPull membaca video yang Anda pilih dan mengekstrak trek audionya sebagai berkas M4A (AAC) langsung di iPhone Anda, menggunakan kerangka kerja AVFoundation dari Apple. Tidak ada yang dikirim ke server kami karena kami tidak memilikinya. Video Anda dan audio yang diekstrak tidak pernah meninggalkan perangkat Anda.</p>
-  </details>
+    <h2 id="make">Konversi, penggabungan, dan nada dering</h2>
+    <h3>Format apa saja yang bisa dibuat SoundPull?</h3>
+    <p>M4A (AAC), MP3, WAV, dan M4R untuk nada dering. SoundPull juga dapat mengekspor salinan video yang suaranya dilepas; gambarnya tidak dikodekan ulang, sehingga kualitasnya tidak berubah.</p>
+    <h3>Bagaimana cara menyambung beberapa file menjadi satu?</h3>
+    <p>Ketuk <strong>Gabungkan audio</strong> di bagian bawah layar beranda, tambahkan dua atau lebih video atau file audio, lalu susun urutannya dengan tombol ↑ dan ↓ di samping setiap item. Item yang tidak berisi audio, atau yang tidak dapat dibaca SoundPull, tidak dimasukkan, dan layar memberi tahu berapa jumlahnya. File gabungan memakai format keluaran yang dipilih di layar itu. Jika "Samakan volume" aktif di layar beranda, satu penyesuaian volume diterapkan pada seluruh file gabungan.</p>
+    <h3>Bisakah saya mengonversi banyak file sekaligus?</h3>
+    <p>Bisa. <strong>Ekstrak massal</strong>, yang juga ada di bagian bawah layar beranda, menerima beberapa video atau file audio dan memprosesnya satu per satu dengan format keluaran yang sama.</p>
+    <h3>Mengapa nada dering saya ditolak?</h3>
+    <p>Nada dering iPhone paling panjang 30 detik. Untuk satu file, potong dulu bagian yang panjangnya 30 detik atau kurang. Untuk penggabungan, total durasinya harus tetap dalam 30 detik, dan jika SoundPull tidak dapat membaca durasi salah satu item, nada dering tidak akan dibuat dari kumpulan itu. iOS tidak mengizinkan aplikasi memasang nada dering sendiri: bagikan file M4R ke GarageBand atau Files, lalu atur dari sana.</p>
 
-  <details>
-    <summary>Berkas mana yang dapat saya gunakan, dan apa hasil yang saya peroleh?</summary>
-    <p>Anda dapat memilih video dari pustaka foto atau aplikasi Files, atau mengirimkannya ke SoundPull dari lembar berbagi (share sheet) aplikasi lain. Hasilnya selalu berupa berkas M4A yang berisi audio AAC berkualitas tinggi. Beberapa video tanpa trek audio, dengan codec yang tidak didukung, atau dengan proteksi DRM tidak dapat diproses.</p>
-  </details>
+    <h2 id="text">Transkrip dan subtitle</h2>
+    <h3>Bahasa apa yang dipakai?</h3>
+    <p>Bahasa yang diatur di iPhone Anda; bahasa itu ditampilkan sebelum Anda mulai. Pengenalan hanya berjalan di perangkat, jadi fitur ini hanya bekerja bila iPhone Anda memiliki pengenalan ucapan di perangkat untuk bahasa tersebut. Jika tidak ada, SoundPull memberi tahu bahwa fitur itu tidak tersedia, alih-alih mengirim audio ke tempat lain.</p>
+    <h3>Bagaimana cara mendapatkan subtitle?</h3>
+    <p>Setelah transkripsi selesai, ketuk <strong>Simpan subtitle (SRT)</strong> untuk membagikan file .srt yang dapat dimuat oleh aplikasi penyunting dan pemutar video. Setiap subtitle dibuat pendek dan dipotong di akhir kalimat atau di jeda. Tombol ini hanya muncul bila iOS memberikan pewaktuan untuk kata-katanya; teks biasa selalu tersedia melalui <strong>Simpan / Bagikan teks</strong>.</p>
+    <h3>Seberapa akurat hasilnya?</h3>
+    <p>Itu bergantung pada bahasa, rekaman, dan kebisingan di latar belakang. Rekaman panjang dikenali per bagian yang kemudian disambung, jadi bacalah teksnya sampai selesai sebelum Anda mengandalkannya.</p>
 
-  <details>
-    <summary>Mengapa SoundPull meminta akses pustaka foto?</summary>
-    <p>Agar Anda dapat memilih video dari pustaka Anda untuk mengekstrak audionya. SoundPull hanya membaca video spesifik yang Anda pilih, memprosesnya di perangkat Anda, dan tidak pernah mengunggah atau memindai pustaka Anda.</p>
-  </details>
+    <h2 id="messages">Pesan yang mungkin Anda lihat</h2>
+    <dl>
+      <dt>"Video ini tidak memiliki trek audio."</dt>
+      <dd>File tersebut tidak berisi suara yang bisa diambil SoundPull. Putar file itu di Foto atau Files untuk memeriksa apakah ada suaranya.</dd>
+      <dt>"Konten terlindungi tidak dapat digunakan. Gunakan video milik Anda."</dt>
+      <dd>File tersebut dilindungi DRM, seperti film atau acara yang dibeli atau disewa dari toko. SoundPull tidak memproses konten yang dilindungi dan tidak menembus perlindungan salinan.</dd>
+      <dt>"Ruang penyimpanan kosong tidak cukup untuk mengekstrak."</dt>
+      <dd>SoundPull memeriksa ruang yang tersedia sebelum menulis hasilnya. Kosongkan sebagian penyimpanan, lalu coba lagi.</dd>
+      <dt>"Pengenalan suara di perangkat tidak tersedia untuk bahasa ini di iPhone ini."</dt>
+      <dd>Lihat <a href="#text">Transkrip dan subtitle</a> di atas.</dd>
+      <dt>"File ini tidak dapat diproses."</dt>
+      <dd>Format atau codec-nya tidak dapat dibaca. Jika hal ini terus terjadi pada jenis file yang umum, silakan tulis kepada kami dengan menyertakan keterangan yang disebutkan di awal halaman ini.</dd>
+    </dl>
 
-  <details>
-    <summary>Tertulis "This video has no audio track" atau "Protected content can't be used." Apa artinya?</summary>
-    <p>SoundPull hanya dapat mengekstrak audio dari video yang benar-benar memuat trek audio dan yang Anda memiliki hak untuk menggunakannya. Aplikasi tidak dapat memproses konten yang dilindungi DRM (misalnya, film atau acara yang dibeli atau disewa dari toko, atau media yang di-streaming), dan tidak melewati proteksi salinan apa pun. Harap gunakan video yang Anda rekam sendiri atau yang haknya Anda miliki.</p>
-  </details>
+    <h2 id="buying">Pembelian, perangkat lain, dan pengembalian dana</h2>
+    <h3>Apakah ada hal lain yang perlu dibeli di dalam aplikasi?</h3>
+    <p>Tidak. SoundPull adalah aplikasi berbayar sekali beli dengan semua fitur sudah termasuk. Di dalamnya tidak ada pembelian dalam aplikasi, langganan, maupun iklan.</p>
+    <h3>Bagaimana cara memasangnya di iPhone lain?</h3>
+    <p>Masuk dengan Akun Apple yang Anda pakai untuk membeli SoundPull, lalu unduh kembali dari App Store tanpa biaya. Aplikasi ini tidak memiliki langkah pemulihan tersendiri.</p>
+    <h3>Bagaimana cara mendapatkan pengembalian dana?</h3>
+    <p>Keputusan atas pengembalian dana untuk pembelian di App Store ada di tangan Apple. Anda dapat mengajukannya di <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+    <h3>Mengapa SoundPull meminta saya memberi rating?</h3>
+    <p>Setelah ekstraksi atau penggabungan yang berhasil untuk ke-3, ke-15, dan ke-50 kalinya, SoundPull meminta iOS menampilkan jendela rating standar Apple, dan iOS yang memutuskan apakah jendela itu benar-benar muncul. Anda dapat mematikan permintaan seperti ini untuk semua aplikasi di app Pengaturan, pada App Store, bagian Peringkat &amp; Ulasan Dalam App (In-App Ratings &amp; Reviews). Di iOS 18 dan yang lebih baru, App Store ada di Pengaturan &gt; App.</p>
 
-  <details>
-    <summary>Apakah saya perlu membeli sesuatu lagi di dalam aplikasi?</summary>
-    <p>Tidak. SoundPull adalah aplikasi berbayar: Anda membelinya satu kali di App Store dan seluruh fitur sudah termasuk. Tidak ada pembelian dalam aplikasi, tidak ada langganan, dan tidak ada iklan.</p>
-  </details>
+    <h2 id="data">File dan data Anda</h2>
+    <h3>Ke mana file saya pergi?</h3>
+    <p>File Anda tetap di iPhone Anda. Konversi, penggabungan, dan transkripsi semuanya berlangsung di perangkat, dan SoundPull tidak punya server untuk dikirimi apa pun. Setelah sebuah pekerjaan selesai, ketuk <strong>Simpan / Bagikan</strong> untuk menyimpan hasilnya ke Files, mengirimnya lewat AirDrop, atau meneruskannya ke aplikasi lain. Hasil yang tidak Anda simpan akan dihapus oleh SoundPull.</p>
+    <h3>Bagaimana menghapus seluruh data yang disimpan SoundPull?</h3>
+    <p>Hapus aplikasinya. iOS ikut menghapus pengaturan dan file kerja apa pun milik aplikasi, sementara file yang Anda simpan di tempat lain tetap berada di tempat Anda meletakkannya.</p>
 
-  <details>
-    <summary>Bagaimana cara mendapatkan SoundPull di perangkat baru?</summary>
-    <p>Masuk di perangkat baru dengan Akun Apple yang sama seperti saat Anda membeli SoundPull, lalu unduh kembali dari App Store — aplikasi berbayar dapat diunduh kembali tanpa biaya tambahan. Tidak ada langkah "Pulihkan Pembelian" terpisah di dalam aplikasi.</p>
-  </details>
+    <h2 id="docs">Kebijakan</h2>
+    <p><a href="./privacy-policy-id.html">Kebijakan Privasi</a> · <a href="./terms-id.html">Ketentuan Penggunaan</a></p>
+  </main>
 
-  <details>
-    <summary>Bagaimana cara meminta pengembalian dana?</summary>
-    <p>Apple menangani semua pengembalian dana untuk pembelian App Store. Kunjungi <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a>.</p>
-  </details>
-
-  <details>
-    <summary>Bagaimana cara menyimpan atau membagikan audio yang diekstrak?</summary>
-    <p>Setelah ekstraksi, ketuk <strong>Simpan / Bagikan</strong> untuk membuka lembar berbagi (share sheet) iOS. Dari sana Anda dapat memilih <strong>Simpan ke Files</strong>, mengirimnya melalui AirDrop, atau mengirimkannya ke aplikasi lain.</p>
-  </details>
-
-  <details>
-    <summary>Bagaimana cara menghapus data yang disimpan oleh Aplikasi?</summary>
-    <p>Hapus instalasi Aplikasi dari perangkat Anda. iOS akan menghapus semua data yang tersimpan secara lokal secara otomatis.</p>
-  </details>
-
-  <h2>Privasi &amp; Ketentuan</h2>
-  <ul>
-    <li><a href="./privacy-policy-id.html">Kebijakan Privasi</a></li>
-    <li><a href="./terms-id.html">Ketentuan Penggunaan</a></li>
-  </ul>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
+  </footer>
 </body>
 </html>

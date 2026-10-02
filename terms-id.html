@@ -3,107 +3,133 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ketentuan Penggunaan — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Ketentuan Penggunaan SoundPull</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、アプリが実際にすること（端末内の変換・結合・文字起こし）から組み立て直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
-    th { background: #f6f8fa; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← Beranda</a></nav>
-  <div class="langbar">
-    <a href="./terms.html">English</a> ·
-    <a href="./terms-ja.html">日本語</a> ·
-    <a href="./terms-zh-Hant.html">繁體中文</a> ·
-    <a href="./terms-es.html">Español</a> ·
-    <a href="./terms-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./terms-de.html">Deutsch</a> ·
-    <a href="./terms-fr.html">Français</a> ·
-    <a href="./terms-ko.html">한국어</a> ·
-    <strong>Bahasa&nbsp;Indonesia</strong> ·
-    <a href="./terms-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./terms-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · semua dokumen</a>
+    <nav class="langs" aria-label="Bahasa">
+      <a href="./terms.html">English</a> ·
+      <a href="./terms-ja.html">日本語</a> ·
+      <a href="./terms-zh-Hant.html">繁體中文</a> ·
+      <a href="./terms-es.html">Español</a> ·
+      <a href="./terms-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./terms-de.html">Deutsch</a> ·
+      <a href="./terms-fr.html">Français</a> ·
+      <a href="./terms-ko.html">한국어</a> ·
+      <strong aria-current="page">Bahasa&nbsp;Indonesia</strong> ·
+      <a href="./terms-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./terms-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>Ketentuan Penggunaan — SoundPull</h1>
-  <p><strong>Tanggal berlaku: 2026-09-01</strong></p>
-  <p>Ketentuan Penggunaan ini ("Ketentuan") mengatur penggunaan Anda atas aplikasi seluler "SoundPull" ("Aplikasi"), yang diterbitkan oleh <strong>naruberio</strong> ("kami"). Dengan mengunduh, memasang, atau menggunakan Aplikasi, Anda menyetujui Ketentuan ini.</p>
+  <main>
+    <h1>Ketentuan Penggunaan SoundPull</h1>
+    <p class="stamp">Mulai berlaku 2026-10-02 · disusun untuk SoundPull 1.4</p>
+    <p>Ketentuan ini merupakan perjanjian antara Anda dan naruberio, pengembang sekaligus penerbit SoundPull, mengenai cara Anda boleh memakai aplikasi ini. Dengan memasang, membuka, atau memakai SoundPull, Anda menerima ketentuan ini. Jika Anda tidak menerimanya, mohon jangan memakai SoundPull.</p>
+    <p>Anda hanya boleh menerima ketentuan ini apabila, menurut hukum di tempat tinggal Anda, usia Anda sudah cukup untuk mengikatkan diri dalam suatu perjanjian. Anda juga tetap tunduk pada syarat-syarat App Store yang menjadi sumber Anda mendapatkan SoundPull.</p>
 
-  <h2>1. Lisensi — Apple Standard EULA</h2>
-  <p>Penggunaan Anda atas Aplikasi dilisensikan, bukan dijual, kepada Anda berdasarkan <strong>standar Apple Licensed Application End User License Agreement</strong> ("Apple EULA"), yang tersedia di:</p>
-  <p><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
-  <p>Apple EULA dimasukkan ke dalam Ketentuan ini melalui rujukan. Jika terjadi pertentangan antara Ketentuan ini dan Apple EULA, Apple EULA yang berlaku <strong>sehubungan dengan hal-hal yang dicakupnya</strong>; Ketentuan ini berlaku untuk semua hal lainnya.</p>
+    <h2 id="service">Apa yang dilakukan SoundPull, dan apa yang Anda bayar</h2>
+    <p>SoundPull bekerja sepenuhnya di iPhone Anda. Aplikasi ini mengambil trek suara dari video, mengonversi file audio, menyambung suara dari beberapa video atau file audio menjadi satu file audio, mengekspor video yang suaranya dilepas, dan mengubah ucapan yang terekam menjadi teks atau subtitle SRT. Audio disimpan sebagai file M4A, MP3, WAV, atau M4R (nada dering), dan tidak ada yang Anda olah yang diunggah ke kami. <a href="./privacy-policy-id.html">Kebijakan Privasi</a> menjelaskan secara rinci apa yang terjadi pada file Anda.</p>
+    <ul>
+      <li><strong>Satu harga, semua sudah termasuk.</strong> SoundPull adalah aplikasi berbayar. Sekali membelinya di App Store, semua fitur terbuka. Tidak ada pembelian dalam aplikasi, tidak ada langganan, dan tidak ada iklan.</li>
+      <li><strong>Pembayaran diurus oleh Apple.</strong> Apple Inc. menangani pembelian melalui App Store dan menampilkan harga dalam mata uang lokal Anda, mengacu pada level harga yang kami tetapkan.</li>
+      <li><strong>Pengembalian dana diputuskan oleh Apple.</strong> Kami tidak menerima pembayaran Anda secara langsung, sehingga kami tidak dapat mengembalikannya sendiri. Untuk meminta pengembalian dana, buka <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>; Apple memutuskannya menurut kebijakannya sendiri.</li>
+      <li><strong>Perangkat lain.</strong> Anda dapat mengunduh SoundPull kembali tanpa biaya tambahan di perangkat mana pun yang masuk dengan Akun Apple yang Anda pakai untuk membelinya.</li>
+    </ul>
 
-  <h2>2. Kelayakan</h2>
-  <p>Anda harus telah mencapai usia minimum yang disyaratkan untuk mengadakan kontrak yang mengikat berdasarkan hukum yurisdiksi Anda, dan Anda harus mematuhi ketentuan App Store di mana Anda memperoleh Aplikasi.</p>
+    <h2 id="media">Gunakan SoundPull hanya untuk media yang berhak Anda gunakan</h2>
+    <p>SoundPull dirancang untuk rekaman Anda sendiri dan materi lain yang boleh Anda gunakan, seperti klip yang Anda rekam, memo suara yang Anda buat, atau audio yang lisensinya mengizinkan Anda menyuntingnya. Setiap kali Anda membuka, mengonversi, menggabungkan, atau mentranskripsikan sesuatu di SoundPull, Anda menyatakan dan menjamin bahwa Anda memegang semua hak yang diperlukan untuk itu, baik atas setiap item yang terlibat maupun atas file yang Anda buat.</p>
+    <p>Anda tidak boleh memakai SoundPull untuk:</p>
+    <ul>
+      <li>mengakali, atau mencoba mengakali, DRM, enkripsi, atau perlindungan salinan lainnya;</li>
+      <li>mengambil, mengonversi, atau menyimpan audio dari media yang dibeli, disewa, di-streaming, atau dilindungi dengan cara lain yang tidak berhak Anda salin;</li>
+      <li>melanggar hak cipta, merek dagang, atau kekayaan intelektual lain milik siapa pun, atau privasi siapa pun, termasuk privasi orang-orang yang suaranya ada dalam rekaman yang Anda transkripsikan atau bagikan.</li>
+    </ul>
+    <p>SoundPull menolak memproses konten yang dilindungi DRM dan tidak menyediakan cara apa pun untuk melepas atau menembus perlindungan salinan. Hanya Anda yang bertanggung jawab memastikan bahwa pemakaian aplikasi ini menghormati hukum dan hak orang lain.</p>
 
-  <h2>3. Apa yang Dilakukan Aplikasi</h2>
-  <p>SoundPull mengekstrak trek audio dari video yang Anda sediakan dan menyimpannya sebagai berkas audio (M4A, MP3, WAV, atau M4R untuk nada dering). Aplikasi juga dapat mengekspor salinan video tanpa audionya, serta mentranskripsikan audio yang diekstrak menjadi teks menggunakan pengenalan ucapan di perangkat. Seluruh pemrosesan terjadi di perangkat Anda menggunakan kerangka kerja AVFoundation dan Speech dari Apple. Aplikasi tidak mengunggah video, audio, atau transkripsi Anda ke server mana pun.</p>
+    <h2 id="yours">File Anda tetap milik Anda</h2>
+    <p>Anda tetap memiliki sepenuhnya media yang Anda masukkan ke SoundPull dan semua yang Anda buat dengannya: file audio, file gabungan, video tanpa suara, transkrip, dan subtitle ("konten Anda"). Karena konten Anda diproses di perangkat Anda dan tidak pernah sampai ke kami, kami tidak dapat melihatnya dan kami tidak menuntut hak apa pun atas konten tersebut.</p>
+    <p>Konten Anda adalah tanggung jawab Anda, termasuk membuat cadangan atas apa pun yang ingin Anda pertahankan. SoundPull menghapus salinan kerjanya sendiri seperti dijelaskan dalam Kebijakan Privasi, dan menghapus aplikasi akan menghilangkan apa yang disimpannya di perangkat.</p>
 
-  <h2>4. Hak atas Konten Anda — Anda Harus Memiliki Hak untuk Menggunakannya</h2>
-  <p>SoundPull ditujukan hanya untuk digunakan dengan konten video yang Anda miliki atau yang penggunaannya telah Anda peroleh izinnya, seperti video yang Anda rekam sendiri. Dengan menggunakan Aplikasi, Anda menyatakan dan menjamin bahwa Anda memiliki semua hak yang diperlukan atas video yang Anda proses dan atas audio yang Anda ekstrak darinya.</p>
-  <p>Anda <strong>tidak</strong> boleh menggunakan Aplikasi untuk:</p>
-  <ul>
-    <li>Menyiasati, menonaktifkan, atau melewati pengelolaan hak digital (DRM), enkripsi, atau proteksi salinan apa pun;</li>
-    <li>Mengekstrak, menyalin, atau menyimpan audio dari konten yang tidak Anda miliki atau yang penggunaannya tidak Anda peroleh izinnya, termasuk media yang dilindungi DRM, dibeli, disewa, atau di-streaming;</li>
-    <li>Melanggar hak cipta, merek dagang, atau hak kekayaan intelektual maupun hak privasi lainnya dari siapa pun atau perusahaan mana pun.</li>
-  </ul>
-  <p>Untuk mendukung hal ini, Aplikasi <strong>menolak memproses konten yang dilindungi DRM</strong> dan tidak menyediakan sarana apa pun untuk menghapus atau melewati proteksi konten. Anda bertanggung jawab sepenuhnya untuk memastikan bahwa penggunaan Anda atas Aplikasi mematuhi hukum yang berlaku dan hak-hak pihak ketiga.</p>
+    <h2 id="conduct">Hal-hal yang Anda sepakati untuk tidak dilakukan</h2>
+    <ul>
+      <li>Mendekompilasi, membongkar, atau dengan cara lain merekayasa balik SoundPull, atau mencoba memperoleh kode sumbernya, melebihi apa yang secara tegas diizinkan hukum yang berlaku meskipun ada larangan ini.</li>
+      <li>Memakai SoundPull untuk hal yang melanggar hukum, atau dengan cara yang melanggar bagian tentang <a href="#media">media yang berhak Anda gunakan</a>.</li>
+      <li>Mengganggu cara kerja SoundPull, atau mengacaukannya.</li>
+    </ul>
 
-  <h2>5. Konten Anda</h2>
-  <p>Anda mempertahankan kepemilikan penuh atas video yang Anda sediakan dan audio yang Anda ekstrak ("Konten Anda"). Karena seluruh pemrosesan terjadi secara lokal di perangkat Anda dan tidak ada yang dikirimkan kepada kami, kami tidak memiliki akses ke Konten Anda dan tidak mengklaim hak apa pun atasnya. Anda bertanggung jawab sepenuhnya atas Konten Anda dan untuk mencadangkannya jika Anda ingin menyimpannya.</p>
+    <h2 id="apple">Lisensi standar Apple</h2>
+    <p>SoundPull dilisensikan kepada Anda, bukan dijual. Lisensinya adalah perjanjian lisensi standar dari Apple bagi pengguna akhir aplikasi, yaitu Licensed Application End User License Agreement (selanjutnya "EULA Apple"), yang dapat dibaca di <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">apple.com/legal/internet-services/itunes/dev/stdeula</a>. EULA Apple menjadi bagian dari ketentuan ini. Jika keduanya suatu saat bertentangan, EULA Apple didahulukan untuk hal-hal yang memang diaturnya, sementara untuk hal selebihnya ketentuan inilah yang didahulukan. Satu-satunya pengecualian adalah bagian "<a href="#liability">Batas tanggung jawab</a>" dan "<a href="#law">Hukum dan pengadilan yang berwenang</a>" di bawah: di antara Anda dan naruberio, kedua bagian itu lebih didahulukan daripada EULA Apple.</p>
 
-  <h2>6. Pembelian</h2>
-  <p>Aplikasi ini adalah <strong>aplikasi berbayar</strong>: Anda membelinya satu kali di App Store dan seluruh fitur sudah termasuk. <strong>Tidak ada pembelian dalam aplikasi</strong> dan <strong>tidak ada langganan</strong>. Pembelian Aplikasi ini:</p>
-  <ul>
-    <li>Diproses oleh <strong>Apple Inc.</strong> melalui App Store.</li>
-    <li><strong>Tidak dapat dikembalikan</strong> oleh kami. Permintaan pengembalian dana harus diajukan kepada Apple di <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a>.</li>
-    <li>Dapat diunduh kembali tanpa biaya tambahan pada perangkat yang masuk dengan Akun Apple yang sama.</li>
-  </ul>
-  <p>Harga ditampilkan dalam mata uang lokal Anda pada saat pembelian dan ditetapkan oleh Apple berdasarkan tingkat harga yang kami pilih.</p>
+    <h2 id="warranty">Tanpa jaminan</h2>
+    <p class="loud">SoundPull diberikan "apa adanya" dan "sesuai ketersediaan". Sepanjang hukum memungkinkan, kami tidak memberi jaminan dalam wujud apa pun, tersurat ataupun tersirat, dan kami secara tegas menolak setiap jaminan tersirat atas daya jual (merchantability), atas kecocokan untuk suatu keperluan tertentu, serta atas tidak dilanggarnya hak pihak lain.</p>
+    <p>Secara khusus, kami tidak berjanji bahwa SoundPull akan berjalan tanpa gangguan atau kesalahan, bahwa aplikasi ini dapat membuka setiap video, file audio, atau codec, bahwa transkrip atau pewaktuan subtitle akan akurat, bahwa pengenalan di perangkat tersedia untuk bahasa Anda, atau bahwa cacat akan diperbaiki.</p>
 
-  <h2>7. Penggunaan yang Dapat Diterima</h2>
-  <p>Anda setuju untuk tidak:</p>
-  <ul>
-    <li>Merekayasa balik, mendekompilasi, atau berupaya mengekstrak kode sumber Aplikasi, kecuali sejauh diizinkan oleh hukum yang berlaku.</li>
-    <li>Menggunakan Aplikasi untuk tujuan yang melanggar hukum atau yang melanggar bagian 4.</li>
-    <li>Mengganggu atau mengacaukan pengoperasian Aplikasi.</li>
-  </ul>
+    <h2 id="liability">Batas tanggung jawab</h2>
+    <p class="loud">Kecuali sebagaimana diatur dalam paragraf terakhir bagian ini, sepanjang hukum yang berlaku memperbolehkannya, naruberio maupun Apple tidak menanggung kerugian jenis apa pun yang bersifat tidak langsung, kebetulan (insidental), khusus, merupakan akibat lanjutan (konsekuensial), atau bersifat hukuman, termasuk rekaman atau data lain yang hilang, yang bersumber dari atau berhubungan dengan cara Anda memakai SoundPull.</p>
+    <p>Kecuali sebagaimana diatur dalam paragraf terakhir bagian ini, untuk semua klaim yang berhubungan dengan SoundPull secara keseluruhan, keseluruhan tanggungan kami kepada Anda tidak melebihi jumlah uang, bila ada, yang telah Anda keluarkan untuk aplikasi ini selama 12 bulan sebelum klaim tersebut diajukan.</p>
+    <p>Tidak ada satu pun bagian dari ketentuan ini yang menghapus atau membatasi tanggung jawab atas kerugian yang timbul karena kesengajaan atau kelalaian berat naruberio, wakilnya, atau siapa pun yang bertindak atas namanya, maupun tanggung jawab lain yang menurut hukum tidak boleh dihapus atau dibatasi.</p>
 
-  <h2>8. Penafian Jaminan</h2>
-  <p>APLIKASI DISEDIAKAN "SEBAGAIMANA ADANYA" DAN "SEBAGAIMANA TERSEDIA", TANPA JAMINAN APA PUN, BAIK TERSURAT MAUPUN TERSIRAT, TERMASUK NAMUN TIDAK TERBATAS PADA JAMINAN TERSIRAT TENTANG KELAYAKAN UNTUK DIPERJUALBELIKAN, KESESUAIAN UNTUK TUJUAN TERTENTU, DAN TIDAK ADANYA PELANGGARAN. Kami tidak menjamin bahwa Aplikasi akan berjalan tanpa gangguan, bebas dari kesalahan, atau bahwa setiap video maupun codec dapat diproses, atau bahwa cacat akan diperbaiki.</p>
+    <h2 id="ending">Berhenti memakai, dan perubahan pada aplikasi</h2>
+    <p>Anda dapat berhenti memakai SoundPull kapan saja dengan menghapusnya. Kami dapat mengubah, menangguhkan, atau menarik SoundPull, atau fitur mana pun di dalamnya, kapan saja dan tanpa pemberitahuan. Setelah pemakaian Anda berakhir, bagian-bagian ketentuan ini yang karena sifatnya memang dimaksudkan terus berjalan, misalnya bagian tentang jaminan, batas tanggung jawab, serta hukum dan pengadilan, tetap mengikat.</p>
 
-  <h2>9. Pembatasan Tanggung Jawab</h2>
-  <p>SEJAUH DIIZINKAN OLEH HUKUM YANG BERLAKU, DALAM KEADAAN APA PUN KAMI ATAU APPLE TIDAK AKAN BERTANGGUNG JAWAB ATAS KERUGIAN TIDAK LANGSUNG, INSIDENTAL, KHUSUS, KONSEKUENSIAL, ATAU PUNITIF APA PUN, TERMASUK KEHILANGAN DATA, YANG TIMBUL DARI ATAU SEHUBUNGAN DENGAN PENGGUNAAN ANDA ATAS APLIKASI.</p>
-  <p>Total tanggung jawab kumulatif kami yang timbul dari atau berkaitan dengan Aplikasi tidak akan melebihi jumlah yang Anda bayarkan (jika ada) untuk Aplikasi dalam dua belas (12) bulan sebelum klaim.</p>
+    <h2 id="revisions">Revisi ketentuan ini</h2>
+    <p>Kami dapat merevisi ketentuan ini. Setiap revisi yang material mengubah tanggal di bagian atas halaman ini, dan teks terbarunya selalu tersedia di <a href="https://naruberio.github.io/soundpull-legal/terms-id.html">naruberio.github.io/soundpull-legal/terms-id.html</a>. Memakai SoundPull setelah sebuah revisi berlaku berarti Anda menerima ketentuan yang telah direvisi.</p>
 
-  <h2>10. Data dan Privasi</h2>
-  <p>Aplikasi tidak mengumpulkan data pribadi apa pun. Lihat <a href="./privacy-policy-id.html">Kebijakan Privasi</a> untuk detailnya. Anda bertanggung jawab atas konten apa pun yang Anda buat dengan Aplikasi dan untuk mencadangkannya jika penting bagi Anda. Menghapus instalasi Aplikasi akan menghapus semua data yang tersimpan secara lokal.</p>
+    <h2 id="law">Hukum dan pengadilan yang berwenang</h2>
+    <p>Hukum Jepang berlaku atas ketentuan ini, tanpa menerapkan aturan Jepang mengenai pilihan hukum antarnegara. Segala perselisihan yang bersumber dari, atau berhubungan dengan, ketentuan ini maupun SoundPull menjadi wewenang eksklusif pengadilan di Fukuoka, Jepang, kecuali jika aturan perlindungan konsumen yang berlaku bagi Anda tidak mengizinkan kesepakatan seperti itu.</p>
 
-  <h2>11. Pengakhiran</h2>
-  <p>Anda dapat berhenti menggunakan Aplikasi dan menghapus instalasinya kapan saja. Kami dapat menghentikan, menangguhkan, atau memodifikasi Aplikasi kapan saja tanpa pemberitahuan. Ketentuan ini tetap berlaku untuk setiap ketentuan yang menurut sifatnya seharusnya tetap berlaku setelah pengakhiran (mis., penafian, pembatasan tanggung jawab).</p>
+    <h2 id="contact">Kontak</h2>
+    <p>Pertanyaan tentang ketentuan ini dapat dikirim ke <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>.</p>
+  </main>
 
-  <h2>12. Perubahan pada Ketentuan Ini</h2>
-  <p>Kami dapat memperbarui Ketentuan ini. Perubahan material akan dicerminkan dengan memperbarui "Tanggal berlaku" di atas. Penggunaan Aplikasi yang berkelanjutan setelah suatu perubahan menandakan penerimaan atas Ketentuan yang telah direvisi.</p>
-
-  <h2>13. Hukum yang Mengatur</h2>
-  <p>Ketentuan ini diatur oleh hukum <strong>Jepang</strong>, tidak termasuk kaidah pertentangan hukumnya. Setiap sengketa yang timbul dari atau berkaitan dengan Ketentuan ini atau Aplikasi akan diselesaikan secara eksklusif di pengadilan <strong>Fukuoka, Jepang</strong>, kecuali jika dilarang oleh hukum perlindungan konsumen yang berlaku.</p>
-
-  <h2>14. Kontak</h2>
-  <table>
-    <tbody>
-      <tr><td>Penerbit</td><td>naruberio</td></tr>
-      <tr><td>Email kontak</td><td><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></td></tr>
-      <tr><td>URL kanonis</td><td><a href="https://naruberio.github.io/soundpull-legal/terms-id.html">https://naruberio.github.io/soundpull-legal/terms-id.html</a></td></tr>
-    </tbody>
-  </table>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> · <a href="./privacy-policy-id.html">Kebijakan Privasi</a> · <a href="./support-id.html">Dukungan</a></p>
+  </footer>
 </body>
 </html>

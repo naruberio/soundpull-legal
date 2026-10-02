@@ -3,107 +3,133 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Termos de Uso — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Termos de Uso do SoundPull</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、アプリが実際にすること（端末内の変換・結合・文字起こし）から組み立て直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
-    th { background: #f6f8fa; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← Início</a></nav>
-  <div class="langbar">
-    <a href="./terms.html">English</a> ·
-    <a href="./terms-ja.html">日本語</a> ·
-    <a href="./terms-zh-Hant.html">繁體中文</a> ·
-    <a href="./terms-es.html">Español</a> ·
-    <strong>Português&nbsp;(BR)</strong> ·
-    <a href="./terms-de.html">Deutsch</a> ·
-    <a href="./terms-fr.html">Français</a> ·
-    <a href="./terms-ko.html">한국어</a> ·
-    <a href="./terms-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./terms-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./terms-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · todos os documentos</a>
+    <nav class="langs" aria-label="Idioma">
+      <a href="./terms.html">English</a> ·
+      <a href="./terms-ja.html">日本語</a> ·
+      <a href="./terms-zh-Hant.html">繁體中文</a> ·
+      <a href="./terms-es.html">Español</a> ·
+      <strong aria-current="page">Português&nbsp;(BR)</strong> ·
+      <a href="./terms-de.html">Deutsch</a> ·
+      <a href="./terms-fr.html">Français</a> ·
+      <a href="./terms-ko.html">한국어</a> ·
+      <a href="./terms-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./terms-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./terms-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>Termos de Uso — SoundPull</h1>
-  <p><strong>Data de vigência: 2026-09-01</strong></p>
-  <p>Estes Termos de Uso ("Termos") regem o seu uso do aplicativo móvel "SoundPull" (o "Aplicativo"), publicado por <strong>naruberio</strong> ("nós", "nos", "nosso"). Ao baixar, instalar ou usar o Aplicativo, você concorda com estes Termos.</p>
+  <main>
+    <h1>Termos de Uso do SoundPull</h1>
+    <p class="stamp">Em vigor desde 2026-10-02 · redigidos para o SoundPull 1.4</p>
+    <p>Estes termos formam o acordo entre você e a naruberio, que desenvolve e publica o SoundPull, sobre a maneira como você pode usar o app. Instalar, abrir ou usar o SoundPull significa aceitá-los. Se você não os aceitar, pedimos que não use o SoundPull.</p>
+    <p>Você só pode aceitar estes termos se tiver idade suficiente, segundo a lei do lugar onde mora, para firmar um contrato com força vinculante. Você também deve seguir os termos da App Store pela qual obteve o SoundPull.</p>
 
-  <h2>1. Licença — EULA Padrão da Apple</h2>
-  <p>O seu uso do Aplicativo é licenciado, não vendido, a você sob o <strong>Contrato de Licença de Usuário Final do Aplicativo Licenciado padrão da Apple</strong> ("Apple EULA"), disponível em:</p>
-  <p><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
-  <p>O Apple EULA é incorporado a estes Termos por referência. Em caso de conflito entre estes Termos e o Apple EULA, o Apple EULA prevalece <strong>no que diz respeito às matérias que ele abrange</strong>; estes Termos prevalecem em todas as demais matérias.</p>
+    <h2 id="service">O que o SoundPull faz e pelo que você paga</h2>
+    <p>O SoundPull funciona inteiramente no seu iPhone. Ele extrai a trilha sonora de um vídeo, converte arquivos de áudio, junta o som de vários vídeos ou arquivos de áudio em um único arquivo de áudio, exporta um vídeo sem o som e transforma fala gravada em texto ou em legendas SRT. O áudio é salvo como arquivos M4A, MP3, WAV ou M4R (toque), e nada do que você processa é enviado para nós. A <a href="./privacy-policy-pt-BR.html">Política de Privacidade</a> explica em detalhe o que acontece com os seus arquivos.</p>
+    <ul>
+      <li><strong>Um preço, tudo incluído.</strong> O SoundPull é um app pago. Com uma única compra na App Store, todos os recursos ficam liberados. Não há compras dentro do app, assinaturas nem anúncios.</li>
+      <li><strong>O pagamento fica a cargo da Apple.</strong> A Apple Inc. cuida da compra pela App Store e mostra o preço na sua moeda local, com base no nível de preço que escolhemos.</li>
+      <li><strong>Reembolso é decisão da Apple.</strong> Como o seu pagamento não chega diretamente a nós, não temos como devolvê-lo por conta própria. Para pedir um reembolso, acesse <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>; a Apple decide conforme as regras dela.</li>
+      <li><strong>Outros aparelhos.</strong> Você pode baixar o SoundPull de novo, sem pagar nada a mais, em qualquer aparelho conectado com a Conta Apple usada na compra.</li>
+    </ul>
 
-  <h2>2. Elegibilidade</h2>
-  <p>Você deve ter pelo menos a idade mínima exigida para celebrar um contrato vinculativo de acordo com as leis da sua jurisdição, e deve cumprir os termos da App Store sob os quais obteve o Aplicativo.</p>
+    <h2 id="media">Use o SoundPull só com mídias que você tem direito de usar</h2>
+    <p>O SoundPull foi pensado para as suas próprias gravações e para outros materiais que você está autorizado a usar, como um clipe que você filmou, um memo de voz que você gravou ou um áudio que você tem licença para editar. Sempre que você abre, converte, junta ou transcreve algo no SoundPull, você declara e garante que detém todos os direitos necessários para isso, tanto sobre cada item envolvido quanto sobre o arquivo que criar.</p>
+    <p>Você não pode usar o SoundPull para:</p>
+    <ul>
+      <li>contornar, ou tentar contornar, DRM, criptografia ou qualquer outra proteção contra cópia;</li>
+      <li>extrair, converter ou guardar áudio de mídias compradas, alugadas, transmitidas por streaming ou protegidas de outro modo que você não tem direito de copiar;</li>
+      <li>violar direitos autorais, marcas ou qualquer outra propriedade intelectual de alguém, nem a privacidade de ninguém, incluindo a das pessoas cujas vozes estão em uma gravação que você transcreve ou compartilha.</li>
+    </ul>
+    <p>O SoundPull se recusa a processar conteúdo protegido por DRM e não oferece nenhum meio de remover ou burlar proteções contra cópia. Cabe só a você garantir que o seu uso do app respeite a lei e os direitos de terceiros.</p>
 
-  <h2>3. O Que o Aplicativo Faz</h2>
-  <p>O SoundPull extrai a trilha de áudio de um vídeo que você fornece e a salva como um arquivo de áudio (M4A, MP3, WAV ou M4R para toques). Ele também pode exportar uma cópia do vídeo sem o áudio e transcrever em texto o áudio extraído usando reconhecimento de fala no dispositivo. Todo o processamento acontece no seu dispositivo usando os frameworks AVFoundation e Speech da Apple. O Aplicativo não envia seus vídeos, áudio ou transcrições para nenhum servidor.</p>
+    <h2 id="yours">Os seus arquivos continuam sendo seus</h2>
+    <p>As mídias que você leva para o SoundPull, e tudo o que cria com ele (arquivos de áudio, arquivos unidos, vídeos sem som, transcrições e legendas, o “seu conteúdo”), continuam sendo integralmente de sua propriedade. O seu conteúdo é processado no seu aparelho e nunca chega até nós; por isso não temos como vê-lo e não pretendemos ter direito algum sobre ele.</p>
+    <p>O seu conteúdo é responsabilidade sua, o que inclui manter cópias de segurança de tudo o que você quiser conservar. O SoundPull apaga as próprias cópias de trabalho conforme descrito na Política de Privacidade, e apagar o app remove o que ele guardou no aparelho.</p>
 
-  <h2>4. Direitos Sobre o Seu Conteúdo — Você Deve Ter o Direito de Usá-lo</h2>
-  <p>O SoundPull destina-se ao uso apenas com conteúdo de vídeo que você possui ou que está de outra forma autorizado a usar, como vídeos que você mesmo gravou. Ao usar o Aplicativo, você declara e garante que possui todos os direitos necessários sobre os vídeos que processa e sobre o áudio que extrai deles.</p>
-  <p>Você <strong>não</strong> deve usar o Aplicativo para:</p>
-  <ul>
-    <li>Contornar, desativar ou burlar qualquer gerenciamento de direitos digitais (DRM), criptografia ou proteção contra cópia;</li>
-    <li>Extrair, copiar ou salvar áudio de conteúdo que você não possui ou não está autorizado a usar, incluindo mídia protegida por DRM, comprada, alugada ou transmitida em streaming;</li>
-    <li>Infringir os direitos de autor, marca registrada ou outros direitos de propriedade intelectual ou de privacidade de qualquer pessoa ou empresa.</li>
-  </ul>
-  <p>Para apoiar isso, o Aplicativo <strong>recusa-se a processar conteúdo protegido por DRM</strong> e não fornece qualquer meio de remover ou burlar a proteção de conteúdo. Você é o único responsável por garantir que o seu uso do Aplicativo cumpra a legislação aplicável e os direitos de terceiros.</p>
+    <h2 id="conduct">O que você se compromete a não fazer</h2>
+    <ul>
+      <li>Descompilar, desmontar ou, de qualquer outra forma, fazer engenharia reversa do SoundPull, nem tentar chegar ao código-fonte dele, além do que a lei aplicável permite expressamente apesar desta restrição.</li>
+      <li>Usar o SoundPull para qualquer fim ilícito, ou de um jeito que desrespeite a seção sobre <a href="#media">mídias que você tem direito de usar</a>.</li>
+      <li>Interferir no funcionamento do SoundPull ou atrapalhá-lo.</li>
+    </ul>
 
-  <h2>5. Seu Conteúdo</h2>
-  <p>Você mantém a propriedade total dos vídeos que fornece e do áudio que extrai ("Seu Conteúdo"). Como todo o processamento acontece localmente no seu dispositivo e nada é transmitido para nós, não temos acesso ao Seu Conteúdo e não reivindicamos quaisquer direitos sobre ele. Você é o único responsável pelo Seu Conteúdo e por fazer backup dele caso deseje preservá-lo.</p>
+    <h2 id="apple">A licença padrão da Apple</h2>
+    <p>O SoundPull é licenciado para você, e não vendido. A licença é o Contrato de Licença de Usuário Final para Aplicativos Licenciados, o modelo padrão da Apple (o “EULA da Apple”), publicado em <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">apple.com/legal/internet-services/itunes/dev/stdeula</a>. O EULA da Apple faz parte destes termos. Havendo algum dia conflito entre os dois, vale o EULA da Apple naquilo que ele regula; em tudo o mais, valem estes termos. A única exceção são as seções “<a href="#liability">Limites de responsabilidade</a>” e “<a href="#law">Lei aplicável e foro</a>”, mais abaixo: entre você e a naruberio, essas seções prevalecem sobre o EULA da Apple.</p>
 
-  <h2>6. Compra</h2>
-  <p>O Aplicativo é um <strong>aplicativo pago</strong>: você o compra uma única vez na App Store e todos os recursos estão incluídos. <strong>Não há compras dentro do aplicativo</strong> nem <strong>assinaturas</strong>. Sua compra do Aplicativo:</p>
-  <ul>
-    <li>É processada pela <strong>Apple Inc.</strong> por meio da App Store.</li>
-    <li><strong>Não é reembolsável</strong> por nós. Pedidos de reembolso devem ser dirigidos à Apple em <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a>.</li>
-    <li>Pode ser baixada novamente sem custo adicional em dispositivos conectados com a mesma Conta Apple.</li>
-  </ul>
-  <p>Os preços são exibidos na sua moeda local no momento da compra e são definidos pela Apple com base na faixa de preço que selecionamos.</p>
+    <h2 id="warranty">Sem garantia</h2>
+    <p class="loud">O SoundPull é oferecido “no estado em que se encontra” e “conforme disponível”. Até onde a lei permitir, não damos garantia de nenhum tipo, seja expressa ou implícita, e recusamos especificamente qualquer garantia implícita de comerciabilidade, de adequação a uma finalidade específica e de não violação de direitos.</p>
+    <p>Em especial, não prometemos que o SoundPull vá funcionar sem interrupções ou erros, que consiga abrir todo e qualquer vídeo, arquivo de áudio ou codec, que as transcrições ou os tempos das legendas saiam precisos, que o reconhecimento no dispositivo esteja disponível para o seu idioma, nem que os defeitos venham a ser corrigidos.</p>
 
-  <h2>7. Uso Aceitável</h2>
-  <p>Você concorda em não:</p>
-  <ul>
-    <li>Fazer engenharia reversa, descompilar ou tentar extrair o código-fonte do Aplicativo, exceto na medida permitida pela legislação aplicável.</li>
-    <li>Usar o Aplicativo para qualquer finalidade ilícita ou em violação da seção 4.</li>
-    <li>Interferir ou perturbar o funcionamento do Aplicativo.</li>
-  </ul>
+    <h2 id="liability">Limites de responsabilidade</h2>
+    <p class="loud">Ressalvado o disposto no último parágrafo desta seção, na medida em que a lei aplicável permitir, nem a naruberio nem a Apple responderão por danos indiretos, incidentais, especiais, consequenciais ou punitivos de qualquer natureza, inclusive gravações ou outros dados perdidos, que resultem do seu uso do SoundPull ou tenham ligação com ele.</p>
+    <p>Ressalvado o disposto no último parágrafo desta seção, somadas todas as reclamações relativas ao SoundPull, a nossa responsabilidade total perante você fica limitada ao valor, se houver, que você pagou pelo app nos 12 meses anteriores à reclamação.</p>
+    <p>Nada nestes termos exclui ou limita a responsabilidade por danos causados por dolo ou culpa grave da naruberio, de representantes dela ou de qualquer pessoa que atue em nome dela, nem qualquer outra responsabilidade que a lei não permita excluir ou limitar.</p>
 
-  <h2>8. Isenção de Garantias</h2>
-  <p>O APLICATIVO É FORNECIDO "NO ESTADO EM QUE SE ENCONTRA" E "CONFORME DISPONÍVEL", SEM GARANTIA DE QUALQUER ESPÉCIE, EXPRESSA OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO A, GARANTIAS IMPLÍCITAS DE COMERCIABILIDADE, ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA E NÃO VIOLAÇÃO. Não garantimos que o Aplicativo será ininterrupto, livre de erros, que todo vídeo ou codec poderá ser processado, ou que os defeitos serão corrigidos.</p>
+    <h2 id="ending">Fim do uso e mudanças no app</h2>
+    <p>Para deixar de usar o SoundPull, basta apagá-lo, a hora que quiser. Nós podemos alterar, suspender ou retirar o SoundPull, ou qualquer um dos recursos dele, a qualquer momento e sem aviso. Quando o seu uso terminar, as partes destes termos que por natureza devem continuar valendo, como as seções sobre garantia, responsabilidade e lei aplicável, seguem em vigor.</p>
 
-  <h2>9. Limitação de Responsabilidade</h2>
-  <p>NA MÁXIMA EXTENSÃO PERMITIDA PELA LEGISLAÇÃO APLICÁVEL, EM NENHUMA HIPÓTESE NÓS OU A APPLE SEREMOS RESPONSÁVEIS POR QUAISQUER DANOS INDIRETOS, INCIDENTAIS, ESPECIAIS, CONSEQUENCIAIS OU PUNITIVOS, INCLUINDO PERDA DE DADOS, DECORRENTES OU RELACIONADOS AO SEU USO DO APLICATIVO.</p>
-  <p>Nossa responsabilidade cumulativa total decorrente ou relacionada ao Aplicativo não excederá o valor que você pagou (se houver) pelo Aplicativo nos doze (12) meses anteriores à reclamação.</p>
+    <h2 id="revisions">Revisões destes termos</h2>
+    <p>Estes termos podem ser revisados por nós. Cada revisão relevante altera a data no topo desta página, e o texto em vigor fica sempre em <a href="https://naruberio.github.io/soundpull-legal/terms-pt-BR.html">naruberio.github.io/soundpull-legal/terms-pt-BR.html</a>. Usar o SoundPull depois que uma revisão entrar em vigor significa aceitar os termos revisados.</p>
 
-  <h2>10. Dados e Privacidade</h2>
-  <p>O Aplicativo não coleta nenhum dado pessoal. Consulte a <a href="./privacy-policy-pt-BR.html">Política de Privacidade</a> para obter detalhes. Você é responsável por qualquer conteúdo que criar com o Aplicativo e por fazer backup dele caso seja importante para você. Desinstalar o Aplicativo excluirá todos os dados armazenados localmente.</p>
+    <h2 id="law">Lei aplicável e foro</h2>
+    <p>A lei japonesa rege estes termos, sem considerar as regras dela sobre conflito de leis. Os tribunais de Fukuoka, no Japão, têm competência exclusiva para qualquer disputa que surja destes termos ou do SoundPull, ou que se relacione a eles, exceto quando a lei de proteção ao consumidor aplicável a você não admitir esse tipo de acordo.</p>
 
-  <h2>11. Rescisão</h2>
-  <p>Você pode parar de usar o Aplicativo e desinstalá-lo a qualquer momento. Podemos descontinuar, suspender ou modificar o Aplicativo a qualquer momento sem aviso prévio. Estes Termos permanecem em vigor para quaisquer disposições que, por sua natureza, devam sobreviver à rescisão (por exemplo, isenções de garantia, limitações de responsabilidade).</p>
+    <h2 id="contact">Contato</h2>
+    <p>Dúvidas sobre estes termos podem ser enviadas para <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>.</p>
+  </main>
 
-  <h2>12. Alterações Nestes Termos</h2>
-  <p>Podemos atualizar estes Termos. Alterações relevantes serão refletidas pela atualização da "Data de vigência" acima. O uso continuado do Aplicativo após uma alteração indica a aceitação dos Termos revisados.</p>
-
-  <h2>13. Lei Aplicável</h2>
-  <p>Estes Termos são regidos pelas leis do <strong>Japão</strong>, excluindo suas regras de conflito de leis. Qualquer disputa decorrente ou relacionada a estes Termos ou ao Aplicativo será resolvida exclusivamente nos tribunais de <strong>Fukuoka, Japão</strong>, exceto onde proibido pela legislação de proteção ao consumidor aplicável.</p>
-
-  <h2>14. Contato</h2>
-  <table>
-    <tbody>
-      <tr><td>Publicado por</td><td>naruberio</td></tr>
-      <tr><td>E-mail de contato</td><td><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></td></tr>
-      <tr><td>URL canônica</td><td><a href="https://naruberio.github.io/soundpull-legal/terms-pt-BR.html">https://naruberio.github.io/soundpull-legal/terms-pt-BR.html</a></td></tr>
-    </tbody>
-  </table>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> · <a href="./privacy-policy-pt-BR.html">Política de Privacidade</a> · <a href="./support-pt-BR.html">Suporte</a></p>
+  </footer>
 </body>
 </html>

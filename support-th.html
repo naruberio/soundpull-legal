@@ -3,93 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>การสนับสนุน — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>การสนับสนุน SoundPull</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    details { margin: 0.5rem 0; }
-    summary { cursor: pointer; font-weight: 500; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← หน้าแรก</a></nav>
-  <div class="langbar">
-    <a href="./support.html">English</a> ·
-    <a href="./support-ja.html">日本語</a> ·
-    <a href="./support-zh-Hant.html">繁體中文</a> ·
-    <a href="./support-es.html">Español</a> ·
-    <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./support-de.html">Deutsch</a> ·
-    <a href="./support-fr.html">Français</a> ·
-    <a href="./support-ko.html">한국어</a> ·
-    <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
-    <strong>ไทย</strong>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · เอกสารทั้งหมด</a>
+    <nav class="langs" aria-label="ภาษา">
+      <a href="./support.html">English</a> ·
+      <a href="./support-ja.html">日本語</a> ·
+      <a href="./support-zh-Hant.html">繁體中文</a> ·
+      <a href="./support-es.html">Español</a> ·
+      <a href="./support-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./support-de.html">Deutsch</a> ·
+      <a href="./support-fr.html">Français</a> ·
+      <a href="./support-ko.html">한국어</a> ·
+      <a href="./support-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./support-vi.html">Tiếng&nbsp;Việt</a> ·
+      <strong aria-current="page">ไทย</strong>
+    </nav>
+  </header>
 
-  <h1>การสนับสนุน — SoundPull</h1>
+  <main>
+    <h1>การสนับสนุน SoundPull</h1>
+    <p class="stamp">อัปเดตเมื่อ 2026-10-02 สำหรับ SoundPull 1.4 · ใช้ได้บน iPhone ที่ใช้ iOS 16.4 ขึ้นไป</p>
 
-  <h2>ติดต่อ</h2>
-  <p>สำหรับคำถาม การรายงานข้อบกพร่อง หรือคำขอคุณสมบัติ โปรดส่งอีเมลถึง:</p>
-  <p><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
-  <p>เราพยายามตอบกลับภายใน 3 วันทำการ SoundPull ต้องใช้ iOS 16.4 ขึ้นไปและทำงานบน iPhone</p>
+    <h2 id="write">เขียนถึงเรา</h2>
+    <p>ส่งอีเมลถึง <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> ได้ทั้งเมื่อพบปัญหา มีคำถาม หรือมีไอเดีย เราตั้งใจจะตอบกลับภายในสามวันทำการ</p>
+    <p>หากมีบางอย่างทำงานไม่ได้ รายละเอียดต่อไปนี้จะช่วยให้เราทำให้ปัญหาเกิดขึ้นซ้ำได้</p>
+    <ul>
+      <li>เวอร์ชันของ SoundPull (แสดงอยู่ในหน้าการตั้งค่าของแอป) และเวอร์ชัน iOS ของคุณ</li>
+      <li>สิ่งที่คุณเปิด เช่น "วิดีโอ MOV จากแอปรูปภาพ" หรือ "ไฟล์ MP3 จากแอปไฟล์" และรูปแบบผลลัพธ์ที่คุณเลือก</li>
+      <li>ขั้นตอนที่เกิดปัญหา และข้อความบนหน้าจอตามที่แสดงจริงทุกตัวอักษร</li>
+    </ul>
+    <p>คุณไม่จำเป็นต้องแนบไฟล์นั้นมาด้วย หากตัวอย่างไฟล์จะช่วยได้ เราจะขอเอง SoundPull ไม่ส่งสิ่งใดมาหาเราเอง การส่งอีเมลจึงเป็นวิธีที่แน่นอนที่สุดในการแจ้งปัญหาให้เราทราบ</p>
 
-  <h2>คำถามที่พบบ่อย</h2>
+    <h2 id="in">การนำไฟล์เข้า SoundPull</h2>
+    <h3>เปิดไฟล์จากที่ใดได้บ้าง</h3>
+    <p><strong>เลือกวิดีโอ</strong> จะเปิดตัวเลือกของแอปรูปภาพซึ่งแสดงเฉพาะวิดีโอ ส่วน <strong>จากไฟล์</strong> รับได้ทั้งวิดีโอและไฟล์เสียง คุณยังส่งไฟล์มายัง SoundPull จากชีตแชร์ของแอปอื่นได้ด้วย รวมถึงแอปบันทึกเสียง (Voice Memos) ไฟล์ที่แชร์เข้ามาขณะที่ SoundPull กำลังทำงานอยู่จะถูกพักไว้จนกว่าแอปจะว่าง และหน้าจอจะบอกว่าไฟล์นั้นจะเริ่มประมวลผลอย่างไร หากมีไฟล์อื่นเข้ามาอีกระหว่างนั้น จะมีเพียงไฟล์ล่าสุดที่รออยู่</p>
+    <h3>แปลงไฟล์เสียงแบบใดได้บ้าง</h3>
+    <p>M4A, MP3, WAV, AAC, CAF, AIF/AIFF และ FLAC ไฟล์เสียงผ่านขั้นตอนเดียวกับวิดีโอ คือคุณตัดเฉพาะช่วงที่ต้องการ ปรับระดับเสียงให้เท่ากัน ถอดเสียงเป็นข้อความ และบันทึกผลลัพธ์เป็นรูปแบบใดก็ได้ วิดีโอไม่มีเสียงต้องมีภาพ ดังนั้นขณะที่เปิดตัวเลือกนั้นอยู่ คุณจะเลือกได้เฉพาะวิดีโอ</p>
+    <h3>ทำไมจึงมีการพูดถึงการเข้าถึงคลังรูปภาพ</h3>
+    <p>iOS กำหนดให้ทุกแอปต้องอธิบายว่าเหตุใดจึงอ่านวิดีโอจากแอปรูปภาพ SoundPull อ่านเฉพาะวิดีโอที่คุณเลือกจากที่นั่น และไม่เคยสแกนหรืออัปโหลดคลังของคุณ</p>
 
-  <details>
-    <summary>SoundPull ทำงานอย่างไร และข้อมูลของฉันไปอยู่ที่ไหน?</summary>
-    <p>SoundPull อ่านวิดีโอที่คุณเลือกและสกัดแทร็กเสียงออกมาเป็นไฟล์ M4A (AAC) โดยตรงบน iPhone ของคุณ โดยใช้เฟรมเวิร์ก AVFoundation ของ Apple ไม่มีสิ่งใดถูกส่งไปยังเซิร์ฟเวอร์ของเราเพราะเราไม่มีเซิร์ฟเวอร์เลย วิดีโอของคุณและเสียงที่สกัดได้จะไม่ออกจากอุปกรณ์ของคุณ</p>
-  </details>
+    <h2 id="make">การแปลง การรวมไฟล์ และเสียงเรียกเข้า</h2>
+    <h3>SoundPull สร้างไฟล์รูปแบบใดได้บ้าง</h3>
+    <p>M4A (AAC), MP3, WAV และ M4R สำหรับเสียงเรียกเข้า นอกจากนี้ยังส่งออกสำเนาวิดีโอที่นำเสียงออกแล้วได้ โดยไม่เข้ารหัสภาพใหม่ คุณภาพของภาพจึงไม่เปลี่ยน</p>
+    <h3>รวมหลายไฟล์เป็นไฟล์เดียวได้อย่างไร</h3>
+    <p>แตะ <strong>รวมไฟล์เสียง</strong> ที่ด้านล่างของหน้าจอหลัก เพิ่มวิดีโอหรือไฟล์เสียงตั้งแต่สองรายการขึ้นไป แล้วเรียงลำดับด้วยปุ่ม ↑ และ ↓ ข้างแต่ละรายการ รายการที่ไม่มีเสียงหรือที่ SoundPull อ่านไม่ได้จะถูกข้ามไป และหน้าจอจะบอกว่าข้ามไปกี่รายการ ไฟล์ที่รวมแล้วใช้รูปแบบผลลัพธ์ที่เลือกไว้ในหน้าจอนั้น หากเปิด "ปรับระดับเสียงให้เท่ากัน" ไว้ในหน้าจอหลัก ระบบจะปรับระดับเสียงเพียงครั้งเดียวกับไฟล์ที่รวมแล้วทั้งไฟล์</p>
+    <h3>แปลงหลายไฟล์ในครั้งเดียวได้ไหม</h3>
+    <p>ได้ <strong>แยกเสียงหลายไฟล์</strong> ซึ่งอยู่ที่ด้านล่างของหน้าจอหลักเช่นกัน รับวิดีโอหรือไฟล์เสียงได้หลายรายการ แล้วประมวลผลทีละรายการต่อเนื่องกันไปในรูปแบบผลลัพธ์เดียวกัน</p>
+    <h3>ทำไมเสียงเรียกเข้าของฉันจึงถูกปฏิเสธ</h3>
+    <p>เสียงเรียกเข้าของ iPhone ยาวได้ไม่เกิน 30 วินาที สำหรับไฟล์เดียว ให้ตัดช่วงที่ยาวไม่เกิน 30 วินาทีก่อน สำหรับการรวมไฟล์ ความยาวรวมต้องไม่เกิน 30 วินาที และหาก SoundPull อ่านความยาวของรายการใดรายการหนึ่งไม่ได้ ก็จะไม่สร้างเสียงเรียกเข้าจากชุดนั้น iOS ไม่อนุญาตให้แอปติดตั้งเสียงเรียกเข้าเอง ให้แชร์ไฟล์ M4R ไปยัง GarageBand หรือแอปไฟล์ แล้วตั้งค่าจากที่นั่น</p>
 
-  <details>
-    <summary>ฉันใช้ไฟล์ใดได้บ้าง และจะได้ผลลัพธ์อะไรออกมา?</summary>
-    <p>คุณสามารถเลือกวิดีโอจากคลังรูปภาพหรือแอป Files หรือส่งวิดีโอไปยัง SoundPull จากชีตแบ่งปันของแอปอื่นได้ ผลลัพธ์จะเป็นไฟล์ M4A ที่มีเสียง AAC คุณภาพสูงเสมอ วิดีโอบางรายการที่ไม่มีแทร็กเสียง มีตัวแปลงรหัส (codec) ที่ไม่รองรับ หรือมีการป้องกันด้วย DRM จะไม่สามารถประมวลผลได้</p>
-  </details>
+    <h2 id="text">ข้อความถอดเสียงและคำบรรยาย</h2>
+    <h3>ใช้ภาษาใด</h3>
+    <p>ภาษาที่ตั้งไว้ใน iPhone ของคุณ ซึ่งจะแสดงให้เห็นก่อนเริ่ม การรู้จำทำงานบนอุปกรณ์เท่านั้น จึงใช้ได้เฉพาะเมื่อ iPhone ของคุณรองรับการรู้จำเสียงพูดบนอุปกรณ์สำหรับภาษานั้น หากไม่รองรับ SoundPull จะแจ้งว่าใช้งานไม่ได้ แทนที่จะส่งเสียงออกไปที่ใด</p>
+    <h3>จะได้คำบรรยายอย่างไร</h3>
+    <p>เมื่อถอดเสียงเสร็จ ให้แตะ <strong>บันทึกคำบรรยาย (SRT)</strong> เพื่อแชร์ไฟล์ .srt ที่โปรแกรมตัดต่อวิดีโอและโปรแกรมเล่นวิดีโอเปิดได้ คำบรรยายแต่ละช่วงจะสั้น และตัดแบ่งที่ท้ายประโยคหรือที่จังหวะหยุดพูด ปุ่มนี้จะปรากฏก็ต่อเมื่อ iOS ให้เวลาของแต่ละคำมาด้วย ส่วนข้อความล้วนนั้นเรียกใช้ได้เสมอผ่าน <strong>บันทึก / แชร์ข้อความ</strong></p>
+    <h3>แม่นยำแค่ไหน</h3>
+    <p>ขึ้นอยู่กับภาษา ไฟล์บันทึก และเสียงรบกวนรอบข้าง ไฟล์บันทึกที่ยาวจะถูกรู้จำเป็นส่วน ๆ แล้วนำมาต่อกัน โปรดอ่านข้อความให้ครบก่อนนำไปใช้</p>
 
-  <details>
-    <summary>ทำไม SoundPull จึงขอเข้าถึงคลังรูปภาพ?</summary>
-    <p>เพื่อให้คุณสามารถเลือกวิดีโอจากคลังของคุณเพื่อสกัดเสียงได้ SoundPull อ่านเฉพาะวิดีโอที่คุณเลือก ประมวลผลบนอุปกรณ์ของคุณ และไม่เคยอัปโหลดหรือสแกนคลังของคุณ</p>
-  </details>
+    <h2 id="messages">ข้อความที่คุณอาจพบ</h2>
+    <dl>
+      <dt>"วิดีโอนี้ไม่มีแทร็กเสียง"</dt>
+      <dd>ไฟล์นี้ไม่มีเสียงให้ SoundPull แยกออกมา ลองเปิดเล่นในแอปรูปภาพหรือแอปไฟล์เพื่อดูว่ามีเสียงหรือไม่</dd>
+      <dt>"ไม่สามารถใช้เนื้อหาที่มีการป้องกันได้ โปรดใช้วิดีโอที่คุณเป็นเจ้าของ"</dt>
+      <dd>ไฟล์นี้มีการป้องกันด้วย DRM เช่น ภาพยนตร์หรือรายการที่ซื้อหรือเช่าจากร้านค้า SoundPull ไม่ประมวลผลเนื้อหาที่มีการป้องกัน และไม่ข้ามการป้องกันการคัดลอก</dd>
+      <dt>"พื้นที่ว่างไม่เพียงพอสำหรับการแยกเสียง"</dt>
+      <dd>SoundPull ตรวจสอบพื้นที่ว่างก่อนเขียนผลลัพธ์ ลบข้อมูลบางส่วนเพื่อเพิ่มพื้นที่ แล้วลองอีกครั้ง</dd>
+      <dt>"iPhone เครื่องนี้ไม่รองรับการรู้จำเสียงบนเครื่องสำหรับภาษานี้"</dt>
+      <dd>ดูหัวข้อ<a href="#text">ข้อความถอดเสียงและคำบรรยาย</a>ด้านบน</dd>
+      <dt>"ไม่สามารถประมวลผลไฟล์นี้ได้"</dt>
+      <dd>อ่านรูปแบบไฟล์หรือโคเดกไม่ได้ หากเกิดขึ้นซ้ำกับไฟล์ชนิดที่ใช้กันทั่วไป โปรดเขียนถึงเราพร้อมรายละเอียดตามที่ระบุไว้ด้านบนสุดของหน้านี้</dd>
+    </dl>
 
-  <details>
-    <summary>มันแสดงว่า "วิดีโอนี้ไม่มีแทร็กเสียง" หรือ "ไม่สามารถใช้เนื้อหาที่มีการป้องกันได้" หมายความว่าอย่างไร?</summary>
-    <p>SoundPull สามารถสกัดเสียงได้เฉพาะจากวิดีโอที่มีแทร็กเสียงอยู่จริงและที่คุณมีสิทธิในการใช้งานเท่านั้น ไม่สามารถประมวลผลเนื้อหาที่ป้องกันด้วย DRM ได้ (เช่น ภาพยนตร์หรือรายการที่ซื้อหรือเช่าจากร้านค้า หรือสื่อที่สตรีมมา) และจะไม่ข้ามผ่านการป้องกันการคัดลอกใด ๆ โปรดใช้วิดีโอที่คุณบันทึกเองหรือเป็นเจ้าของสิทธิ</p>
-  </details>
+    <h2 id="buying">การซื้อ อุปกรณ์เครื่องอื่น และการคืนเงิน</h2>
+    <h3>มีอะไรต้องซื้อเพิ่มในแอปอีกไหม</h3>
+    <p>ไม่มี SoundPull เป็นแอปแบบเสียเงินที่ซื้อครั้งเดียวและรวมทุกฟีเจอร์ไว้แล้ว ในแอปไม่มีการซื้อเพิ่ม ไม่มีการสมัครสมาชิก และไม่มีโฆษณา</p>
+    <h3>ติดตั้งบน iPhone เครื่องอื่นได้อย่างไร</h3>
+    <p>ลงชื่อเข้าใช้ด้วยบัญชี Apple ที่คุณใช้ซื้อ SoundPull แล้วดาวน์โหลดอีกครั้งจาก App Store โดยไม่มีค่าใช้จ่าย แอปไม่มีขั้นตอนกู้คืนแยกต่างหาก</p>
+    <h3>ขอคืนเงินได้อย่างไร</h3>
+    <p>Apple เป็นผู้ตัดสินเรื่องการคืนเงินสำหรับการซื้อบน App Store คุณยื่นคำขอได้ที่ <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a></p>
+    <h3>ทำไม SoundPull จึงขอให้ฉันให้คะแนน</h3>
+    <p>หลังจากแยกเสียงหรือรวมไฟล์สำเร็จเป็นครั้งที่ 3, 15 และ 50 SoundPull จะขอให้ iOS แสดงหน้าต่างให้คะแนนมาตรฐานของ Apple และ iOS เป็นผู้ตัดสินว่าจะแสดงจริงหรือไม่ คุณปิดคำขอเหล่านี้สำหรับทุกแอปได้ที่แอปการตั้งค่า &gt; App Store &gt; การให้คะแนนและรีวิวภายในแอป (In-App Ratings &amp; Reviews) ตั้งแต่ iOS 18 เป็นต้นไป App Store จะอยู่ในการตั้งค่า &gt; แอป</p>
 
-  <details>
-    <summary>ต้องซื้ออะไรเพิ่มภายในแอปอีกไหม?</summary>
-    <p>ไม่ต้อง SoundPull เป็นแอปแบบเสียเงิน คุณซื้อเพียงครั้งเดียวบน App Store แล้วใช้งานได้ครบทุกคุณสมบัติ ไม่มีการซื้อภายในแอป ไม่มีการสมัครสมาชิก และไม่มีโฆษณา</p>
-  </details>
+    <h2 id="data">ไฟล์และข้อมูลของคุณ</h2>
+    <h3>ไฟล์ของฉันไปอยู่ที่ใด</h3>
+    <p>ไฟล์อยู่บน iPhone ของคุณ การแปลง การรวมไฟล์ และการถอดเสียงทั้งหมดเกิดขึ้นบนอุปกรณ์ และ SoundPull ไม่มีเซิร์ฟเวอร์ให้ส่งสิ่งใดไป เมื่องานเสร็จ ให้แตะ <strong>บันทึก / แชร์</strong> เพื่อบันทึกผลลัพธ์ลงแอปไฟล์ ส่งผ่าน AirDrop หรือส่งไปยังแอปอื่น ผลลัพธ์ที่คุณไม่ได้บันทึกไว้ SoundPull จะลบทิ้ง</p>
+    <h3>จะลบทุกอย่างที่ SoundPull จัดเก็บไว้ได้อย่างไร</h3>
+    <p>ลบแอป iOS จะลบการตั้งค่าและไฟล์ที่ใช้ระหว่างทำงานออกไปพร้อมกัน ส่วนไฟล์ที่คุณบันทึกไว้ที่อื่นจะยังอยู่ในที่ที่คุณเก็บไว้</p>
 
-  <details>
-    <summary>จะใช้ SoundPull บนอุปกรณ์เครื่องใหม่ได้อย่างไร?</summary>
-    <p>ลงชื่อเข้าใช้อุปกรณ์เครื่องใหม่ด้วยบัญชี Apple เดียวกับที่คุณใช้ซื้อ SoundPull แล้วดาวน์โหลดจาก App Store อีกครั้ง — แอปแบบเสียเงินสามารถดาวน์โหลดซ้ำได้โดยไม่มีค่าใช้จ่ายเพิ่มเติม ภายในแอปไม่มีขั้นตอน "กู้คืนการซื้อ" แยกต่างหาก</p>
-  </details>
+    <h2 id="docs">นโยบาย</h2>
+    <p><a href="./privacy-policy-th.html">นโยบายความเป็นส่วนตัว</a> · <a href="./terms-th.html">ข้อกำหนดการใช้งาน</a></p>
+  </main>
 
-  <details>
-    <summary>ฉันจะขอคืนเงินได้อย่างไร?</summary>
-    <p>Apple เป็นผู้จัดการการคืนเงินทั้งหมดสำหรับการซื้อใน App Store ไปที่ <a href="https://reportaproblem.apple.com">https://reportaproblem.apple.com</a></p>
-  </details>
-
-  <details>
-    <summary>ฉันจะบันทึกหรือแบ่งปันเสียงที่สกัดได้อย่างไร?</summary>
-    <p>หลังการสกัด ให้แตะ <strong>บันทึก / แบ่งปัน</strong> เพื่อเปิดชีตแบ่งปันของ iOS จากที่นั่นคุณสามารถเลือก <strong>บันทึกไปยัง Files</strong> ส่งผ่าน AirDrop หรือส่งไปยังแอปอื่นได้</p>
-  </details>
-
-  <details>
-    <summary>ฉันจะลบข้อมูลที่จัดเก็บโดยแอปได้อย่างไร?</summary>
-    <p>ถอนการติดตั้งแอปออกจากอุปกรณ์ของคุณ iOS จะลบข้อมูลที่จัดเก็บในเครื่องทั้งหมดโดยอัตโนมัติ</p>
-  </details>
-
-  <h2>ความเป็นส่วนตัวและข้อกำหนด</h2>
-  <ul>
-    <li><a href="./privacy-policy-th.html">นโยบายความเป็นส่วนตัว</a></li>
-    <li><a href="./terms-th.html">ข้อกำหนดการใช้งาน</a></li>
-  </ul>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></p>
+  </footer>
 </body>
 </html>

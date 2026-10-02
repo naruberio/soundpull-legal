@@ -3,122 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Política de Privacidade — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Política de Privacidade do SoundPull</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
-    th { background: #f6f8fa; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    code { background: #f6f8fa; padding: 0.1rem 0.3rem; border-radius: 3px; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← Início</a></nav>
-  <div class="langbar">
-    <a href="./privacy-policy.html">English</a> ·
-    <a href="./privacy-policy-ja.html">日本語</a> ·
-    <a href="./privacy-policy-zh-Hant.html">繁體中文</a> ·
-    <a href="./privacy-policy-es.html">Español</a> ·
-    <strong>Português&nbsp;(BR)</strong> ·
-    <a href="./privacy-policy-de.html">Deutsch</a> ·
-    <a href="./privacy-policy-fr.html">Français</a> ·
-    <a href="./privacy-policy-ko.html">한국어</a> ·
-    <a href="./privacy-policy-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./privacy-policy-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./privacy-policy-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · todos os documentos</a>
+    <nav class="langs" aria-label="Idioma">
+      <a href="./privacy-policy.html">English</a> ·
+      <a href="./privacy-policy-ja.html">日本語</a> ·
+      <a href="./privacy-policy-zh-Hant.html">繁體中文</a> ·
+      <a href="./privacy-policy-es.html">Español</a> ·
+      <strong aria-current="page">Português&nbsp;(BR)</strong> ·
+      <a href="./privacy-policy-de.html">Deutsch</a> ·
+      <a href="./privacy-policy-fr.html">Français</a> ·
+      <a href="./privacy-policy-ko.html">한국어</a> ·
+      <a href="./privacy-policy-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./privacy-policy-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./privacy-policy-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>Política de Privacidade — SoundPull</h1>
-  <p><strong>Data de vigência: 2026-09-01</strong></p>
-  <p>Esta Política de Privacidade descreve como o "SoundPull" (o "Aplicativo") trata as informações sobre você quando você o utiliza. O Aplicativo é publicado por <strong>naruberio</strong> ("nós", "nos", "nosso"). O SoundPull extrai a trilha de áudio dos vídeos que você escolhe e a salva como um arquivo de áudio (M4A, MP3, WAV ou M4R para toques). Ele também pode exportar uma cópia do vídeo sem o áudio e transcrever em texto o áudio extraído usando reconhecimento de fala no dispositivo. Todo o processamento acontece no seu dispositivo.</p>
+  <main>
+    <h1>Política de Privacidade do SoundPull</h1>
+    <p class="stamp">Em vigor desde 2026-10-02 · redigida para o SoundPull 1.4</p>
+    <p>O SoundPull é um app para iPhone que tira o som de vídeos, converte e une arquivos de áudio e pode transformar fala gravada em texto. Esta política acompanha um arquivo passo a passo dentro do app e, em seguida, lista tudo o que o SoundPull guarda no seu iPhone. O SoundPull é desenvolvido e publicado pela naruberio; nesta política, “nós” e “nosso” se referem à naruberio.</p>
 
-  <h2>1. Resumo</h2>
-  <p><strong>Não coletamos nenhum dado pessoal.</strong> Seus vídeos, o áudio que extraímos deles e tudo o que você faz no Aplicativo permanecem no seu dispositivo. Não operamos servidores, e o Aplicativo não contém SDKs de análise, publicidade ou rastreamento de terceiros. O Aplicativo não requer acesso à rede para funcionar.</p>
+    <h2 id="brief">Em resumo</h2>
+    <ul class="gist">
+      <li>O SoundPull não tem conta, nem login, nem servidor nosso por trás.</li>
+      <li>Os vídeos, arquivos de áudio, transcrições e legendas com que você trabalha são processados no seu iPhone e nunca são enviados, nem para nós nem para mais ninguém.</li>
+      <li>O app não contém código de análise de uso, publicidade, relatórios de falhas ou rastreamento, e não precisa de conexão com a internet para fazer o seu trabalho.</li>
+      <li>De uma abertura para a outra, o SoundPull lembra apenas três ajustes e as contagens que regem o pedido de avaliação, tudo guardado no próprio aparelho. As cópias criadas quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull também podem ficar no aparelho (veja <a href="#kept">O que fica no seu iPhone</a>).</li>
+    </ul>
 
-  <h2>2. Informações Que Não Coletamos</h2>
-  <p><strong>Não</strong> coletamos, transmitimos, armazenamos em nossos servidores nem compartilhamos nenhuma das seguintes informações:</p>
-  <ul>
-    <li>Informações de conta (e-mail, nome, perfil) — o Aplicativo não tem contas nem login</li>
-    <li>Seus vídeos, as trilhas de áudio que extraímos ou qualquer arquivo que você importe ou exporte</li>
-    <li>Dados de contatos, localização, calendário, microfone ou câmera</li>
-    <li>O conteúdo da sua biblioteca de fotos — consulte a seção 6</li>
-    <li>Identificadores de dispositivo usados para publicidade ou rastreamento</li>
-    <li>Relatórios de falhas ou eventos de análise enviados a terceiros</li>
-  </ul>
+    <h2 id="flow">O que acontece com um arquivo que você abre no SoundPull</h2>
+    <ol class="flow">
+      <li><strong>Você o escolhe.</strong> Dá para escolher um vídeo no seletor do Fotos, escolher um vídeo ou um arquivo de áudio (m4a, mp3, wav, aac, caf, aif, aiff ou flac) no app Arquivos, ou enviá-lo pelo menu de compartilhamento de outro app, inclusive o Gravador. O iOS entrega ao SoundPull só os itens que você seleciona; o app não percorre o resto da sua fototeca nem das suas pastas.</li>
+      <li><strong>O SoundPull faz uma cópia de trabalho.</strong> O item é copiado para uma pasta temporária dentro da área isolada (sandbox) do próprio app, de modo que o seu original nunca é alterado. Os seletores do Fotos e do Arquivos e o menu de compartilhamento também podem deixar uma cópia própria dentro do contêiner do app.</li>
+      <li><strong>A cópia é convertida no iPhone.</strong> Com o framework AVFoundation da Apple, o SoundPull grava um arquivo M4A, MP3, WAV ou M4R (toque) ou, se você tiver pedido, uma cópia do vídeo sem a trilha sonora. Numa junção, os itens que você enfileirou são unidos, na ordem que você definiu, em um único arquivo. Os arquivos MP3 são codificados pela biblioteca LAME, que vem embutida no app. Nenhuma dessas etapas manda nada pela rede.</li>
+      <li><strong>Se você pedir uma transcrição, ela também acontece no iPhone.</strong> O framework Speech da Apple reconhece as palavras usando somente o reconhecimento no dispositivo (<code>requiresOnDeviceRecognition</code>). Quando o seu iPhone não oferece reconhecimento no dispositivo para o idioma, o SoundPull avisa e para; ele nunca repassa o áudio a um servidor como alternativa. Você pode exportar o texto como arquivo .txt ou como arquivo de legendas .srt, cujos tempos vêm desse mesmo reconhecimento no dispositivo. Nem o áudio nem o texto vão para a Apple ou para nós.</li>
+      <li><strong>Você decide para onde vai o resultado.</strong> Você pode ouvi-lo e depois enviá-lo pelo menu de compartilhamento do iOS: Salvar em Arquivos, AirDrop ou outro app. Quando o arquivo chega aonde você o mandou, o que acontece com ele ali depende desse destino, e não do SoundPull.</li>
+      <li><strong>Os arquivos de trabalho são apagados.</strong> O SoundPull exclui a cópia do seu original quando a tarefa deixa de precisar dela: logo depois de uma conversão e, numa junção, assim que ela dá certo ou, no mais tardar, quando você sai da tela de junção. Um resultado é excluído quando você começa outra tarefa, o descarta ou sai da tela em que ele foi gerado. As cópias entregues ao menu de compartilhamento, incluindo os arquivos de transcrição e de legendas, ficam guardadas até a próxima abertura do SoundPull, porque o app que as recebeu ainda pode estar lendo esses arquivos. Toda vez que o SoundPull é aberto, ele exclui os arquivos de trabalho dele mesmo que sessões anteriores deixaram para trás. As cópias próprias que os seletores e o menu de compartilhamento deixam (veja o passo 2) ficam fora dessa limpeza. As dos seletores ficam no cache e nas pastas temporárias do app, que o iOS pode esvaziar quando o armazenamento fica escasso. Quando outro app envia um arquivo ao SoundPull pelo menu de compartilhamento, o iOS pode copiá-lo para a pasta Inbox do app; o iOS não esvazia essa pasta por conta própria, então essa cópia fica lá até você apagar o SoundPull. Os dois tipos de cópia sempre saem do iPhone junto com o app quando ele é apagado.</li>
+    </ol>
 
-  <h2>3. Como Seus Vídeos e Áudio São Processados</h2>
-  <p>A extração de áudio acontece <strong>inteiramente no seu dispositivo</strong> usando o framework AVFoundation da Apple. Quando você seleciona um vídeo, o Aplicativo o lê localmente, grava o resultado — um arquivo de áudio (M4A, MP3, WAV ou M4R) ou uma cópia do vídeo sem o áudio — em um local temporário no dispositivo e permite que você visualize, salve ou compartilhe.</p>
-  <p>A <strong>transcrição</strong> (transformar em texto o áudio que você já extraiu) usa o framework Speech da Apple e <strong>precisa obrigatoriamente ser executada no seu dispositivo</strong>. Se o reconhecimento no dispositivo não estiver disponível para o seu idioma ou aparelho, o Aplicativo informa você e não executa o recurso — ele nunca recorre ao envio do áudio para um servidor. Nem o áudio nem o texto resultante são enviados para a Apple ou para nós.</p>
-  <p>Seus vídeos, o áudio extraído e qualquer transcrição <strong>nunca são enviados</strong> para nós nem para qualquer terceiro.</p>
-  <p>Os arquivos de trabalho temporários são excluídos assim que deixam de ser necessários: a cópia importada do seu vídeo quando a extração termina, e o arquivo extraído quando você inicia outra extração ou descarta o resultado. A cópia criada para a folha de compartilhamento do iOS é mantida até a próxima abertura do Aplicativo, porque o app com o qual você compartilhou pode ainda estar lendo o arquivo; o Aplicativo remove todos os arquivos temporários remanescentes na próxima abertura. Tudo o que você não salvar é descartado.</p>
+    <h2 id="kept">O que fica no seu iPhone de uma abertura para a outra</h2>
+    <p>O SoundPull mantém quatro valores pequenos no armazenamento dele no aparelho (React Native AsyncStorage, dentro da sandbox do app). Nenhum deles contém nome de arquivo, gravação, transcrição ou qualquer coisa que identifique você, e nenhum deles é enviado para lugar algum.</p>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Valor guardado</th><th>O que ele contém</th><th>Por que é guardado</th></tr></thead>
+        <tbody>
+          <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>Se você já passou pelas telas de boas-vindas</td><td>Para que a introdução apareça uma vez só</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>O último formato de saída que você escolheu (M4A, MP3, WAV ou M4R)</td><td>Para que a próxima tarefa comece no mesmo formato</td></tr>
+          <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>Se a opção “Igualar o volume” está ativada</td><td>Para que a sua escolha continue valendo na próxima tarefa</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code> (novo na 1.4)</td><td>Dois números inteiros: quantas extrações ou junções deram certo e quantos marcos do pedido de avaliação já foram usados</td><td>Para decidir quando pedir ao iOS o aviso de avaliação (veja <a href="#rating">abaixo</a>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Um iPhone em que já rodou uma versão antiga do SoundPull que tinha uma cota de uso gratuito pode ainda guardar a contagem de uso daquela versão (<code>soundpull.freeQuota.usedCount</code>). As versões atuais não leem nem atualizam esse valor.</p>
+    <p>Ao apagar o SoundPull do seu iPhone, esses valores vão embora junto com ele. Não temos nenhuma forma de lê-los.</p>
+    <p>Além desses valores, as cópias próprias que os seletores e o menu de compartilhamento deixam quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull não são apagadas pelo app e podem continuar no aparelho de uma abertura para a outra. O passo 6 de <a href="#flow">O que acontece com um arquivo que você abre no SoundPull</a> explica onde cada tipo fica e quando ele sai.</p>
 
-  <h2>4. Informações Armazenadas Localmente no Seu Dispositivo</h2>
-  <p>O Aplicativo armazena os seguintes pequenos dados <strong>somente no seu dispositivo</strong> (usando o armazenamento local do iOS). Esses dados nunca saem do seu dispositivo.</p>
-  <table>
-    <thead><tr><th>Dados</th><th>Finalidade</th><th>Armazenamento</th></tr></thead>
-    <tbody>
-      <tr><td>Indicador de introdução inicial concluída e preferências do aplicativo (formato de saída, normalização de volume)</td><td>Configuração do aplicativo — por exemplo, não exibir a introdução inicial novamente e lembrar o formato escolhido da última vez</td><td>Armazenamento local no dispositivo</td></tr>
-    </tbody>
-  </table>
-  <p>Quando você desinstala o Aplicativo, o iOS exclui todos esses dados.</p>
+    <h2 id="rating">O pedido de avaliação, incluído na versão 1.4</h2>
+    <p>Depois da 3ª, da 15ª e da 50ª extração ou junção bem-sucedida, o SoundPull pede ao iOS que mostre o aviso padrão da Apple para avaliar o app, por meio da solicitação de avaliação do framework StoreKit da Apple. É o iOS que decide se o aviso aparece de fato e que limita quantas vezes qualquer app pode exibi-lo. O SoundPull não fica sabendo se o aviso apareceu nem o que você fez com ele. Se você der uma nota ou escrever uma avaliação do SoundPull, quem recebe isso é a Apple, vinculado à sua Conta Apple; uma avaliação escrita é publicada na App Store com o apelido que você escolher, onde qualquer pessoa, inclusive nós, pode lê-la; como desenvolvedores, também podemos publicar ali uma resposta pública.</p>
+    <p>Para parar de receber esses avisos em todos os apps, abra o app Ajustes do iOS, entre em App Store e desative a opção de avaliações dentro dos apps (em inglês, “In-App Ratings &amp; Reviews”). No iOS 18 e posteriores, o item App Store fica em Ajustes &gt; Apps.</p>
+    <p>O pedido de avaliação é a única finalidade para a qual o SoundPull usa o StoreKit. O app não tem telas de compra e não faz nenhuma solicitação de compra por conta própria.</p>
 
-  <h2>5. Apple App Store</h2>
-  <p>O SoundPull é um <strong>aplicativo pago</strong>: você o compra uma única vez na App Store e todos os recursos estão incluídos. <strong>Não há compras dentro do aplicativo, nem assinaturas, nem publicidade.</strong> A compra é processada pela <strong>Apple Inc.</strong> por meio da App Store. Não recebemos seu nome, e-mail, cartão de pagamento ou qualquer outra informação pessoal da Apple. O tratamento dos seus dados de compra pela Apple é regido pela <a href="https://www.apple.com/legal/privacy/">Política de Privacidade da Apple</a>.</p>
+    <h2 id="permissions">Permissões que o iOS pode mostrar</h2>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Permissão</th><th>Quando e por quê</th></tr></thead>
+        <tbody>
+          <tr><td>Fotos<br><code>NSPhotoLibraryUsageDescription</code></td><td>Serve apenas para ler o vídeo ou os vídeos em que você toca no seletor de fotos. O SoundPull não percorre, não indexa e não envia a sua fototeca.</td></tr>
+          <tr><td>Reconhecimento de Fala<br><code>NSSpeechRecognitionUsageDescription</code></td><td>É pedida na primeira vez que você inicia uma transcrição. O reconhecimento fica restrito ao aparelho (<code>requiresOnDeviceRecognition</code>) e trabalha sobre um arquivo que já está no SoundPull, nunca sobre o som captado ao vivo pelo microfone.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Abrir um arquivo pelo app Arquivos ou por um menu de compartilhamento não exige permissão, porque o iOS repassa apenas o item que você escolheu. O SoundPull não usa a câmera, o microfone, a sua localização nem os seus contatos, e não pede acesso à rede. Ele nunca exibe o aviso da App Tracking Transparency (Transparência de Rastreamento de Apps), porque não rastreia ninguém.</p>
 
-  <h2>6. Permissões</h2>
-  <p>O Aplicativo solicita as permissões mínimas necessárias e somente quando você usa o recurso relacionado:</p>
-  <table>
-    <thead><tr><th>Permissão</th><th>Por que é solicitada</th></tr></thead>
-    <tbody>
-      <tr><td>Biblioteca de Fotos (<code>NSPhotoLibraryUsageDescription</code>)</td><td>Para que você possa escolher um vídeo da sua biblioteca para extrair o áudio. O Aplicativo lê apenas o vídeo que você seleciona, e o processamento acontece no seu dispositivo. O SoundPull não escaneia, envia nem indexa sua biblioteca de fotos.</td></tr>
-      <tr><td>Reconhecimento de Fala (<code>NSSpeechRecognitionUsageDescription</code>)</td><td>Para que você possa transcrever o áudio que já extraiu. Esta permissão só é solicitada quando você inicia uma transcrição. O reconhecimento <strong>precisa ser executado no seu dispositivo</strong> (<code>requiresOnDeviceRecognition</code>); se o reconhecimento no dispositivo não estiver disponível, o Aplicativo simplesmente não executa o recurso e em nenhuma hipótese envia seu áudio para um servidor. Nem o áudio nem o texto resultante são enviados para a Apple ou para nós.</td></tr>
-    </tbody>
-  </table>
-  <p>O Aplicativo <strong>não</strong> grava pelo microfone e <strong>não</strong> usa a câmera nem a localização — o reconhecimento de fala lê um arquivo que você já extraiu, e não a entrada ao vivo do microfone. O Aplicativo <strong>não</strong> solicita acesso à rede. A Transparência de Rastreamento de Aplicativos <strong>nunca</strong> é solicitada porque o Aplicativo não rastreia usuários.</p>
+    <h2 id="paying">Como se paga pelo SoundPull</h2>
+    <p>O SoundPull é vendido como download pago na App Store. Essa compra única cobre todos os recursos; não existem compras dentro do app, assinaturas ou anúncios. Quem recebe o pagamento é a Apple, que não nos repassa seu nome, endereço de e-mail, dados do cartão nem outras informações pessoais. A forma como a Apple trata as suas informações de pagamento e de conta está explicada na <a href="https://www.apple.com/legal/privacy/">Política de Privacidade da Apple</a>.</p>
 
-  <h2>7. Manifesto de Privacidade</h2>
-  <p>O Aplicativo é distribuído com um Manifesto de Privacidade da Apple que declara:</p>
-  <ul>
-    <li><strong>Rastreamento</strong>: Nenhum</li>
-    <li><strong>Domínios de rastreamento</strong>: Nenhum</li>
-    <li><strong>Tipos de dados coletados</strong>: Nenhum</li>
-    <li><strong>APIs de motivo obrigatório utilizadas</strong>:
-      <ul>
-        <li><code>FileTimestamp (C617.1)</code> — para o tratamento de arquivos no dispositivo durante a extração</li>
-        <li><code>DiskSpace (E174.1)</code> — para verificar se há espaço livre suficiente antes de gravar um arquivo</li>
-        <li><code>UserDefaults (CA92.1)</code> — para guardar no seu dispositivo as configurações do próprio Aplicativo</li>
-        <li><code>SystemBootTime (35F9.1)</code> — para medir o tempo decorrido entre eventos dentro do Aplicativo (temporizadores)</li>
-      </ul>
-    </li>
-  </ul>
+    <h2 id="manifest">O que o manifesto de privacidade declara</h2>
+    <p>O SoundPull traz embutido um manifesto de privacidade da Apple. Nele consta que o app não faz rastreamento, não se comunica com domínios de rastreamento e não coleta nenhum tipo de dado. O manifesto também lista quatro APIs para as quais a Apple exige que o desenvolvedor informe um motivo, e cada uma é usada só para a finalidade que o seu código de motivo representa:</p>
+    <ul>
+      <li><code>FileTimestamp</code>, motivo <code>C617.1</code>: ler as datas e os tamanhos de arquivos dentro do contêiner do próprio SoundPull, por exemplo para separar os arquivos de trabalho deixados por uma sessão anterior dos que estão em uso agora.</li>
+      <li><code>DiskSpace</code>, motivo <code>E174.1</code>: conferir se há espaço para gravar o arquivo de saída; se não houver, o SoundPull para e avisa você.</li>
+      <li><code>UserDefaults</code>, motivo <code>CA92.1</code>: ler e gravar valores que só o próprio app usa.</li>
+      <li><code>SystemBootTime</code>, motivo <code>35F9.1</code>: medir o tempo que passa entre eventos dentro do app, como no caso de temporizadores.</li>
+    </ul>
+    <p>Os dois primeiros são declarados pelo próprio SoundPull; os outros dois entram em nome dos frameworks sobre os quais o app é construído.</p>
 
-  <h2>8. Privacidade de Crianças</h2>
-  <p>O Aplicativo é adequado para o público em geral. Como não coletamos nenhum dado pessoal, o Aplicativo não coleta intencionalmente informações de crianças menores de 13 anos ou de qualquer outro limite de idade sob qualquer jurisdição.</p>
+    <h2 id="children">Crianças</h2>
+    <p>O SoundPull é voltado ao público em geral. Como ele não coleta informações pessoais de ninguém que o utilize, também não coleta conscientemente nenhuma informação de crianças, seja de 13 anos ou outra a idade-limite que valha onde você mora.</p>
 
-  <h2>9. Seus Direitos</h2>
-  <p>Como não coletamos dados pessoais, não há nada do nosso lado para acessar, corrigir, portar ou excluir. Para excluir todos os dados armazenados pelo Aplicativo, desinstale-o do seu dispositivo.</p>
-  <p>Para usuários na UE (GDPR), no Reino Unido, na Califórnia (CCPA/CPRA), no Brasil (LGPD) ou em outros regimes de privacidade: o Aplicativo não atua como controlador nem como operador dos seus dados pessoais, uma vez que nenhum é coletado por nós.</p>
+    <h2 id="laws">Leis de privacidade e as suas escolhas</h2>
+    <p>Leis como o GDPR da União Europeia e do Reino Unido, a Lei de Privacidade do Consumidor da Califórnia (CCPA) com as alterações da CPRA e a LGPD brasileira dão a você direitos sobre os dados pessoais que uma empresa tem a seu respeito. O app não nos envia dado pessoal nenhum sobre você; por isso, no que se refere ao seu uso do SoundPull, do nosso lado não há nada a mostrar, corrigir, entregar ou apagar, e não somos controladores nem operadores dos seus dados pessoais no que diz respeito ao app. Como o app não manda nada para fora do seu iPhone, ele também não transfere dados para outro país. O e-mail que você nos enviar é tratado em <a href="#contact">Dúvidas</a>, mais abaixo.</p>
+    <p>O que o SoundPull guarda está nas suas mãos: apagar o app remove os valores descritos acima e qualquer cópia que tenha ficado no cache, nas pastas temporárias ou na pasta Inbox do app, e os arquivos que você salvou continuam onde você os colocou até que você mesmo os apague.</p>
 
-  <h2>10. Uso Internacional</h2>
-  <p>O Aplicativo está disponível globalmente. Como nenhum dado é transmitido para fora do seu dispositivo, não ocorre transferência transfronteiriça de dados.</p>
+    <h2 id="changes">Quando esta política muda</h2>
+    <p>Esta política pode ser revisada por nós, por exemplo quando uma nova versão do SoundPull mudar o que acontece no aparelho. Toda revisão relevante ganha uma nova data no topo desta página, e o texto em vigor fica sempre publicado em <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-pt-BR.html">naruberio.github.io/soundpull-legal/privacy-policy-pt-BR.html</a>. Se você continuar usando o SoundPull depois que uma revisão entrar em vigor, estará aceitando a política revisada.</p>
 
-  <h2>11. Alterações Nesta Política</h2>
-  <p>Podemos atualizar esta Política de Privacidade. Alterações relevantes serão refletidas pela atualização da "Data de vigência" acima e pela publicação da política revisada na URL listada na seção 12. O uso continuado do Aplicativo após uma alteração indica a aceitação da política revisada.</p>
+    <h2 id="contact">Dúvidas</h2>
+    <p>Mande suas dúvidas sobre esta política para <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>. O SoundPull é publicado pela naruberio.</p>
+    <p>Quando você nos escreve, seja sobre esta política ou pedindo suporte, recebemos apenas o que está na mensagem, como o seu endereço de e-mail, o texto e eventuais anexos. Usamos isso para responder a você e para investigar e corrigir o problema que você descreve. Para isso, podemos copiar uma descrição do problema, sem o seu nome, o seu endereço de e-mail ou os anexos, para a ferramenta on-line de acompanhamento de problemas que usamos para organizar o nosso trabalho. Você pode nos pedir a qualquer momento que apaguemos essa correspondência; nesse caso, apagaremos os e-mails e tudo o que foi copiado deles para essa ferramenta.</p>
+  </main>
 
-  <h2>12. Contato</h2>
-  <table>
-    <tbody>
-      <tr><td>Publicado por</td><td>naruberio</td></tr>
-      <tr><td>E-mail de contato</td><td><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></td></tr>
-      <tr><td>URL canônica</td><td><a href="https://naruberio.github.io/soundpull-legal/privacy-policy-pt-BR.html">https://naruberio.github.io/soundpull-legal/privacy-policy-pt-BR.html</a></td></tr>
-    </tbody>
-  </table>
-  <p>Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco pelo e-mail acima.</p>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> · <a href="./terms-pt-BR.html">Termos de Uso</a> · <a href="./support-pt-BR.html">Suporte</a></p>
+  </footer>
 </body>
 </html>

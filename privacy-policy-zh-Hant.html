@@ -3,122 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>隱私權政策 — SoundPull</title>
+  <meta name="color-scheme" content="light dark">
+  <title>SoundPull 隱私權政策</title>
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1, h2 { font-weight: 600; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-    a { color: #6366F1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
-    th { background: #f6f8fa; }
-    nav { font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .langbar { font-size: 0.8rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
-    code { background: #f6f8fa; padding: 0.1rem 0.3rem; border-radius: 3px; }
+    /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
+    :root {
+      --ink: #1e1c29;
+      --soft: #5f5c70;
+      --rule: #dedce9;
+      --panel: #f3f2f9;
+      --accent: #4c3fd1;
+      --page: #fdfdff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --page: #121019; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.7 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+    .top, main, .foot { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+    .top { padding-block: 1.25rem 0; font-size: 0.85rem; color: var(--soft); }
+    .home { font-weight: 600; text-decoration: none; }
+    .langs { margin-top: 0.35rem; line-height: 2; }
+    main { padding-bottom: 3rem; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 1.4rem 0 0.3rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 2.6rem 0 0.7rem; padding-inline-start: 0.65rem; border-inline-start: 4px solid var(--accent); }
+    h3 { font-size: 1.02rem; margin: 1.5rem 0 0.25rem; }
+    .stamp { margin: 0 0 1.6rem; font-size: 0.9rem; color: var(--soft); }
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    code { font-size: 0.86em; padding: 0.05em 0.35em; border-radius: 4px; background: var(--panel); overflow-wrap: anywhere; }
+    .gist { margin: 0; padding: 1rem 1.2rem 1rem 2.2rem; border-radius: 12px; background: var(--panel); }
+    .gist li + li { margin-top: 0.35rem; }
+    /* 処理の順序を番号付きの段で見せる（読む→変換→保存/共有→消去） */
+    .flow { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .flow > li { position: relative; counter-increment: step; padding: 0 0 1.1rem 2.7rem; }
+    .flow > li::before { content: counter(step); position: absolute; inset-inline-start: 0; top: 0.15rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--page); font-size: 0.85rem; font-weight: 700; line-height: 1.8rem; text-align: center; }
+    /* 表は狭い画面で横にはみ出すことがあるので、囲みの中だけで横スクロールさせる */
+    .wrap { overflow-x: auto; }
+    .grid { width: 100%; margin: 0.8rem 0; border-collapse: separate; border-spacing: 0; font-size: 0.94rem; }
+    .grid th, .grid td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+    .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
+    .loud { font-weight: 600; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dd { margin: 0.2rem 0 0; }
+    .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
-  <nav><a href="./">← 首頁</a></nav>
-  <div class="langbar">
-    <a href="./privacy-policy.html">English</a> ·
-    <a href="./privacy-policy-ja.html">日本語</a> ·
-    <strong>繁體中文</strong> ·
-    <a href="./privacy-policy-es.html">Español</a> ·
-    <a href="./privacy-policy-pt-BR.html">Português&nbsp;(BR)</a> ·
-    <a href="./privacy-policy-de.html">Deutsch</a> ·
-    <a href="./privacy-policy-fr.html">Français</a> ·
-    <a href="./privacy-policy-ko.html">한국어</a> ·
-    <a href="./privacy-policy-id.html">Bahasa&nbsp;Indonesia</a> ·
-    <a href="./privacy-policy-vi.html">Tiếng&nbsp;Việt</a> ·
-    <a href="./privacy-policy-th.html">ไทย</a>
-  </div>
+  <header class="top">
+    <a class="home" href="./">SoundPull · 所有文件</a>
+    <nav class="langs" aria-label="語言">
+      <a href="./privacy-policy.html">English</a> ·
+      <a href="./privacy-policy-ja.html">日本語</a> ·
+      <strong aria-current="page">繁體中文</strong> ·
+      <a href="./privacy-policy-es.html">Español</a> ·
+      <a href="./privacy-policy-pt-BR.html">Português&nbsp;(BR)</a> ·
+      <a href="./privacy-policy-de.html">Deutsch</a> ·
+      <a href="./privacy-policy-fr.html">Français</a> ·
+      <a href="./privacy-policy-ko.html">한국어</a> ·
+      <a href="./privacy-policy-id.html">Bahasa&nbsp;Indonesia</a> ·
+      <a href="./privacy-policy-vi.html">Tiếng&nbsp;Việt</a> ·
+      <a href="./privacy-policy-th.html">ไทย</a>
+    </nav>
+  </header>
 
-  <h1>隱私權政策 — SoundPull</h1>
-  <p><strong>生效日期：2026-09-01</strong></p>
-  <p>本隱私權政策說明「SoundPull」（以下稱「本應用程式」）在您使用時如何處理與您有關的資訊。本應用程式 由 <strong>naruberio</strong>（以下稱「我們」）發行。SoundPull 會從您選擇的影片中擷取音訊軌，並儲存為音訊檔（M4A、MP3、WAV，或用於鈴聲的 M4R）。此外，本應用程式 也可以匯出已移除音訊的影片副本，並使用裝置端語音辨識將擷取的音訊轉為文字。所有處理皆在您的裝置上完成。</p>
+  <main>
+    <h1>SoundPull 隱私權政策</h1>
+    <p class="stamp">自 2026-10-02 起生效 · 以 SoundPull 1.4 為準撰寫</p>
+    <p>SoundPull 是一款 iPhone App，能把影片裡的聲音取出來、轉換並串接音訊檔，也能把錄下的說話內容變成文字。本政策先跟著一個檔案走過 App 裡的每一個步驟，再列出 SoundPull 留在您 iPhone 上的所有東西。SoundPull 由 naruberio 開發並發行；本政策所稱的「我們」，即指 naruberio。</p>
 
-  <h2>1. 摘要</h2>
-  <p><strong>我們不會蒐集任何個人資料。</strong>您的影片、我們從中擷取的音訊，以及您在本應用程式中所進行的一切操作，皆保留在您的裝置上。我們不營運任何伺服器，本應用程式亦不含任何分析、廣告或第三方追蹤 SDK。本應用程式無需網路連線即可運作。</p>
+    <h2 id="brief">重點整理</h2>
+    <ul class="gist">
+      <li>SoundPull 沒有帳號、不必登入，背後也沒有我們的伺服器。</li>
+      <li>您處理的影片、音訊檔、轉錄文字與字幕，都在您的 iPhone 上處理，絕不會上傳——不論是傳給我們，還是傳給其他任何人。</li>
+      <li>App 內沒有任何分析、廣告、當機回報或追蹤用的程式碼，完成工作也不需要連上網際網路。</li>
+      <li>在兩次啟動之間，SoundPull 只記得三項設定，以及評分提示所依據的次數，全都存在裝置上。您挑選檔案或其他 App 把檔案傳給 SoundPull 時所產生的副本，也可能留在裝置上（請見〈<a href="#kept">留在您 iPhone 上的資料</a>〉）。</li>
+    </ul>
 
-  <h2>2. 我們不會蒐集的資訊</h2>
-  <p>我們<strong>不會</strong>蒐集、傳輸、儲存於我們的伺服器，或分享下列任何資訊：</p>
-  <ul>
-    <li>帳戶資訊（電子郵件、姓名、個人檔案）——本應用程式沒有帳戶或登入機制</li>
-    <li>您的影片、我們擷取的音訊軌，或任何您匯入或匯出的檔案</li>
-    <li>通訊錄、位置、行事曆、麥克風或相機資料</li>
-    <li>您相片圖庫的內容——請見第 6 節</li>
-    <li>用於廣告或追蹤的裝置識別碼</li>
-    <li>傳送至第三方的當機報告或分析事件</li>
-  </ul>
+    <h2 id="flow">您在 SoundPull 開啟的檔案會經歷什麼</h2>
+    <ol class="flow">
+      <li><strong>由您挑選。</strong>您可以在「照片」的挑選畫面中選擇影片，在「檔案」App 中選擇影片或音訊檔（m4a、mp3、wav、aac、caf、aif、aiff 或 flac），或從其他 App 的分享表單傳過來，「語音備忘錄」也可以。iOS 只會把您選取的項目交給 SoundPull；App 不會翻看您相片圖庫或資料夾裡的其他內容。</li>
+      <li><strong>SoundPull 先做一份工作副本。</strong>該項目會被複製到 App 自己沙盒內的暫存資料夾，因此您的原始檔絕不會被改動。「照片」與「檔案」的挑選畫面以及分享表單，也可能在 App 的容器內另外留下它們自己的一份副本。</li>
+      <li><strong>副本在 iPhone 上完成轉換。</strong>SoundPull 透過 Apple 的 AVFoundation 框架寫出 M4A、MP3、WAV 或 M4R（鈴聲）檔；若您有需要，也能寫出一份拿掉聲音軌的影片副本。合併時，您排好的項目會依您定的順序串成單一檔案。MP3 檔由 App 內建的 LAME 程式庫編碼。這些步驟全都不會透過網路傳送任何東西。</li>
+      <li><strong>若您要轉錄文字，同樣在 iPhone 上進行。</strong>Apple 的 Speech 框架只以裝置端辨識來認出語句（<code>requiresOnDeviceRecognition</code>）。當您的 iPhone 沒有該語言的裝置端辨識時，SoundPull 會如實告知並就此停止，絕不會改把音訊交給伺服器。文字可以匯出成 .txt 檔，也可以匯出成 .srt 字幕檔，字幕的時間碼同樣出自這個裝置端辨識。音訊與文字都不會傳給 Apple，也不會傳給我們。</li>
+      <li><strong>結果要送去哪裡，由您決定。</strong>您可以先播放確認，再透過 iOS 分享表單送出：儲存到「檔案」、用 AirDrop 傳送，或交給其他 App。檔案一旦抵達您指定的地方，之後在那裡如何處理，就由該目的地決定，而不是 SoundPull。</li>
+      <li><strong>工作檔案隨後清除。</strong>一旦工作用不到原始檔的副本，SoundPull 就會把它刪除：轉換完成後立即刪除；合併則在合併成功時刪除，最晚也會在您離開合併畫面時刪除。結果檔會在您開始下一個工作、捨棄它，或離開產生它的畫面時刪除。交給分享表單的副本，包括轉錄文字與字幕檔，會留到 SoundPull 下次啟動為止，因為接收的 App 可能還在讀取。SoundPull 每次啟動時，都會刪掉先前工作階段遺留下來、屬於它自己的工作檔案。挑選畫面與分享表單另外留下的它們自己的副本（見第 2 步），不在這項清理的範圍內：挑選畫面留下的副本放在 App 的快取與暫存資料夾中，儲存空間吃緊時 iOS 可能會將其清掉。其他 App 透過分享表單把檔案傳給 SoundPull 時，iOS 可能會把檔案複製到 App 的 Inbox 資料夾；iOS 不會自行清空這個資料夾，因此這類副本會一直留到您刪除 SoundPull 為止。無論哪一種副本，都會在刪除 App 時一併從 iPhone 上清除。</li>
+    </ol>
 
-  <h2>3. 我們如何處理您的影片與音訊</h2>
-  <p>音訊擷取<strong>完全在您的裝置上</strong>使用 Apple 的 AVFoundation 框架進行。當您選擇影片後，本應用程式 會在本機讀取該影片，將結果（M4A、MP3、WAV 或 M4R 音訊檔，或已移除音訊的影片副本）寫入裝置上的暫存位置，並讓您預覽、儲存或分享。</p>
-  <p><strong>語音轉文字</strong>（將已擷取的音訊轉為文字）使用 Apple 的 Speech 框架，並<strong>要求在裝置端執行辨識</strong>。若您的語言或裝置無法使用裝置端辨識，本應用程式 會告知您並且不執行此功能，絕不會改以將音訊傳送至伺服器的方式進行。音訊與產生的文字都不會傳送給 Apple 或我們。</p>
-  <p>您的影片、擷取的音訊以及任何轉錄文字<strong>絕不會上傳</strong>給我們或任何第三方。</p>
-  <p>暫存的工作檔案會在不再需要時刪除：匯入的影片副本在擷取完成時刪除，擷取的檔案則在您開始下一次擷取或捨棄結果時刪除。為 iOS 分享工作表建立的副本會保留到本應用程式 下次啟動為止（因為您分享的目標 App 可能仍在讀取該檔案），本應用程式 會在下次啟動時清除所有殘留的暫存檔案。您未儲存的內容都會被捨棄。</p>
+    <h2 id="kept">兩次啟動之間留在您 iPhone 上的資料</h2>
+    <p>SoundPull 會在裝置上自己的儲存區（位於 App 沙盒內的 React Native AsyncStorage）保存四個小小的值。其中沒有任何檔名、錄音、轉錄文字或足以識別您身分的資訊，也從不會被送到任何地方。</p>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>儲存的值</th><th>內容</th><th>保存的原因</th></tr></thead>
+        <tbody>
+          <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>您是否已看完歡迎畫面</td><td>讓介紹畫面只出現一次</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>您最近一次選擇的輸出格式（M4A、MP3、WAV 或 M4R）</td><td>讓下一個工作沿用同樣的格式</td></tr>
+          <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>「統一音量」是否開啟</td><td>讓您的選擇延續到下一個工作</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code>（1.4 版新增）</td><td>兩個整數：擷取或合併工作成功了幾次，以及評分提示的里程碑已經用掉幾個</td><td>用來決定何時請 iOS 顯示評分提示（請見<a href="#rating">下方</a>）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>如果這部 iPhone 曾經執行過早期附有免費額度的 SoundPull 版本，裝置上可能還留有該版本的使用次數（<code>soundpull.freeQuota.usedCount</code>）。目前的版本既不讀取、也不更新這個值。</p>
+    <p>從 iPhone 刪除 SoundPull 時，這些值會跟著一起刪除。我們沒有任何方法讀取它們。</p>
+    <p>除了這些值之外，您挑選檔案或其他 App 把檔案傳給 SoundPull 時，挑選畫面與分享表單另外留下的副本，不會由 App 清除，因此可能在兩次啟動之間留在裝置上。各種副本放在哪裡、何時消失，請見〈<a href="#flow">您在 SoundPull 開啟的檔案會經歷什麼</a>〉的第 6 步。</p>
 
-  <h2>4. 儲存在您裝置上的本機資訊</h2>
-  <p>本應用程式 僅<strong>在您的裝置上</strong>（使用 iOS 本機儲存空間）儲存下列少量資料。這些資料絕不會離開您的裝置。</p>
-  <table>
-    <thead><tr><th>資料</th><th>用途</th><th>儲存位置</th></tr></thead>
-    <tbody>
-      <tr><td>導覽完成標記與 App 偏好設定（輸出格式、音量正規化）</td><td>App 設定，例如不再顯示導覽、記住您上次選擇的格式</td><td>裝置上的本機儲存空間</td></tr>
-    </tbody>
-  </table>
-  <p>當您解除安裝本應用程式 時，iOS 會刪除所有這些資料。</p>
+    <h2 id="rating">1.4 版新增的評分提示</h2>
+    <p>在您第 3、第 15 與第 50 次成功擷取或合併之後，SoundPull 會透過 Apple StoreKit 框架中的評分請求功能，請 iOS 顯示 Apple 標準的 App 評分提示。提示是否真的出現由 iOS 決定，iOS 也會限制每個 App 能顯示它的頻率。SoundPull 不會得知提示有沒有出現，也不會得知您做了什麼選擇。若您為 SoundPull 評分或撰寫評論，Apple 會以您的 Apple 帳號收集這些內容；文字評論會以您選擇的暱稱公開在 App Store 上，包括我們在內，任何人都能閱讀；我們也可能以開發者身分在那裡公開回覆。</p>
+    <p>若想讓所有 App 都不再跳出這類提示，請打開 iOS 的「設定」App，進入 App Store，關閉「App 內評分與評論」（In-App Ratings &amp; Reviews）。在 iOS 18 或以上版本中，App Store 位於「設定」&gt; App 之中。</p>
+    <p>評分提示是 SoundPull 使用 StoreKit 的唯一用途。App 沒有任何購買畫面，也不會自行發出任何購買請求。</p>
 
-  <h2>5. Apple App Store</h2>
-  <p>SoundPull 是<strong>付費 App</strong>：您在 App Store 購買一次即可使用所有功能。本應用程式 <strong>沒有 App 內購買、沒有訂閱、也沒有廣告</strong>。購買由 <strong>Apple Inc.</strong> 透過 App Store 處理。我們不會從 Apple 取得您的姓名、電子郵件、付款卡片或任何其他個人資訊。Apple 對您購買資料的處理方式受 <a href="https://www.apple.com/legal/privacy/">Apple 隱私權政策</a>規範。</p>
+    <h2 id="permissions">iOS 可能顯示的權限</h2>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>權限</th><th>時機與原因</th></tr></thead>
+        <tbody>
+          <tr><td>照片<br><code>NSPhotoLibraryUsageDescription</code></td><td>只用來讀取您在照片挑選畫面中點選的那一部或多部影片。SoundPull 不會瀏覽、建立索引或上傳您的圖庫。</td></tr>
+          <tr><td>語音辨識<br><code>NSSpeechRecognitionUsageDescription</code></td><td>在您第一次開始轉錄時詢問。辨識只限在裝置上進行（<code>requiresOnDeviceRecognition</code>），處理的是已經在 SoundPull 裡的檔案，絕不是麥克風的即時收音。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>從「檔案」App 或分享表單開啟檔案不需要任何權限，因為 iOS 只會交出您選的那一項。SoundPull 不使用相機、麥克風、您的位置或聯絡人，也不要求網路存取。它從不顯示「App 追蹤透明度」的詢問，因為它不追蹤任何人。</p>
 
-  <h2>6. 權限</h2>
-  <p>本應用程式 僅要求最低限度的必要權限，且只在您使用相關功能時要求：</p>
-  <table>
-    <thead><tr><th>權限</th><th>要求原因</th></tr></thead>
-    <tbody>
-      <tr><td>照片圖庫（<code>NSPhotoLibraryUsageDescription</code>）</td><td>讓您可以從圖庫中選擇影片以擷取其音訊。本應用程式 僅讀取您選擇的影片，且處理在您的裝置上進行。SoundPull 不會掃描、上傳或索引您的照片圖庫。</td></tr>
-      <tr><td>語音辨識（<code>NSSpeechRecognitionUsageDescription</code>）</td><td>讓您可以將已擷取的音訊轉為文字。只有在您開始轉錄時才會要求此權限。辨識<strong>必須在您的裝置上執行</strong>（<code>requiresOnDeviceRecognition</code>）；若無法使用裝置端辨識，本應用程式 會停止此功能，而不會將您的音訊傳送至伺服器。音訊與產生的文字都不會傳送給 Apple 或我們。</td></tr>
-    </tbody>
-  </table>
-  <p>本應用程式 <strong>不會</strong>透過麥克風錄音，也<strong>不會</strong>使用相機或您的位置資訊——語音辨識讀取的是您已擷取的檔案，而非即時麥克風輸入。本應用程式 也<strong>不會</strong>要求網路存取權。由於本應用程式 不追蹤使用者，因此<strong>絕不會</strong>要求 App 追蹤透明度（App Tracking Transparency）。</p>
+    <h2 id="paying">購買 SoundPull</h2>
+    <p>SoundPull 以付費下載的形式在 App Store 販售。這一次購買就涵蓋所有功能；沒有 App 內購買、沒有訂閱，也沒有廣告。款項由 Apple 收取，Apple 不會把您的姓名、電子郵件地址、信用卡資料或其他個人資訊轉交給我們。Apple 如何處理您的付款與帳號資訊，請參閱 <a href="https://www.apple.com/legal/privacy/">Apple 的隱私權政策</a>。</p>
 
-  <h2>7. 隱私權資訊清單</h2>
-  <p>本應用程式 隨附 Apple 隱私權資訊清單，其中聲明：</p>
-  <ul>
-    <li><strong>追蹤</strong>：無</li>
-    <li><strong>追蹤網域</strong>：無</li>
-    <li><strong>收集的資料類型</strong>：無</li>
-    <li><strong>使用的必要理由 API</strong>：
-      <ul>
-        <li><code>FileTimestamp (C617.1)</code> — 用於擷取期間在裝置上的檔案處理</li>
-        <li><code>DiskSpace (E174.1)</code> — 用於在寫入檔案前確認可用空間是否足夠</li>
-        <li><code>UserDefaults (CA92.1)</code> — 用於在您的裝置上儲存本應用程式自身的設定</li>
-        <li><code>SystemBootTime (35F9.1)</code> — 用於測量本應用程式內事件之間經過的時間（計時器）</li>
-      </ul>
-    </li>
-  </ul>
+    <h2 id="manifest">隱私權清單所宣告的內容</h2>
+    <p>SoundPull 附有 Apple 的隱私權清單（privacy manifest）。清單中載明本 App 不進行追蹤、不連線到任何追蹤網域，也不收集任何資料類型。清單另外列出四個 Apple 要求開發者說明理由的 API，每一個都只用於其理由代碼所代表的目的：</p>
+    <ul>
+      <li><code>FileTimestamp</code>，理由 <code>C617.1</code>：讀取 SoundPull 自身容器內檔案的日期與大小，例如用來區分先前工作階段留下的工作檔案和目前正在使用的檔案。</li>
+      <li><code>DiskSpace</code>，理由 <code>E174.1</code>：確認是否有空間寫出輸出檔；空間不足時，SoundPull 會停下來並告訴您。</li>
+      <li><code>UserDefaults</code>，理由 <code>CA92.1</code>：讀寫只有 App 本身才會使用的值。</li>
+      <li><code>SystemBootTime</code>，理由 <code>35F9.1</code>：測量 App 內各事件之間經過的時間，例如用於計時器。</li>
+    </ul>
+    <p>前兩項由 SoundPull 自行宣告；後兩項是代替建構本 App 所用的框架加入的。</p>
 
-  <h2>8. 兒童隱私</h2>
-  <p>本應用程式適合一般大眾使用。由於我們不蒐集任何個人資料，本應用程式不會在任何司法管轄區下，蓄意蒐集 13 歲以下兒童或任何其他年齡門檻者的資訊。</p>
+    <h2 id="children">兒童</h2>
+    <p>SoundPull 適合一般大眾使用。它不向任何使用者收集個人資訊，所以也不會在知情的情況下向兒童收集——無論您所在地適用的年齡界線是 13 歲還是其他年齡。</p>
 
-  <h2>9. 您的權利</h2>
-  <p>由於我們不蒐集個人資料，因此我們這端沒有任何可供存取、更正、移轉或刪除的資料。若要刪除本應用程式所儲存的所有資料，請將其從您的裝置上解除安裝。</p>
-  <p>對於位於歐盟（GDPR）、英國、加州（CCPA/CPRA）、巴西（LGPD）或其他隱私法規地區的使用者：由於我們不蒐集任何資料，本應用程式不擔任您個人資料的控管者（controller）或處理者（processor）。</p>
+    <h2 id="laws">隱私法規與您的選擇</h2>
+    <p>歐盟與英國的 GDPR、經 CPRA 修訂的《加州消費者隱私法》（CCPA），以及巴西的 LGPD 等法律，賦予您對企業所持有之個人資料的各項權利。本 App 不會把任何關於您的個人資料傳給我們，因此就您使用 SoundPull 這件事，我們這一方沒有可以讓您查閱、更正、移交或清除的資料；就本 App 而言，我們既不是您個人資料的控管者，也不是處理者。又因為本 App 不會把任何東西送出您的 iPhone，它也不會把資料傳輸到其他國家。您寄給我們的電子郵件如何處理，請見下方〈<a href="#contact">疑問</a>〉。</p>
+    <p>SoundPull 所保存的東西都掌握在您手上：刪除 App，上述儲存的值，以及留在 App 快取、暫存資料夾或 Inbox 資料夾中的副本，就會移除；您儲存的檔案則會一直留在您放置的地方，直到您自行刪除為止。</p>
 
-  <h2>10. 國際使用</h2>
-  <p>本應用程式於全球皆可使用。由於沒有任何資料會被傳出您的裝置，因此不會發生跨境資料傳輸。</p>
+    <h2 id="changes">本政策變更時</h2>
+    <p>我們可能會修訂本政策，例如新版 SoundPull 改變了裝置上的處理方式時。每一次重大修訂都會更新本頁頂端的日期，最新的內容一律公布於 <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-zh-Hant.html">naruberio.github.io/soundpull-legal/privacy-policy-zh-Hant.html</a>。若您在修訂生效後仍繼續使用 SoundPull，即表示您接受修訂後的政策。</p>
 
-  <h2>11. 本政策之變更</h2>
-  <p>我們可能會更新本隱私權政策。重大變更將透過更新上方的「生效日期」，並於第 12 節所列之網址發布修訂後的政策來呈現。於變更後繼續使用本應用程式，即表示接受修訂後的政策。</p>
+    <h2 id="contact">疑問</h2>
+    <p>對本政策有任何疑問，請寄信至 <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>。SoundPull 由 naruberio 發行。</p>
+    <p>不論是詢問本政策還是尋求支援，您寄信給我們時，我們收到的只有您放進信裡的內容，例如您的電子郵件地址、信件內文與附件。我們會用這些內容回覆您，並調查、修正您告訴我們的問題；為此，我們可能會把問題的描述抄錄到我們用來管理工作的線上問題追蹤工具，但不包括您的姓名、電子郵件地址與附件。您隨時可以要求我們刪除這些往來信件；屆時我們會刪除這些郵件，以及從中抄錄到該工具的所有內容。</p>
+  </main>
 
-  <h2>12. 聯絡方式</h2>
-  <table>
-    <tbody>
-      <tr><td>發行者</td><td>naruberio</td></tr>
-      <tr><td>聯絡電子郵件</td><td><a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a></td></tr>
-      <tr><td>正式網址</td><td><a href="https://naruberio.github.io/soundpull-legal/privacy-policy-zh-Hant.html">https://naruberio.github.io/soundpull-legal/privacy-policy-zh-Hant.html</a></td></tr>
-    </tbody>
-  </table>
-  <p>若您對本隱私權政策有任何疑問，請透過上述電子郵件與我們聯繫。</p>
+  <footer class="foot">
+    <p>naruberio · <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> · <a href="./terms-zh-Hant.html">使用條款</a> · <a href="./support-zh-Hant.html">支援</a></p>
+  </footer>
 </body>
 </html>
