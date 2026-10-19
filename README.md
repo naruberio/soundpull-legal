@@ -37,6 +37,8 @@ whether in sections, FAQ answers, meta descriptions or the index blurb (KAN-948 
 The voice-memo section explaining iPhone has no built-in way (and that renaming the file is not a conversion) stays.
 Do not add limits of SoundPull itself (DRM, iOS version, no crossfade, MP3 re-compression) to the guides either
 (KAN-949, soundpull-app D-59). DRM stays on the Support and Terms pages; the iOS requirement stays on the Support page.
+The index blurb does not mention subtitles, matching the App Store listing (KAN-950, soundpull-app D-55 / D-60).
+Subtitles stay on the Support, Privacy and Terms pages, which describe what the App does.
 
 ### Discovery files
 
