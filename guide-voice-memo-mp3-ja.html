@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>iPhone のボイスメモを MP3 に変換する方法 – SoundPull</title>
+  <meta name="description" content="ボイスメモは M4A で保存されます。録音をアップロードせずに iPhone の中で MP3 に変換する手順と、拡張子を書き換えても変換にならない理由。">
+  <!-- 用途別の説明ページ（KAN-944 / soundpull-app D-57）。ボイスメモ App から SoundPull へ直接共有できるかは実機未確認（D-42）なので、「ファイルに保存」を経由する手順だけを書く -->
+  <link rel="canonical" href="https://naruberio.github.io/soundpull-legal/guide-voice-memo-mp3-ja.html">
+  <link rel="alternate" hreflang="en" href="https://naruberio.github.io/soundpull-legal/guide-voice-memo-mp3.html">
+  <link rel="alternate" hreflang="ja" href="https://naruberio.github.io/soundpull-legal/guide-voice-memo-mp3-ja.html">
+  <link rel="alternate" hreflang="de" href="https://naruberio.github.io/soundpull-legal/guide-voice-memo-mp3-de.html">
+  <link rel="alternate" hreflang="x-default" href="https://naruberio.github.io/soundpull-legal/guide-voice-memo-mp3.html">
+  <link rel="stylesheet" href="./guide.css">
+</head>
+<body>
+  <header class="top">
+    <a href="./">SoundPull · 使い方とヘルプ</a>
+    <nav aria-label="言語"><a href="./guide-voice-memo-mp3.html" lang="en" hreflang="en">English</a> · <strong aria-current="page">日本語</strong> · <a href="./guide-voice-memo-mp3-de.html" lang="de" hreflang="de">Deutsch</a></nav>
+  </header>
+
+  <main>
+    <h1>iPhone のボイスメモを MP3 に変換する方法</h1>
+    <p class="answer"><strong>結論:</strong> ボイスメモの録音は M4A で保存されます。録音をいったん「ファイル」App に保存し、SoundPull で MP3 を選んで開けば変換できます。変換は iPhone の中で行われるので、録音がアップロードされることはありません。</p>
+
+    <h2>SoundPull での手順</h2>
+    <ol class="steps">
+      <li>ボイスメモ App で録音のメニュー（<span class="ui">•••</span> ボタン）を開き、<span class="ui">共有</span> → <span class="ui">“ファイル”に保存</span> の順にタップします。あとで見つけられるフォルダを選んでください。</li>
+      <li>SoundPull を開き、<span class="ui">出力形式</span>で <span class="ui">MP3</span> を選びます。</li>
+      <li><span class="ui">ファイルから選択</span> をタップし、いま保存した録音を選びます。</li>
+      <li><span class="ui">音声を抽出しました</span> と出たら <span class="ui">保存 / 共有</span> をタップし、MP3 を「ファイル」に保存するか、ほかのアプリへ送ります。</li>
+    </ol>
+    <p>一部だけ欲しいときは、ファイルを選ぶ前に <span class="ui">区間を指定</span> をオンにします。声が小さい録音は <span class="ui">音量をそろえる</span> で聞きやすくできます。いくつかの録音を 1 つにまとめたいときは <a href="./guide-merge-audio-ja.html">音声ファイルを結合する方法</a> をご覧ください。</p>
+
+    <h2>アプリを入れずにできる？</h2>
+    <p>実質的にはできません。iPhone には、ボイスメモを MP3 で保存する機能がありません。代わりによく試される方法には、次の落とし穴があります。</p>
+    <ul>
+      <li><strong>拡張子の書き換え</strong>: 「ファイル」で .m4a を .mp3 に変えても、変わるのは名前だけです。中身はそのままなので、中身を確かめるプレーヤーやサイトでは受け付けられません。</li>
+      <li><strong>オンラインの変換サイト</strong>: 変換はできますが、先に録音を他社のサーバーへアップロードすることになります。会議・取材・個人的なメモの録音では慎重に判断してください。</li>
+    </ul>
+    <p>変換する前に、送り先が本当に MP3 を必要としているかも確かめてください。M4A のまま受け付けるアプリやサイトも多くあります。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>SoundPull は録音をサーバーに送りますか？</dt>
+      <dd>いいえ。処理はすべてオンデバイス。動画・音声が iPhone の外へ出ることはありません。</dd>
+      <dt>MP3 にすると音が悪くなりますか？</dt>
+      <dd>MP3 は圧縮形式で、ボイスメモの M4A も圧縮形式なので、変換するともう一度圧縮がかかります。録音を編集する予定でそれを避けたいときは <span class="ui">WAV</span> を選んでください（ファイルはかなり大きくなります）。</dd>
+      <dt>サブスクリプションですか？</dt>
+      <dd>いいえ。買い切りで、サブスクリプションも広告もありません。すべての機能が最初から使えます。価格は App Store に表示されます。</dd>
+      <dt>必要な環境は？</dt>
+      <dd>iOS 16.4 以降の iPhone です。</dd>
+    </dl>
+
+    <p class="get"><a href="https://apps.apple.com/app/id6780130646">App Store で SoundPull を見る</a></p>
+
+    <h2>ほかの使い方</h2>
+    <ul class="more">
+      <li><a href="./guide-extract-audio-ja.html">iPhone で動画から音声だけを取り出す方法</a></li>
+      <li><a href="./guide-merge-audio-ja.html">iPhone で音声ファイルを結合する方法</a></li>
+    </ul>
+  </main>
+
+  <footer class="foot">
+    <p>naruberio · <a href="./support-ja.html">サポート</a> · <a href="./privacy-policy-ja.html">プライバシーポリシー</a> · <a href="./terms-ja.html">利用規約</a></p>
+  </footer>
+</body>
+</html>
