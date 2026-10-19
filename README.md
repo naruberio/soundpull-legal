@@ -36,6 +36,8 @@ When the App's labels change, update these pages in the same change.
 
 - `sitemap.xml` lists every page. Update it when pages are added or removed
   (the guides also carry their en / ja / de alternates there).
+  Search engines read it only after it is registered in Bing Webmaster Tools or Google Search Console:
+  there is no robots.txt at the host root (`naruberio.github.io`) to point to it, and IndexNow does not read sitemaps.
 - `<32 hex>.txt` is the IndexNow key (public by design). After publishing changed pages,
   notify IndexNow with `keyLocation` pointing at this file.
 
