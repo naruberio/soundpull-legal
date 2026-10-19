@@ -32,6 +32,9 @@ Job-specific pages in en / ja / de only (not the 11 languages above). They share
 Button names in the steps must match the App's UI strings word for word (`soundpull-app/src/i18n/index.ts`).
 When the App's labels change, update these pages in the same change.
 
+Do not add sections that walk readers through free alternatives (Shortcuts, GarageBand, "you may not need MP3")
+(KAN-948, soundpull-app D-58). Limits of SoundPull itself (DRM, iOS version, no crossfade) stay on the pages.
+
 ### Discovery files
 
 - `sitemap.xml` lists every page. Update it when pages are added or removed
