@@ -32,10 +32,11 @@ Job-specific pages in en / ja / de only (not the 11 languages above). They share
 Button names in the steps must match the App's UI strings word for word (`soundpull-app/src/i18n/index.ts`).
 When the App's labels change, update these pages in the same change.
 
-Do not add text that points readers to free alternatives (Shortcuts, GarageBand, "you may not need MP3"),
-whether in sections, FAQ answers, meta descriptions or the index blurb (KAN-948, soundpull-app D-58).
-The voice-memo section explaining there is no real way without an app stays.
-Limits of SoundPull itself (DRM, iOS version, no crossfade, MP3 re-compression) stay on the pages.
+Do not add text that points readers to free alternatives (Shortcuts, GarageBand, online converters, "you may not need MP3"),
+whether in sections, FAQ answers, meta descriptions or the index blurb (KAN-948 / KAN-949, soundpull-app D-58 / D-59).
+The voice-memo section explaining iPhone has no built-in way (and that renaming the file is not a conversion) stays.
+Do not add limits of SoundPull itself (DRM, iOS version, no crossfade, MP3 re-compression) to the guides either
+(KAN-949, soundpull-app D-59). DRM stays on the Support and Terms pages; the iOS requirement stays on the Support page.
 
 ### Discovery files
 
