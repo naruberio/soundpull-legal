@@ -19,6 +19,26 @@ Each page has a language bar linking to all 11 supported languages.
 
 Localized variants follow the pattern `<page>-<lang>.html`, e.g. `privacy-policy-ja.html`.
 
+### How-to guides (KAN-944, soundpull-app D-57)
+
+Job-specific pages in en / ja / de only (not the 11 languages above). They share `guide.css`.
+
+| Page | English URL |
+|------|-------------|
+| Extract audio from a video | `guide-extract-audio.html` |
+| Convert a voice memo to MP3 | `guide-voice-memo-mp3.html` |
+| Merge audio files | `guide-merge-audio.html` |
+
+Button names in the steps must match the App's UI strings word for word (`soundpull-app/src/i18n/index.ts`).
+When the App's labels change, update these pages in the same change.
+
+### Discovery files
+
+- `sitemap.xml` lists every page. Update it when pages are added or removed
+  (the guides also carry their en / ja / de alternates there).
+- `<32 hex>.txt` is the IndexNow key (public by design). After publishing changed pages,
+  notify IndexNow with `keyLocation` pointing at this file.
+
 ## Languages (11, D-06)
 
 en (primary) · ja · zh-Hant · es · pt-BR · de · fr · ko · id · vi · th

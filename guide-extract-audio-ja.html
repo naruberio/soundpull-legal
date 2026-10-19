@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>iPhoneで動画から音声だけを取り出す方法（MP3・M4A・WAV）– SoundPull</title>
+  <meta name="description" content="iPhone の動画の音声だけを MP3・M4A・WAV で保存する手順。SoundPull での操作、アプリを入れずにショートカットで行う方法とその限界、形式の選び方。">
+  <!-- 用途別の説明ページ（KAN-944 / soundpull-app D-57）。英語版が正本。ボタン名はアプリの ja の文言と一字一句そろえる -->
+  <link rel="canonical" href="https://naruberio.github.io/soundpull-legal/guide-extract-audio-ja.html">
+  <link rel="alternate" hreflang="en" href="https://naruberio.github.io/soundpull-legal/guide-extract-audio.html">
+  <link rel="alternate" hreflang="ja" href="https://naruberio.github.io/soundpull-legal/guide-extract-audio-ja.html">
+  <link rel="alternate" hreflang="de" href="https://naruberio.github.io/soundpull-legal/guide-extract-audio-de.html">
+  <link rel="alternate" hreflang="x-default" href="https://naruberio.github.io/soundpull-legal/guide-extract-audio.html">
+  <link rel="stylesheet" href="./guide.css">
+</head>
+<body>
+  <header class="top">
+    <a href="./">SoundPull · 使い方とヘルプ</a>
+    <nav aria-label="言語"><a href="./guide-extract-audio.html" lang="en" hreflang="en">English</a> · <strong aria-current="page">日本語</strong> · <a href="./guide-extract-audio-de.html" lang="de" hreflang="de">Deutsch</a></nav>
+  </header>
+
+  <main>
+    <h1>iPhoneで動画から音声だけを取り出す方法</h1>
+    <p class="answer"><strong>結論:</strong> SoundPull を開いて MP3・M4A・WAV のどれかを選び、動画を選ぶだけです。音声の取り出しは iPhone の中で行われ、できたファイルは「ファイル」に保存するか、ほかのアプリへ送れます。動画をアップロードすることはありません。</p>
+
+    <h2>SoundPull での手順</h2>
+    <ol class="steps">
+      <li>SoundPull を開き、<span class="ui">出力形式</span>で <span class="ui">MP3</span>・<span class="ui">M4A</span>・<span class="ui">WAV</span> のどれかを選びます。</li>
+      <li>写真ライブラリの動画なら <span class="ui">動画を選択</span>、「ファイル」App にある動画なら <span class="ui">ファイルから選択</span> をタップします。</li>
+      <li><span class="ui">音声を抽出中…</span> と出ている間は待ちます。長い動画ほど時間がかかります。</li>
+      <li><span class="ui">音声を抽出しました</span> と出たら <span class="ui">保存 / 共有</span> をタップし、<span class="ui">“ファイル”に保存</span> か送り先のアプリを選びます。</li>
+    </ol>
+    <p>一部だけ欲しいときは、動画を選ぶ前に <span class="ui">区間を指定</span> をオンにし、開始と終了を決めます。音声トラックが複数ある動画（2 か国語など）では、どれを取り出すかを聞かれます。小さすぎる・大きすぎる音は <span class="ui">音量をそろえる</span> で聞きやすくできます。</p>
+    <p>たくさんの動画をまとめて処理したいときは、ホーム画面の下にある <span class="ui">一括抽出</span> で複数の動画を選ぶと、順番に取り出します。</p>
+
+    <h2>アプリを入れない方法: ショートカット</h2>
+    <p>iOS に入っている「ショートカット」App でも、基本的なことはできます。<strong>メディアをエンコード</strong> アクションで「オーディオのみ」をオンにしたショートカットを作ると、動画の音声を M4A で保存できます。費用はかかりません。ただし、ショートカットは自分で組み立てる必要があり、保存できるのは M4A（または AIFF）で、MP3 や WAV にはなりません。</p>
+    <p>M4A で十分で、ショートカットを作るのが苦にならないなら、この方法で足ります。SoundPull は、MP3 や WAV が欲しいとき、または何も組み立てずに数タップで選んで・切り出して・保存したいときのためのアプリです。</p>
+
+    <h2>どの形式を選べばいい？</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th scope="col">形式</th><th scope="col">向いている用途</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">M4A（AAC）</th><td>ファイルが小さく音もきれい。Apple の機器ならどこでも再生できます。</td></tr>
+          <tr><th scope="row">MP3</th><td>ほぼどこでも再生できます。古いプレーヤー、カーオーディオ、MP3 しか受け付けないサイトなど。</td></tr>
+          <tr><th scope="row">WAV</th><td>編集ソフト向けの非圧縮の音声。ファイルはかなり大きくなります。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>動画はどこかにアップロードされますか？</dt>
+      <dd>いいえ。処理はすべてオンデバイス。動画・音声が iPhone の外へ出ることはありません。</dd>
+      <dt>サブスクリプションですか？</dt>
+      <dd>いいえ。買い切りで、サブスクリプションも広告もありません。すべての機能が最初から使えます。価格は App Store に表示されます。</dd>
+      <dt>購入した映画や、配信アプリの中の動画も使えますか？</dt>
+      <dd>使えません。保護されたコンテンツは使用できず、SoundPull は DRM を回避しません。自分が権利を持つ動画のみご利用ください。</dd>
+      <dt>必要な環境は？</dt>
+      <dd>iOS 16.4 以降の iPhone です。</dd>
+    </dl>
+
+    <p class="get"><a href="https://apps.apple.com/app/id6780130646">App Store で SoundPull を見る</a></p>
+
+    <h2>ほかの使い方</h2>
+    <ul class="more">
+      <li><a href="./guide-voice-memo-mp3-ja.html">iPhoneのボイスメモを MP3 に変換する方法</a></li>
+      <li><a href="./guide-merge-audio-ja.html">iPhoneで音声ファイルを結合する方法</a></li>
+    </ul>
+  </main>
+
+  <footer class="foot">
+    <p>naruberio · <a href="./support-ja.html">サポート</a> · <a href="./privacy-policy-ja.html">プライバシーポリシー</a> · <a href="./terms-ja.html">利用規約</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/*
+ * 用途別の説明ページ（KAN-944 / soundpull-app D-57）の共通スタイル。
+ * 法務ページは 1 枚ずつ <style> を内包しているが、説明ページは 9 枚が同じ部品を使うので外に出した
+ * （1 か所直せば全ページにそろって効く）。配色の変数は法務ページと同じ値にして、サイト内の見た目をそろえる。
+ */
+:root {
+  --ink: #1e1c29;
+  --soft: #5f5c70;
+  --rule: #dedce9;
+  --panel: #f3f2f9;
+  --accent: #4c3fd1;
+  --on-accent: #ffffff;
+  --page: #fdfdff;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #ecebf4; --soft: #aaa7bc; --rule: #353247; --panel: #1c1a28; --accent: #aea8ff; --on-accent: #121019; --page: #121019; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.75 system-ui, -apple-system, "Hiragino Sans", "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+.top, main, .foot { max-width: 44rem; margin-inline: auto; padding-inline: 1.25rem; }
+.top { padding-top: 1rem; font-size: 0.85rem; color: var(--soft); display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; justify-content: space-between; }
+main { padding-block: 1.5rem 3rem; }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+h1 { font-size: 1.75rem; line-height: 1.3; margin: 0.25rem 0 1rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.2rem; line-height: 1.4; margin: 2.25rem 0 0.5rem; }
+/* 結論を最初の段落に置く。検索や AI の要約は冒頭を拾うことが多いので、手順より先に答えを出す */
+.answer { margin: 0 0 1.5rem; padding: 1rem 1.2rem; background: var(--panel); border-radius: 12px; }
+ol.steps { padding-inline-start: 1.4rem; }
+ol.steps li { margin-block: 0.45rem; padding-inline-start: 0.2rem; }
+/* 画面のボタン名。アプリの表示と一字一句そろえ、読み手が画面で探せるようにする */
+.ui { font-weight: 600; white-space: nowrap; }
+.note { color: var(--soft); font-size: 0.94rem; }
+.wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.94rem; margin: 0.75rem 0; }
+th, td { padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+thead th { font-size: 0.8rem; color: var(--soft); }
+dl.faq dt { font-weight: 600; margin-top: 1rem; }
+dl.faq dd { margin: 0.2rem 0 0; }
+.get { margin: 2rem 0 0; }
+.get a { display: inline-block; padding: 0.7rem 1.2rem; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 600; text-decoration: none; }
+.more { padding-inline-start: 1.2rem; }
+.foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
