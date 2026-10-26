@@ -1,7 +1,7 @@
 # soundpull-legal
 
 Legal & support pages for the **SoundPull** iOS app (`com.naruberio.soundpull`),
-served via GitHub Pages at <https://naruberio.github.io/soundpull-legal/>.
+served via GitHub Pages at <https://soundpull.naruberio.com/>.
 
 SoundPull extracts the audio track from your own videos as M4A (AAC), fully on-device.
 
@@ -44,10 +44,19 @@ Subtitles stay on the Support, Privacy and Terms pages, which describe what the 
 
 - `sitemap.xml` lists every page. Update it when pages are added or removed
   (the guides also carry their en / ja / de alternates there).
-  Search engines read it only after it is registered in Bing Webmaster Tools or Google Search Console:
-  there is no robots.txt at the host root (`naruberio.github.io`) to point to it, and IndexNow does not read sitemaps.
+  It is pointed to from `robots.txt` and registered in Google Search Console (Domain property `naruberio.com`)
+  and Bing Webmaster Tools (KAN-1085). IndexNow does not read sitemaps.
 - `<32 hex>.txt` is the IndexNow key (public by design). After publishing changed pages,
   notify IndexNow with `keyLocation` pointing at this file.
+
+### Custom domain (KAN-1085)
+
+- `CNAME` sets the custom domain `soundpull.naruberio.com`. The DNS records live in `naruberio-site` (`NaruberioAppPages` stack).
+- The old URLs under `https://naruberio.github.io/soundpull-legal/` redirect (301) to the same path on the custom domain
+  (to `https://` only while "Enforce HTTPS" is on in the Pages settings; check `https_enforced` after switching),
+  so the App (`src/shared/legal.ts`) and App Store Connect keep working without changes.
+- Absolute URLs in pages (canonical, hreflang, sitemap) use `https://soundpull.naruberio.com/`.
+  New pages must use the same host.
 
 ## Languages (11, D-06)
 
