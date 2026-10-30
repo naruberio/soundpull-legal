@@ -46,8 +46,9 @@ Subtitles stay on the Support, Privacy and Terms pages, which describe what the 
 (`https://apps.apple.com/app/id6780130646`), then the guides and the policy table.
 It carries a `SoftwareApplication` JSON-LD block (name, operatingSystem, applicationCategory, App Store URL, dateModified).
 Do not add `offers` or any price, and do not say the App is paid, so a price change never needs a page edit.
+Without `offers` and a rating, Google does not show it as a software rich result and Search Console may list it as invalid; that is accepted, so do not add a price to clear the warning.
 Do not name the publisher or mention that it is made by one person in the blurb or the JSON-LD.
-When the uses or the blurb change, update `description` and `dateModified` in the JSON-LD and the visible "Updated" date together.
+When the uses or the blurb change, update the `<title>`, the meta description, `description` and `dateModified` in the JSON-LD and the visible "Updated" date together.
 
 ### Discovery files
 
