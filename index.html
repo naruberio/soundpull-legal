@@ -4,8 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>SoundPull Policies and Help</title>
-  <!-- 言語の入口。KAN-874 で、言語ごとの見出し＋箇条書きから「言語 × 文書」の表に組み替えた -->
+  <title>SoundPull – Extract audio from videos on iPhone</title>
+  <meta name="description" content="SoundPull is an iPhone app that pulls the sound out of videos as M4A, MP3 or WAV, converts and merges audio files, makes ringtones and turns speech into text, all on the device.">
+  <!-- トップは製品の入口（KAN-1162）。何をするアプリか → 主な用途 → App Store → 説明ページ → 法務の順に置く。
+       法務の「言語 × 文書」の表（KAN-874）は残し、下に回した。
+       掲載文と同じく、価格・有料であること・無料の代替手段・自社の制約・社名は書かない（soundpull-app D-58 / D-59） -->
+  <!-- 構造化データ（KAN-1162）。AI の検索や Bing が「何のアプリか」を拾えるように SoftwareApplication を置く。
+       offers（価格）は入れない: 価格を変えるたびにページを直す手間を生まないため（掲載文に価格を書かないのと同じ理由）。
+       url を App Store にしているのは、独自ドメインへの切り替え（KAN-1085）でページの URL が変わっても直さずに済むようにするため -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SoundPull",
+    "description": "Pull the sound out of videos as M4A, MP3 or WAV, convert and merge audio files, make ringtones and turn speech into text, all on your iPhone.",
+    "operatingSystem": "iOS",
+    "applicationCategory": "UtilitiesApplication",
+    "url": "https://apps.apple.com/app/id6780130646",
+    "downloadUrl": "https://apps.apple.com/app/id6780130646",
+    "dateModified": "2026-10-30"
+  }
+  </script>
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -32,13 +51,44 @@
     .grid thead th { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--soft); }
     .grid tbody th { font-weight: 600; white-space: nowrap; }
     h2 { font-size: 1.2rem; line-height: 1.4; margin: 2.25rem 0 0.25rem; }
+    .lead { font-size: 1.1rem; margin: 0 0 1rem; }
+    .uses { padding-inline-start: 1.3rem; margin: 0 0 1.5rem; }
+    .uses li { margin-block: 0.3rem; }
+    /* App Store への導線。文字のリンクより目に入るよう、色地のボタンにする */
+    .store { display: inline-block; padding: 0.7rem 1.3rem; border-radius: 12px; background: var(--accent); color: var(--page); font-weight: 600; text-decoration: none; }
+    .store:hover, .store:focus-visible { filter: brightness(1.1); }
+    .updated { font-size: 0.85rem; color: var(--soft); margin: 1.5rem 0 0; }
     .foot { padding-block: 1rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--soft); }
   </style>
 </head>
 <body>
   <main>
     <h1>SoundPull</h1>
-    <p>Policies and help for SoundPull, the iPhone app that pulls the sound out of videos, converts and merges audio files, and transcribes speech into text, all on the device.</p>
+    <p class="lead">An iPhone app that pulls the sound out of your videos and works with audio files, all on the device. Nothing is uploaded.</p>
+    <ul class="uses">
+      <li>Save the soundtrack of a video, or just a trimmed part of it, as M4A, MP3 or WAV.</li>
+      <li>Convert audio files, including voice memos, to another format.</li>
+      <li>Merge several videos or audio files into one, or convert many in one go.</li>
+      <li>Make an iPhone ringtone (M4R) from a short clip.</li>
+      <li>Turn the speech in a recording into text.</li>
+    </ul>
+    <p><a class="store" href="https://apps.apple.com/app/id6780130646">View SoundPull on the App Store</a></p>
+
+    <!-- 用途別の説明ページ（KAN-944 / soundpull-app D-57）。法務の表と同じ「言語 × 文書」の形にそろえる -->
+    <h2 id="guides">How-to guides</h2>
+    <p>Step-by-step pages for common jobs with SoundPull.</p>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Language</th><th>Video to audio</th><th>Voice memo to MP3</th><th>Merge audio</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">English</th><td><a href="./guide-extract-audio.html">Extract audio</a></td><td><a href="./guide-voice-memo-mp3.html">Voice memo to MP3</a></td><td><a href="./guide-merge-audio.html">Merge audio</a></td></tr>
+          <tr lang="ja"><th scope="row">日本語</th><td><a href="./guide-extract-audio-ja.html">動画から音声を取り出す</a></td><td><a href="./guide-voice-memo-mp3-ja.html">ボイスメモを MP3 に</a></td><td><a href="./guide-merge-audio-ja.html">音声を結合する</a></td></tr>
+          <tr lang="de"><th scope="row">Deutsch</th><td><a href="./guide-extract-audio-de.html">Ton extrahieren</a></td><td><a href="./guide-voice-memo-mp3-de.html">Sprachmemo in MP3</a></td><td><a href="./guide-merge-audio-de.html">Audio zusammenfügen</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="policies">Policies and help</h2>
     <p>Pick your language and the document you need.</p>
 
     <div class="wrap">
@@ -60,19 +110,7 @@
       </table>
     </div>
 
-    <!-- 用途別の説明ページ（KAN-944 / soundpull-app D-57）。法務の表と同じ「言語 × 文書」の形にそろえる -->
-    <h2>How-to guides</h2>
-    <p>Step-by-step pages for common jobs with SoundPull.</p>
-    <div class="wrap">
-      <table class="grid">
-        <thead><tr><th>Language</th><th>Video to audio</th><th>Voice memo to MP3</th><th>Merge audio</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">English</th><td><a href="./guide-extract-audio.html">Extract audio</a></td><td><a href="./guide-voice-memo-mp3.html">Voice memo to MP3</a></td><td><a href="./guide-merge-audio.html">Merge audio</a></td></tr>
-          <tr lang="ja"><th scope="row">日本語</th><td><a href="./guide-extract-audio-ja.html">動画から音声を取り出す</a></td><td><a href="./guide-voice-memo-mp3-ja.html">ボイスメモを MP3 に</a></td><td><a href="./guide-merge-audio-ja.html">音声を結合する</a></td></tr>
-          <tr lang="de"><th scope="row">Deutsch</th><td><a href="./guide-extract-audio-de.html">Ton extrahieren</a></td><td><a href="./guide-voice-memo-mp3-de.html">Sprachmemo in MP3</a></td><td><a href="./guide-merge-audio-de.html">Audio zusammenfügen</a></td></tr>
-        </tbody>
-      </table>
-    </div>
+    <p class="updated">Updated <time datetime="2026-10-30">2026-10-30</time></p>
   </main>
 
   <footer class="foot">
