@@ -15,7 +15,7 @@ Each page has a language bar linking to all 11 supported languages.
 | Privacy Policy | `/privacy-policy` (`privacy-policy.html`) |
 | Terms of Use | `/terms` (`terms.html`) |
 | Support | `/support` (`support.html`) |
-| Index / language hub | `/` (`index.html`) |
+| Index / product entrance | `/` (`index.html`) |
 
 Localized variants follow the pattern `<page>-<lang>.html`, e.g. `privacy-policy-ja.html`.
 
@@ -39,6 +39,15 @@ Do not add limits of SoundPull itself (DRM, iOS version, no crossfade, MP3 re-co
 (KAN-949, soundpull-app D-59). DRM stays on the Support and Terms pages; the iOS requirement stays on the Support page.
 The index blurb does not mention subtitles, matching the App Store listing (KAN-950, soundpull-app D-55 / D-60).
 Subtitles stay on the Support, Privacy and Terms pages, which describe what the App does.
+
+### Top page (KAN-1162)
+
+`index.html` is the product entrance: what the App does, its main uses, a link to the App Store
+(`https://apps.apple.com/app/id6780130646`), then the guides and the policy table.
+It carries a `SoftwareApplication` JSON-LD block (name, operatingSystem, applicationCategory, App Store URL, dateModified).
+Do not add `offers` or any price, and do not say the App is paid, so a price change never needs a page edit.
+Do not name the publisher or mention that it is made by one person in the blurb or the JSON-LD.
+When the uses or the blurb change, update `description` and `dateModified` in the JSON-LD and the visible "Updated" date together.
 
 ### Discovery files
 
