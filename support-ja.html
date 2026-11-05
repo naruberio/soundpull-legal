@@ -6,6 +6,47 @@
   <meta name="color-scheme" content="light dark">
   <title>SoundPull サポート</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
+  <!-- FAQ の構造化データ。答えは本文の文をそのまま抜き出す。本文を変えたらここも直す -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "SoundPull が作れる形式は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "M4A（AAC）、MP3、WAV、それに着信音用の M4R です。音を取り除いた動画のコピーも書き出せます。映像は変換し直さないので、画質は変わりません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "変換できる音声ファイルは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "M4A、MP3、WAV、AAC、CAF、AIF/AIFF、FLAC です。音声ファイルも動画と同じ手順で扱えます。区間を切り出す、音量をそろえる、文字起こしする、どの出力形式でも保存する、のいずれもできます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "たくさんのファイルをまとめて変換できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "できます。同じくホーム画面の下にある一括抽出に、動画や音声ファイルを複数渡すと、同じ出力形式で 1 つずつ順に処理します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "作ったファイルはどこへ行きますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "あなたの iPhone に残ります。変換・結合・文字起こしはすべて端末の中で行われ、SoundPull には送り先となるサーバーがありません。処理が終わったら保存 / 共有をタップして、「ファイル」に保存する、AirDrop で送る、ほかのアプリに渡す、のいずれかをしてください。保存しなかった結果は SoundPull が削除します。"
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
