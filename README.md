@@ -48,8 +48,8 @@ It carries a `SoftwareApplication` JSON-LD block (name, operatingSystem, applica
 Do not add `offers` or any price, and do not say the App is paid, so a price change never needs a page edit.
 Without `offers` and a rating, Google does not show it as a software rich result and Search Console may list it as invalid; that is accepted, so do not add a price to clear the warning.
 Do not name the publisher or mention that it is made by one person in the blurb or the JSON-LD.
-`support.html`, `support-ja.html` and `support-de.html` carry a `FAQPage` JSON-LD block. Each answer is copied word for word from the page, so update it when the page text changes.
-Leave out free alternatives, limits of the App and the word "paid" (soundpull-app D-58 / D-59).
+`support.html`, `support-ja.html` and `support-de.html` carry a `FAQPage` JSON-LD block. Each answer takes whole sentences from the page, sometimes only some of them, so update it when the page text changes.
+Leave out free alternatives, limits of the App, prices, any hint that the App is or is not paid, the publisher and any mention that it is made by one person (soundpull-app D-58 / D-59).
 When the uses or the blurb change, update the `<title>`, the meta description, `description` and `dateModified` in the JSON-LD and the visible "Updated" date together.
 
 ### Discovery files
