@@ -6,7 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>SoundPull – Hilfe</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
-       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言と一字一句合わせる
+       （soundpull-app/src/i18n/index.ts。Android で差し替わる語は src/i18n/androidOverrides.ts が正） -->
   <!-- FAQ の構造化データ。答えは本文の文をそのまま抜き出す。本文を変えたらここも直す -->
   <script type="application/ld+json">
   {
@@ -186,11 +187,11 @@
     <h3>Wie lege ich einen Klingelton fest?</h3>
     <p>Wählen Sie als Format <strong>Klingelton</strong>, begrenzen Sie den Ton auf höchstens 30 Sekunden und tippen Sie auf <strong>Auf Gerät speichern</strong>. Der Klingelton wird als .m4a-Datei gesichert, die Android in seine Liste der Klingeltöne aufnimmt. Tippen Sie dann auf <strong>Toneinstellungen öffnen</strong>, öffnen Sie „Klingelton“ und wählen Sie die Datei anhand ihres Namens aus. Die Bezeichnungen dieser Einstellungen unterscheiden sich je nach Hersteller. SoundPull ändert Ihren Klingelton nicht von selbst.</p>
     <h3>Kann ich unter Android Transkripte oder Untertitel erstellen?</h3>
-    <p>Nein. Die erste Version bei Google Play enthält keine Transkripte und Untertitel. Extrahieren, Umwandeln, Zusammenfügen, Stapelverarbeitung und Videos ohne Ton funktionieren wie auf dem iPhone, und die Ausgabeformate sind M4A, MP3, WAV und Klingelton.</p>
+    <p>Nein. Die erste Version bei Google Play enthält keine Transkripte und Untertitel. Extrahieren, Umwandeln, Zusammenfügen, Stapelverarbeitung und Videos ohne Ton sind verfügbar, und die Ausgabeformate sind M4A, MP3, WAV und Klingelton. Welche Eingabedateien gelesen werden können, hängt von den Formaten ab, die Ihr Smartphone unterstützt.</p>
     <h3>Kauf, weitere Geräte und Erstattungen bei Google Play</h3>
-    <p>SoundPull ist bei Google Play eine App mit einmaligem Kaufpreis, ohne In-App-Käufe, Abonnements und Werbung. Um sie auf einem weiteren Android-Gerät zu installieren, melden Sie sich mit demselben Google-Konto an und laden Sie die App kostenlos erneut von Google Play. Über Erstattungen für Käufe bei Google Play entscheidet Google; siehe die <a href="https://support.google.com/googleplay/answer/2479637">Hilfe zu Erstattungen bei Google Play</a>. Ein Kauf bei Google Play umfasst nicht die iPhone-Version, und ein Kauf im App Store umfasst nicht die Android-Version.</p>
+    <p>SoundPull ist bei Google Play eine App mit einmaligem Kaufpreis, ohne In-App-Käufe, Abonnements und Werbung. Um sie auf einem weiteren Android-Gerät zu installieren, melden Sie sich mit demselben Google-Konto an und laden Sie die App kostenlos erneut von Google Play. Für eine Erstattung folgen Sie der <a href="https://support.google.com/googleplay/answer/2479637">Hilfe zu Erstattungen bei Google Play</a>; Sie können sich auch an uns wenden, denn Google Play erlaubt es uns, einen dort getätigten Kauf zu erstatten. Ein Kauf bei Google Play umfasst nicht die iPhone-Version, und ein Kauf im App Store umfasst nicht die Android-Version.</p>
     <h3>Warum hat SoundPull mich um eine Bewertung gebeten?</h3>
-    <p>Nach einer erfolgreichen Extraktion oder Zusammenführung kann SoundPull, sobald Sie das Ergebnis gesichert oder geteilt haben, Google Play bitten, seine Bewertungsanfrage anzuzeigen, höchstens einmal alle 14 Tage. Ob sie tatsächlich erscheint, entscheidet Google Play.</p>
+    <p>Direkt nach einer erfolgreichen Extraktion oder Zusammenführung kann SoundPull Google Play bitten, seine Bewertungsanfrage anzuzeigen, höchstens einmal alle 14 Tage. Ob sie tatsächlich erscheint, entscheidet Google Play.</p>
     <h3>Wie entferne ich alles, was SoundPull gespeichert hat?</h3>
     <p>Deinstallieren Sie die App oder öffnen Sie ihren Bildschirm „App-Info“ und tippen Sie unter „Speicher“ auf „Speicher leeren“. Dateien, die Sie in den Ordnern Music, Ringtones oder Movies gesichert haben, bleiben erhalten, bis Sie sie selbst löschen.</p>
 

@@ -146,7 +146,7 @@
     <ul>
       <li><strong>開啟。</strong>點選<strong>選擇影片</strong>會開啟相片挑選器，點選<strong>從檔案選取</strong>會開啟系統的檔案挑選器。您也可以在其他 App 中透過「分享」或「開啟方式」，把影片或音訊檔傳給 SoundPull。無論哪一種方式，Android 都只讓 SoundPull 存取您選擇的那一項。</li>
       <li><strong>工作副本。</strong>SoundPull 會把您選擇的項目複製到它自己的快取資料夾（其他 App 無法讀取），並在那份副本上作業，因此您的原始檔絕不會被改動。挑選器也可能在該資料夾中放入它們自己的一份副本。結果會產生為 M4A、MP3 或 WAV 檔、鈴聲，或拿掉聲音的影片。由於 Android 不認得 Apple 的 .m4r 副檔名，鈴聲會寫成 .m4a 檔。</li>
-      <li><strong>清理。</strong>和 iPhone 一樣，SoundPull 會在工作用不到工作副本時將其刪除；交給其他 App 的副本會留到它下次啟動為止；每次啟動時，也會刪掉先前工作階段遺留下來的工作檔案。儲存空間不足時，Android 也可能清除快取資料夾。解除安裝 SoundPull，或在它的「應用程式資訊」畫面點選「清除儲存空間」，就會移除留在那裡的所有東西。</li>
+      <li><strong>清理。</strong>和 iPhone 一樣，SoundPull 會在工作用不到工作副本時將其刪除；交給其他 App 的副本會留到 SoundPull 下次啟動為止；SoundPull 每次啟動時，也會刪掉先前工作階段遺留下來的工作檔案。挑選畫面另外留下的它們自己的副本，SoundPull 不會刪除；儲存空間不足時，Android 可能會像清除快取資料夾中的其他內容一樣將其清掉。解除安裝 SoundPull，或在它的「應用程式資訊」畫面點選「清除儲存空間」，就會移除留在那裡的所有東西。</li>
       <li><strong>儲存。</strong>在 Android 10 或以上版本中，<strong>儲存到裝置</strong>會透過 Android 的 MediaStore，把結果放進手機的共用儲存空間：音訊放在 <code>Music/SoundPull</code>，鈴聲放在 <code>Ringtones/SoundPull</code>，拿掉聲音的影片則放在 <code>Movies/SoundPull</code>。您允許讀取音樂或影片的 App 都能看到存放在這些位置的檔案；即使解除安裝 SoundPull，這些檔案仍會留在手機上，直到您將其刪除為止。在較早的 Android 版本中不會顯示這個按鈕；請改用<strong>分享</strong>把結果傳給其他 App。</li>
       <li><strong>鈴聲。</strong><strong>開啟音效設定</strong>只會開啟 Android 的音效設定，讓您自行挑選已儲存的鈴聲。SoundPull 不會變更您的鈴聲或任何其他系統設定。</li>
     </ul>
@@ -155,7 +155,7 @@
     <p>在 Android 上，SoundPull 會在其私人的 App 儲存區（其他 App 無法讀取）保存四個值：意義與 iPhone 上相同的 <code>soundpull.settings.hasSeenOnboarding</code>、<code>soundpull.settings.outputFormat</code> 與 <code>soundpull.settings.normalizeVolume</code>，以及 <code>soundpull.reviewPrompt</code>。在 Android 上，<code>soundpull.reviewPrompt</code> 記錄的是擷取或合併工作成功了幾次、SoundPull 上一次請求評分提示的時間，以及上一次嘗試是否失敗。其中沒有任何檔名、錄音或足以識別您身分的資訊，也從不會被送到任何地方。</p>
 
     <h3 id="android-rating">Android 上的評分提示</h3>
-    <p>在一次成功的擷取或合併之後，等您完成結果的儲存或分享，SoundPull 可能會請 Google Play 顯示其 App 內評論提示（Google Play In-App Review API）。它最多每 14 天請求一次，而且不會在一次失敗的嘗試之後立即請求。提示是否真的出現由 Google Play 決定，SoundPull 不會得知提示有沒有出現，也不會得知您做了什麼選擇。您給的評分或評論會由 Google 以您的 Google 帳戶收集，並公開在 Google Play 上；我們身為開發者可以閱讀，也可能在那裡公開回覆。</p>
+    <p>在一次成功的擷取或合併之後，SoundPull 可能會立即請 Google Play 顯示其 App 內評論提示（Google Play In-App Review API）。它最多每 14 天請求一次，而且不會在一次失敗的嘗試之後立即請求。提示是否真的出現由 Google Play 決定，SoundPull 不會得知提示有沒有出現，也不會得知您做了什麼選擇。您給的評分或評論會由 Google 以您的 Google 帳戶收集，並公開在 Google Play 上；我們身為開發者可以閱讀，也可能在那裡公開回覆。</p>
 
     <h3 id="android-permissions">Android 上宣告的權限</h3>
     <div class="wrap">
@@ -163,7 +163,7 @@
         <thead><tr><th>權限</th><th>列出的原因</th></tr></thead>
         <tbody>
           <tr><td><code>READ_EXTERNAL_STORAGE</code><br><code>WRITE_EXTERNAL_STORAGE</code></td><td>由 SoundPull 所使用的檔案與相片挑選器程式庫宣告，且只針對 Android 12L 或更早版本（API 級別 32 以下）。SoundPull 不會向您要求這些權限：它只讀取您選擇的項目，而在 Android 10 或以上版本中，它不需要任何儲存空間權限就能儲存自己的檔案。</td></tr>
-          <tr><td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td><td>由 App 框架與音訊播放程式庫加入。SoundPull 本身不會透過網路傳送或接收任何資料。</td></tr>
+          <tr><td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td><td>由 App 框架及其檔案程式庫（<code>INTERNET</code>），以及音訊播放程式庫（<code>ACCESS_NETWORK_STATE</code>）加入。SoundPull 本身不會透過網路傳送或接收任何資料。</td></tr>
           <tr><td><code>MODIFY_AUDIO_SETTINGS</code><br><code>WAKE_LOCK</code></td><td>由音訊播放程式庫使用，用來在 App 內播放結果。</td></tr>
         </tbody>
       </table>
@@ -171,13 +171,13 @@
     <p>這些權限都不是 SoundPull 會請您授予的權限。它不使用相機、麥克風、您的位置或聯絡人。</p>
 
     <h3 id="android-paying">在 Google Play 付款</h3>
-    <p>在 Android 上，SoundPull 以付費下載的形式在 Google Play 販售，沒有 App 內購買、沒有訂閱，也沒有廣告。款項由 Google 收取，我們不會收到您的信用卡資料。Google 如何處理您的付款與帳戶資訊，請參閱 <a href="https://policies.google.com/privacy">Google 的隱私權政策</a>。</p>
+    <p>在 Android 上，SoundPull 以付費下載的形式在 Google Play 販售，沒有 App 內購買、沒有訂閱，也沒有廣告。款項由 Google 收取，我們不會收到您的信用卡資料。為了我們的銷售與稅務紀錄，Google 會提供每筆訂單的有限資訊給我們，例如訂單編號、買方所在的國家或地區，以及在 Google 有提供時的州別與郵遞區號。我們只把這些資訊用於上述紀錄。Google 如何處理您的付款與帳戶資訊，請參閱 <a href="https://policies.google.com/privacy">Google 的隱私權政策</a>。</p>
 
     <h2 id="children">兒童</h2>
     <p>SoundPull 適合一般大眾使用。它不向任何使用者收集個人資訊，所以也不會在知情的情況下向兒童收集——無論您所在地適用的年齡界線是 13 歲還是其他年齡。</p>
 
     <h2 id="laws">隱私法規與您的選擇</h2>
-    <p>歐盟與英國的 GDPR、經 CPRA 修訂的《加州消費者隱私法》（CCPA），以及巴西的 LGPD 等法律，賦予您對企業所持有之個人資料的各項權利。本 App 不會把任何關於您的個人資料傳給我們，因此就您使用 SoundPull 這件事，我們這一方沒有可以讓您查閱、更正、移交或清除的資料；就本 App 而言，我們既不是您個人資料的控管者，也不是處理者。又因為本 App 不會把任何東西送出您的手機，它也不會把資料傳輸到其他國家。您寄給我們的電子郵件如何處理，請見下方〈<a href="#contact">疑問</a>〉。</p>
+    <p>歐盟與英國的 GDPR、經 CPRA 修訂的《加州消費者隱私法》（CCPA），以及巴西的 LGPD 等法律，賦予您對企業所持有之個人資料的各項權利。本 App 不會把任何關於您的個人資料傳給我們，因此就您使用 SoundPull 這件事，我們這一方沒有可以讓您查閱、更正、移交或清除的資料；就本 App 而言，我們既不是您個人資料的控管者，也不是處理者。唯一的例外，是您在 Google Play 購買時 Google Play 提供給我們的有限訂單資訊（請見〈<a href="#android-paying">在 Google Play 付款</a>〉）；我們將其保存為銷售與稅務紀錄，您可以透過〈<a href="#contact">疑問</a>〉中的地址向我們查詢。又因為本 App 不會把任何東西送出您的手機，它也不會把資料傳輸到其他國家。您寄給我們的電子郵件如何處理，請見下方〈<a href="#contact">疑問</a>〉。</p>
     <p>SoundPull 所保存的東西都掌握在您手上：刪除 App，上述儲存的值，以及留在 App 快取、暫存資料夾或 Inbox 資料夾中的副本，就會移除；您儲存的檔案則會一直留在您放置的地方，直到您自行刪除為止。在 Android 上，這也包括您儲存到 Music、Ringtones 或 Movies 資料夾的檔案。</p>
 
     <h2 id="changes">本政策變更時</h2>

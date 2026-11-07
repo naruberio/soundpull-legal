@@ -6,7 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>SoundPull 支援</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
-       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言と一字一句合わせる
+       （soundpull-app/src/i18n/index.ts。Android で差し替わる語は src/i18n/androidOverrides.ts が正） -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -145,11 +146,11 @@
     <h3>如何設定鈴聲？</h3>
     <p>格式選擇<strong>鈴聲</strong>，把聲音控制在 30 秒以內，再點按<strong>儲存到裝置</strong>。鈴聲會存成 .m4a 檔，Android 會把它加入鈴聲清單。接著點按<strong>開啟音效設定</strong>，開啟「手機鈴聲」，再依檔名選擇該檔案。這些設定的名稱會因手機製造商而異。SoundPull 不會自行變更您的鈴聲。</p>
     <h3>在 Android 上可以製作轉錄文字或字幕嗎？</h3>
-    <p>不行。Google Play 上的第一個版本不含轉錄文字與字幕功能。擷取、轉換、合併、批次擷取與無聲影片的運作方式與 iPhone 相同，輸出格式為 M4A、MP3、WAV 與鈴聲。</p>
+    <p>不行。Google Play 上的第一個版本不含轉錄文字與字幕功能。擷取、轉換、合併、批次擷取與無聲影片都能使用，輸出格式為 M4A、MP3、WAV 與鈴聲。能讀取哪些輸入檔案，取決於您的手機支援的格式。</p>
     <h3>在 Google Play 購買、其他裝置與退款</h3>
-    <p>Google Play 上的 SoundPull 是一次付費的 App，沒有 App 內購買、沒有訂閱，也沒有廣告。若要安裝到另一部 Android 裝置，請以同一個 Google 帳戶登入，再從 Google Play 免費重新下載。Google Play 購買項目能否退款，由 Google 決定；請參閱 <a href="https://support.google.com/googleplay/answer/2479637">Google Play 的退款說明</a>。在 Google Play 購買不包含 iPhone 版，在 App Store 購買也不包含 Android 版。</p>
+    <p>Google Play 上的 SoundPull 是一次付費的 App，沒有 App 內購買、沒有訂閱，也沒有廣告。若要安裝到另一部 Android 裝置，請以同一個 Google 帳戶登入，再從 Google Play 免費重新下載。如需退款，請依照 <a href="https://support.google.com/googleplay/answer/2479637">Google Play 的退款說明</a>辦理；您也可以來信與我們聯絡，因為 Google Play 讓我們能為在那裡的購買退款。在 Google Play 購買不包含 iPhone 版，在 App Store 購買也不包含 Android 版。</p>
     <h3>SoundPull 為什麼請我評分？</h3>
-    <p>在一次成功的擷取或合併之後，等您儲存或分享了結果，SoundPull 可能會請 Google Play 顯示其評論提示，最多每 14 天一次。提示是否真的出現由 Google Play 決定。</p>
+    <p>在一次成功的擷取或合併之後，SoundPull 可能會立即請 Google Play 顯示其評論提示，最多每 14 天一次。提示是否真的出現由 Google Play 決定。</p>
     <h3>如何移除 SoundPull 所儲存的一切？</h3>
     <p>解除安裝 App，或開啟它的「應用程式資訊」畫面，在「儲存空間」中點按「清除儲存空間」。您儲存到 Music、Ringtones 或 Movies 資料夾的檔案則會一直留著，直到您自行刪除為止。</p>
 

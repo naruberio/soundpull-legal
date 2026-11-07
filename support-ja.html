@@ -6,7 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>SoundPull サポート</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
-       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言と一字一句合わせる
+       （soundpull-app/src/i18n/index.ts。Android で差し替わる語は src/i18n/androidOverrides.ts が正） -->
   <!-- FAQ の構造化データ。答えは本文の文をそのまま抜き出す。本文を変えたらここも直す -->
   <script type="application/ld+json">
   {
@@ -186,11 +187,11 @@
     <h3>着信音に設定するには？</h3>
     <p>形式に<strong>着信音</strong>を選び、音の長さを 30 秒以内にして、<strong>端末に保存</strong>をタップします。着信音は .m4a ファイルとして保存され、Android の着信音の一覧に加わります。続けて<strong>音の設定を開く</strong>をタップし、「着信音」を開いて、ファイル名でそのファイルを選んでください。これらの設定の名前はスマートフォンのメーカーによって異なります。SoundPull が自分で着信音を変えることはありません。</p>
     <h3>Android で文字起こしや字幕は作れますか？</h3>
-    <p>作れません。Google Play の最初の版には文字起こしと字幕の機能が入っていません。抽出・変換・結合・一括抽出・音を取り除いた動画は iPhone と同じように使え、出力形式は M4A・MP3・WAV・着信音です。</p>
+    <p>作れません。Google Play の最初の版には文字起こしと字幕の機能が入っていません。抽出・変換・結合・一括抽出・音を取り除いた動画は使え、出力形式は M4A・MP3・WAV・着信音です。読み込めるファイルの形式は、お使いのスマートフォンが対応している形式によって決まります。</p>
     <h3>Google Play での購入・ほかの端末・返金</h3>
-    <p>Google Play の SoundPull は一度の支払いで使える有料アプリで、アプリ内課金・サブスクリプション・広告はありません。別の Android 端末に入れるには、同じ Google アカウントでログインし、Google Play から無料でもう一度ダウンロードしてください。Google Play での購入の返金は Google が決めます。<a href="https://support.google.com/googleplay/answer/2479637">Google Play の返金に関するヘルプ</a>をご覧ください。Google Play での購入で iPhone 版は使えず、App Store での購入で Android 版は使えません。</p>
+    <p>Google Play の SoundPull は一度の支払いで使える有料アプリで、アプリ内課金・サブスクリプション・広告はありません。別の Android 端末に入れるには、同じ Google アカウントでログインし、Google Play から無料でもう一度ダウンロードしてください。返金は <a href="https://support.google.com/googleplay/answer/2479637">Google Play の返金に関するヘルプ</a>に従ってください。Google Play ではそこでの購入を私たちが返金することもできるので、私たちに連絡していただくこともできます。Google Play での購入で iPhone 版は使えず、App Store での購入で Android 版は使えません。</p>
     <h3>SoundPull が評価をお願いしてきたのはなぜ？</h3>
-    <p>抽出か結合がうまくいき、結果を保存または共有したあと、SoundPull は Google Play にレビューの画面を出すよう頼むことがあります。頼むのは 14 日に 1 回までです。実際に表示するかどうかは Google Play が決めます。</p>
+    <p>抽出か結合がうまくいった直後に、SoundPull は Google Play にレビューの画面を出すよう頼むことがあります。頼むのは 14 日に 1 回までです。実際に表示するかどうかは Google Play が決めます。</p>
     <h3>SoundPull が保存したものをすべて消すには？</h3>
     <p>アプリをアンインストールするか、SoundPull の「アプリ情報」画面を開き、「ストレージ」の「ストレージを消去」をタップしてください。Music・Ringtones・Movies のフォルダに保存したファイルは、あなたが削除するまで残ります。</p>
 

@@ -6,7 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>Dukungan SoundPull</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
-       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言と一字一句合わせる
+       （soundpull-app/src/i18n/index.ts。Android で差し替わる語は src/i18n/androidOverrides.ts が正） -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -145,11 +146,11 @@
     <h3>Bagaimana cara memasang nada dering?</h3>
     <p>Pilih <strong>Nada dering</strong> sebagai format, buat suaranya 30 detik atau kurang, lalu ketuk <strong>Simpan ke perangkat</strong>. Nada dering disimpan sebagai file .m4a, yang ditambahkan Android ke daftar nada deringnya. Kemudian ketuk <strong>Buka pengaturan suara</strong>, buka Nada dering, dan pilih file itu berdasarkan namanya. Nama pengaturan ini berbeda-beda antarprodusen ponsel. SoundPull tidak mengubah nada dering Anda dengan sendirinya.</p>
     <h3>Bisakah saya membuat transkrip atau subtitle di Android?</h3>
-    <p>Tidak. Rilis pertama di Google Play tidak menyertakan transkrip maupun subtitle. Ekstraksi, konversi, penggabungan, ekstrak massal, dan video tanpa suara berjalan seperti di iPhone, dan format keluarannya adalah M4A, MP3, WAV, dan Nada dering.</p>
+    <p>Tidak. Rilis pertama di Google Play tidak menyertakan transkrip maupun subtitle. Ekstraksi, konversi, penggabungan, ekstrak massal, dan video tanpa suara tersedia, dan format keluarannya adalah M4A, MP3, WAV, dan Nada dering. File masukan mana yang dapat dibaca bergantung pada format yang didukung ponsel Anda.</p>
     <h3>Pembelian, perangkat lain, dan pengembalian dana di Google Play</h3>
-    <p>SoundPull di Google Play adalah aplikasi berbayar sekali beli tanpa pembelian dalam aplikasi, tanpa langganan, dan tanpa iklan. Untuk memasangnya di perangkat Android lain, masuk dengan Akun Google yang sama dan unduh kembali dari Google Play tanpa biaya. Pengembalian dana untuk pembelian di Google Play diputuskan oleh Google; lihat <a href="https://support.google.com/googleplay/answer/2479637">bantuan pengembalian dana Google Play</a>. Pembelian di Google Play tidak mencakup versi iPhone, dan pembelian di App Store tidak mencakup versi Android.</p>
+    <p>SoundPull di Google Play adalah aplikasi berbayar sekali beli tanpa pembelian dalam aplikasi, tanpa langganan, dan tanpa iklan. Untuk memasangnya di perangkat Android lain, masuk dengan Akun Google yang sama dan unduh kembali dari Google Play tanpa biaya. Untuk pengembalian dana, ikuti <a href="https://support.google.com/googleplay/answer/2479637">bantuan pengembalian dana Google Play</a>; Anda juga dapat menghubungi kami, karena Google Play memungkinkan kami mengembalikan dana pembelian yang dilakukan di sana. Pembelian di Google Play tidak mencakup versi iPhone, dan pembelian di App Store tidak mencakup versi Android.</p>
     <h3>Mengapa SoundPull meminta saya memberi rating?</h3>
-    <p>Setelah ekstraksi atau penggabungan berhasil, begitu Anda menyimpan atau membagikan hasilnya, SoundPull dapat meminta Google Play menampilkan jendela ulasannya, paling banyak sekali setiap 14 hari. Google Play yang memutuskan apakah jendela itu benar-benar muncul.</p>
+    <p>Tepat setelah ekstraksi atau penggabungan berhasil, SoundPull dapat meminta Google Play menampilkan jendela ulasannya, paling banyak sekali setiap 14 hari. Google Play yang memutuskan apakah jendela itu benar-benar muncul.</p>
     <h3>Bagaimana menghapus seluruh data yang disimpan SoundPull?</h3>
     <p>Hapus instalan aplikasinya, atau buka layar Info aplikasi-nya dan ketuk Hapus penyimpanan di bagian Penyimpanan. File yang Anda simpan ke folder Music, Ringtones, atau Movies tetap ada sampai Anda sendiri menghapusnya.</p>
 
