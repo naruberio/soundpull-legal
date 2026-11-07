@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Chính sách quyền riêng tư của SoundPull</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
+       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,18 +71,18 @@
 
   <main>
     <h1>Chính sách quyền riêng tư của SoundPull</h1>
-    <p class="stamp">Có hiệu lực từ 2026-10-02 · soạn cho SoundPull 1.4</p>
-    <p>SoundPull là ứng dụng iPhone tách phần âm thanh ra khỏi video, chuyển đổi và nối các tệp âm thanh, và có thể chuyển lời nói đã ghi âm thành văn bản. Chính sách này đi theo một tệp qua từng bước trong ứng dụng, sau đó liệt kê mọi thứ SoundPull giữ lại trên iPhone của bạn. SoundPull do naruberio phát triển và phát hành; trong chính sách này, "chúng tôi" có nghĩa là naruberio.</p>
+    <p class="stamp">Có hiệu lực từ 2026-11-07 · các phần về iPhone soạn cho SoundPull 1.4 · phần về Android soạn cho bản phát hành đầu tiên trên Google Play</p>
+    <p>SoundPull là ứng dụng dành cho iPhone và điện thoại Android. Ứng dụng tách phần âm thanh ra khỏi video, chuyển đổi và nối các tệp âm thanh; trên iPhone, ứng dụng còn có thể chuyển lời nói đã ghi âm thành văn bản. Các phần từ <a href="#flow">Điều gì xảy ra với một tệp</a> đến <a href="#manifest">tệp privacy manifest</a> mô tả phiên bản iPhone: chúng đi theo một tệp qua từng bước trong ứng dụng, sau đó liệt kê mọi thứ SoundPull giữ lại trên iPhone của bạn. Tiếp đó, phần <a href="#android">SoundPull trên Android</a> trình bày cách phiên bản Android xử lý những điều tương tự. Các phần từ <a href="#children">Trẻ em</a> trở đi áp dụng cho cả hai. SoundPull do naruberio phát triển và phát hành; trong chính sách này, "chúng tôi" có nghĩa là naruberio.</p>
 
     <h2 id="brief">Tóm lược</h2>
     <ul class="gist">
       <li>SoundPull không có tài khoản, không cần đăng nhập và không dựa vào máy chủ nào của chúng tôi.</li>
-      <li>Video, tệp âm thanh, bản chép lời và phụ đề mà bạn làm việc cùng đều được xử lý trên iPhone và không bao giờ được tải lên, dù là cho chúng tôi hay cho bất kỳ ai khác.</li>
+      <li>Video, tệp âm thanh, bản chép lời và phụ đề mà bạn làm việc cùng đều được xử lý trên điện thoại của bạn và không bao giờ được tải lên, dù là cho chúng tôi hay cho bất kỳ ai khác.</li>
       <li>Ứng dụng không chứa mã phân tích, quảng cáo, báo cáo sự cố hay theo dõi, và không cần kết nối Internet để làm việc.</li>
-      <li>Giữa các lần mở, SoundPull chỉ ghi nhớ ba thiết lập và các con số đếm phục vụ lời mời đánh giá, tất cả đều nằm trên thiết bị. Các bản sao được tạo ra khi bạn chọn một tệp hoặc khi một ứng dụng khác gửi tệp đến SoundPull cũng có thể nằm lại trên thiết bị (xem <a href="#kept">Những gì ở lại trên iPhone của bạn</a>).</li>
+      <li>Giữa các lần mở, SoundPull chỉ ghi nhớ ba thiết lập và các con số đếm phục vụ lời mời đánh giá, tất cả đều nằm trên thiết bị. Các bản sao được tạo ra khi bạn chọn một tệp hoặc khi một ứng dụng khác gửi tệp đến SoundPull cũng có thể nằm lại trên thiết bị (xem <a href="#kept">Những gì ở lại trên iPhone của bạn</a> và, với Android, <a href="#android-files">Tệp trên Android</a>).</li>
     </ul>
 
-    <h2 id="flow">Điều gì xảy ra với một tệp bạn mở trong SoundPull</h2>
+    <h2 id="flow">Điều gì xảy ra với một tệp bạn mở trong SoundPull trên iPhone</h2>
     <ol class="flow">
       <li><strong>Bạn chọn tệp.</strong> Bạn có thể chọn một video trong trình chọn của Ảnh, chọn một video hoặc một tệp âm thanh (m4a, mp3, wav, aac, caf, aif, aiff hoặc flac) trong ứng dụng Tệp, hoặc gửi tệp từ bảng chia sẻ của một ứng dụng khác, kể cả Ghi âm. iOS chỉ trao cho SoundPull những mục bạn chọn; ứng dụng không lục xem phần còn lại của thư viện ảnh hay các thư mục của bạn.</li>
       <li><strong>SoundPull tạo một bản sao làm việc.</strong> Mục đó được sao chép vào một thư mục tạm bên trong vùng hộp cát (sandbox) riêng của ứng dụng, nên bản gốc của bạn không bao giờ bị sửa đổi. Trình chọn của Ảnh, trình chọn của Tệp và bảng chia sẻ cũng có thể tự để lại một bản sao riêng trong vùng chứa của ứng dụng.</li>
@@ -105,14 +107,14 @@
     </div>
     <p>Một iPhone từng chạy phiên bản đầu của SoundPull, khi ứng dụng còn hạn mức dùng miễn phí, có thể vẫn còn giữ số lần sử dụng của phiên bản đó (<code>soundpull.freeQuota.usedCount</code>). Các phiên bản hiện nay không đọc và cũng không cập nhật giá trị này.</p>
     <p>Xóa SoundPull khỏi iPhone sẽ xóa luôn các giá trị này. Chúng tôi không có cách nào đọc được chúng.</p>
-    <p>Ngoài các giá trị này, những bản sao riêng mà trình chọn và bảng chia sẻ tự để lại khi bạn chọn một tệp hoặc khi một ứng dụng khác gửi tệp đến SoundPull không được ứng dụng dọn đi, nên có thể nằm lại trên thiết bị qua các lần mở. Bước 6 trong phần <a href="#flow">Điều gì xảy ra với một tệp bạn mở trong SoundPull</a> giải thích mỗi loại bản sao nằm ở đâu và khi nào thì mất đi.</p>
+    <p>Ngoài các giá trị này, những bản sao riêng mà trình chọn và bảng chia sẻ tự để lại khi bạn chọn một tệp hoặc khi một ứng dụng khác gửi tệp đến SoundPull không được ứng dụng dọn đi, nên có thể nằm lại trên thiết bị qua các lần mở. Bước 6 trong phần <a href="#flow">Điều gì xảy ra với một tệp bạn mở trong SoundPull trên iPhone</a> giải thích mỗi loại bản sao nằm ở đâu và khi nào thì mất đi.</p>
 
-    <h2 id="rating">Lời mời đánh giá, thêm vào ở phiên bản 1.4</h2>
+    <h2 id="rating">Lời mời đánh giá trên iPhone, thêm vào ở phiên bản 1.4</h2>
     <p>Sau lần trích xuất hoặc ghép thành công thứ 3, thứ 15 và thứ 50, SoundPull đề nghị iOS hiển thị lời nhắc tiêu chuẩn của Apple để xếp hạng ứng dụng, thông qua chức năng yêu cầu đánh giá có trong framework StoreKit của Apple. iOS quyết định lời nhắc có thực sự xuất hiện hay không và giới hạn số lần mà mọi ứng dụng được phép hiển thị nó. SoundPull không được biết lời nhắc có xuất hiện hay không, cũng như bạn đã làm gì với nó. Nếu bạn xếp hạng hoặc viết nhận xét cho SoundPull, Apple thu nhận điều đó dưới Tài khoản Apple của bạn; nhận xét bằng chữ được đăng công khai trên App Store dưới biệt danh bạn chọn, nơi bất kỳ ai, kể cả chúng tôi, đều có thể đọc; với tư cách nhà phát triển, chúng tôi cũng có thể đăng phản hồi công khai ở đó.</p>
     <p>Để tắt các lời nhắc này cho mọi ứng dụng, hãy mở ứng dụng Cài đặt của iOS, vào App Store và tắt Xếp hạng &amp; nhận xét trong ứng dụng (In-App Ratings &amp; Reviews). Từ iOS 18 trở đi, mục App Store nằm trong Cài đặt &gt; Ứng dụng.</p>
     <p>Lời mời đánh giá là việc duy nhất SoundPull dùng StoreKit. Ứng dụng không có màn hình mua hàng và không tự gửi yêu cầu mua hàng nào.</p>
 
-    <h2 id="permissions">Các quyền iOS có thể hiển thị</h2>
+    <h2 id="permissions">Các quyền iOS có thể hiển thị trên iPhone</h2>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>Quyền</th><th>Khi nào và vì sao</th></tr></thead>
@@ -124,10 +126,10 @@
     </div>
     <p>Mở một tệp từ ứng dụng Tệp hoặc từ bảng chia sẻ không cần quyền nào, vì iOS chỉ chuyển giao đúng mục bạn đã chọn. SoundPull không dùng camera, micrô, vị trí hay danh bạ của bạn, và không xin quyền truy cập mạng. Lời nhắc App Tracking Transparency cũng không bao giờ xuất hiện, bởi SoundPull chẳng theo dõi bất kỳ ai.</p>
 
-    <h2 id="paying">Thanh toán cho SoundPull</h2>
+    <h2 id="paying">Thanh toán cho SoundPull trên App Store</h2>
     <p>SoundPull được bán dưới dạng ứng dụng trả phí trên App Store. Chỉ một lần mua đó đã bao gồm mọi tính năng; không có mua hàng trong ứng dụng, không có gói đăng ký và không có quảng cáo. Apple nhận khoản thanh toán và không chuyển cho chúng tôi tên, địa chỉ email, thông tin thẻ hay thông tin nào khác về bản thân bạn. Apple giải thích cách họ xử lý thông tin thanh toán và tài khoản của bạn trong <a href="https://www.apple.com/legal/privacy/">chính sách về quyền riêng tư do Apple công bố</a>.</p>
 
-    <h2 id="manifest">Tệp privacy manifest khai báo những gì</h2>
+    <h2 id="manifest">Tệp privacy manifest khai báo những gì (iPhone)</h2>
     <p>SoundPull được phát hành kèm một tệp privacy manifest theo định dạng của Apple. Tệp này nêu rằng ứng dụng không theo dõi, không liên hệ tên miền theo dõi nào và không thu thập loại dữ liệu nào. Tệp đó cũng liệt kê bốn API mà Apple yêu cầu nhà phát triển nêu lý do sử dụng, và mỗi API chỉ được dùng cho mục đích mà mã lý do của nó đại diện:</p>
     <ul>
       <li><code>FileTimestamp</code>, lý do <code>C617.1</code>: đọc ngày và kích thước của các tệp bên trong vùng chứa riêng của SoundPull, chẳng hạn để phân biệt tệp làm việc do một phiên trước để lại với tệp hiện tại.</li>
@@ -137,12 +139,46 @@
     </ul>
     <p>SoundPull tự khai báo hai mục đầu; hai mục còn lại được thêm vào thay cho các framework mà ứng dụng được xây dựng trên đó.</p>
 
+    <h2 id="android">SoundPull trên Android</h2>
+    <p>Phiên bản Android được xây dựng từ cùng mã nguồn với phiên bản iPhone và giữ đúng những cam kết đó: không có tài khoản, không có máy chủ nào của chúng tôi, và không có mã phân tích, quảng cáo, báo cáo sự cố hay theo dõi. Ứng dụng chuyển đổi tệp bằng các thành phần đa phương tiện có sẵn của Android (MediaExtractor, MediaCodec và MediaMuxer) và mã hóa MP3 bằng cùng thư viện LAME tích hợp sẵn. Không thứ gì bạn mở trong ứng dụng được gửi qua mạng. Bản phát hành đầu tiên trên Google Play không có bản chép lời hay phụ đề, nên trên Android, SoundPull không nhận dạng giọng nói và không xin quyền dùng micrô.</p>
+
+    <h3 id="android-files">Tệp trên Android</h3>
+    <ul>
+      <li><strong>Mở tệp.</strong> <strong>Chọn video</strong> mở trình chọn ảnh, còn <strong>Từ tệp</strong> mở trình chọn tệp của hệ thống. Bạn cũng có thể gửi một video hoặc một tệp âm thanh đến SoundPull từ ứng dụng khác bằng Chia sẻ hoặc Mở bằng. Trong mọi trường hợp, Android chỉ cho SoundPull truy cập đúng mục bạn đã chọn.</li>
+      <li><strong>Bản sao làm việc.</strong> SoundPull sao chép mục đã chọn vào thư mục bộ nhớ đệm (cache) riêng của nó, nơi các ứng dụng khác không đọc được, và làm việc trên bản sao đó, nên bản gốc của bạn không bao giờ bị sửa đổi. Các trình chọn cũng có thể tự đặt một bản sao riêng vào thư mục đó. Kết quả được tạo thành tệp M4A, MP3 hoặc WAV, thành nhạc chuông, hoặc thành một video đã bỏ phần âm thanh. Nhạc chuông được ghi thành tệp .m4a, vì Android không nhận ra phần mở rộng .m4r của Apple.</li>
+      <li><strong>Dọn dẹp.</strong> Giống như trên iPhone, SoundPull xóa các bản sao làm việc khi tác vụ không còn cần đến chúng, giữ bản sao đã giao cho ứng dụng khác đến lần khởi động tiếp theo, và mỗi lần khởi động thì xóa các tệp làm việc mà các phiên trước để lại. SoundPull không xóa các bản sao riêng mà trình chọn tự giữ; Android có thể dọn chúng, cũng như phần còn lại của thư mục bộ nhớ đệm, khi dung lượng lưu trữ sắp hết. Gỡ cài đặt SoundPull, hoặc chạm vào Xóa bộ nhớ trên màn hình Thông tin ứng dụng của nó, sẽ xóa mọi thứ còn lại ở đó.</li>
+      <li><strong>Lưu.</strong> Từ Android 10 trở đi, <strong>Lưu vào thiết bị</strong> đặt kết quả vào bộ nhớ dùng chung của điện thoại thông qua MediaStore của Android: âm thanh vào <code>Music/SoundPull</code>, nhạc chuông vào <code>Ringtones/SoundPull</code> và video đã bỏ âm thanh vào <code>Movies/SoundPull</code>. Những ứng dụng mà bạn cho phép đọc nhạc hoặc video của bạn có thể thấy các tệp lưu ở đó, và các tệp này vẫn ở lại trên điện thoại sau khi gỡ cài đặt SoundPull cho đến khi bạn xóa chúng. Trên các phiên bản Android cũ hơn, nút này không hiển thị; khi đó hãy gửi kết quả sang ứng dụng khác bằng <strong>Chia sẻ</strong>.</li>
+      <li><strong>Nhạc chuông.</strong> <strong>Mở cài đặt âm thanh</strong> chỉ mở phần cài đặt âm thanh của Android để bạn tự chọn nhạc chuông đã lưu. SoundPull không thay đổi nhạc chuông của bạn hay bất kỳ cài đặt hệ thống nào khác.</li>
+    </ul>
+
+    <h3 id="android-kept">Những gì phiên bản Android ghi nhớ</h3>
+    <p>Trên Android, SoundPull giữ bốn giá trị trong bộ nhớ riêng của ứng dụng, nơi các ứng dụng khác không đọc được: <code>soundpull.settings.hasSeenOnboarding</code>, <code>soundpull.settings.outputFormat</code> và <code>soundpull.settings.normalizeVolume</code>, có cùng ý nghĩa như trên iPhone, cùng với <code>soundpull.reviewPrompt</code>. Trên Android, <code>soundpull.reviewPrompt</code> lưu số tác vụ trích xuất hoặc ghép đã thành công, thời điểm gần nhất SoundPull đề nghị hiển thị lời mời đánh giá, và lần thử gần nhất có thất bại hay không. Không giá trị nào chứa tên tệp, bản ghi âm hay bất cứ thứ gì nhận diện được bạn, và không giá trị nào được gửi đi đâu cả.</p>
+
+    <h3 id="android-rating">Lời mời đánh giá trên Android</h3>
+    <p>Ngay sau một lần trích xuất hoặc ghép thành công, SoundPull có thể đề nghị Google Play hiển thị lời nhắc đánh giá trong ứng dụng của Google Play (Google Play In-App Review API). Ứng dụng đề nghị không quá một lần mỗi 14 ngày, và không đề nghị ngay sau một lần thử đã thất bại. Google Play quyết định lời nhắc có thực sự xuất hiện hay không, và SoundPull không được biết lời nhắc có xuất hiện hay không, cũng như bạn đã làm gì với nó. Xếp hạng hoặc nhận xét bạn đưa ra được Google thu nhận dưới Tài khoản Google của bạn và đăng công khai trên Google Play; với tư cách nhà phát triển, chúng tôi có thể đọc và có thể đăng phản hồi công khai ở đó.</p>
+
+    <h3 id="android-permissions">Các quyền được khai báo trên Android</h3>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Quyền</th><th>Vì sao có mặt</th></tr></thead>
+        <tbody>
+          <tr><td><code>READ_EXTERNAL_STORAGE</code><br><code>WRITE_EXTERNAL_STORAGE</code></td><td>Chỉ được khai báo cho Android 12L trở về trước (API level 32 trở xuống) bởi các thư viện chọn tệp và chọn ảnh mà SoundPull dùng để xây dựng. SoundPull không xin bạn các quyền này: ứng dụng chỉ đọc những mục bạn chọn, và từ Android 10 trở đi, ứng dụng lưu tệp của chính nó mà không cần quyền lưu trữ nào.</td></tr>
+          <tr><td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td><td>Được thêm vào bởi framework của ứng dụng và thư viện tệp của nó (<code>INTERNET</code>) và bởi thư viện phát âm thanh (<code>ACCESS_NETWORK_STATE</code>). Bản thân SoundPull không gửi hay nhận dữ liệu nào qua mạng.</td></tr>
+          <tr><td><code>MODIFY_AUDIO_SETTINGS</code><br><code>WAKE_LOCK</code></td><td>Được thư viện phát âm thanh dùng để phát thử kết quả ngay trong ứng dụng.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Không quyền nào trong số này là quyền SoundPull đề nghị bạn cấp. Ứng dụng không dùng camera, micrô, vị trí hay danh bạ của bạn.</p>
+
+    <h3 id="android-paying">Thanh toán trên Google Play</h3>
+    <p>Trên Android, SoundPull được bán dưới dạng ứng dụng trả phí trên Google Play, không có mua hàng trong ứng dụng, không có gói đăng ký và không có quảng cáo. Google nhận khoản thanh toán, và chúng tôi không nhận thông tin thẻ của bạn. Để phục vụ hồ sơ bán hàng và thuế của chúng tôi, Google cung cấp cho chúng tôi một số chi tiết giới hạn về từng đơn hàng, chẳng hạn như mã đơn hàng và quốc gia hoặc khu vực của người mua, cùng với tiểu bang và mã bưu chính nếu Google cung cấp. Chúng tôi chỉ dùng các chi tiết này cho những hồ sơ đó. Google giải thích cách họ xử lý thông tin thanh toán và tài khoản của bạn trong <a href="https://policies.google.com/privacy">Chính sách quyền riêng tư của Google</a>.</p>
+
     <h2 id="children">Trẻ em</h2>
     <p>SoundPull dành cho mọi đối tượng người dùng. Ứng dụng không thu thập thông tin cá nhân của bất kỳ ai sử dụng nó, vì vậy cũng không hề chủ ý nhận thông tin nào từ trẻ em, dù ngưỡng tuổi áp dụng tại nơi bạn sống là 13 hay một độ tuổi khác.</p>
 
     <h2 id="laws">Luật về quyền riêng tư và lựa chọn của bạn</h2>
-    <p>Các luật như GDPR của EU và của Vương quốc Anh, Đạo luật Quyền riêng tư của Người tiêu dùng California (CCPA) đã được sửa đổi bởi CPRA, và LGPD của Brazil trao cho bạn các quyền đối với dữ liệu cá nhân mà một doanh nghiệp nắm giữ về bạn. Ứng dụng không gửi cho chúng tôi thông tin cá nhân nào về bạn, nên xét riêng việc bạn dùng SoundPull, phía chúng tôi không có gì để cho bạn xem, sửa, bàn giao hay xóa, và trong mối liên hệ với ứng dụng, chúng tôi không đóng vai trò bên kiểm soát hay bên xử lý đối với dữ liệu cá nhân của bạn. Vì ứng dụng không gửi gì ra khỏi iPhone của bạn, nó cũng chẳng chuyển dữ liệu nào sang một quốc gia khác. Email bạn gửi cho chúng tôi được nói đến ở mục <a href="#contact">Câu hỏi</a> bên dưới.</p>
-    <p>Những gì SoundPull giữ lại nằm trong tay bạn: xóa ứng dụng sẽ xóa các giá trị đã lưu được mô tả ở trên cùng mọi bản sao còn sót lại trong bộ nhớ đệm, các thư mục tạm hoặc thư mục Inbox của ứng dụng, còn các tệp bạn đã lưu vẫn ở nguyên nơi bạn đặt cho đến khi chính bạn xóa chúng.</p>
+    <p>Các luật như GDPR của EU và của Vương quốc Anh, Đạo luật Quyền riêng tư của Người tiêu dùng California (CCPA) đã được sửa đổi bởi CPRA, và LGPD của Brazil trao cho bạn các quyền đối với dữ liệu cá nhân mà một doanh nghiệp nắm giữ về bạn. Ứng dụng không gửi cho chúng tôi thông tin cá nhân nào về bạn, nên xét riêng việc bạn dùng SoundPull, phía chúng tôi không có gì để cho bạn xem, sửa, bàn giao hay xóa, và trong mối liên hệ với ứng dụng, chúng tôi không đóng vai trò bên kiểm soát hay bên xử lý đối với dữ liệu cá nhân của bạn. Ngoại lệ duy nhất là các chi tiết đơn hàng giới hạn mà Google Play cung cấp cho chúng tôi về một giao dịch mua thực hiện ở đó (xem <a href="#android-paying">Thanh toán trên Google Play</a>); chúng tôi lưu giữ chúng làm hồ sơ bán hàng và thuế, và bạn có thể hỏi chúng tôi về chúng qua địa chỉ trong mục <a href="#contact">Câu hỏi</a>. Vì ứng dụng không gửi gì ra khỏi điện thoại của bạn, nó cũng chẳng chuyển dữ liệu nào sang một quốc gia khác. Email bạn gửi cho chúng tôi được nói đến ở mục <a href="#contact">Câu hỏi</a> bên dưới.</p>
+    <p>Những gì SoundPull giữ lại nằm trong tay bạn: xóa ứng dụng sẽ xóa các giá trị đã lưu được mô tả ở trên cùng mọi bản sao còn sót lại trong bộ nhớ đệm, các thư mục tạm hoặc thư mục Inbox của ứng dụng, còn các tệp bạn đã lưu vẫn ở nguyên nơi bạn đặt cho đến khi chính bạn xóa chúng. Trên Android, điều đó bao gồm cả các tệp bạn đã lưu vào thư mục Music, Ringtones hoặc Movies.</p>
 
     <h2 id="changes">Khi chính sách này thay đổi</h2>
     <p>Chúng tôi có thể sửa đổi chính sách này, chẳng hạn khi một phiên bản mới của SoundPull thay đổi những gì diễn ra trên thiết bị. Mỗi lần sửa đổi quan trọng sẽ mang một ngày mới ở đầu trang này, và văn bản hiện hành luôn được đăng tại <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-vi.html">naruberio.github.io/soundpull-legal/privacy-policy-vi.html</a>. Nếu bạn tiếp tục dùng SoundPull sau khi một bản sửa đổi có hiệu lực, bạn đồng ý với bản chính sách mới đó.</p>

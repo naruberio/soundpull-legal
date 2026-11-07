@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>SoundPull 개인정보 처리방침</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
+       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,18 +71,18 @@
 
   <main>
     <h1>SoundPull 개인정보 처리방침</h1>
-    <p class="stamp">2026-10-02부터 시행 · SoundPull 1.4 기준으로 작성</p>
-    <p>SoundPull은 동영상에서 소리를 뽑아내고, 오디오 파일을 변환하거나 이어 붙이며, 녹음된 말을 글자로 옮길 수 있는 iPhone 앱입니다. 이 방침은 파일 하나가 앱 안에서 거치는 과정을 단계별로 따라간 다음, SoundPull이 iPhone에 남겨 두는 것을 빠짐없이 나열합니다. SoundPull은 naruberio가 개발하고 배포합니다. 이 방침에서 "당사"는 naruberio를 가리킵니다.</p>
+    <p class="stamp">2026-11-07부터 시행 · iPhone 항목은 SoundPull 1.4 기준 · Android 항목은 Google Play 첫 출시 버전 기준으로 작성</p>
+    <p>SoundPull은 iPhone과 Android 휴대전화용 앱입니다. 동영상에서 소리를 뽑아내고, 오디오 파일을 변환하거나 이어 붙이며, iPhone에서는 녹음된 말을 글자로 옮길 수도 있습니다. <a href="#flow">파일 처리 과정</a>부터 <a href="#manifest">개인정보 보호 매니페스트</a>까지의 항목은 iPhone 버전을 설명합니다. 파일 하나가 앱 안에서 거치는 과정을 단계별로 따라간 다음, SoundPull이 iPhone에 남겨 두는 것을 빠짐없이 나열합니다. 이어서 <a href="#android">Android의 SoundPull</a>에서 Android 버전이 같은 것들을 어떻게 다루는지 설명합니다. <a href="#children">아동</a> 이후의 항목은 두 버전 모두에 적용됩니다. SoundPull은 naruberio가 개발하고 배포합니다. 이 방침에서 "당사"는 naruberio를 가리킵니다.</p>
 
     <h2 id="brief">한눈에 보기</h2>
     <ul class="gist">
       <li>SoundPull에는 계정도, 로그인도, 뒤에서 돌아가는 당사 서버도 없습니다.</li>
-      <li>사용자가 다루는 동영상, 오디오 파일, 문자 변환 결과, 자막은 iPhone 안에서 처리되며, 당사에든 다른 누구에게든 업로드되지 않습니다.</li>
+      <li>사용자가 다루는 동영상, 오디오 파일, 문자 변환 결과, 자막은 휴대전화 안에서 처리되며, 당사에든 다른 누구에게든 업로드되지 않습니다.</li>
       <li>앱에는 분석, 광고, 충돌 보고, 추적을 위한 코드가 들어 있지 않고, 작업하는 데 인터넷 연결도 필요하지 않습니다.</li>
-      <li>앱을 다시 실행할 때까지 SoundPull이 기억하는 것은 설정 세 가지와 평가 요청에 쓰는 횟수 기록뿐이며, 모두 기기 안에 저장됩니다. 파일을 선택하거나 다른 앱이 SoundPull에 파일을 보낼 때 만들어지는 사본도 기기에 남을 수 있습니다(<a href="#kept">iPhone에 남는 것</a> 참조).</li>
+      <li>앱을 다시 실행할 때까지 SoundPull이 기억하는 것은 설정 세 가지와 평가 요청에 쓰는 횟수 기록뿐이며, 모두 기기 안에 저장됩니다. 파일을 선택하거나 다른 앱이 SoundPull에 파일을 보낼 때 만들어지는 사본도 기기에 남을 수 있습니다(<a href="#kept">iPhone에 남는 것</a>, Android는 <a href="#android-files">Android의 파일</a> 참조).</li>
     </ul>
 
-    <h2 id="flow">SoundPull에서 연 파일은 이렇게 처리됩니다</h2>
+    <h2 id="flow">iPhone의 SoundPull에서 연 파일은 이렇게 처리됩니다</h2>
     <ol class="flow">
       <li><strong>사용자가 파일을 고릅니다.</strong> "사진"의 선택 화면에서 동영상을 고르거나, "파일" 앱에서 동영상 또는 오디오 파일(m4a, mp3, wav, aac, caf, aif, aiff, flac)을 고르거나, "음성 메모"를 비롯한 다른 앱의 공유 시트에서 보낼 수 있습니다. iOS는 사용자가 선택한 항목만 SoundPull에 넘겨주므로, 앱이 사진 보관함의 나머지 부분이나 폴더를 둘러보는 일은 없습니다.</li>
       <li><strong>SoundPull이 작업용 사본을 만듭니다.</strong> 선택한 항목은 앱 전용 샌드박스 안의 임시 폴더로 복사되므로, 원본은 절대 바뀌지 않습니다. "사진"과 "파일"의 선택 화면, 그리고 공유 시트도 앱 컨테이너 안에 자체 사본을 남길 수 있습니다.</li>
@@ -105,14 +107,14 @@
     </div>
     <p>무료 이용 한도가 있던 초기 버전의 SoundPull을 실행한 적이 있는 iPhone에는 그 버전이 기록한 사용 횟수(<code>soundpull.freeQuota.usedCount</code>)가 남아 있을 수도 있습니다. 현재 버전은 이 값을 읽지도 갱신하지도 않습니다.</p>
     <p>iPhone에서 SoundPull을 삭제하면 이 값들도 함께 사라집니다. 당사는 이 값들을 읽을 방법이 없습니다.</p>
-    <p>이 값들 외에도, 파일을 선택하거나 다른 앱이 SoundPull에 파일을 보낼 때 선택 화면과 공유 시트가 남기는 자체 사본은 앱이 치우지 않으므로 다음 실행 이후에도 기기에 남을 수 있습니다. 각 사본이 어디에 놓이고 언제 사라지는지는 <a href="#flow">SoundPull에서 연 파일은 이렇게 처리됩니다</a>의 6단계에서 설명합니다.</p>
+    <p>이 값들 외에도, 파일을 선택하거나 다른 앱이 SoundPull에 파일을 보낼 때 선택 화면과 공유 시트가 남기는 자체 사본은 앱이 치우지 않으므로 다음 실행 이후에도 기기에 남을 수 있습니다. 각 사본이 어디에 놓이고 언제 사라지는지는 <a href="#flow">iPhone의 SoundPull에서 연 파일은 이렇게 처리됩니다</a>의 6단계에서 설명합니다.</p>
 
-    <h2 id="rating">평가 요청(버전 1.4에서 추가)</h2>
+    <h2 id="rating">iPhone의 평가 요청(버전 1.4에서 추가)</h2>
     <p>추출 또는 합치기에 3번째, 15번째, 50번째로 성공하면, SoundPull은 Apple StoreKit 프레임워크의 리뷰 요청 기능을 통해 앱을 평가하는 Apple 표준 창을 띄워 달라고 iOS에 요청합니다. 창이 실제로 나타날지는 iOS가 정하며, 어떤 앱이든 이 창을 띄울 수 있는 빈도는 iOS가 제한합니다. SoundPull은 창이 나타났는지, 사용자가 어떻게 응답했는지 전달받지 않습니다. SoundPull에 평점을 주거나 리뷰를 남기면 Apple이 사용자의 Apple 계정으로 이를 수집합니다. 작성한 리뷰는 사용자가 정한 닉네임으로 App Store에 게시되어 당사를 포함한 누구나 읽을 수 있으며, 당사가 개발자로서 공개 답글을 달 수도 있습니다.</p>
     <p>모든 앱에서 이런 요청을 받지 않으려면 iOS 설정 앱에서 App Store로 들어가 '앱 내 평가 및 리뷰'(In-App Ratings &amp; Reviews)를 끄십시오. iOS 18 이상에서는 App Store 항목이 설정 &gt; 앱 안에 있습니다.</p>
     <p>SoundPull이 StoreKit을 쓰는 곳은 이 평가 요청 하나뿐입니다. 앱에는 구매 화면이 없으며, 앱이 스스로 구매를 요청하는 일도 없습니다.</p>
 
-    <h2 id="permissions">iOS가 표시할 수 있는 권한</h2>
+    <h2 id="permissions">iPhone에서 iOS가 표시할 수 있는 권한</h2>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>권한</th><th>언제, 무엇 때문에</th></tr></thead>
@@ -124,10 +126,10 @@
     </div>
     <p>"파일" 앱이나 공유 시트에서 파일을 여는 데는 권한이 필요 없습니다. iOS가 사용자가 고른 항목만 넘겨주기 때문입니다. SoundPull은 카메라, 마이크, 위치, 연락처를 사용하지 않으며, 네트워크 접근도 요청하지 않습니다. 누구도 추적하지 않으므로 앱 추적 투명성(ATT) 요청 창을 띄우는 일도 없습니다.</p>
 
-    <h2 id="paying">SoundPull의 결제</h2>
+    <h2 id="paying">App Store에서의 SoundPull 결제</h2>
     <p>SoundPull은 App Store에서 유료로 판매됩니다. 한 번 구매하면 모든 기능을 쓸 수 있으며, 인앱 구매, 구독, 광고는 없습니다. 대금은 Apple이 받으며, Apple은 사용자의 이름, 이메일 주소, 카드 정보나 그 밖의 개인정보를 당사에 넘기지 않습니다. Apple이 결제 정보와 계정 정보를 어떻게 다루는지는 <a href="https://www.apple.com/legal/privacy/">Apple 개인정보 처리방침</a>에서 확인할 수 있습니다.</p>
 
-    <h2 id="manifest">개인정보 보호 매니페스트에 선언된 내용</h2>
+    <h2 id="manifest">개인정보 보호 매니페스트에 선언된 내용(iPhone)</h2>
     <p>SoundPull에는 Apple 개인정보 보호 매니페스트가 함께 들어 있습니다. 매니페스트는 앱이 추적을 하지 않고, 추적 도메인에 접속하지 않으며, 수집하는 데이터 유형이 없다고 밝힙니다. 또한 Apple이 개발자에게 사용 이유를 밝히도록 요구하는 API 네 가지를 나열하며, 각 API는 해당 이유 코드가 뜻하는 목적으로만 쓰입니다.</p>
     <ul>
       <li><code>FileTimestamp</code>, 이유 <code>C617.1</code>: SoundPull 자체 컨테이너 안에 있는 파일의 날짜와 크기를 읽습니다. 예를 들어 이전 세션이 남긴 작업 파일과 지금 쓰고 있는 파일을 구별할 때입니다.</li>
@@ -137,12 +139,46 @@
     </ul>
     <p>앞의 두 가지는 SoundPull이 직접 선언하며, 나머지 두 가지는 앱을 만드는 데 쓰인 프레임워크를 대신해 추가된 것입니다.</p>
 
+    <h2 id="android">Android의 SoundPull</h2>
+    <p>Android 버전은 iPhone 버전과 같은 코드로 만들어지며 같은 약속을 지킵니다. 계정도, 당사 서버도 없고, 분석, 광고, 충돌 보고, 추적을 위한 코드도 없습니다. 파일 변환에는 Android 자체의 미디어 구성 요소(MediaExtractor, MediaCodec, MediaMuxer)를 쓰며, MP3는 같은 내장 LAME 라이브러리로 인코딩합니다. 앱에서 연 어떤 것도 네트워크로 전송되지 않습니다. Google Play 첫 출시 버전에는 문자 변환과 자막 기능이 없으므로, Android의 SoundPull은 음성 인식을 하지 않으며 마이크 권한도 요청하지 않습니다.</p>
+
+    <h3 id="android-files">Android의 파일</h3>
+    <ul>
+      <li><strong>열기.</strong> <strong>동영상 선택</strong>을 누르면 사진 선택 도구가, <strong>파일에서 선택</strong>을 누르면 시스템 파일 선택 도구가 열립니다. 다른 앱에서 공유나 '다음으로 열기'로 동영상이나 오디오 파일을 SoundPull에 보낼 수도 있습니다. 어느 경우든 Android는 사용자가 고른 항목에만 SoundPull이 접근하도록 허용합니다.</li>
+      <li><strong>작업용 사본.</strong> SoundPull은 고른 항목을 다른 앱이 읽을 수 없는 자체 캐시 폴더로 복사하고 그 사본으로 작업하므로, 원본은 절대 바뀌지 않습니다. 선택 도구도 그 폴더에 자체 사본을 둘 수 있습니다. 결과는 M4A, MP3, WAV 파일, 벨소리, 또는 소리를 뺀 동영상으로 만들어집니다. Android는 Apple의 .m4r 확장자를 인식하지 않으므로 벨소리는 .m4a 파일로 기록됩니다.</li>
+      <li><strong>정리.</strong> iPhone과 마찬가지로 SoundPull은 작업에 더는 필요 없는 작업용 사본을 삭제하고, 다른 앱에 넘긴 사본은 다음 실행 때까지 남겨 두며, 실행될 때마다 이전 세션이 남긴 작업 파일을 지웁니다. 선택 화면이 자체적으로 남기는 사본은 SoundPull이 지우지 않으며, 저장 공간이 부족해지면 캐시 폴더의 다른 파일과 마찬가지로 Android가 지울 수 있습니다. SoundPull을 제거하거나 앱 정보 화면에서 '저장용량 비우기'를 누르면 그곳에 남은 것이 모두 지워집니다.</li>
+      <li><strong>저장.</strong> Android 10 이상에서는 <strong>기기에 저장</strong>을 누르면 Android의 MediaStore를 통해 결과가 휴대전화의 공유 저장소에 들어갑니다. 오디오는 <code>Music/SoundPull</code>, 벨소리는 <code>Ringtones/SoundPull</code>, 소리를 뺀 동영상은 <code>Movies/SoundPull</code>에 저장됩니다. 음악이나 동영상을 읽도록 사용자가 허용한 앱은 이곳에 저장된 파일을 볼 수 있으며, 이 파일은 SoundPull을 제거한 뒤에도 사용자가 지울 때까지 휴대전화에 남습니다. 이전 Android 버전에서는 이 버튼이 표시되지 않으므로, 대신 <strong>공유</strong>로 결과를 다른 앱에 보내십시오.</li>
+      <li><strong>벨소리.</strong> <strong>소리 설정 열기</strong>는 저장한 벨소리를 사용자가 직접 고를 수 있도록 Android의 소리 설정을 열기만 합니다. SoundPull은 벨소리나 그 밖의 시스템 설정을 바꾸지 않습니다.</li>
+    </ul>
+
+    <h3 id="android-kept">Android 버전이 기억하는 것</h3>
+    <p>Android에서 SoundPull은 다른 앱이 읽을 수 없는 비공개 앱 저장 공간에 값 네 가지를 보관합니다. iPhone과 같은 뜻의 <code>soundpull.settings.hasSeenOnboarding</code>, <code>soundpull.settings.outputFormat</code>, <code>soundpull.settings.normalizeVolume</code>, 그리고 <code>soundpull.reviewPrompt</code>입니다. Android에서 <code>soundpull.reviewPrompt</code>에는 추출 또는 합치기 작업이 성공한 횟수, SoundPull이 마지막으로 평가 요청 창을 부탁한 시각, 마지막 시도가 실패했는지 여부가 담깁니다. 어느 값에도 파일 이름, 녹음, 사용자를 알아볼 수 있는 정보는 담기지 않으며, 어디로도 전송되지 않습니다.</p>
+
+    <h3 id="android-rating">Android의 평가 요청</h3>
+    <p>추출 또는 합치기에 성공한 직후, SoundPull은 Google Play에 인앱 리뷰 창(Google Play In-App Review API)을 띄워 달라고 요청할 수 있습니다. 요청은 14일에 한 번을 넘지 않으며, 실패한 시도 직후에는 요청하지 않습니다. 창이 실제로 나타날지는 Google Play가 정하며, SoundPull은 창이 나타났는지, 사용자가 어떻게 응답했는지 전달받지 않습니다. 사용자가 남긴 평점이나 리뷰는 Google이 사용자의 Google 계정으로 수집해 Google Play에 게시합니다. 당사는 개발자로서 이를 읽을 수 있고 그곳에 공개 답글을 달 수도 있습니다.</p>
+
+    <h3 id="android-permissions">Android에서 선언된 권한</h3>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>권한</th><th>선언된 이유</th></tr></thead>
+        <tbody>
+          <tr><td><code>READ_EXTERNAL_STORAGE</code><br><code>WRITE_EXTERNAL_STORAGE</code></td><td>SoundPull을 만드는 데 쓰인 파일 및 사진 선택 라이브러리가 Android 12L 이하(API 레벨 32 이하)에 한해 선언합니다. SoundPull은 이 권한을 사용자에게 요청하지 않습니다. 사용자가 고른 항목만 읽으며, Android 10 이상에서는 저장소 권한 없이 자체 파일을 저장합니다.</td></tr>
+          <tr><td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td><td>앱 프레임워크와 그 파일 라이브러리(<code>INTERNET</code>), 그리고 오디오 재생 라이브러리(<code>ACCESS_NETWORK_STATE</code>)가 추가합니다. SoundPull 자체는 네트워크로 데이터를 주고받지 않습니다.</td></tr>
+          <tr><td><code>MODIFY_AUDIO_SETTINGS</code><br><code>WAKE_LOCK</code></td><td>오디오 재생 라이브러리가 앱 안에서 결과를 재생하는 데 사용합니다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>이 가운데 SoundPull이 사용자에게 허용을 요청하는 권한은 없습니다. 카메라, 마이크, 위치, 연락처도 사용하지 않습니다.</p>
+
+    <h3 id="android-paying">Google Play에서의 결제</h3>
+    <p>Android에서 SoundPull은 Google Play에서 유료로 판매되며, 인앱 구매, 구독, 광고는 없습니다. 대금은 Google이 받으며, 당사는 사용자의 카드 정보를 받지 않습니다. 당사의 판매 및 세무 기록을 위해 Google은 주문 번호, 구매자의 국가 또는 지역, 그리고 Google이 제공하는 경우 주(州)와 우편번호 등 각 주문의 제한된 정보를 당사에 제공합니다. 당사는 이 정보를 해당 기록에만 사용합니다. Google이 결제 정보와 계정 정보를 어떻게 다루는지는 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>에서 확인할 수 있습니다.</p>
+
     <h2 id="children">아동</h2>
     <p>SoundPull은 일반 이용자를 위한 앱입니다. 누가 사용하든 개인정보를 수집하지 않으므로, 거주 지역에 적용되는 연령 기준이 13세이든 다른 나이이든 아동에게서 개인정보를 고의로 수집하는 일도 없습니다.</p>
 
     <h2 id="laws">개인정보 보호법과 사용자의 선택</h2>
-    <p>EU와 영국의 GDPR, CPRA로 개정된 캘리포니아 소비자 개인정보 보호법(CCPA), 브라질의 LGPD 같은 법은 기업이 가지고 있는 본인 개인정보에 대한 권리를 사용자에게 부여합니다. 앱은 사용자에 관한 개인정보를 당사에 보내지 않으므로, SoundPull 사용과 관련해서는 당사 쪽에 보여 드리거나, 바로잡거나, 넘겨 드리거나, 지울 대상이 없습니다. 이 앱과 관련하여 당사는 사용자 개인정보의 컨트롤러(관리자)도 프로세서(처리자)도 아닙니다. 앱이 iPhone 밖으로 아무것도 보내지 않으므로, 다른 나라로 데이터를 옮기는 일 역시 없습니다. 사용자가 당사에 보내는 이메일은 아래 <a href="#contact">문의</a>에서 다룹니다.</p>
-    <p>SoundPull이 보관하는 것은 사용자의 손에 있습니다. 앱을 삭제하면 위에서 설명한 저장 값과 앱의 캐시, 임시 폴더, Inbox 폴더에 남은 사본이 지워지고, 저장해 둔 파일은 사용자가 직접 지울 때까지 둔 자리에 그대로 남습니다.</p>
+    <p>EU와 영국의 GDPR, CPRA로 개정된 캘리포니아 소비자 개인정보 보호법(CCPA), 브라질의 LGPD 같은 법은 기업이 가지고 있는 본인 개인정보에 대한 권리를 사용자에게 부여합니다. 앱은 사용자에 관한 개인정보를 당사에 보내지 않으므로, SoundPull 사용과 관련해서는 당사 쪽에 보여 드리거나, 바로잡거나, 넘겨 드리거나, 지울 대상이 없습니다. 이 앱과 관련하여 당사는 사용자 개인정보의 컨트롤러(관리자)도 프로세서(처리자)도 아닙니다. 유일한 예외는 Google Play에서 이루어진 구매에 대해 Google Play가 당사에 제공하는 제한된 주문 정보입니다(<a href="#android-paying">Google Play에서의 결제</a> 참조). 당사는 이를 판매 및 세무 기록으로 보관하며, 사용자는 <a href="#contact">문의</a>에 있는 주소로 이에 관해 당사에 문의할 수 있습니다. 앱이 휴대전화 밖으로 아무것도 보내지 않으므로, 다른 나라로 데이터를 옮기는 일 역시 없습니다. 사용자가 당사에 보내는 이메일은 아래 <a href="#contact">문의</a>에서 다룹니다.</p>
+    <p>SoundPull이 보관하는 것은 사용자의 손에 있습니다. 앱을 삭제하면 위에서 설명한 저장 값과 앱의 캐시, 임시 폴더, Inbox 폴더에 남은 사본이 지워지고, 저장해 둔 파일은 사용자가 직접 지울 때까지 둔 자리에 그대로 남습니다. Android에서는 Music, Ringtones, Movies 폴더에 저장한 파일도 여기에 해당합니다.</p>
 
     <h2 id="changes">이 방침이 바뀔 때</h2>
     <p>당사는 이 방침을 개정할 수 있습니다. 예를 들어 SoundPull의 새 버전에서 기기 안에서 일어나는 일이 달라질 때입니다. 중요한 개정이 있을 때마다 이 페이지 맨 위의 날짜가 새로 바뀌며, 최신 본문은 언제나 <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-ko.html">naruberio.github.io/soundpull-legal/privacy-policy-ko.html</a>에 게시됩니다. 개정이 시행된 뒤에도 SoundPull을 계속 사용하면 개정된 방침을 받아들인 것이 됩니다.</p>

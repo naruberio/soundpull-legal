@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>SoundPull プライバシーポリシー</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
+       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,18 +71,18 @@
 
   <main>
     <h1>SoundPull プライバシーポリシー</h1>
-    <p class="stamp">2026-10-02 施行 · SoundPull 1.4 に対応</p>
-    <p>SoundPull は、動画から音を取り出し、音声ファイルを変換・結合し、録音された話し声を文字にもできる iPhone アプリです。このページでは、あなたが開いたファイルがアプリの中でたどる道筋を順に説明し、そのあとで SoundPull が iPhone に残すものをすべて挙げます。SoundPull の開発と配信は naruberio が行っており、このポリシーでいう「私たち」は naruberio を指します。</p>
+    <p class="stamp">2026-11-07 施行 · iPhone の節は SoundPull 1.4 に対応 · Android の節は Google Play の最初の版に対応</p>
+    <p>SoundPull は、iPhone と Android スマートフォンのためのアプリです。動画から音を取り出し、音声ファイルを変換・結合します。iPhone では、録音された話し声を文字にすることもできます。「<a href="#flow">開いたファイルがたどる道筋</a>」から「<a href="#manifest">プライバシーマニフェスト</a>」までの節は iPhone 版の説明で、あなたが開いたファイルがアプリの中でたどる道筋を順に説明し、そのあとで SoundPull が iPhone に残すものをすべて挙げます。続く「<a href="#android">Android 版の SoundPull</a>」では、Android 版が同じことをどう扱うかを説明します。「<a href="#children">お子さまについて</a>」以降の節は両方に当てはまります。SoundPull の開発と配信は naruberio が行っており、このポリシーでいう「私たち」は naruberio を指します。</p>
 
     <h2 id="brief">要点</h2>
     <ul class="gist">
       <li>SoundPull にはアカウントもサインインもなく、裏で動く私たちのサーバーもありません。</li>
-      <li>扱う動画・音声ファイル・文字起こし・字幕は iPhone の中で処理され、私たちにも、ほかのだれにもアップロードされません。</li>
+      <li>扱う動画・音声ファイル・文字起こし・字幕はスマートフォンの中で処理され、私たちにも、ほかのだれにもアップロードされません。</li>
       <li>アプリには解析・広告・クラッシュ報告・トラッキングのためのコードが入っておらず、処理にインターネット接続を必要としません。</li>
-      <li>起動をまたいで覚えておくのは 3 つの設定と、評価の依頼の時期を決めるための回数だけで、どれも端末の中にあります。このほか、ファイルを選んだときや、他のアプリから送られてきたときに作られるコピーが端末に残ることがあります（<a href="#kept">起動をまたいで iPhone に残るもの</a>を参照）。</li>
+      <li>起動をまたいで覚えておくのは 3 つの設定と、評価の依頼の時期を決めるための回数だけで、どれも端末の中にあります。このほか、ファイルを選んだときや、他のアプリから送られてきたときに作られるコピーが端末に残ることがあります（<a href="#kept">起動をまたいで iPhone に残るもの</a>と、Android については<a href="#android-files">Android でのファイルの扱い</a>を参照）。</li>
     </ul>
 
-    <h2 id="flow">SoundPull で開いたファイルがたどる道筋</h2>
+    <h2 id="flow">iPhone の SoundPull で開いたファイルがたどる道筋</h2>
     <ol class="flow">
       <li><strong>あなたが選ぶ。</strong>写真の選択画面で動画を選ぶ、ファイル App で動画か音声ファイル（m4a・mp3・wav・aac・caf・aif・aiff・flac）を選ぶ、またはボイスメモなど他のアプリの共有シートから送る、のいずれかです。iOS が SoundPull に渡すのは選ばれたものだけで、アプリがフォトライブラリの残りやフォルダの中を見て回ることはしません。</li>
       <li><strong>作業用のコピーを作る。</strong>選んだものはアプリ自身のサンドボックスの中にある一時フォルダへコピーされるので、元のファイルが書き換わることはありません。写真やファイルの選択画面、共有シートも、それぞれ独自のコピーをアプリのコンテナの中に置くことがあります。</li>
@@ -105,14 +107,14 @@
     </div>
     <p>無料枠のあった初期のバージョンの SoundPull を使ったことのある iPhone には、そのバージョンの利用回数（<code>soundpull.freeQuota.usedCount</code>）が残っていることがあります。いまのバージョンはこの値を読むことも更新することもありません。</p>
     <p>SoundPull を iPhone から削除すると、これらの値もいっしょに消えます。私たちがこれらの値を読む手段はありません。</p>
-    <p>これらの値のほかに、ファイルを選んだときや、他のアプリから SoundPull にファイルが送られてきたときに、選択画面や共有シートが独自に置くコピーは、アプリが片づけないため、起動をまたいで端末に残ることがあります。それぞれがどこに置かれ、いつ消えるかは、<a href="#flow">SoundPull で開いたファイルがたどる道筋</a>の手順 6 で説明しています。</p>
+    <p>これらの値のほかに、ファイルを選んだときや、他のアプリから SoundPull にファイルが送られてきたときに、選択画面や共有シートが独自に置くコピーは、アプリが片づけないため、起動をまたいで端末に残ることがあります。それぞれがどこに置かれ、いつ消えるかは、<a href="#flow">iPhone の SoundPull で開いたファイルがたどる道筋</a>の手順 6 で説明しています。</p>
 
-    <h2 id="rating">評価の依頼（バージョン 1.4 で追加）</h2>
+    <h2 id="rating">iPhone での評価の依頼（バージョン 1.4 で追加）</h2>
     <p>抽出か結合の成功が 3 回目・15 回目・50 回目に達したとき、SoundPull は Apple の StoreKit フレームワークにある評価の依頼の仕組みを通じて、Apple 標準の評価の画面を出すよう iOS に頼みます。実際に表示するかどうかは iOS が決め、どのアプリでも表示できる回数には上限があります。表示されたかどうかも、あなたがどう操作したかも、SoundPull には知らされません。SoundPull を評価したりレビューを書いたりすると、その内容はあなたの Apple アカウントのもとで Apple が受け取ります。書いたレビューはあなたが選んだニックネームで App Store に公開され、私たちを含めてだれでも読むことができます。また、私たちは開発者として公開の返信を書くこともあります。</p>
     <p>すべてのアプリでこの依頼を止めたい場合は、iOS の「設定」App で「App Store」を開き、「App内評価とレビュー」をオフにしてください。iOS 18 以降では、「App Store」は「設定」＞「アプリ」の中にあります。</p>
     <p>SoundPull が StoreKit を使うのは、この評価の依頼のためだけです。アプリには購入の画面がなく、アプリ自身が購入の要求を出すこともありません。</p>
 
-    <h2 id="permissions">iOS が表示することのある許可</h2>
+    <h2 id="permissions">iPhone で iOS が表示することのある許可</h2>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>許可</th><th>いつ・なぜ</th></tr></thead>
@@ -124,10 +126,10 @@
     </div>
     <p>ファイル App や共有シートからファイルを開くときに許可は要りません。iOS が渡すのは選ばれたものだけだからです。SoundPull はカメラ・マイク・位置情報・連絡先を使わず、ネットワークへのアクセスも求めません。だれのことも追跡しないので、App Tracking Transparency の確認を出すこともありません。</p>
 
-    <h2 id="paying">SoundPull の代金</h2>
+    <h2 id="paying">App Store での SoundPull の代金</h2>
     <p>SoundPull は App Store で有料アプリとして販売しています。1 回の購入ですべての機能が使え、アプリ内課金・サブスクリプション・広告はありません。代金を受け取るのは Apple で、Apple があなたの氏名・メールアドレス・カード情報などの個人情報を私たちに渡すことはありません。支払いやアカウントの情報を Apple がどう扱うかは、<a href="https://www.apple.com/jp/legal/privacy/">Apple のプライバシーポリシー</a>で説明されています。</p>
 
-    <h2 id="manifest">プライバシーマニフェストで申告していること</h2>
+    <h2 id="manifest">プライバシーマニフェストで申告していること（iPhone）</h2>
     <p>SoundPull には Apple のプライバシーマニフェストが入っていて、トラッキングをしないこと、トラッキング用のドメインに接続しないこと、収集するデータの種類がないことを申告しています。そのうえで、Apple が利用理由の申告を求める API を 4 つ挙げており、どれも理由コードが表す目的にだけ使っています。</p>
     <ul>
       <li><code>FileTimestamp</code>（理由 <code>C617.1</code>）: SoundPull 自身のコンテナの中にあるファイルの日時やサイズを読むため。たとえば、前のセッションが残した作業用ファイルと、いま使っているファイルを見分けます。</li>
@@ -137,12 +139,46 @@
     </ul>
     <p>はじめの 2 つは SoundPull 自身が申告しており、残りの 2 つはアプリが使っているフレームワークの分として加えられています。</p>
 
+    <h2 id="android">Android 版の SoundPull</h2>
+    <p>Android 版は iPhone 版と同じコードから作られており、同じ約束を守ります。アカウントはなく、私たちのサーバーもなく、解析・広告・クラッシュ報告・トラッキングのためのコードも入っていません。ファイルの変換には Android 自身のメディア部品（MediaExtractor・MediaCodec・MediaMuxer）を使い、MP3 は同じ組み込みの LAME ライブラリで作ります。開いたものがネットワークへ送られることはありません。Google Play の最初の版には文字起こしと字幕の機能が入っていないため、Android の SoundPull は音声認識をせず、マイクの許可も求めません。</p>
+
+    <h3 id="android-files">Android でのファイルの扱い</h3>
+    <ul>
+      <li><strong>開く。</strong><strong>動画を選択</strong>で写真の選択画面が、<strong>ファイルから選択</strong>でシステムのファイル選択画面が開きます。他のアプリから「共有」や「アプリで開く」で動画や音声ファイルを SoundPull に送ることもできます。どの場合も、Android が SoundPull に読ませるのは、あなたが選んだものだけです。</li>
+      <li><strong>作業用のコピー。</strong>SoundPull は選んだものを、他のアプリからは読めない自分のキャッシュフォルダへコピーし、そのコピーで作業するので、元のファイルが書き換わることはありません。選択画面も、独自のコピーをこのフォルダに置くことがあります。結果は M4A・MP3・WAV のファイル、着信音、または音を取り除いた動画として作られます。Android は Apple の .m4r という拡張子を認識しないため、着信音は .m4a ファイルとして書き出します。</li>
+      <li><strong>片づけ。</strong>iPhone と同じく、SoundPull は作業に要らなくなった作業用のコピーを削除し、他のアプリに渡したコピーは次に起動するまで残し、起動するたびにそれまでのセッションが残した作業用ファイルを削除します。選択画面が独自に置くコピーは SoundPull が削除しません。空き容量が少なくなると、キャッシュフォルダのほかのものと同じく、Android が消すことがあります。SoundPull をアンインストールするか、SoundPull の「アプリ情報」画面で「ストレージを消去」をタップすると、そこに残ったものはすべて消えます。</li>
+      <li><strong>保存。</strong>Android 10 以降では、<strong>端末に保存</strong>で結果を Android の MediaStore を通じてスマートフォンの共有ストレージに置きます。音声は <code>Music/SoundPull</code>、着信音は <code>Ringtones/SoundPull</code>、音を取り除いた動画は <code>Movies/SoundPull</code> です。音楽や動画の読み取りをあなたが許可したアプリは、ここに保存したファイルを見ることができます。これらのファイルは、SoundPull をアンインストールしても、あなたが削除するまでスマートフォンに残ります。それより前の Android ではこのボタンは表示されないので、代わりに<strong>共有</strong>で結果を他のアプリへ送ってください。</li>
+      <li><strong>着信音。</strong><strong>音の設定を開く</strong>は、保存した着信音をあなた自身が選べるように Android の音の設定を開くだけです。SoundPull が着信音やほかのシステムの設定を変えることはありません。</li>
+    </ul>
+
+    <h3 id="android-kept">Android 版が覚えておくもの</h3>
+    <p>Android では、SoundPull は他のアプリからは読めないアプリ専用の保存領域に 4 つの値を保存します。iPhone と同じ意味を持つ <code>soundpull.settings.hasSeenOnboarding</code>・<code>soundpull.settings.outputFormat</code>・<code>soundpull.settings.normalizeVolume</code> と、<code>soundpull.reviewPrompt</code> です。Android の <code>soundpull.reviewPrompt</code> には、抽出や結合が成功した回数、SoundPull が最後に評価の依頼を頼んだ時刻、最後の試みが失敗したかどうかが入ります。どの値にもファイル名・録音・あなたを特定できる情報は入っておらず、どこかへ送られることもありません。</p>
+
+    <h3 id="android-rating">Android での評価の依頼</h3>
+    <p>抽出か結合が成功した直後に、SoundPull は Google Play にアプリ内レビューの画面を出すよう頼むことがあります（Google Play In-App Review API）。頼むのは 14 日に 1 回までで、失敗した試みの直後には頼みません。実際に表示するかどうかは Google Play が決め、表示されたかどうかも、あなたがどう操作したかも、SoundPull には知らされません。あなたがつけた評価やレビューは、あなたの Google アカウントのもとで Google が受け取り、Google Play に公開されます。私たちは開発者としてそれを読むことができ、そこに公開の返信を書くこともあります。</p>
+
+    <h3 id="android-permissions">Android で宣言している権限</h3>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>権限</th><th>宣言している理由</th></tr></thead>
+        <tbody>
+          <tr><td><code>READ_EXTERNAL_STORAGE</code><br><code>WRITE_EXTERNAL_STORAGE</code></td><td>SoundPull が使っているファイルと写真の選択画面のライブラリが、Android 12L 以前（API レベル 32 以下）に限って宣言しています。SoundPull がこれらの許可をあなたに求めることはありません。読むのはあなたが選んだものだけで、Android 10 以降では、ストレージの権限なしに自分のファイルを保存します。</td></tr>
+          <tr><td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td><td>アプリのフレームワークとそのファイル用ライブラリ（<code>INTERNET</code>）、音声再生のライブラリ（<code>ACCESS_NETWORK_STATE</code>）が加えています。SoundPull 自身がネットワークでデータを送受信することはありません。</td></tr>
+          <tr><td><code>MODIFY_AUDIO_SETTINGS</code><br><code>WAKE_LOCK</code></td><td>音声再生のライブラリが、結果をアプリの中で再生するために使います。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>これらの権限のうち、SoundPull があなたに許可を求めるものはありません。カメラ・マイク・位置情報・連絡先も使いません。</p>
+
+    <h3 id="android-paying">Google Play での代金</h3>
+    <p>Android では、SoundPull は Google Play で有料アプリとして販売しており、アプリ内課金・サブスクリプション・広告はありません。代金を受け取るのは Google で、私たちがあなたのカード情報を受け取ることはありません。売上と税務の記録のため、Google は注文ごとに限られた情報（注文番号、購入者の国または地域、Google が提供する場合は州と郵便番号など）を私たちに渡します。私たちはこれをその記録にだけ使います。支払いやアカウントの情報を Google がどう扱うかは、<a href="https://policies.google.com/privacy">Google のプライバシーポリシー</a>で説明されています。</p>
+
     <h2 id="children">お子さまについて</h2>
     <p>SoundPull は幅広い年齢の方に向けたアプリです。どの利用者からも個人情報を集めないので、お住まいの地域で基準となる年齢が 13 歳でもほかの年齢でも、子どもから意図して情報を集めることはありません。</p>
 
     <h2 id="laws">プライバシーに関する法律と、あなたにできること</h2>
-    <p>EU と英国の GDPR、CPRA で改正されたカリフォルニア州消費者プライバシー法（CCPA）、ブラジルの LGPD などの法律は、事業者があなたについて持っている個人データへの権利をあなたに認めています。アプリはあなたの個人データを私たちに送らないため、SoundPull の利用について開示・訂正・移転・消去の対象となるものが私たちの側にはなく、アプリに関して私たちがあなたの個人データの管理者（controller）や処理者（processor）になることもありません。アプリが iPhone の外へ何も送らないので、国をまたぐデータの移転も起きません。私たちにメールを送った場合の扱いは、下の「<a href="#contact">お問い合わせ</a>」に書いています。</p>
-    <p>SoundPull が残すものは、あなたの手の中にあります。アプリを削除すれば上に挙げた値も、アプリのキャッシュ・一時フォルダ・Inbox フォルダに残ったコピーも消え、保存したファイルは、あなたが削除するまで保存した場所に残ります。</p>
+    <p>EU と英国の GDPR、CPRA で改正されたカリフォルニア州消費者プライバシー法（CCPA）、ブラジルの LGPD などの法律は、事業者があなたについて持っている個人データへの権利をあなたに認めています。アプリはあなたの個人データを私たちに送らないため、SoundPull の利用について開示・訂正・移転・消去の対象となるものが私たちの側にはなく、アプリに関して私たちがあなたの個人データの管理者（controller）や処理者（processor）になることもありません。ただ一つの例外は、Google Play での購入について Google Play が私たちに渡す限られた注文情報です（「<a href="#android-paying">Google Play での代金</a>」を参照）。私たちはこれを売上と税務の記録として保管しており、これについては「<a href="#contact">お問い合わせ</a>」のアドレスで問い合わせることができます。アプリがスマートフォンの外へ何も送らないので、国をまたぐデータの移転も起きません。私たちにメールを送った場合の扱いは、下の「<a href="#contact">お問い合わせ</a>」に書いています。</p>
+    <p>SoundPull が残すものは、あなたの手の中にあります。アプリを削除すれば上に挙げた値も、アプリのキャッシュ・一時フォルダ・Inbox フォルダに残ったコピーも消え、保存したファイルは、あなたが削除するまで保存した場所に残ります。Android では、Music・Ringtones・Movies のフォルダに保存したファイルもこれに含まれます。</p>
 
     <h2 id="changes">このポリシーを改めるとき</h2>
     <p>私たちはこのポリシーを改めることがあります。たとえば、新しいバージョンの SoundPull で端末の中の処理が変わる場合です。重要な改定のたびにページ上部の日付を新しくし、最新の本文はいつでも <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-ja.html">naruberio.github.io/soundpull-legal/privacy-policy-ja.html</a> に掲載します。改定が効力を持ったあとも SoundPull を使い続けた場合、改定後のポリシーに同意したものとします。</p>
