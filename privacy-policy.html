@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark">
   <title>SoundPull Privacy Policy</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
-       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       KAN-1227 で Android の節を足した。iPhone の節は KAN-1228 で 1.6 に合わせ、Android の節は Google Play の最初の版
        （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
@@ -71,7 +71,7 @@
 
   <main>
     <h1>SoundPull Privacy Policy</h1>
-    <p class="stamp">In force from 2026-11-07 · iPhone sections written for SoundPull 1.4 · Android section written for the first Google Play release</p>
+    <p class="stamp">In force from 2026-11-07 · iPhone sections written for SoundPull 1.6 · Android section written for the first Google Play release</p>
     <p>SoundPull is an app for iPhone and for Android phones. It pulls the sound out of videos and converts and joins audio files; on iPhone, it can also turn recorded speech into text. The sections from <a href="#flow">What happens to a file</a> to <a href="#manifest">the privacy manifest</a> describe the iPhone version: they follow a file through the app step by step, then list everything SoundPull keeps on your iPhone. <a href="#android">SoundPull on Android</a> then sets out how the Android version handles the same things. The sections from <a href="#children">Children</a> onwards apply to both. SoundPull is developed and published by naruberio; in this policy, "we" and "us" mean naruberio.</p>
 
     <h2 id="brief">In brief</h2>
@@ -79,29 +79,30 @@
       <li>SoundPull has no account, no sign-in and no server of ours behind it.</li>
       <li>The videos, audio files, transcripts and subtitles you work with are processed on your phone and are never uploaded, whether to us or to anyone else.</li>
       <li>The app contains no analytics, advertising, crash-reporting or tracking code, and it needs no internet connection to do its work.</li>
-      <li>Between launches, SoundPull remembers only three settings and the counts behind the rating prompt, all stored on the device. Copies made when you pick a file or when another app sends one to SoundPull can also remain on the device (see <a href="#kept">What stays on your iPhone</a> and, for Android, <a href="#android-files">Files on Android</a>).</li>
+      <li>Between launches, SoundPull remembers only a few settings (four on iPhone, three on Android) and a short record behind the rating prompt, all stored on the device. Copies made when you pick a file or when another app sends one to SoundPull can also remain on the device (see <a href="#kept">What stays on your iPhone</a> and, for Android, <a href="#android-files">Files on Android</a>).</li>
     </ul>
 
     <h2 id="flow">What happens to a file you open in SoundPull on iPhone</h2>
     <ol class="flow">
       <li><strong>You pick it.</strong> You can choose a video in the Photos picker, choose a video or an audio file (m4a, mp3, wav, aac, caf, aif, aiff or flac) in the Files app, or send one from another app's share sheet, Voice Memos included. iOS hands SoundPull only the items you select; the app does not look through the rest of your photo library or your folders.</li>
       <li><strong>SoundPull makes a working copy.</strong> The item is copied into a temporary folder inside the app's own sandbox, so your original is never modified. The Photos and Files pickers and the share sheet may also leave a copy of their own inside the app's container.</li>
-      <li><strong>The copy is converted on the iPhone.</strong> With Apple's AVFoundation framework, SoundPull writes an M4A, MP3, WAV or M4R (ringtone) file, or, if you asked for one, a copy of the video with its soundtrack removed. When you merge, the items you lined up are joined in your order into a single file. MP3 files are encoded by the LAME library that is built into the app. None of these steps sends anything over the network.</li>
+      <li><strong>The copy is converted on the iPhone.</strong> With Apple's AVFoundation and AudioToolbox frameworks, SoundPull writes an M4A, MP3, WAV, FLAC, ALAC (saved as .m4a), AIFF or M4R (ringtone) file at the quality you chose, or, if you asked for one, a copy of the video with its soundtrack removed. When you merge, the items you lined up are joined in your order into a single file. MP3 files are encoded by the LAME library that is built into the app. None of these steps sends anything over the network.</li>
       <li><strong>If you ask for a transcript, that happens on the iPhone too.</strong> Apple's Speech framework recognises the words with on-device recognition only (<code>requiresOnDeviceRecognition</code>). When your iPhone has no on-device recognition for the language, SoundPull says so and stops; it never passes the audio to a server instead. You can export the text as a .txt file, or as an .srt subtitle file whose timings come from the same on-device recognition. Neither the audio nor the text is sent to Apple or to us.</li>
       <li><strong>You decide where the result goes.</strong> You can play it back and then send it through the iOS share sheet: Save to Files, AirDrop or another app. Once a file arrives where you sent it, what happens to it there is up to that destination, not SoundPull.</li>
       <li><strong>The working files are cleared away.</strong> SoundPull deletes its copy of your original once the job no longer needs it: right after a conversion, and for a merge once the merge succeeds or, at the latest, when you leave the merge screen. A result is deleted when you start another job, discard it or leave the screen where it was made. Copies handed to the share sheet, transcript and subtitle files included, are kept until SoundPull next starts, because the receiving app may still be reading them. Each time SoundPull starts, it deletes any of its own working files that earlier sessions left behind. The copies that the pickers and the share sheet leave of their own (see step 2) are not part of that clean-up. Those left by the pickers are kept in the app's cache and temporary folders, which iOS may clear when storage runs low. When another app sends a file to SoundPull through the share sheet, iOS may copy it into the app's Inbox folder; iOS does not clear that folder on its own, so such a copy stays until you delete SoundPull. Deleting the app always removes both kinds from the iPhone.</li>
     </ol>
 
     <h2 id="kept">What stays on your iPhone between launches</h2>
-    <p>SoundPull keeps four small values in its own storage on the device (React Native AsyncStorage, inside the app's sandbox). None of them holds a file name, a recording, a transcript or anything that identifies you, and none of them is ever sent anywhere.</p>
+    <p>SoundPull keeps five small values in its own storage on the device (React Native AsyncStorage, inside the app's sandbox). None of them holds a file name, a recording, a transcript or anything that identifies you, and none of them is ever sent anywhere.</p>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>Stored value</th><th>What it holds</th><th>Why it is kept</th></tr></thead>
         <tbody>
           <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>Whether you have finished the welcome screens</td><td>So the introduction appears only once</td></tr>
-          <tr><td><code>soundpull.settings.outputFormat</code></td><td>The output format you chose last (M4A, MP3, WAV or M4R)</td><td>So the next job starts in the same format</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>The output format you chose last (M4A, MP3, WAV, FLAC, ALAC, AIFF or M4R)</td><td>So the next job starts in the same format</td></tr>
           <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>Whether "Match the volume" is switched on</td><td>So your choice carries over to the next job</td></tr>
-          <tr><td><code>soundpull.reviewPrompt</code> (new in 1.4)</td><td>Two whole numbers: how many extraction or merge jobs have succeeded, and how many of the rating-prompt milestones have been used up</td><td>To decide when to ask iOS for the rating prompt (see <a href="#rating">below</a>)</td></tr>
+          <tr><td><code>soundpull.settings.outputQuality</code> (new in 1.6)</td><td>The quality you last chose for each format: the bitrate for M4A and MP3, or the sample rate and bit depth for WAV, FLAC, ALAC and AIFF</td><td>So each format starts at the quality you picked for it</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code></td><td>How many extraction, merge or transcription jobs have succeeded, when SoundPull last asked iOS for the rating prompt, and whether the last attempt failed</td><td>To decide when to ask iOS for the rating prompt (see <a href="#rating">below</a>)</td></tr>
         </tbody>
       </table>
     </div>
@@ -109,8 +110,8 @@
     <p>Deleting SoundPull from your iPhone deletes these values along with it. We have no way to read them.</p>
     <p>Apart from these values, the copies that the pickers and the share sheet leave of their own when you pick a file or when another app sends one to SoundPull are not cleared by the app and can remain on the device between launches. Step 6 under <a href="#flow">What happens to a file you open in SoundPull on iPhone</a> explains where each kind is kept and when it goes.</p>
 
-    <h2 id="rating">The rating prompt on iPhone, added in version 1.4</h2>
-    <p>After your 3rd, 15th and 50th successful extraction or merge, SoundPull asks iOS to show Apple's standard prompt for rating the app, through the review request in Apple's StoreKit framework. iOS decides whether the prompt actually appears and limits how often any app may show it. SoundPull is not told whether the prompt appeared or what you did with it. If you rate or review SoundPull, Apple collects that under your Apple Account; a written review is published on the App Store under the nickname you choose, where anyone, us included, can read it; as the developer, we may also post a public reply there.</p>
+    <h2 id="rating">The rating prompt on iPhone</h2>
+    <p>Right after a successful extraction, merge or transcription, SoundPull may ask iOS to show Apple's standard prompt for rating the app, through the review request in Apple's StoreKit framework. It asks after your first success, and after that only once at least 14 days have passed since it last asked; it does not ask on a success that comes right after a failed attempt. iOS decides whether the prompt actually appears and limits how often any app may show it. SoundPull is not told whether the prompt appeared or what you did with it. If you rate or review SoundPull, Apple collects that under your Apple Account; a written review is published on the App Store under the nickname you choose, where anyone, us included, can read it; as the developer, we may also post a public reply there.</p>
     <p>To stop these prompts for all apps, open the iOS Settings app, go to App Store and turn off In-App Ratings &amp; Reviews. On iOS 18 and later, App Store is under Settings &gt; Apps.</p>
     <p>The rating prompt is the only thing SoundPull uses StoreKit for. The app has no purchase screens and makes no purchase requests of its own.</p>
 

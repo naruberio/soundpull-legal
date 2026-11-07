@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark">
   <title>Kebijakan Privasi SoundPull</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
-       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       KAN-1227 で Android の節を足した。iPhone の節は KAN-1228 で 1.6 に合わせ、Android の節は Google Play の最初の版
        （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
@@ -71,7 +71,7 @@
 
   <main>
     <h1>Kebijakan Privasi SoundPull</h1>
-    <p class="stamp">Mulai berlaku 2026-11-07 · bagian iPhone disusun untuk SoundPull 1.4 · bagian Android disusun untuk rilis pertama di Google Play</p>
+    <p class="stamp">Mulai berlaku 2026-11-07 · bagian iPhone disusun untuk SoundPull 1.6 · bagian Android disusun untuk rilis pertama di Google Play</p>
     <p>SoundPull adalah aplikasi untuk iPhone dan ponsel Android. Aplikasi ini mengambil suara dari video serta mengonversi dan menyambung file audio; di iPhone, aplikasi ini juga dapat mengubah ucapan yang terekam menjadi teks. Bagian <a href="#flow">Apa yang terjadi pada file</a> sampai <a href="#manifest">manifes privasi</a> menjelaskan versi iPhone: bagian-bagian itu mengikuti perjalanan sebuah file di dalam aplikasi, langkah demi langkah, lalu merinci semua yang disimpan SoundPull di iPhone Anda. Setelah itu, <a href="#android">SoundPull di Android</a> menjelaskan cara versi Android menangani hal-hal yang sama. Bagian mulai dari <a href="#children">Anak-anak</a> dan seterusnya berlaku untuk keduanya. SoundPull dikembangkan dan diterbitkan oleh naruberio; dalam kebijakan ini, kata "kami" merujuk pada naruberio.</p>
 
     <h2 id="brief">Ringkasnya</h2>
@@ -79,29 +79,30 @@
       <li>SoundPull tidak memakai akun, tidak meminta login, dan tidak terhubung ke server milik kami.</li>
       <li>Video, file audio, transkrip, dan subtitle yang Anda olah diproses di ponsel Anda dan tidak pernah diunggah, baik ke kami maupun ke pihak lain mana pun.</li>
       <li>Di dalam aplikasi tidak ada kode analitik, iklan, pelaporan crash, atau pelacakan, dan aplikasi ini bekerja tanpa koneksi internet.</li>
-      <li>Di antara satu pembukaan aplikasi dan pembukaan berikutnya, SoundPull hanya mengingat tiga pengaturan dan angka-angka hitungan yang mendasari permintaan rating, semuanya tersimpan di perangkat. Salinan yang dibuat ketika Anda memilih file atau ketika aplikasi lain mengirim file ke SoundPull juga dapat tetap tersimpan di perangkat (lihat <a href="#kept">Yang tetap tersimpan di iPhone Anda</a> dan, untuk Android, <a href="#android-files">File di Android</a>).</li>
+      <li>Di antara satu pembukaan aplikasi dan pembukaan berikutnya, SoundPull hanya mengingat beberapa pengaturan (empat di iPhone, tiga di Android) dan catatan singkat yang mendasari permintaan rating, semuanya tersimpan di perangkat. Salinan yang dibuat ketika Anda memilih file atau ketika aplikasi lain mengirim file ke SoundPull juga dapat tetap tersimpan di perangkat (lihat <a href="#kept">Yang tetap tersimpan di iPhone Anda</a> dan, untuk Android, <a href="#android-files">File di Android</a>).</li>
     </ul>
 
     <h2 id="flow">Apa yang terjadi pada file yang Anda buka di SoundPull di iPhone</h2>
     <ol class="flow">
       <li><strong>Anda memilihnya.</strong> Anda dapat memilih video lewat pemilih Foto, memilih video atau file audio (m4a, mp3, wav, aac, caf, aif, aiff, atau flac) di app Files, atau mengirimnya dari lembar berbagi aplikasi lain, termasuk Memo Suara. iOS hanya menyerahkan item yang Anda pilih kepada SoundPull; aplikasi tidak menelusuri isi lain dari perpustakaan foto atau folder Anda.</li>
       <li><strong>SoundPull membuat salinan kerja.</strong> Item tersebut disalin ke folder sementara di dalam sandbox milik aplikasi, sehingga file asli Anda tidak pernah diubah. Pemilih Foto dan Files, begitu pula lembar berbagi, mungkin juga meninggalkan salinannya sendiri di dalam kontainer aplikasi.</li>
-      <li><strong>Salinan itu dikonversi di iPhone.</strong> Dengan framework AVFoundation dari Apple, SoundPull menulis file M4A, MP3, WAV, atau M4R (nada dering), atau, bila Anda memintanya, salinan video yang trek suaranya sudah dilepas. Saat Anda menggabungkan, item yang Anda susun disambung sesuai urutan Anda menjadi satu file. File MP3 dikodekan oleh pustaka LAME yang tertanam di dalam aplikasi. Tak satu pun dari langkah ini mengirim apa pun melalui jaringan.</li>
+      <li><strong>Salinan itu dikonversi di iPhone.</strong> Dengan framework AVFoundation dan AudioToolbox dari Apple, SoundPull menulis file M4A, MP3, WAV, FLAC, ALAC (disimpan sebagai .m4a), AIFF, atau M4R (nada dering) dengan kualitas yang Anda pilih, atau, bila Anda memintanya, salinan video yang trek suaranya sudah dilepas. Saat Anda menggabungkan, item yang Anda susun disambung sesuai urutan Anda menjadi satu file. File MP3 dikodekan oleh pustaka LAME yang tertanam di dalam aplikasi. Tak satu pun dari langkah ini mengirim apa pun melalui jaringan.</li>
       <li><strong>Jika Anda meminta transkrip, prosesnya juga berlangsung di iPhone.</strong> Framework Speech dari Apple mengenali kata-kata hanya dengan pengenalan di perangkat (<code>requiresOnDeviceRecognition</code>). Bila iPhone Anda tidak memiliki pengenalan di perangkat untuk bahasa tersebut, SoundPull memberi tahu Anda lalu berhenti; aplikasi tidak pernah mengalihkan audio ke server sebagai gantinya. Teksnya dapat Anda ekspor sebagai file .txt, atau sebagai file subtitle .srt yang pewaktuannya berasal dari pengenalan di perangkat yang sama. Baik audio maupun teksnya tidak dikirim ke Apple ataupun ke kami.</li>
       <li><strong>Anda yang menentukan ke mana hasilnya pergi.</strong> Anda dapat memutarnya, lalu mengirimnya melalui lembar berbagi iOS: Simpan ke Files, AirDrop, atau aplikasi lain. Setelah file sampai di tujuan yang Anda pilih, apa yang terjadi padanya di sana diatur oleh tujuan itu, bukan oleh SoundPull.</li>
       <li><strong>File kerja dibersihkan.</strong> SoundPull menghapus salinan file asli Anda begitu pekerjaan tidak lagi membutuhkannya: segera setelah konversi, dan untuk penggabungan begitu penggabungan berhasil atau, paling lambat, ketika Anda meninggalkan layar penggabungan. Hasil dihapus ketika Anda memulai pekerjaan lain, membuangnya, atau meninggalkan layar tempat hasil itu dibuat. Salinan yang diserahkan ke lembar berbagi, termasuk file transkrip dan subtitle, disimpan sampai SoundPull dibuka lagi, karena aplikasi penerima mungkin masih membacanya. Setiap kali SoundPull dibuka, aplikasi menghapus file kerjanya sendiri yang tertinggal dari sesi sebelumnya. Salinan yang ditinggalkan pemilih dan lembar berbagi sendiri (lihat langkah 2) tidak termasuk dalam pembersihan itu. Salinan yang ditinggalkan pemilih disimpan di cache dan folder sementara aplikasi, yang dapat dibersihkan iOS ketika ruang penyimpanan menipis. Ketika aplikasi lain mengirim file ke SoundPull melalui lembar berbagi, iOS dapat menyalinnya ke folder Inbox aplikasi; iOS tidak membersihkan folder itu dengan sendirinya, sehingga salinan tersebut tetap ada sampai Anda menghapus SoundPull. Kedua jenis salinan itu selalu ikut terhapus dari iPhone bersama aplikasi.</li>
     </ol>
 
     <h2 id="kept">Yang tetap tersimpan di iPhone Anda di antara pembukaan aplikasi</h2>
-    <p>SoundPull menyimpan empat nilai kecil di penyimpanannya sendiri di perangkat (React Native AsyncStorage, di dalam sandbox aplikasi). Tidak satu pun berisi nama file, rekaman, transkrip, atau apa pun yang dapat mengenali Anda, dan tidak satu pun pernah dikirim ke mana pun.</p>
+    <p>SoundPull menyimpan lima nilai kecil di penyimpanannya sendiri di perangkat (React Native AsyncStorage, di dalam sandbox aplikasi). Tidak satu pun berisi nama file, rekaman, transkrip, atau apa pun yang dapat mengenali Anda, dan tidak satu pun pernah dikirim ke mana pun.</p>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>Nilai yang disimpan</th><th>Isinya</th><th>Alasan disimpan</th></tr></thead>
         <tbody>
           <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>Apakah Anda sudah menyelesaikan layar sambutan</td><td>Agar pengenalan aplikasi hanya muncul sekali</td></tr>
-          <tr><td><code>soundpull.settings.outputFormat</code></td><td>Format keluaran yang terakhir Anda pilih (M4A, MP3, WAV, atau M4R)</td><td>Agar pekerjaan berikutnya dimulai dengan format yang sama</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>Format keluaran yang terakhir Anda pilih (M4A, MP3, WAV, FLAC, ALAC, AIFF, atau M4R)</td><td>Agar pekerjaan berikutnya dimulai dengan format yang sama</td></tr>
           <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>Apakah "Samakan volume" sedang aktif</td><td>Agar pilihan Anda terbawa ke pekerjaan berikutnya</td></tr>
-          <tr><td><code>soundpull.reviewPrompt</code> (baru di 1.4)</td><td>Dua bilangan bulat: berapa kali ekstraksi atau penggabungan berhasil, dan berapa banyak tonggak permintaan rating yang sudah terpakai</td><td>Untuk menentukan kapan meminta iOS menampilkan permintaan rating (lihat <a href="#rating">di bawah</a>)</td></tr>
+          <tr><td><code>soundpull.settings.outputQuality</code> (baru di 1.6)</td><td>Kualitas yang terakhir Anda pilih untuk setiap format: bitrate untuk M4A dan MP3, atau laju sampel dan kedalaman bit untuk WAV, FLAC, ALAC, dan AIFF</td><td>Agar setiap format dimulai dengan kualitas yang Anda pilih untuknya</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code></td><td>Berapa kali ekstraksi, penggabungan, atau transkripsi berhasil, kapan SoundPull terakhir meminta iOS menampilkan permintaan rating, dan apakah percobaan terakhir gagal</td><td>Untuk menentukan kapan meminta iOS menampilkan permintaan rating (lihat <a href="#rating">di bawah</a>)</td></tr>
         </tbody>
       </table>
     </div>
@@ -109,8 +110,8 @@
     <p>Menghapus SoundPull dari iPhone Anda ikut menghapus nilai-nilai ini. Kami sama sekali tidak dapat membacanya.</p>
     <p>Selain nilai-nilai ini, salinan yang ditinggalkan pemilih dan lembar berbagi sendiri ketika Anda memilih file atau ketika aplikasi lain mengirim file ke SoundPull tidak dibersihkan oleh aplikasi, sehingga dapat tetap ada di perangkat dari satu pembukaan ke pembukaan berikutnya. Langkah 6 di bagian <a href="#flow">Apa yang terjadi pada file yang Anda buka di SoundPull di iPhone</a> menjelaskan di mana setiap jenis salinan disimpan dan kapan salinan itu hilang.</p>
 
-    <h2 id="rating">Permintaan rating di iPhone, ditambahkan di versi 1.4</h2>
-    <p>Setelah ekstraksi atau penggabungan Anda yang berhasil untuk ke-3, ke-15, dan ke-50 kalinya, SoundPull meminta iOS menampilkan jendela standar Apple untuk memberi rating aplikasi, melalui fitur permintaan ulasan di framework StoreKit milik Apple. iOS yang memutuskan apakah jendela itu benar-benar muncul, dan iOS pula yang membatasi seberapa sering aplikasi mana pun boleh menampilkannya. SoundPull tidak diberi tahu apakah jendela itu muncul atau apa yang Anda lakukan di sana. Jika Anda memberi rating atau ulasan untuk SoundPull, Apple mengumpulkannya atas Akun Apple Anda; ulasan tertulis diterbitkan di App Store dengan nama panggilan yang Anda pilih, tempat siapa pun, termasuk kami, dapat membacanya; sebagai pengembang, kami juga dapat memberikan balasan publik di sana.</p>
+    <h2 id="rating">Permintaan rating di iPhone</h2>
+    <p>Tepat setelah ekstraksi, penggabungan, atau transkripsi berhasil, SoundPull dapat meminta iOS menampilkan jendela standar Apple untuk memberi rating aplikasi, melalui fitur permintaan ulasan di framework StoreKit milik Apple. Permintaan itu dikirim setelah keberhasilan pertama Anda, lalu hanya jika sudah lewat setidaknya 14 hari sejak permintaan terakhir; permintaan tidak dikirim pada keberhasilan yang datang tepat setelah percobaan yang gagal. iOS yang memutuskan apakah jendela itu benar-benar muncul, dan iOS pula yang membatasi seberapa sering aplikasi mana pun boleh menampilkannya. SoundPull tidak diberi tahu apakah jendela itu muncul atau apa yang Anda lakukan di sana. Jika Anda memberi rating atau ulasan untuk SoundPull, Apple mengumpulkannya atas Akun Apple Anda; ulasan tertulis diterbitkan di App Store dengan nama panggilan yang Anda pilih, tempat siapa pun, termasuk kami, dapat membacanya; sebagai pengembang, kami juga dapat memberikan balasan publik di sana.</p>
     <p>Untuk menghentikan permintaan seperti ini bagi semua aplikasi, buka app Pengaturan iOS, masuk ke App Store, lalu matikan Peringkat &amp; Ulasan Dalam App (In-App Ratings &amp; Reviews). Di iOS 18 dan yang lebih baru, App Store ada di Pengaturan &gt; App.</p>
     <p>Permintaan rating adalah satu-satunya keperluan SoundPull memakai StoreKit. Aplikasi ini tidak punya layar pembelian dan tidak mengajukan permintaan pembelian sendiri.</p>
 

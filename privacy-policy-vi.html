@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark">
   <title>Chính sách quyền riêng tư của SoundPull</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
-       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       KAN-1227 で Android の節を足した。iPhone の節は KAN-1228 で 1.6 に合わせ、Android の節は Google Play の最初の版
        （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
@@ -71,7 +71,7 @@
 
   <main>
     <h1>Chính sách quyền riêng tư của SoundPull</h1>
-    <p class="stamp">Có hiệu lực từ 2026-11-07 · các phần về iPhone soạn cho SoundPull 1.4 · phần về Android soạn cho bản phát hành đầu tiên trên Google Play</p>
+    <p class="stamp">Có hiệu lực từ 2026-11-07 · các phần về iPhone soạn cho SoundPull 1.6 · phần về Android soạn cho bản phát hành đầu tiên trên Google Play</p>
     <p>SoundPull là ứng dụng dành cho iPhone và điện thoại Android. Ứng dụng tách phần âm thanh ra khỏi video, chuyển đổi và nối các tệp âm thanh; trên iPhone, ứng dụng còn có thể chuyển lời nói đã ghi âm thành văn bản. Các phần từ <a href="#flow">Điều gì xảy ra với một tệp</a> đến <a href="#manifest">tệp privacy manifest</a> mô tả phiên bản iPhone: chúng đi theo một tệp qua từng bước trong ứng dụng, sau đó liệt kê mọi thứ SoundPull giữ lại trên iPhone của bạn. Tiếp đó, phần <a href="#android">SoundPull trên Android</a> trình bày cách phiên bản Android xử lý những điều tương tự. Các phần từ <a href="#children">Trẻ em</a> trở đi áp dụng cho cả hai. SoundPull do naruberio phát triển và phát hành; trong chính sách này, "chúng tôi" có nghĩa là naruberio.</p>
 
     <h2 id="brief">Tóm lược</h2>
@@ -79,29 +79,30 @@
       <li>SoundPull không có tài khoản, không cần đăng nhập và không dựa vào máy chủ nào của chúng tôi.</li>
       <li>Video, tệp âm thanh, bản chép lời và phụ đề mà bạn làm việc cùng đều được xử lý trên điện thoại của bạn và không bao giờ được tải lên, dù là cho chúng tôi hay cho bất kỳ ai khác.</li>
       <li>Ứng dụng không chứa mã phân tích, quảng cáo, báo cáo sự cố hay theo dõi, và không cần kết nối Internet để làm việc.</li>
-      <li>Giữa các lần mở, SoundPull chỉ ghi nhớ ba thiết lập và các con số đếm phục vụ lời mời đánh giá, tất cả đều nằm trên thiết bị. Các bản sao được tạo ra khi bạn chọn một tệp hoặc khi một ứng dụng khác gửi tệp đến SoundPull cũng có thể nằm lại trên thiết bị (xem <a href="#kept">Những gì ở lại trên iPhone của bạn</a> và, với Android, <a href="#android-files">Tệp trên Android</a>).</li>
+      <li>Giữa các lần mở, SoundPull chỉ ghi nhớ vài thiết lập (bốn trên iPhone, ba trên Android) và một bản ghi ngắn phục vụ lời mời đánh giá, tất cả đều nằm trên thiết bị. Các bản sao được tạo ra khi bạn chọn một tệp hoặc khi một ứng dụng khác gửi tệp đến SoundPull cũng có thể nằm lại trên thiết bị (xem <a href="#kept">Những gì ở lại trên iPhone của bạn</a> và, với Android, <a href="#android-files">Tệp trên Android</a>).</li>
     </ul>
 
     <h2 id="flow">Điều gì xảy ra với một tệp bạn mở trong SoundPull trên iPhone</h2>
     <ol class="flow">
       <li><strong>Bạn chọn tệp.</strong> Bạn có thể chọn một video trong trình chọn của Ảnh, chọn một video hoặc một tệp âm thanh (m4a, mp3, wav, aac, caf, aif, aiff hoặc flac) trong ứng dụng Tệp, hoặc gửi tệp từ bảng chia sẻ của một ứng dụng khác, kể cả Ghi âm. iOS chỉ trao cho SoundPull những mục bạn chọn; ứng dụng không lục xem phần còn lại của thư viện ảnh hay các thư mục của bạn.</li>
       <li><strong>SoundPull tạo một bản sao làm việc.</strong> Mục đó được sao chép vào một thư mục tạm bên trong vùng hộp cát (sandbox) riêng của ứng dụng, nên bản gốc của bạn không bao giờ bị sửa đổi. Trình chọn của Ảnh, trình chọn của Tệp và bảng chia sẻ cũng có thể tự để lại một bản sao riêng trong vùng chứa của ứng dụng.</li>
-      <li><strong>Bản sao được chuyển đổi ngay trên iPhone.</strong> Với framework AVFoundation của Apple, SoundPull ghi ra một tệp M4A, MP3, WAV hoặc M4R (nhạc chuông), hoặc, nếu bạn yêu cầu, một bản sao của video đã bỏ phần âm thanh. Khi bạn ghép, các mục bạn đã xếp hàng được nối theo đúng thứ tự của bạn thành một tệp duy nhất. Tệp MP3 được mã hóa bằng thư viện LAME tích hợp sẵn trong ứng dụng. Không bước nào trong số này gửi bất cứ thứ gì qua mạng.</li>
+      <li><strong>Bản sao được chuyển đổi ngay trên iPhone.</strong> Với các framework AVFoundation và AudioToolbox của Apple, SoundPull ghi ra một tệp M4A, MP3, WAV, FLAC, ALAC (lưu dưới dạng .m4a), AIFF hoặc M4R (nhạc chuông) theo chất lượng bạn đã chọn, hoặc, nếu bạn yêu cầu, một bản sao của video đã bỏ phần âm thanh. Khi bạn ghép, các mục bạn đã xếp hàng được nối theo đúng thứ tự của bạn thành một tệp duy nhất. Tệp MP3 được mã hóa bằng thư viện LAME tích hợp sẵn trong ứng dụng. Không bước nào trong số này gửi bất cứ thứ gì qua mạng.</li>
       <li><strong>Nếu bạn yêu cầu bản chép lời, việc đó cũng diễn ra trên iPhone.</strong> Framework Speech của Apple nhận dạng lời nói chỉ bằng nhận dạng trên thiết bị (<code>requiresOnDeviceRecognition</code>). Khi iPhone của bạn không có nhận dạng trên thiết bị cho ngôn ngữ đó, SoundPull thông báo và dừng lại; ứng dụng không bao giờ chuyển âm thanh sang máy chủ để làm thay. Bạn có thể xuất văn bản thành tệp .txt, hoặc thành tệp phụ đề .srt có mốc thời gian lấy từ chính quá trình nhận dạng trên thiết bị đó. Cả âm thanh lẫn văn bản đều không được gửi cho Apple hay cho chúng tôi.</li>
       <li><strong>Bạn quyết định kết quả đi đâu.</strong> Bạn có thể phát thử rồi gửi nó qua bảng chia sẻ của iOS: Lưu vào Tệp, AirDrop hoặc một ứng dụng khác. Khi tệp đã đến nơi bạn gửi, những gì xảy ra với nó ở đó do nơi nhận quyết định, không phải SoundPull.</li>
       <li><strong>Các tệp làm việc được dọn đi.</strong> SoundPull xóa bản sao của tệp gốc ngay khi tác vụ không còn cần đến nó: ngay sau khi chuyển đổi xong, còn với tác vụ ghép thì khi ghép thành công hoặc, muộn nhất, khi bạn rời màn hình ghép. Kết quả bị xóa khi bạn bắt đầu một tác vụ khác, bỏ nó đi, hoặc rời màn hình nơi nó được tạo ra. Các bản sao đã đưa vào bảng chia sẻ, kể cả tệp chép lời và tệp phụ đề, được giữ đến lần khởi động SoundPull tiếp theo, vì ứng dụng nhận có thể vẫn đang đọc chúng. Mỗi lần khởi động, SoundPull xóa mọi tệp làm việc của chính nó mà các phiên trước để lại. Những bản sao riêng mà trình chọn và bảng chia sẻ tự để lại (xem bước 2) thì không thuộc đợt dọn dẹp đó. Bản sao do trình chọn để lại nằm trong bộ nhớ đệm (cache) và các thư mục tạm của ứng dụng, nơi iOS có thể dọn đi khi dung lượng lưu trữ sắp hết. Khi một ứng dụng khác gửi tệp đến SoundPull qua bảng chia sẻ, iOS có thể sao chép tệp đó vào thư mục Inbox của ứng dụng; iOS không tự dọn thư mục này, nên bản sao đó nằm lại cho đến khi bạn xóa SoundPull. Cả hai loại bản sao luôn bị gỡ khỏi iPhone cùng với ứng dụng.</li>
     </ol>
 
     <h2 id="kept">Những gì ở lại trên iPhone của bạn giữa các lần mở</h2>
-    <p>SoundPull giữ bốn giá trị nhỏ trong bộ nhớ riêng của nó trên thiết bị (React Native AsyncStorage, bên trong sandbox của ứng dụng). Không giá trị nào chứa tên tệp, bản ghi âm, bản chép lời hay bất cứ thứ gì nhận diện được bạn, và không giá trị nào được gửi đi đâu cả.</p>
+    <p>SoundPull giữ năm giá trị nhỏ trong bộ nhớ riêng của nó trên thiết bị (React Native AsyncStorage, bên trong sandbox của ứng dụng). Không giá trị nào chứa tên tệp, bản ghi âm, bản chép lời hay bất cứ thứ gì nhận diện được bạn, và không giá trị nào được gửi đi đâu cả.</p>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>Giá trị được lưu</th><th>Nội dung</th><th>Lý do lưu</th></tr></thead>
         <tbody>
           <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>Bạn đã xem hết các màn hình chào mừng hay chưa</td><td>Để phần giới thiệu chỉ xuất hiện một lần</td></tr>
-          <tr><td><code>soundpull.settings.outputFormat</code></td><td>Định dạng đầu ra bạn chọn gần nhất (M4A, MP3, WAV hoặc M4R)</td><td>Để tác vụ tiếp theo bắt đầu với cùng định dạng</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>Định dạng đầu ra bạn chọn gần nhất (M4A, MP3, WAV, FLAC, ALAC, AIFF hoặc M4R)</td><td>Để tác vụ tiếp theo bắt đầu với cùng định dạng</td></tr>
           <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>"Cân bằng âm lượng" đang bật hay tắt</td><td>Để lựa chọn của bạn được giữ cho tác vụ sau</td></tr>
-          <tr><td><code>soundpull.reviewPrompt</code> (mới trong 1.4)</td><td>Hai số nguyên: số tác vụ trích xuất hoặc ghép đã thành công, và số mốc của lời mời đánh giá đã được dùng</td><td>Để quyết định khi nào đề nghị iOS hiển thị lời mời đánh giá (xem <a href="#rating">bên dưới</a>)</td></tr>
+          <tr><td><code>soundpull.settings.outputQuality</code> (mới trong 1.6)</td><td>Chất lượng bạn chọn gần nhất cho từng định dạng: tốc độ bit với M4A và MP3, tần số lấy mẫu và độ sâu bit với WAV, FLAC, ALAC và AIFF</td><td>Để mỗi định dạng bắt đầu với chất lượng bạn đã chọn cho nó</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code></td><td>Số tác vụ trích xuất, ghép hoặc chép lời đã thành công, thời điểm gần nhất SoundPull đề nghị iOS hiển thị lời mời đánh giá, và lần thử gần nhất có thất bại hay không</td><td>Để quyết định khi nào đề nghị iOS hiển thị lời mời đánh giá (xem <a href="#rating">bên dưới</a>)</td></tr>
         </tbody>
       </table>
     </div>
@@ -109,8 +110,8 @@
     <p>Xóa SoundPull khỏi iPhone sẽ xóa luôn các giá trị này. Chúng tôi không có cách nào đọc được chúng.</p>
     <p>Ngoài các giá trị này, những bản sao riêng mà trình chọn và bảng chia sẻ tự để lại khi bạn chọn một tệp hoặc khi một ứng dụng khác gửi tệp đến SoundPull không được ứng dụng dọn đi, nên có thể nằm lại trên thiết bị qua các lần mở. Bước 6 trong phần <a href="#flow">Điều gì xảy ra với một tệp bạn mở trong SoundPull trên iPhone</a> giải thích mỗi loại bản sao nằm ở đâu và khi nào thì mất đi.</p>
 
-    <h2 id="rating">Lời mời đánh giá trên iPhone, thêm vào ở phiên bản 1.4</h2>
-    <p>Sau lần trích xuất hoặc ghép thành công thứ 3, thứ 15 và thứ 50, SoundPull đề nghị iOS hiển thị lời nhắc tiêu chuẩn của Apple để xếp hạng ứng dụng, thông qua chức năng yêu cầu đánh giá có trong framework StoreKit của Apple. iOS quyết định lời nhắc có thực sự xuất hiện hay không và giới hạn số lần mà mọi ứng dụng được phép hiển thị nó. SoundPull không được biết lời nhắc có xuất hiện hay không, cũng như bạn đã làm gì với nó. Nếu bạn xếp hạng hoặc viết nhận xét cho SoundPull, Apple thu nhận điều đó dưới Tài khoản Apple của bạn; nhận xét bằng chữ được đăng công khai trên App Store dưới biệt danh bạn chọn, nơi bất kỳ ai, kể cả chúng tôi, đều có thể đọc; với tư cách nhà phát triển, chúng tôi cũng có thể đăng phản hồi công khai ở đó.</p>
+    <h2 id="rating">Lời mời đánh giá trên iPhone</h2>
+    <p>Ngay sau một lần trích xuất, ghép hoặc chép lời thành công, SoundPull có thể đề nghị iOS hiển thị lời nhắc tiêu chuẩn của Apple để xếp hạng ứng dụng, thông qua chức năng yêu cầu đánh giá có trong framework StoreKit của Apple. Đề nghị này được gửi sau lần thành công đầu tiên của bạn, sau đó chỉ khi đã qua ít nhất 14 ngày kể từ lần đề nghị trước; lần thành công ngay sau một lần thử thất bại sẽ không kèm đề nghị. iOS quyết định lời nhắc có thực sự xuất hiện hay không và giới hạn số lần mà mọi ứng dụng được phép hiển thị nó. SoundPull không được biết lời nhắc có xuất hiện hay không, cũng như bạn đã làm gì với nó. Nếu bạn xếp hạng hoặc viết nhận xét cho SoundPull, Apple thu nhận điều đó dưới Tài khoản Apple của bạn; nhận xét bằng chữ được đăng công khai trên App Store dưới biệt danh bạn chọn, nơi bất kỳ ai, kể cả chúng tôi, đều có thể đọc; với tư cách nhà phát triển, chúng tôi cũng có thể đăng phản hồi công khai ở đó.</p>
     <p>Để tắt các lời nhắc này cho mọi ứng dụng, hãy mở ứng dụng Cài đặt của iOS, vào App Store và tắt Xếp hạng &amp; nhận xét trong ứng dụng (In-App Ratings &amp; Reviews). Từ iOS 18 trở đi, mục App Store nằm trong Cài đặt &gt; Ứng dụng.</p>
     <p>Lời mời đánh giá là việc duy nhất SoundPull dùng StoreKit. Ứng dụng không có màn hình mua hàng và không tự gửi yêu cầu mua hàng nào.</p>
 
