@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark">
   <title>Política de Privacidade do SoundPull</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
-       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       KAN-1227 で Android の節を足した。iPhone の節は KAN-1228 で 1.6 に合わせ、Android の節は Google Play の最初の版
        （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
@@ -71,7 +71,7 @@
 
   <main>
     <h1>Política de Privacidade do SoundPull</h1>
-    <p class="stamp">Em vigor desde 2026-11-07 · seções do iPhone redigidas para o SoundPull 1.4 · seção do Android redigida para a primeira versão no Google Play</p>
+    <p class="stamp">Em vigor desde 2026-11-07 · seções do iPhone redigidas para o SoundPull 1.6 · seção do Android redigida para a primeira versão no Google Play</p>
     <p>O SoundPull é um app para iPhone e para celulares Android. Ele tira o som de vídeos e converte e une arquivos de áudio; no iPhone, também pode transformar fala gravada em texto. As seções de <a href="#flow">O que acontece com um arquivo</a> até <a href="#manifest">o manifesto de privacidade</a> descrevem a versão para iPhone: acompanham um arquivo passo a passo dentro do app e, em seguida, listam tudo o que o SoundPull guarda no seu iPhone. Depois, <a href="#android">O SoundPull no Android</a> explica como a versão para Android trata esses mesmos pontos. As seções a partir de <a href="#children">Crianças</a> valem para as duas. O SoundPull é desenvolvido e publicado pela naruberio; nesta política, “nós” e “nosso” se referem à naruberio.</p>
 
     <h2 id="brief">Em resumo</h2>
@@ -79,29 +79,30 @@
       <li>O SoundPull não tem conta, nem login, nem servidor nosso por trás.</li>
       <li>Os vídeos, arquivos de áudio, transcrições e legendas com que você trabalha são processados no seu celular e nunca são enviados, nem para nós nem para mais ninguém.</li>
       <li>O app não contém código de análise de uso, publicidade, relatórios de falhas ou rastreamento, e não precisa de conexão com a internet para fazer o seu trabalho.</li>
-      <li>De uma abertura para a outra, o SoundPull lembra apenas três ajustes e as contagens que regem o pedido de avaliação, tudo guardado no próprio aparelho. As cópias criadas quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull também podem ficar no aparelho (veja <a href="#kept">O que fica no seu iPhone</a> e, para o Android, <a href="#android-files">Arquivos no Android</a>).</li>
+      <li>De uma abertura para a outra, o SoundPull lembra apenas alguns ajustes (quatro no iPhone, três no Android) e um registro curto que rege o pedido de avaliação, tudo guardado no próprio aparelho. As cópias criadas quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull também podem ficar no aparelho (veja <a href="#kept">O que fica no seu iPhone</a> e, para o Android, <a href="#android-files">Arquivos no Android</a>).</li>
     </ul>
 
     <h2 id="flow">O que acontece com um arquivo que você abre no SoundPull no iPhone</h2>
     <ol class="flow">
       <li><strong>Você o escolhe.</strong> Dá para escolher um vídeo no seletor do Fotos, escolher um vídeo ou um arquivo de áudio (m4a, mp3, wav, aac, caf, aif, aiff ou flac) no app Arquivos, ou enviá-lo pelo menu de compartilhamento de outro app, inclusive o Gravador. O iOS entrega ao SoundPull só os itens que você seleciona; o app não percorre o resto da sua fototeca nem das suas pastas.</li>
       <li><strong>O SoundPull faz uma cópia de trabalho.</strong> O item é copiado para uma pasta temporária dentro da área isolada (sandbox) do próprio app, de modo que o seu original nunca é alterado. Os seletores do Fotos e do Arquivos e o menu de compartilhamento também podem deixar uma cópia própria dentro do contêiner do app.</li>
-      <li><strong>A cópia é convertida no iPhone.</strong> Com o framework AVFoundation da Apple, o SoundPull grava um arquivo M4A, MP3, WAV ou M4R (toque) ou, se você tiver pedido, uma cópia do vídeo sem a trilha sonora. Numa junção, os itens que você enfileirou são unidos, na ordem que você definiu, em um único arquivo. Os arquivos MP3 são codificados pela biblioteca LAME, que vem embutida no app. Nenhuma dessas etapas manda nada pela rede.</li>
+      <li><strong>A cópia é convertida no iPhone.</strong> Com os frameworks AVFoundation e AudioToolbox da Apple, o SoundPull grava, na qualidade que você escolheu, um arquivo M4A, MP3, WAV, FLAC, ALAC (salvo como .m4a), AIFF ou M4R (toque) ou, se você tiver pedido, uma cópia do vídeo sem a trilha sonora. Numa junção, os itens que você enfileirou são unidos, na ordem que você definiu, em um único arquivo. Os arquivos MP3 são codificados pela biblioteca LAME, que vem embutida no app. Nenhuma dessas etapas manda nada pela rede.</li>
       <li><strong>Se você pedir uma transcrição, ela também acontece no iPhone.</strong> O framework Speech da Apple reconhece as palavras usando somente o reconhecimento no dispositivo (<code>requiresOnDeviceRecognition</code>). Quando o seu iPhone não oferece reconhecimento no dispositivo para o idioma, o SoundPull avisa e para; ele nunca repassa o áudio a um servidor como alternativa. Você pode exportar o texto como arquivo .txt ou como arquivo de legendas .srt, cujos tempos vêm desse mesmo reconhecimento no dispositivo. Nem o áudio nem o texto vão para a Apple ou para nós.</li>
       <li><strong>Você decide para onde vai o resultado.</strong> Você pode ouvi-lo e depois enviá-lo pelo menu de compartilhamento do iOS: Salvar em Arquivos, AirDrop ou outro app. Quando o arquivo chega aonde você o mandou, o que acontece com ele ali depende desse destino, e não do SoundPull.</li>
       <li><strong>Os arquivos de trabalho são apagados.</strong> O SoundPull exclui a cópia do seu original quando a tarefa deixa de precisar dela: logo depois de uma conversão e, numa junção, assim que ela dá certo ou, no mais tardar, quando você sai da tela de junção. Um resultado é excluído quando você começa outra tarefa, o descarta ou sai da tela em que ele foi gerado. As cópias entregues ao menu de compartilhamento, incluindo os arquivos de transcrição e de legendas, ficam guardadas até a próxima abertura do SoundPull, porque o app que as recebeu ainda pode estar lendo esses arquivos. Toda vez que o SoundPull é aberto, ele exclui os arquivos de trabalho dele mesmo que sessões anteriores deixaram para trás. As cópias próprias que os seletores e o menu de compartilhamento deixam (veja o passo 2) ficam fora dessa limpeza. As dos seletores ficam no cache e nas pastas temporárias do app, que o iOS pode esvaziar quando o armazenamento fica escasso. Quando outro app envia um arquivo ao SoundPull pelo menu de compartilhamento, o iOS pode copiá-lo para a pasta Inbox do app; o iOS não esvazia essa pasta por conta própria, então essa cópia fica lá até você apagar o SoundPull. Os dois tipos de cópia sempre saem do iPhone junto com o app quando ele é apagado.</li>
     </ol>
 
     <h2 id="kept">O que fica no seu iPhone de uma abertura para a outra</h2>
-    <p>O SoundPull mantém quatro valores pequenos no armazenamento dele no aparelho (React Native AsyncStorage, dentro da sandbox do app). Nenhum deles contém nome de arquivo, gravação, transcrição ou qualquer coisa que identifique você, e nenhum deles é enviado para lugar algum.</p>
+    <p>O SoundPull mantém cinco valores pequenos no armazenamento dele no aparelho (React Native AsyncStorage, dentro da sandbox do app). Nenhum deles contém nome de arquivo, gravação, transcrição ou qualquer coisa que identifique você, e nenhum deles é enviado para lugar algum.</p>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>Valor guardado</th><th>O que ele contém</th><th>Por que é guardado</th></tr></thead>
         <tbody>
           <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>Se você já passou pelas telas de boas-vindas</td><td>Para que a introdução apareça uma vez só</td></tr>
-          <tr><td><code>soundpull.settings.outputFormat</code></td><td>O último formato de saída que você escolheu (M4A, MP3, WAV ou M4R)</td><td>Para que a próxima tarefa comece no mesmo formato</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>O último formato de saída que você escolheu (M4A, MP3, WAV, FLAC, ALAC, AIFF ou M4R)</td><td>Para que a próxima tarefa comece no mesmo formato</td></tr>
           <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>Se a opção “Igualar o volume” está ativada</td><td>Para que a sua escolha continue valendo na próxima tarefa</td></tr>
-          <tr><td><code>soundpull.reviewPrompt</code> (novo na 1.4)</td><td>Dois números inteiros: quantas extrações ou junções deram certo e quantos marcos do pedido de avaliação já foram usados</td><td>Para decidir quando pedir ao iOS o aviso de avaliação (veja <a href="#rating">abaixo</a>)</td></tr>
+          <tr><td><code>soundpull.settings.outputQuality</code> (novo na 1.6)</td><td>A última qualidade que você escolheu para cada formato: a taxa de bits no M4A e no MP3, ou a taxa de amostragem e a profundidade de bits no WAV, FLAC, ALAC e AIFF</td><td>Para que cada formato comece na qualidade que você escolheu para ele</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code></td><td>Quantas extrações, junções ou transcrições deram certo, quando o SoundPull pediu ao iOS o aviso de avaliação pela última vez e se a última tentativa falhou</td><td>Para decidir quando pedir ao iOS o aviso de avaliação (veja <a href="#rating">abaixo</a>)</td></tr>
         </tbody>
       </table>
     </div>
@@ -109,8 +110,8 @@
     <p>Ao apagar o SoundPull do seu iPhone, esses valores vão embora junto com ele. Não temos nenhuma forma de lê-los.</p>
     <p>Além desses valores, as cópias próprias que os seletores e o menu de compartilhamento deixam quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull não são apagadas pelo app e podem continuar no aparelho de uma abertura para a outra. O passo 6 de <a href="#flow">O que acontece com um arquivo que você abre no SoundPull no iPhone</a> explica onde cada tipo fica e quando ele sai.</p>
 
-    <h2 id="rating">O pedido de avaliação no iPhone, incluído na versão 1.4</h2>
-    <p>Depois da 3ª, da 15ª e da 50ª extração ou junção bem-sucedida, o SoundPull pede ao iOS que mostre o aviso padrão da Apple para avaliar o app, por meio da solicitação de avaliação do framework StoreKit da Apple. É o iOS que decide se o aviso aparece de fato e que limita quantas vezes qualquer app pode exibi-lo. O SoundPull não fica sabendo se o aviso apareceu nem o que você fez com ele. Se você der uma nota ou escrever uma avaliação do SoundPull, quem recebe isso é a Apple, vinculado à sua Conta Apple; uma avaliação escrita é publicada na App Store com o apelido que você escolher, onde qualquer pessoa, inclusive nós, pode lê-la; como desenvolvedores, também podemos publicar ali uma resposta pública.</p>
+    <h2 id="rating">O pedido de avaliação no iPhone</h2>
+    <p>Logo depois de uma extração, junção ou transcrição bem-sucedida, o SoundPull pode pedir ao iOS que mostre o aviso padrão da Apple para avaliar o app, por meio da solicitação de avaliação do framework StoreKit da Apple. Ele pede depois do seu primeiro sucesso e, a partir daí, só quando já se passaram pelo menos 14 dias desde o último pedido; não pede no sucesso que vem logo depois de uma tentativa que falhou. É o iOS que decide se o aviso aparece de fato e que limita quantas vezes qualquer app pode exibi-lo. O SoundPull não fica sabendo se o aviso apareceu nem o que você fez com ele. Se você der uma nota ou escrever uma avaliação do SoundPull, quem recebe isso é a Apple, vinculado à sua Conta Apple; uma avaliação escrita é publicada na App Store com o apelido que você escolher, onde qualquer pessoa, inclusive nós, pode lê-la; como desenvolvedores, também podemos publicar ali uma resposta pública.</p>
     <p>Para parar de receber esses avisos em todos os apps, abra o app Ajustes do iOS, entre em App Store e desative a opção de avaliações dentro dos apps (em inglês, “In-App Ratings &amp; Reviews”). No iOS 18 e posteriores, o item App Store fica em Ajustes &gt; Apps.</p>
     <p>O pedido de avaliação é a única finalidade para a qual o SoundPull usa o StoreKit. O app não tem telas de compra e não faz nenhuma solicitação de compra por conta própria.</p>
 

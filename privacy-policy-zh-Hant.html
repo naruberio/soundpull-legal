@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark">
   <title>SoundPull 隱私權政策</title>
   <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
-       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       KAN-1227 で Android の節を足した。iPhone の節は KAN-1228 で 1.6 に合わせ、Android の節は Google Play の最初の版
        （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
@@ -71,7 +71,7 @@
 
   <main>
     <h1>SoundPull 隱私權政策</h1>
-    <p class="stamp">自 2026-11-07 起生效 · iPhone 各節以 SoundPull 1.4 為準撰寫 · Android 一節以 Google Play 上的第一個版本為準撰寫</p>
+    <p class="stamp">自 2026-11-07 起生效 · iPhone 各節以 SoundPull 1.6 為準撰寫 · Android 一節以 Google Play 上的第一個版本為準撰寫</p>
     <p>SoundPull 是一款適用於 iPhone 與 Android 手機的 App，能把影片裡的聲音取出來，並轉換、串接音訊檔；在 iPhone 上，它也能把錄下的說話內容變成文字。從〈<a href="#flow">檔案會經歷什麼</a>〉到〈<a href="#manifest">隱私權清單</a>〉的各節說明的是 iPhone 版：先跟著一個檔案走過 App 裡的每一個步驟，再列出 SoundPull 留在您 iPhone 上的所有東西。接著，〈<a href="#android">Android 版 SoundPull</a>〉說明 Android 版如何處理同樣的事情。從〈<a href="#children">兒童</a>〉開始的各節則同時適用於兩者。SoundPull 由 naruberio 開發並發行；本政策所稱的「我們」，即指 naruberio。</p>
 
     <h2 id="brief">重點整理</h2>
@@ -79,29 +79,30 @@
       <li>SoundPull 沒有帳號、不必登入，背後也沒有我們的伺服器。</li>
       <li>您處理的影片、音訊檔、轉錄文字與字幕，都在您的手機上處理，絕不會上傳——不論是傳給我們，還是傳給其他任何人。</li>
       <li>App 內沒有任何分析、廣告、當機回報或追蹤用的程式碼，完成工作也不需要連上網際網路。</li>
-      <li>在兩次啟動之間，SoundPull 只記得三項設定，以及評分提示所依據的次數，全都存在裝置上。您挑選檔案或其他 App 把檔案傳給 SoundPull 時所產生的副本，也可能留在裝置上（請見〈<a href="#kept">留在您 iPhone 上的資料</a>〉，Android 則請見〈<a href="#android-files">Android 上的檔案</a>〉）。</li>
+      <li>在兩次啟動之間，SoundPull 只記得幾項設定（iPhone 上四項，Android 上三項），以及決定評分提示時機的一小筆紀錄，全都存在裝置上。您挑選檔案或其他 App 把檔案傳給 SoundPull 時所產生的副本，也可能留在裝置上（請見〈<a href="#kept">留在您 iPhone 上的資料</a>〉，Android 則請見〈<a href="#android-files">Android 上的檔案</a>〉）。</li>
     </ul>
 
     <h2 id="flow">您在 iPhone 版 SoundPull 開啟的檔案會經歷什麼</h2>
     <ol class="flow">
       <li><strong>由您挑選。</strong>您可以在「照片」的挑選畫面中選擇影片，在「檔案」App 中選擇影片或音訊檔（m4a、mp3、wav、aac、caf、aif、aiff 或 flac），或從其他 App 的分享表單傳過來，「語音備忘錄」也可以。iOS 只會把您選取的項目交給 SoundPull；App 不會翻看您相片圖庫或資料夾裡的其他內容。</li>
       <li><strong>SoundPull 先做一份工作副本。</strong>該項目會被複製到 App 自己沙盒內的暫存資料夾，因此您的原始檔絕不會被改動。「照片」與「檔案」的挑選畫面以及分享表單，也可能在 App 的容器內另外留下它們自己的一份副本。</li>
-      <li><strong>副本在 iPhone 上完成轉換。</strong>SoundPull 透過 Apple 的 AVFoundation 框架寫出 M4A、MP3、WAV 或 M4R（鈴聲）檔；若您有需要，也能寫出一份拿掉聲音軌的影片副本。合併時，您排好的項目會依您定的順序串成單一檔案。MP3 檔由 App 內建的 LAME 程式庫編碼。這些步驟全都不會透過網路傳送任何東西。</li>
+      <li><strong>副本在 iPhone 上完成轉換。</strong>SoundPull 透過 Apple 的 AVFoundation 與 AudioToolbox 框架，依您選的品質寫出 M4A、MP3、WAV、FLAC、ALAC（存成 .m4a）、AIFF 或 M4R（鈴聲）檔；若您有需要，也能寫出一份拿掉聲音軌的影片副本。合併時，您排好的項目會依您定的順序串成單一檔案。MP3 檔由 App 內建的 LAME 程式庫編碼。這些步驟全都不會透過網路傳送任何東西。</li>
       <li><strong>若您要轉錄文字，同樣在 iPhone 上進行。</strong>Apple 的 Speech 框架只以裝置端辨識來認出語句（<code>requiresOnDeviceRecognition</code>）。當您的 iPhone 沒有該語言的裝置端辨識時，SoundPull 會如實告知並就此停止，絕不會改把音訊交給伺服器。文字可以匯出成 .txt 檔，也可以匯出成 .srt 字幕檔，字幕的時間碼同樣出自這個裝置端辨識。音訊與文字都不會傳給 Apple，也不會傳給我們。</li>
       <li><strong>結果要送去哪裡，由您決定。</strong>您可以先播放確認，再透過 iOS 分享表單送出：儲存到「檔案」、用 AirDrop 傳送，或交給其他 App。檔案一旦抵達您指定的地方，之後在那裡如何處理，就由該目的地決定，而不是 SoundPull。</li>
       <li><strong>工作檔案隨後清除。</strong>一旦工作用不到原始檔的副本，SoundPull 就會把它刪除：轉換完成後立即刪除；合併則在合併成功時刪除，最晚也會在您離開合併畫面時刪除。結果檔會在您開始下一個工作、捨棄它，或離開產生它的畫面時刪除。交給分享表單的副本，包括轉錄文字與字幕檔，會留到 SoundPull 下次啟動為止，因為接收的 App 可能還在讀取。SoundPull 每次啟動時，都會刪掉先前工作階段遺留下來、屬於它自己的工作檔案。挑選畫面與分享表單另外留下的它們自己的副本（見第 2 步），不在這項清理的範圍內：挑選畫面留下的副本放在 App 的快取與暫存資料夾中，儲存空間吃緊時 iOS 可能會將其清掉。其他 App 透過分享表單把檔案傳給 SoundPull 時，iOS 可能會把檔案複製到 App 的 Inbox 資料夾；iOS 不會自行清空這個資料夾，因此這類副本會一直留到您刪除 SoundPull 為止。無論哪一種副本，都會在刪除 App 時一併從 iPhone 上清除。</li>
     </ol>
 
     <h2 id="kept">兩次啟動之間留在您 iPhone 上的資料</h2>
-    <p>SoundPull 會在裝置上自己的儲存區（位於 App 沙盒內的 React Native AsyncStorage）保存四個小小的值。其中沒有任何檔名、錄音、轉錄文字或足以識別您身分的資訊，也從不會被送到任何地方。</p>
+    <p>SoundPull 會在裝置上自己的儲存區（位於 App 沙盒內的 React Native AsyncStorage）保存五個小小的值。其中沒有任何檔名、錄音、轉錄文字或足以識別您身分的資訊，也從不會被送到任何地方。</p>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>儲存的值</th><th>內容</th><th>保存的原因</th></tr></thead>
         <tbody>
           <tr><td><code>soundpull.settings.hasSeenOnboarding</code></td><td>您是否已看完歡迎畫面</td><td>讓介紹畫面只出現一次</td></tr>
-          <tr><td><code>soundpull.settings.outputFormat</code></td><td>您最近一次選擇的輸出格式（M4A、MP3、WAV 或 M4R）</td><td>讓下一個工作沿用同樣的格式</td></tr>
+          <tr><td><code>soundpull.settings.outputFormat</code></td><td>您最近一次選擇的輸出格式（M4A、MP3、WAV、FLAC、ALAC、AIFF 或 M4R）</td><td>讓下一個工作沿用同樣的格式</td></tr>
           <tr><td><code>soundpull.settings.normalizeVolume</code></td><td>「統一音量」是否開啟</td><td>讓您的選擇延續到下一個工作</td></tr>
-          <tr><td><code>soundpull.reviewPrompt</code>（1.4 版新增）</td><td>兩個整數：擷取或合併工作成功了幾次，以及評分提示的里程碑已經用掉幾個</td><td>用來決定何時請 iOS 顯示評分提示（請見<a href="#rating">下方</a>）</td></tr>
+          <tr><td><code>soundpull.settings.outputQuality</code>（1.6 版新增）</td><td>您為每種格式最近一次選擇的品質：M4A 與 MP3 為位元率，WAV、FLAC、ALAC 與 AIFF 為取樣率與位元深度</td><td>讓每種格式都沿用您先前為它選的品質</td></tr>
+          <tr><td><code>soundpull.reviewPrompt</code></td><td>擷取、合併或轉錄成功了幾次、SoundPull 最近一次請 iOS 顯示評分提示的時間，以及上一次嘗試是否失敗</td><td>用來決定何時請 iOS 顯示評分提示（請見<a href="#rating">下方</a>）</td></tr>
         </tbody>
       </table>
     </div>
@@ -109,8 +110,8 @@
     <p>從 iPhone 刪除 SoundPull 時，這些值會跟著一起刪除。我們沒有任何方法讀取它們。</p>
     <p>除了這些值之外，您挑選檔案或其他 App 把檔案傳給 SoundPull 時，挑選畫面與分享表單另外留下的副本，不會由 App 清除，因此可能在兩次啟動之間留在裝置上。各種副本放在哪裡、何時消失，請見〈<a href="#flow">您在 iPhone 版 SoundPull 開啟的檔案會經歷什麼</a>〉的第 6 步。</p>
 
-    <h2 id="rating">iPhone 上的評分提示（1.4 版新增）</h2>
-    <p>在您第 3、第 15 與第 50 次成功擷取或合併之後，SoundPull 會透過 Apple StoreKit 框架中的評分請求功能，請 iOS 顯示 Apple 標準的 App 評分提示。提示是否真的出現由 iOS 決定，iOS 也會限制每個 App 能顯示它的頻率。SoundPull 不會得知提示有沒有出現，也不會得知您做了什麼選擇。若您為 SoundPull 評分或撰寫評論，Apple 會以您的 Apple 帳號收集這些內容；文字評論會以您選擇的暱稱公開在 App Store 上，包括我們在內，任何人都能閱讀；我們也可能以開發者身分在那裡公開回覆。</p>
+    <h2 id="rating">iPhone 上的評分提示</h2>
+    <p>在擷取、合併或轉錄成功之後，SoundPull 可能會透過 Apple StoreKit 框架中的評分請求功能，請 iOS 顯示 Apple 標準的 App 評分提示。它會在您第一次成功時提出請求，之後只在距離上次請求已滿 14 天的成功時才再提出；若上一次嘗試失敗，緊接著的那次成功不會提出請求。提示是否真的出現由 iOS 決定，iOS 也會限制每個 App 能顯示它的頻率。SoundPull 不會得知提示有沒有出現，也不會得知您做了什麼選擇。若您為 SoundPull 評分或撰寫評論，Apple 會以您的 Apple 帳號收集這些內容；文字評論會以您選擇的暱稱公開在 App Store 上，包括我們在內，任何人都能閱讀；我們也可能以開發者身分在那裡公開回覆。</p>
     <p>若想讓所有 App 都不再跳出這類提示，請打開 iOS 的「設定」App，進入 App Store，關閉「App 內評分與評論」（In-App Ratings &amp; Reviews）。在 iOS 18 或以上版本中，App Store 位於「設定」&gt; App 之中。</p>
     <p>評分提示是 SoundPull 使用 StoreKit 的唯一用途。App 沒有任何購買畫面，也不會自行發出任何購買請求。</p>
 
