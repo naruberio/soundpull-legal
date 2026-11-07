@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>SoundPull サポート</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
   <!-- FAQ の構造化データ。答えは本文の文をそのまま抜き出す。本文を変えたらここも直す -->
   <script type="application/ld+json">
   {
@@ -110,13 +111,14 @@
 
   <main>
     <h1>SoundPull サポート</h1>
-    <p class="stamp">2026-10-02 更新 · SoundPull 1.4 に対応 · iOS 16.4 以降の iPhone で動作</p>
+    <p class="stamp">2026-11-07 更新 · iPhone: SoundPull 1.4、iOS 16.4 以降 · Android: Google Play の最初の版、Android 7.0 以降</p>
+    <p>以下の回答の多くは iPhone の SoundPull についてのものです。Android スマートフォンをお使いの場合は、「<a href="#android">Android 版の SoundPull</a>」で違う点をご覧ください。</p>
 
     <h2 id="write">連絡のしかた</h2>
     <p>うまく動かないこと、わからないこと、こうしてほしいという案があれば、<a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> までメールをください。3 営業日以内の返信を目安にしています。</p>
     <p>何かがうまくいかなかったときは、次のことを書いてもらえると、こちらで同じ状況を再現しやすくなります。</p>
     <ul>
-      <li>SoundPull のバージョン（アプリの「設定」画面に出ています）と、iOS のバージョン</li>
+      <li>SoundPull のバージョン（アプリの「設定」画面に出ています）と、iOS または Android のバージョン</li>
       <li>開いたもの（例:「写真から選んだ MOV の動画」「ファイルから選んだ MP3」）と、選んだ出力形式</li>
       <li>どの段階でつまずいたか、そのとき画面に出た文言そのもの</li>
     </ul>
@@ -177,6 +179,20 @@
     <p>あなたの iPhone に残ります。変換・結合・文字起こしはすべて端末の中で行われ、SoundPull には送り先となるサーバーがありません。処理が終わったら<strong>保存 / 共有</strong>をタップして、「ファイル」に保存する、AirDrop で送る、ほかのアプリに渡す、のいずれかをしてください。保存しなかった結果は SoundPull が削除します。</p>
     <h3>SoundPull が保存したものをすべて消すには？</h3>
     <p>アプリを削除してください。設定と作業用のファイルは iOS がアプリと一緒に消し、あなたが別の場所に保存したファイルはそのまま残ります。</p>
+
+    <h2 id="android">Android 版の SoundPull</h2>
+    <h3>保存したファイルはどこにありますか？</h3>
+    <p>Android 10 以降では、作業のあとで<strong>端末に保存</strong>をタップしてください。音声は <code>Music/SoundPull</code>、着信音は <code>Ringtones/SoundPull</code>、音を取り除いた動画は <code>Movies/SoundPull</code> に入り、画面にフォルダとファイル名が表示されます。音楽プレーヤーやファイル管理アプリから、そこにあるファイルを開けます。Android 9 以前ではこのボタンは表示されないので、<strong>共有</strong>で結果を他のアプリへ送ってください。</p>
+    <h3>着信音に設定するには？</h3>
+    <p>形式に<strong>着信音</strong>を選び、音の長さを 30 秒以内にして、<strong>端末に保存</strong>をタップします。着信音は .m4a ファイルとして保存され、Android の着信音の一覧に加わります。続けて<strong>音の設定を開く</strong>をタップし、「着信音」を開いて、ファイル名でそのファイルを選んでください。これらの設定の名前はスマートフォンのメーカーによって異なります。SoundPull が自分で着信音を変えることはありません。</p>
+    <h3>Android で文字起こしや字幕は作れますか？</h3>
+    <p>作れません。Google Play の最初の版には文字起こしと字幕の機能が入っていません。抽出・変換・結合・一括抽出・音を取り除いた動画は iPhone と同じように使え、出力形式は M4A・MP3・WAV・着信音です。</p>
+    <h3>Google Play での購入・ほかの端末・返金</h3>
+    <p>Google Play の SoundPull は一度の支払いで使える有料アプリで、アプリ内課金・サブスクリプション・広告はありません。別の Android 端末に入れるには、同じ Google アカウントでログインし、Google Play から無料でもう一度ダウンロードしてください。Google Play での購入の返金は Google が決めます。<a href="https://support.google.com/googleplay/answer/2479637">Google Play の返金に関するヘルプ</a>をご覧ください。Google Play での購入で iPhone 版は使えず、App Store での購入で Android 版は使えません。</p>
+    <h3>SoundPull が評価をお願いしてきたのはなぜ？</h3>
+    <p>抽出か結合がうまくいき、結果を保存または共有したあと、SoundPull は Google Play にレビューの画面を出すよう頼むことがあります。頼むのは 14 日に 1 回までです。実際に表示するかどうかは Google Play が決めます。</p>
+    <h3>SoundPull が保存したものをすべて消すには？</h3>
+    <p>アプリをアンインストールするか、SoundPull の「アプリ情報」画面を開き、「ストレージ」の「ストレージを消去」をタップしてください。Music・Ringtones・Movies のフォルダに保存したファイルは、あなたが削除するまで残ります。</p>
 
     <h2 id="docs">ポリシー</h2>
     <p><a href="./privacy-policy-ja.html">プライバシーポリシー</a> · <a href="./terms-ja.html">利用規約</a></p>

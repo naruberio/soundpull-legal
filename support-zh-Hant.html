@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>SoundPull 支援</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,13 +70,14 @@
 
   <main>
     <h1>SoundPull 支援</h1>
-    <p class="stamp">2026-10-02 更新，適用於 SoundPull 1.4 · 可在搭載 iOS 16.4 或以上版本的 iPhone 上使用</p>
+    <p class="stamp">2026-11-07 更新 · iPhone：SoundPull 1.4，iOS 16.4 或以上版本 · Android：Google Play 上的第一個版本，Android 7.0 或以上版本</p>
+    <p>以下大多數解答說明的是 iPhone 版 SoundPull。若您使用 Android 手機，請參閱〈<a href="#android">Android 版 SoundPull</a>〉了解兩者有何不同。</p>
 
     <h2 id="write">寫信給我們</h2>
     <p>遇到問題、有疑問或想到什麼點子，都歡迎寄信到 <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a>。我們以三個工作天內回覆為目標。</p>
     <p>如果有功能沒有正常運作，附上下列資訊能幫助我們重現狀況：</p>
     <ul>
-      <li>SoundPull 的版本（顯示在 App 的「設定」畫面）以及您的 iOS 版本；</li>
+      <li>SoundPull 的版本（顯示在 App 的「設定」畫面），以及您的 iOS 或 Android 版本；</li>
       <li>您開啟的是什麼，例如「來自照片的 MOV 影片」或「來自檔案的 MP3」，以及您選的輸出格式；</li>
       <li>在哪一個步驟出錯，以及畫面上顯示的完整訊息。</li>
     </ul>
@@ -136,6 +138,20 @@
     <p>哪裡都不去，一直留在您的 iPhone 上。轉換、合併與轉錄全都在裝置上完成，SoundPull 也沒有可以接收資料的伺服器。工作完成後，點按<strong>儲存 / 分享</strong>，就能把結果存到「檔案」、用 AirDrop 傳送，或交給其他 App。您沒有儲存的結果，SoundPull 會把它刪除。</p>
     <h3>如何移除 SoundPull 所儲存的一切？</h3>
     <p>刪除 App 即可。iOS 會一併移除它的設定與所有工作檔案；您存放在其他地方的檔案則會留在原處。</p>
+
+    <h2 id="android">Android 版 SoundPull</h2>
+    <h3>我儲存的檔案在哪裡？</h3>
+    <p>在 Android 10 或以上版本中，完成工作後點按<strong>儲存到裝置</strong>。音訊會放在 <code>Music/SoundPull</code>，鈴聲放在 <code>Ringtones/SoundPull</code>，拿掉聲音的影片放在 <code>Movies/SoundPull</code>，畫面上也會顯示資料夾與檔名。您可以用音樂播放器或檔案管理員從那裡開啟這些檔案。在 Android 9 或更早版本中不會顯示這個按鈕；請使用<strong>分享</strong>把結果傳給其他 App。</p>
+    <h3>如何設定鈴聲？</h3>
+    <p>格式選擇<strong>鈴聲</strong>，把聲音控制在 30 秒以內，再點按<strong>儲存到裝置</strong>。鈴聲會存成 .m4a 檔，Android 會把它加入鈴聲清單。接著點按<strong>開啟音效設定</strong>，開啟「手機鈴聲」，再依檔名選擇該檔案。這些設定的名稱會因手機製造商而異。SoundPull 不會自行變更您的鈴聲。</p>
+    <h3>在 Android 上可以製作轉錄文字或字幕嗎？</h3>
+    <p>不行。Google Play 上的第一個版本不含轉錄文字與字幕功能。擷取、轉換、合併、批次擷取與無聲影片的運作方式與 iPhone 相同，輸出格式為 M4A、MP3、WAV 與鈴聲。</p>
+    <h3>在 Google Play 購買、其他裝置與退款</h3>
+    <p>Google Play 上的 SoundPull 是一次付費的 App，沒有 App 內購買、沒有訂閱，也沒有廣告。若要安裝到另一部 Android 裝置，請以同一個 Google 帳戶登入，再從 Google Play 免費重新下載。Google Play 購買項目能否退款，由 Google 決定；請參閱 <a href="https://support.google.com/googleplay/answer/2479637">Google Play 的退款說明</a>。在 Google Play 購買不包含 iPhone 版，在 App Store 購買也不包含 Android 版。</p>
+    <h3>SoundPull 為什麼請我評分？</h3>
+    <p>在一次成功的擷取或合併之後，等您儲存或分享了結果，SoundPull 可能會請 Google Play 顯示其評論提示，最多每 14 天一次。提示是否真的出現由 Google Play 決定。</p>
+    <h3>如何移除 SoundPull 所儲存的一切？</h3>
+    <p>解除安裝 App，或開啟它的「應用程式資訊」畫面，在「儲存空間」中點按「清除儲存空間」。您儲存到 Music、Ringtones 或 Movies 資料夾的檔案則會一直留著，直到您自行刪除為止。</p>
 
     <h2 id="docs">相關政策</h2>
     <p><a href="./privacy-policy-zh-Hant.html">隱私權政策</a> · <a href="./terms-zh-Hant.html">使用條款</a></p>

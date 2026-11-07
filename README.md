@@ -1,7 +1,14 @@
 # soundpull-legal
 
-Legal & support pages for the **SoundPull** iOS app (`com.naruberio.soundpull`),
+Legal & support pages for the **SoundPull** app on iOS and Android (`com.naruberio.soundpull` on both),
 served via GitHub Pages at <https://naruberio.github.io/soundpull-legal/>.
+
+The Privacy Policy, Terms of Use and Support pages cover both platforms (KAN-1227).
+iPhone-only sections say so in their headings; Android is described in its own sections
+(`#android` and `#android-*` in the Privacy Policy, `#google` in the Terms, `#android` in Support).
+The Android sections describe the first Google Play release, in which transcription is hidden and
+`RECORD_AUDIO` is not declared (soundpull-app PR #141). When the Android app's features, permissions or
+button labels change (`src/i18n/androidOverrides.ts`), update these sections in all 11 languages in the same change.
 
 SoundPull extracts the audio track from your own videos as M4A (AAC), fully on-device.
 

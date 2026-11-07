@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Política de Privacidade do SoundPull</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
+       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,18 +71,18 @@
 
   <main>
     <h1>Política de Privacidade do SoundPull</h1>
-    <p class="stamp">Em vigor desde 2026-10-02 · redigida para o SoundPull 1.4</p>
-    <p>O SoundPull é um app para iPhone que tira o som de vídeos, converte e une arquivos de áudio e pode transformar fala gravada em texto. Esta política acompanha um arquivo passo a passo dentro do app e, em seguida, lista tudo o que o SoundPull guarda no seu iPhone. O SoundPull é desenvolvido e publicado pela naruberio; nesta política, “nós” e “nosso” se referem à naruberio.</p>
+    <p class="stamp">Em vigor desde 2026-11-07 · seções do iPhone redigidas para o SoundPull 1.4 · seção do Android redigida para a primeira versão no Google Play</p>
+    <p>O SoundPull é um app para iPhone e para celulares Android. Ele tira o som de vídeos e converte e une arquivos de áudio; no iPhone, também pode transformar fala gravada em texto. As seções de <a href="#flow">O que acontece com um arquivo</a> até <a href="#manifest">o manifesto de privacidade</a> descrevem a versão para iPhone: acompanham um arquivo passo a passo dentro do app e, em seguida, listam tudo o que o SoundPull guarda no seu iPhone. Depois, <a href="#android">O SoundPull no Android</a> explica como a versão para Android trata esses mesmos pontos. As seções a partir de <a href="#children">Crianças</a> valem para as duas. O SoundPull é desenvolvido e publicado pela naruberio; nesta política, “nós” e “nosso” se referem à naruberio.</p>
 
     <h2 id="brief">Em resumo</h2>
     <ul class="gist">
       <li>O SoundPull não tem conta, nem login, nem servidor nosso por trás.</li>
-      <li>Os vídeos, arquivos de áudio, transcrições e legendas com que você trabalha são processados no seu iPhone e nunca são enviados, nem para nós nem para mais ninguém.</li>
+      <li>Os vídeos, arquivos de áudio, transcrições e legendas com que você trabalha são processados no seu celular e nunca são enviados, nem para nós nem para mais ninguém.</li>
       <li>O app não contém código de análise de uso, publicidade, relatórios de falhas ou rastreamento, e não precisa de conexão com a internet para fazer o seu trabalho.</li>
-      <li>De uma abertura para a outra, o SoundPull lembra apenas três ajustes e as contagens que regem o pedido de avaliação, tudo guardado no próprio aparelho. As cópias criadas quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull também podem ficar no aparelho (veja <a href="#kept">O que fica no seu iPhone</a>).</li>
+      <li>De uma abertura para a outra, o SoundPull lembra apenas três ajustes e as contagens que regem o pedido de avaliação, tudo guardado no próprio aparelho. As cópias criadas quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull também podem ficar no aparelho (veja <a href="#kept">O que fica no seu iPhone</a> e, para o Android, <a href="#android-files">Arquivos no Android</a>).</li>
     </ul>
 
-    <h2 id="flow">O que acontece com um arquivo que você abre no SoundPull</h2>
+    <h2 id="flow">O que acontece com um arquivo que você abre no SoundPull no iPhone</h2>
     <ol class="flow">
       <li><strong>Você o escolhe.</strong> Dá para escolher um vídeo no seletor do Fotos, escolher um vídeo ou um arquivo de áudio (m4a, mp3, wav, aac, caf, aif, aiff ou flac) no app Arquivos, ou enviá-lo pelo menu de compartilhamento de outro app, inclusive o Gravador. O iOS entrega ao SoundPull só os itens que você seleciona; o app não percorre o resto da sua fototeca nem das suas pastas.</li>
       <li><strong>O SoundPull faz uma cópia de trabalho.</strong> O item é copiado para uma pasta temporária dentro da área isolada (sandbox) do próprio app, de modo que o seu original nunca é alterado. Os seletores do Fotos e do Arquivos e o menu de compartilhamento também podem deixar uma cópia própria dentro do contêiner do app.</li>
@@ -107,12 +109,12 @@
     <p>Ao apagar o SoundPull do seu iPhone, esses valores vão embora junto com ele. Não temos nenhuma forma de lê-los.</p>
     <p>Além desses valores, as cópias próprias que os seletores e o menu de compartilhamento deixam quando você escolhe um arquivo ou quando outro app envia um arquivo ao SoundPull não são apagadas pelo app e podem continuar no aparelho de uma abertura para a outra. O passo 6 de <a href="#flow">O que acontece com um arquivo que você abre no SoundPull</a> explica onde cada tipo fica e quando ele sai.</p>
 
-    <h2 id="rating">O pedido de avaliação, incluído na versão 1.4</h2>
+    <h2 id="rating">O pedido de avaliação no iPhone, incluído na versão 1.4</h2>
     <p>Depois da 3ª, da 15ª e da 50ª extração ou junção bem-sucedida, o SoundPull pede ao iOS que mostre o aviso padrão da Apple para avaliar o app, por meio da solicitação de avaliação do framework StoreKit da Apple. É o iOS que decide se o aviso aparece de fato e que limita quantas vezes qualquer app pode exibi-lo. O SoundPull não fica sabendo se o aviso apareceu nem o que você fez com ele. Se você der uma nota ou escrever uma avaliação do SoundPull, quem recebe isso é a Apple, vinculado à sua Conta Apple; uma avaliação escrita é publicada na App Store com o apelido que você escolher, onde qualquer pessoa, inclusive nós, pode lê-la; como desenvolvedores, também podemos publicar ali uma resposta pública.</p>
     <p>Para parar de receber esses avisos em todos os apps, abra o app Ajustes do iOS, entre em App Store e desative a opção de avaliações dentro dos apps (em inglês, “In-App Ratings &amp; Reviews”). No iOS 18 e posteriores, o item App Store fica em Ajustes &gt; Apps.</p>
     <p>O pedido de avaliação é a única finalidade para a qual o SoundPull usa o StoreKit. O app não tem telas de compra e não faz nenhuma solicitação de compra por conta própria.</p>
 
-    <h2 id="permissions">Permissões que o iOS pode mostrar</h2>
+    <h2 id="permissions">Permissões que o iOS pode mostrar no iPhone</h2>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>Permissão</th><th>Quando e por quê</th></tr></thead>
@@ -124,10 +126,10 @@
     </div>
     <p>Abrir um arquivo pelo app Arquivos ou por um menu de compartilhamento não exige permissão, porque o iOS repassa apenas o item que você escolheu. O SoundPull não usa a câmera, o microfone, a sua localização nem os seus contatos, e não pede acesso à rede. Ele nunca exibe o aviso da App Tracking Transparency (Transparência de Rastreamento de Apps), porque não rastreia ninguém.</p>
 
-    <h2 id="paying">Como se paga pelo SoundPull</h2>
+    <h2 id="paying">Como se paga pelo SoundPull na App Store</h2>
     <p>O SoundPull é vendido como download pago na App Store. Essa compra única cobre todos os recursos; não existem compras dentro do app, assinaturas ou anúncios. Quem recebe o pagamento é a Apple, que não nos repassa seu nome, endereço de e-mail, dados do cartão nem outras informações pessoais. A forma como a Apple trata as suas informações de pagamento e de conta está explicada na <a href="https://www.apple.com/legal/privacy/">Política de Privacidade da Apple</a>.</p>
 
-    <h2 id="manifest">O que o manifesto de privacidade declara</h2>
+    <h2 id="manifest">O que o manifesto de privacidade declara (iPhone)</h2>
     <p>O SoundPull traz embutido um manifesto de privacidade da Apple. Nele consta que o app não faz rastreamento, não se comunica com domínios de rastreamento e não coleta nenhum tipo de dado. O manifesto também lista quatro APIs para as quais a Apple exige que o desenvolvedor informe um motivo, e cada uma é usada só para a finalidade que o seu código de motivo representa:</p>
     <ul>
       <li><code>FileTimestamp</code>, motivo <code>C617.1</code>: ler as datas e os tamanhos de arquivos dentro do contêiner do próprio SoundPull, por exemplo para separar os arquivos de trabalho deixados por uma sessão anterior dos que estão em uso agora.</li>
@@ -137,12 +139,46 @@
     </ul>
     <p>Os dois primeiros são declarados pelo próprio SoundPull; os outros dois entram em nome dos frameworks sobre os quais o app é construído.</p>
 
+    <h2 id="android">O SoundPull no Android</h2>
+    <p>A versão para Android é feita com o mesmo código da versão para iPhone e mantém as mesmas promessas: sem conta, sem servidor nosso e sem código de análise de uso, publicidade, relatórios de falhas ou rastreamento. Ela converte arquivos com os componentes de mídia do próprio Android (MediaExtractor, MediaCodec e MediaMuxer) e codifica MP3 com a mesma biblioteca LAME embutida. Nada do que você abre nela é enviado pela rede. A primeira versão no Google Play não inclui transcrições nem legendas; por isso, no Android, o SoundPull não faz reconhecimento de fala e não pede acesso ao microfone.</p>
+
+    <h3 id="android-files">Arquivos no Android</h3>
+    <ul>
+      <li><strong>Abrir.</strong> <strong>Escolher vídeo</strong> abre o seletor de fotos e <strong>Dos arquivos</strong> abre o seletor de arquivos do sistema. Você também pode enviar um vídeo ou um arquivo de áudio ao SoundPull a partir de outro app, com Compartilhar ou Abrir com. Em todos os casos, o Android dá ao SoundPull acesso apenas ao item que você escolheu.</li>
+      <li><strong>Cópias de trabalho.</strong> O SoundPull copia o item escolhido para a pasta de cache dele, que outros apps não conseguem ler, e trabalha sobre essa cópia, de modo que o seu original nunca é alterado. Os seletores também podem deixar uma cópia própria nessa pasta. Os resultados são gerados como arquivos M4A, MP3 ou WAV, como toques ou como um vídeo sem o som. Um toque é gravado como arquivo .m4a, porque o Android não reconhece a extensão .m4r da Apple.</li>
+      <li><strong>Limpeza.</strong> Assim como no iPhone, o SoundPull exclui as cópias de trabalho quando a tarefa deixa de precisar delas, mantém até a próxima abertura uma cópia entregue a outro app e, a cada abertura, exclui os arquivos de trabalho que sessões anteriores deixaram para trás. O Android também pode esvaziar a pasta de cache quando o armazenamento fica escasso. Desinstalar o SoundPull, ou tocar em Limpar armazenamento na tela Informações do app dele, remove tudo o que tiver ficado lá.</li>
+      <li><strong>Salvar.</strong> No Android 10 e posteriores, <strong>Salvar no dispositivo</strong> coloca o resultado no armazenamento compartilhado do celular por meio do MediaStore do Android: áudio em <code>Music/SoundPull</code>, toques em <code>Ringtones/SoundPull</code> e vídeos sem som em <code>Movies/SoundPull</code>. Os apps que você autorizar a ler suas músicas ou seus vídeos conseguem ver os arquivos salvos ali, e esses arquivos continuam no celular depois que o SoundPull é desinstalado, até que você os apague. Em versões anteriores do Android, o botão não aparece; envie o resultado a outro app com <strong>Compartilhar</strong>.</li>
+      <li><strong>Toques.</strong> <strong>Abrir configurações de som</strong> apenas abre as configurações de som do Android para que você mesmo escolha o toque salvo. O SoundPull não altera o seu toque nem nenhuma outra configuração do sistema.</li>
+    </ul>
+
+    <h3 id="android-kept">O que a versão para Android guarda</h3>
+    <p>No Android, o SoundPull mantém quatro valores no armazenamento privado do app, que outros apps não conseguem ler: <code>soundpull.settings.hasSeenOnboarding</code>, <code>soundpull.settings.outputFormat</code> e <code>soundpull.settings.normalizeVolume</code>, que têm o mesmo significado que no iPhone, e <code>soundpull.reviewPrompt</code>. No Android, <code>soundpull.reviewPrompt</code> guarda quantas extrações ou junções deram certo, o momento em que o SoundPull pediu o aviso de avaliação pela última vez e se a última tentativa falhou. Nenhum deles contém nome de arquivo, gravação ou qualquer coisa que identifique você, e nenhum deles é enviado para lugar algum.</p>
+
+    <h3 id="android-rating">O pedido de avaliação no Android</h3>
+    <p>Depois de uma extração ou junção bem-sucedida, quando você termina de salvar ou compartilhar o resultado, o SoundPull pode pedir ao Google Play que mostre o aviso de avaliação dentro do app (a API In-App Review do Google Play). Ele pede no máximo uma vez a cada 14 dias, e não logo depois de uma tentativa que falhou. É o Google Play que decide se o aviso aparece de fato, e o SoundPull não fica sabendo se ele apareceu nem o que você fez com ele. Uma nota ou avaliação que você der é recebida pelo Google, vinculada à sua Conta do Google, e publicada no Google Play; como desenvolvedores, podemos lê-la e publicar ali uma resposta pública.</p>
+
+    <h3 id="android-permissions">Permissões declaradas no Android</h3>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Permissão</th><th>Por que ela está lá</th></tr></thead>
+        <tbody>
+          <tr><td><code>READ_EXTERNAL_STORAGE</code><br><code>WRITE_EXTERNAL_STORAGE</code></td><td>Declaradas apenas para o Android 12L e anteriores (nível de API 32 ou inferior) pelas bibliotecas de seleção de arquivos e de fotos com que o SoundPull é feito. O SoundPull não as pede a você: ele lê apenas os itens que você escolhe e, no Android 10 e posteriores, salva os próprios arquivos sem nenhuma permissão de armazenamento.</td></tr>
+          <tr><td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td><td>Adicionadas pelo framework do app e pela biblioteca de reprodução de áudio. O próprio SoundPull não envia nem recebe dados pela rede.</td></tr>
+          <tr><td><code>MODIFY_AUDIO_SETTINGS</code><br><code>WAKE_LOCK</code></td><td>Usadas pela biblioteca de reprodução de áudio para tocar um resultado dentro do app.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>O SoundPull não pede que você conceda nenhuma dessas permissões. Ele não usa a câmera, o microfone, a sua localização nem os seus contatos.</p>
+
+    <h3 id="android-paying">Como se paga no Google Play</h3>
+    <p>No Android, o SoundPull é vendido como download pago no Google Play, sem compras dentro do app, assinaturas ou anúncios. Quem recebe o pagamento é o Google, e nós não recebemos os dados do seu cartão. A forma como o Google trata as suas informações de pagamento e de conta está explicada na <a href="https://policies.google.com/privacy">Política de Privacidade do Google</a>.</p>
+
     <h2 id="children">Crianças</h2>
     <p>O SoundPull é voltado ao público em geral. Como ele não coleta informações pessoais de ninguém que o utilize, também não coleta conscientemente nenhuma informação de crianças, seja de 13 anos ou outra a idade-limite que valha onde você mora.</p>
 
     <h2 id="laws">Leis de privacidade e as suas escolhas</h2>
-    <p>Leis como o GDPR da União Europeia e do Reino Unido, a Lei de Privacidade do Consumidor da Califórnia (CCPA) com as alterações da CPRA e a LGPD brasileira dão a você direitos sobre os dados pessoais que uma empresa tem a seu respeito. O app não nos envia dado pessoal nenhum sobre você; por isso, no que se refere ao seu uso do SoundPull, do nosso lado não há nada a mostrar, corrigir, entregar ou apagar, e não somos controladores nem operadores dos seus dados pessoais no que diz respeito ao app. Como o app não manda nada para fora do seu iPhone, ele também não transfere dados para outro país. O e-mail que você nos enviar é tratado em <a href="#contact">Dúvidas</a>, mais abaixo.</p>
-    <p>O que o SoundPull guarda está nas suas mãos: apagar o app remove os valores descritos acima e qualquer cópia que tenha ficado no cache, nas pastas temporárias ou na pasta Inbox do app, e os arquivos que você salvou continuam onde você os colocou até que você mesmo os apague.</p>
+    <p>Leis como o GDPR da União Europeia e do Reino Unido, a Lei de Privacidade do Consumidor da Califórnia (CCPA) com as alterações da CPRA e a LGPD brasileira dão a você direitos sobre os dados pessoais que uma empresa tem a seu respeito. O app não nos envia dado pessoal nenhum sobre você; por isso, no que se refere ao seu uso do SoundPull, do nosso lado não há nada a mostrar, corrigir, entregar ou apagar, e não somos controladores nem operadores dos seus dados pessoais no que diz respeito ao app. Como o app não manda nada para fora do seu celular, ele também não transfere dados para outro país. O e-mail que você nos enviar é tratado em <a href="#contact">Dúvidas</a>, mais abaixo.</p>
+    <p>O que o SoundPull guarda está nas suas mãos: apagar o app remove os valores descritos acima e qualquer cópia que tenha ficado no cache, nas pastas temporárias ou na pasta Inbox do app, e os arquivos que você salvou continuam onde você os colocou até que você mesmo os apague. No Android, isso inclui os arquivos que você salvou nas pastas Music, Ringtones ou Movies.</p>
 
     <h2 id="changes">Quando esta política muda</h2>
     <p>Esta política pode ser revisada por nós, por exemplo quando uma nova versão do SoundPull mudar o que acontece no aparelho. Toda revisão relevante ganha uma nova data no topo desta página, e o texto em vigor fica sempre publicado em <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-pt-BR.html">naruberio.github.io/soundpull-legal/privacy-policy-pt-BR.html</a>. Se você continuar usando o SoundPull depois que uma revisão entrar em vigor, estará aceitando a política revisada.</p>

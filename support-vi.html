@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Hỗ trợ SoundPull</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,13 +70,14 @@
 
   <main>
     <h1>Hỗ trợ SoundPull</h1>
-    <p class="stamp">Cập nhật 2026-10-02 cho SoundPull 1.4 · chạy trên iPhone với iOS 16.4 trở lên</p>
+    <p class="stamp">Cập nhật 2026-11-07 · iPhone: SoundPull 1.4, iOS 16.4 trở lên · Android: bản phát hành đầu tiên trên Google Play, Android 7.0 trở lên</p>
+    <p>Phần lớn câu trả lời bên dưới mô tả SoundPull trên iPhone. Nếu bạn dùng điện thoại Android, hãy xem <a href="#android">SoundPull trên Android</a> để biết những điểm khác biệt ở đó.</p>
 
     <h2 id="write">Viết cho chúng tôi</h2>
     <p>Hãy gửi email đến <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> khi bạn gặp sự cố, có câu hỏi hoặc có ý tưởng. Mục tiêu của chúng tôi là trả lời trong vòng ba ngày làm việc.</p>
     <p>Nếu có gì đó không chạy như mong đợi, những chi tiết sau giúp chúng tôi tái hiện được vấn đề:</p>
     <ul>
-      <li>phiên bản SoundPull (hiện trên màn hình Cài đặt của ứng dụng) và phiên bản iOS của bạn;</li>
+      <li>phiên bản SoundPull (hiện trên màn hình Cài đặt của ứng dụng), cùng phiên bản iOS hoặc Android của bạn;</li>
       <li>bạn đã mở gì, ví dụ "một video MOV từ Ảnh" hay "một tệp MP3 từ Tệp", và định dạng đầu ra bạn đã chọn;</li>
       <li>bước mà sự cố xảy ra, cùng nguyên văn thông báo hiện trên màn hình.</li>
     </ul>
@@ -136,6 +138,20 @@
     <p>Chúng ở lại trên iPhone của bạn. Chuyển đổi, ghép và chép lời đều diễn ra trên thiết bị, và SoundPull không có máy chủ nào để gửi dữ liệu đến. Sau một tác vụ, chạm <strong>Lưu / Chia sẻ</strong> để lưu kết quả vào Tệp, gửi qua AirDrop hoặc chuyển sang một ứng dụng khác. Những kết quả bạn không lưu sẽ bị SoundPull xóa.</p>
     <h3>Làm sao để gỡ mọi thứ SoundPull đã lưu?</h3>
     <p>Xóa ứng dụng. iOS sẽ gỡ các thiết lập và mọi tệp làm việc của nó cùng lúc, còn những tệp bạn đã lưu ở nơi khác vẫn ở nguyên chỗ bạn đặt.</p>
+
+    <h2 id="android">SoundPull trên Android</h2>
+    <h3>Các tệp đã lưu của tôi ở đâu?</h3>
+    <p>Từ Android 10 trở đi, hãy chạm <strong>Lưu vào thiết bị</strong> sau một tác vụ. Âm thanh được đặt vào <code>Music/SoundPull</code>, nhạc chuông vào <code>Ringtones/SoundPull</code> và video đã bỏ tiếng vào <code>Movies/SoundPull</code>, và màn hình cho biết thư mục cùng tên tệp. Trình phát nhạc hoặc trình quản lý tệp của bạn có thể mở chúng từ đó. Trên Android 9 trở về trước, nút này không hiển thị; hãy dùng <strong>Chia sẻ</strong> để gửi kết quả sang ứng dụng khác.</p>
+    <h3>Làm sao để đặt nhạc chuông?</h3>
+    <p>Chọn định dạng <strong>Nhạc chuông</strong>, giữ âm thanh trong khoảng 30 giây trở xuống, rồi chạm <strong>Lưu vào thiết bị</strong>. Nhạc chuông được lưu thành tệp .m4a và Android thêm tệp đó vào danh sách nhạc chuông. Sau đó chạm <strong>Mở cài đặt âm thanh</strong>, mở mục Nhạc chuông và chọn tệp theo tên của nó. Tên của các mục cài đặt này khác nhau tùy hãng điện thoại. SoundPull không tự thay đổi nhạc chuông của bạn.</p>
+    <h3>Tôi có thể tạo bản chép lời hoặc phụ đề trên Android không?</h3>
+    <p>Không. Bản phát hành đầu tiên trên Google Play không có bản chép lời hay phụ đề. Trích xuất, chuyển đổi, ghép, trích xuất hàng loạt và video không tiếng hoạt động như trên iPhone, và các định dạng đầu ra là M4A, MP3, WAV và Nhạc chuông.</p>
+    <h3>Mua hàng, thiết bị khác và hoàn tiền trên Google Play</h3>
+    <p>SoundPull trên Google Play là ứng dụng trả phí một lần, không có mua hàng trong ứng dụng, không có gói đăng ký và không có quảng cáo. Để cài trên một thiết bị Android khác, hãy đăng nhập bằng cùng Tài khoản Google rồi tải lại ứng dụng từ Google Play miễn phí. Google là bên quyết định việc hoàn tiền cho các lần mua trên Google Play; xem <a href="https://support.google.com/googleplay/answer/2479637">hướng dẫn hoàn tiền của Google Play</a>. Lần mua trên Google Play không bao gồm phiên bản iPhone, và lần mua trên App Store không bao gồm phiên bản Android.</p>
+    <h3>Vì sao SoundPull đề nghị tôi xếp hạng?</h3>
+    <p>Sau một lần trích xuất hoặc ghép thành công, khi bạn đã lưu hoặc chia sẻ kết quả, SoundPull có thể đề nghị Google Play hiển thị lời nhắc đánh giá, nhiều nhất một lần mỗi 14 ngày. Google Play quyết định lời nhắc có thực sự xuất hiện hay không.</p>
+    <h3>Làm sao để gỡ mọi thứ SoundPull đã lưu?</h3>
+    <p>Gỡ cài đặt ứng dụng, hoặc mở màn hình Thông tin ứng dụng của nó và chạm Xóa bộ nhớ trong mục Bộ nhớ. Các tệp bạn đã lưu vào thư mục Music, Ringtones hoặc Movies vẫn ở lại cho đến khi chính bạn xóa chúng.</p>
 
     <h2 id="docs">Chính sách</h2>
     <p><a href="./privacy-policy-vi.html">Chính sách quyền riêng tư</a> · <a href="./terms-vi.html">Điều khoản sử dụng</a></p>

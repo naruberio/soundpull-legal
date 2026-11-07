@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Kebijakan Privasi SoundPull</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、ファイルが端末内でたどる順序に沿って構成し直した。
+       KAN-1227 で Android の節を足した。iPhone の節は 1.4 時点の記述のまま、Android の節は Google Play の最初の版
+       （文字起こしを隠し、RECORD_AUDIO を宣言しない版。soundpull-app PR #141）に合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,18 +71,18 @@
 
   <main>
     <h1>Kebijakan Privasi SoundPull</h1>
-    <p class="stamp">Mulai berlaku 2026-10-02 · disusun untuk SoundPull 1.4</p>
-    <p>SoundPull adalah aplikasi iPhone untuk mengambil suara dari video, mengonversi dan menyambung file audio, serta mengubah ucapan yang terekam menjadi teks. Kebijakan ini mengikuti perjalanan sebuah file di dalam aplikasi, langkah demi langkah, lalu merinci semua yang disimpan SoundPull di iPhone Anda. SoundPull dikembangkan dan diterbitkan oleh naruberio; dalam kebijakan ini, kata "kami" merujuk pada naruberio.</p>
+    <p class="stamp">Mulai berlaku 2026-11-07 · bagian iPhone disusun untuk SoundPull 1.4 · bagian Android disusun untuk rilis pertama di Google Play</p>
+    <p>SoundPull adalah aplikasi untuk iPhone dan ponsel Android. Aplikasi ini mengambil suara dari video serta mengonversi dan menyambung file audio; di iPhone, aplikasi ini juga dapat mengubah ucapan yang terekam menjadi teks. Bagian <a href="#flow">Apa yang terjadi pada file</a> sampai <a href="#manifest">manifes privasi</a> menjelaskan versi iPhone: bagian-bagian itu mengikuti perjalanan sebuah file di dalam aplikasi, langkah demi langkah, lalu merinci semua yang disimpan SoundPull di iPhone Anda. Setelah itu, <a href="#android">SoundPull di Android</a> menjelaskan cara versi Android menangani hal-hal yang sama. Bagian mulai dari <a href="#children">Anak-anak</a> dan seterusnya berlaku untuk keduanya. SoundPull dikembangkan dan diterbitkan oleh naruberio; dalam kebijakan ini, kata "kami" merujuk pada naruberio.</p>
 
     <h2 id="brief">Ringkasnya</h2>
     <ul class="gist">
       <li>SoundPull tidak memakai akun, tidak meminta login, dan tidak terhubung ke server milik kami.</li>
-      <li>Video, file audio, transkrip, dan subtitle yang Anda olah diproses di iPhone Anda dan tidak pernah diunggah, baik ke kami maupun ke pihak lain mana pun.</li>
+      <li>Video, file audio, transkrip, dan subtitle yang Anda olah diproses di ponsel Anda dan tidak pernah diunggah, baik ke kami maupun ke pihak lain mana pun.</li>
       <li>Di dalam aplikasi tidak ada kode analitik, iklan, pelaporan crash, atau pelacakan, dan aplikasi ini bekerja tanpa koneksi internet.</li>
-      <li>Di antara satu pembukaan aplikasi dan pembukaan berikutnya, SoundPull hanya mengingat tiga pengaturan dan angka-angka hitungan yang mendasari permintaan rating, semuanya tersimpan di perangkat. Salinan yang dibuat ketika Anda memilih file atau ketika aplikasi lain mengirim file ke SoundPull juga dapat tetap tersimpan di perangkat (lihat <a href="#kept">Yang tetap tersimpan di iPhone Anda</a>).</li>
+      <li>Di antara satu pembukaan aplikasi dan pembukaan berikutnya, SoundPull hanya mengingat tiga pengaturan dan angka-angka hitungan yang mendasari permintaan rating, semuanya tersimpan di perangkat. Salinan yang dibuat ketika Anda memilih file atau ketika aplikasi lain mengirim file ke SoundPull juga dapat tetap tersimpan di perangkat (lihat <a href="#kept">Yang tetap tersimpan di iPhone Anda</a> dan, untuk Android, <a href="#android-files">File di Android</a>).</li>
     </ul>
 
-    <h2 id="flow">Apa yang terjadi pada file yang Anda buka di SoundPull</h2>
+    <h2 id="flow">Apa yang terjadi pada file yang Anda buka di SoundPull di iPhone</h2>
     <ol class="flow">
       <li><strong>Anda memilihnya.</strong> Anda dapat memilih video lewat pemilih Foto, memilih video atau file audio (m4a, mp3, wav, aac, caf, aif, aiff, atau flac) di app Files, atau mengirimnya dari lembar berbagi aplikasi lain, termasuk Memo Suara. iOS hanya menyerahkan item yang Anda pilih kepada SoundPull; aplikasi tidak menelusuri isi lain dari perpustakaan foto atau folder Anda.</li>
       <li><strong>SoundPull membuat salinan kerja.</strong> Item tersebut disalin ke folder sementara di dalam sandbox milik aplikasi, sehingga file asli Anda tidak pernah diubah. Pemilih Foto dan Files, begitu pula lembar berbagi, mungkin juga meninggalkan salinannya sendiri di dalam kontainer aplikasi.</li>
@@ -107,12 +109,12 @@
     <p>Menghapus SoundPull dari iPhone Anda ikut menghapus nilai-nilai ini. Kami sama sekali tidak dapat membacanya.</p>
     <p>Selain nilai-nilai ini, salinan yang ditinggalkan pemilih dan lembar berbagi sendiri ketika Anda memilih file atau ketika aplikasi lain mengirim file ke SoundPull tidak dibersihkan oleh aplikasi, sehingga dapat tetap ada di perangkat dari satu pembukaan ke pembukaan berikutnya. Langkah 6 di bagian <a href="#flow">Apa yang terjadi pada file yang Anda buka di SoundPull</a> menjelaskan di mana setiap jenis salinan disimpan dan kapan salinan itu hilang.</p>
 
-    <h2 id="rating">Permintaan rating, ditambahkan di versi 1.4</h2>
+    <h2 id="rating">Permintaan rating di iPhone, ditambahkan di versi 1.4</h2>
     <p>Setelah ekstraksi atau penggabungan Anda yang berhasil untuk ke-3, ke-15, dan ke-50 kalinya, SoundPull meminta iOS menampilkan jendela standar Apple untuk memberi rating aplikasi, melalui fitur permintaan ulasan di framework StoreKit milik Apple. iOS yang memutuskan apakah jendela itu benar-benar muncul, dan iOS pula yang membatasi seberapa sering aplikasi mana pun boleh menampilkannya. SoundPull tidak diberi tahu apakah jendela itu muncul atau apa yang Anda lakukan di sana. Jika Anda memberi rating atau ulasan untuk SoundPull, Apple mengumpulkannya atas Akun Apple Anda; ulasan tertulis diterbitkan di App Store dengan nama panggilan yang Anda pilih, tempat siapa pun, termasuk kami, dapat membacanya; sebagai pengembang, kami juga dapat memberikan balasan publik di sana.</p>
     <p>Untuk menghentikan permintaan seperti ini bagi semua aplikasi, buka app Pengaturan iOS, masuk ke App Store, lalu matikan Peringkat &amp; Ulasan Dalam App (In-App Ratings &amp; Reviews). Di iOS 18 dan yang lebih baru, App Store ada di Pengaturan &gt; App.</p>
     <p>Permintaan rating adalah satu-satunya keperluan SoundPull memakai StoreKit. Aplikasi ini tidak punya layar pembelian dan tidak mengajukan permintaan pembelian sendiri.</p>
 
-    <h2 id="permissions">Izin yang mungkin ditampilkan iOS</h2>
+    <h2 id="permissions">Izin yang mungkin ditampilkan iOS di iPhone</h2>
     <div class="wrap">
       <table class="grid">
         <thead><tr><th>Izin</th><th>Kapan dan mengapa</th></tr></thead>
@@ -124,10 +126,10 @@
     </div>
     <p>Membuka file dari app Files atau dari lembar berbagi tidak memerlukan izin, karena iOS hanya meneruskan item yang Anda pilih. SoundPull tidak memakai kamera, mikrofon, lokasi, maupun kontak Anda, dan tidak meminta akses jaringan. Jendela App Tracking Transparency tidak pernah ditampilkan, karena aplikasi ini tidak melacak siapa pun.</p>
 
-    <h2 id="paying">Membayar SoundPull</h2>
+    <h2 id="paying">Membayar SoundPull di App Store</h2>
     <p>SoundPull dijual sebagai unduhan berbayar di App Store. Pembelian tunggal itu mencakup semua fitur; tidak ada pembelian dalam aplikasi, tidak ada langganan, dan tidak ada iklan. Pembayaran diterima oleh Apple, dan Apple tidak meneruskan nama, alamat email, data kartu, atau informasi pribadi lain milik Anda kepada kami. Cara Apple memperlakukan informasi pembayaran dan akun Anda dijelaskan dalam <a href="https://www.apple.com/legal/privacy/">Kebijakan Privasi Apple</a>.</p>
 
-    <h2 id="manifest">Isi pernyataan manifes privasi</h2>
+    <h2 id="manifest">Isi pernyataan manifes privasi (iPhone)</h2>
     <p>SoundPull disertai manifes privasi Apple. Manifes itu menyatakan bahwa aplikasi tidak melakukan pelacakan, tidak menghubungi domain pelacakan, dan tidak mengumpulkan jenis data apa pun. Manifes itu juga mencantumkan empat API yang menurut Apple harus disertai alasan oleh pengembang, dan masing-masing hanya dipakai untuk tujuan yang ditunjukkan kode alasannya:</p>
     <ul>
       <li><code>FileTimestamp</code>, alasan <code>C617.1</code>: membaca tanggal dan ukuran file di dalam kontainer milik SoundPull sendiri, misalnya untuk membedakan file kerja sisa sesi sebelumnya dari file yang sedang dipakai.</li>
@@ -137,12 +139,46 @@
     </ul>
     <p>Dua yang pertama dinyatakan oleh SoundPull sendiri; dua lainnya ditambahkan atas nama framework yang dipakai untuk membangun aplikasi.</p>
 
+    <h2 id="android">SoundPull di Android</h2>
+    <p>Versi Android dibangun dari kode yang sama dengan versi iPhone dan memegang janji yang sama: tanpa akun, tanpa server milik kami, dan tanpa kode analitik, iklan, pelaporan crash, atau pelacakan. Versi ini mengonversi file dengan komponen media bawaan Android (MediaExtractor, MediaCodec, dan MediaMuxer) dan mengodekan MP3 dengan pustaka LAME bawaan yang sama. Tak satu pun yang Anda buka di dalamnya dikirim melalui jaringan. Rilis pertama di Google Play tidak menyertakan transkrip maupun subtitle, sehingga di Android SoundPull tidak melakukan pengenalan ucapan dan tidak meminta akses mikrofon.</p>
+
+    <h3 id="android-files">File di Android</h3>
+    <ul>
+      <li><strong>Membuka.</strong> <strong>Pilih Video</strong> membuka pemilih foto, dan <strong>Dari file</strong> membuka pemilih file sistem. Anda juga dapat mengirim video atau file audio ke SoundPull dari aplikasi lain melalui Bagikan atau Buka dengan. Dalam semua kasus, Android hanya memberi SoundPull akses ke item yang Anda pilih.</li>
+      <li><strong>Salinan kerja.</strong> SoundPull menyalin item yang dipilih ke folder cache miliknya sendiri, yang tidak dapat dibaca aplikasi lain, lalu bekerja pada salinan itu, sehingga file asli Anda tidak pernah diubah. Pemilih juga dapat menaruh salinannya sendiri di folder itu. Hasil dibuat sebagai file M4A, MP3, atau WAV, sebagai nada dering, atau sebagai video yang suaranya sudah dilepas. Nada dering ditulis sebagai file .m4a, karena Android tidak mengenali ekstensi .m4r milik Apple.</li>
+      <li><strong>Pembersihan.</strong> Seperti di iPhone, SoundPull menghapus salinan kerjanya begitu pekerjaan tidak lagi membutuhkannya, menyimpan salinan yang diserahkan ke aplikasi lain sampai aplikasi dibuka lagi, dan setiap kali dibuka menghapus file kerja yang tertinggal dari sesi sebelumnya. Android juga dapat membersihkan folder cache ketika ruang penyimpanan menipis. Menghapus instalan SoundPull, atau mengetuk Hapus penyimpanan di layar Info aplikasi-nya, akan menghapus semua yang masih tertinggal di sana.</li>
+      <li><strong>Menyimpan.</strong> Di Android 10 dan yang lebih baru, <strong>Simpan ke perangkat</strong> menaruh hasil di penyimpanan bersama ponsel Anda melalui MediaStore Android: audio di <code>Music/SoundPull</code>, nada dering di <code>Ringtones/SoundPull</code>, dan video yang suaranya dilepas di <code>Movies/SoundPull</code>. Aplikasi yang Anda izinkan membaca musik atau video Anda dapat melihat file yang disimpan di sana, dan file itu tetap ada di ponsel setelah SoundPull dihapus instalannya sampai Anda menghapusnya. Di versi Android yang lebih lama, tombol ini tidak ditampilkan; kirim hasilnya ke aplikasi lain dengan <strong>Bagikan</strong> sebagai gantinya.</li>
+      <li><strong>Nada dering.</strong> <strong>Buka pengaturan suara</strong> hanya membuka pengaturan suara Android agar Anda dapat memilih sendiri nada dering yang telah disimpan. SoundPull tidak mengubah nada dering Anda maupun pengaturan sistem lainnya.</li>
+    </ul>
+
+    <h3 id="android-kept">Yang diingat versi Android</h3>
+    <p>Di Android, SoundPull menyimpan empat nilai di penyimpanan aplikasi pribadinya, yang tidak dapat dibaca aplikasi lain: <code>soundpull.settings.hasSeenOnboarding</code>, <code>soundpull.settings.outputFormat</code>, dan <code>soundpull.settings.normalizeVolume</code>, yang artinya sama seperti di iPhone, serta <code>soundpull.reviewPrompt</code>. Di Android, <code>soundpull.reviewPrompt</code> menyimpan berapa kali ekstraksi atau penggabungan berhasil, waktu terakhir SoundPull meminta permintaan rating, dan apakah upaya terakhir gagal. Tidak satu pun berisi nama file, rekaman, atau apa pun yang dapat mengenali Anda, dan tidak satu pun dikirim ke mana pun.</p>
+
+    <h3 id="android-rating">Permintaan rating di Android</h3>
+    <p>Setelah ekstraksi atau penggabungan berhasil, begitu Anda selesai menyimpan atau membagikan hasilnya, SoundPull dapat meminta Google Play menampilkan jendela ulasan dalam aplikasinya (Google Play In-App Review API). Permintaan ini paling banyak sekali setiap 14 hari, dan tidak langsung setelah upaya yang gagal. Google Play yang memutuskan apakah jendela itu benar-benar muncul, dan SoundPull tidak diberi tahu apakah jendela itu muncul atau apa yang Anda lakukan di sana. Rating atau ulasan yang Anda berikan dikumpulkan oleh Google atas Akun Google Anda dan diterbitkan di Google Play; sebagai pengembang, kami dapat membacanya dan dapat memberikan balasan publik di sana.</p>
+
+    <h3 id="android-permissions">Izin yang dideklarasikan di Android</h3>
+    <div class="wrap">
+      <table class="grid">
+        <thead><tr><th>Izin</th><th>Mengapa ada</th></tr></thead>
+        <tbody>
+          <tr><td><code>READ_EXTERNAL_STORAGE</code><br><code>WRITE_EXTERNAL_STORAGE</code></td><td>Dideklarasikan hanya untuk Android 12L dan yang lebih lama (API level 32 ke bawah) oleh pustaka pemilih file dan foto yang dipakai untuk membangun SoundPull. SoundPull tidak meminta izin ini kepada Anda: aplikasi hanya membaca item yang Anda pilih, dan di Android 10 dan yang lebih baru menyimpan file-nya sendiri tanpa izin penyimpanan apa pun.</td></tr>
+          <tr><td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td><td>Ditambahkan oleh framework aplikasi dan pustaka pemutaran audio. SoundPull sendiri tidak mengirim maupun menerima data melalui jaringan.</td></tr>
+          <tr><td><code>MODIFY_AUDIO_SETTINGS</code><br><code>WAKE_LOCK</code></td><td>Dipakai oleh pustaka pemutaran audio untuk memutar hasil di dalam aplikasi.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Tidak satu pun dari izin ini yang diminta SoundPull untuk Anda berikan. Aplikasi ini tidak memakai kamera, mikrofon, lokasi, maupun kontak Anda.</p>
+
+    <h3 id="android-paying">Membayar di Google Play</h3>
+    <p>Di Android, SoundPull dijual sebagai unduhan berbayar di Google Play, tanpa pembelian dalam aplikasi, tanpa langganan, dan tanpa iklan. Pembayaran diterima oleh Google, dan kami tidak menerima data kartu Anda. Cara Google memperlakukan informasi pembayaran dan akun Anda dijelaskan dalam <a href="https://policies.google.com/privacy">Kebijakan Privasi Google</a>.</p>
+
     <h2 id="children">Anak-anak</h2>
     <p>SoundPull ditujukan untuk khalayak umum. Aplikasi ini tidak menghimpun informasi pribadi dari siapa pun yang memakainya, jadi aplikasi ini pun tidak secara sadar menghimpunnya dari anak-anak, baik batas usia yang berlaku di tempat Anda 13 tahun maupun usia lain.</p>
 
     <h2 id="laws">Hukum privasi dan pilihan Anda</h2>
-    <p>Hukum seperti GDPR Uni Eropa dan GDPR Inggris, California Consumer Privacy Act sebagaimana diubah oleh CPRA, serta LGPD Brasil memberi Anda hak atas data pribadi yang dipegang suatu pelaku usaha tentang Anda. Aplikasi ini tidak mengirimkan data pribadi apa pun tentang Anda kepada kami, sehingga untuk pemakaian SoundPull oleh Anda tidak ada yang perlu kami tunjukkan, koreksi, serahkan, atau hapus di pihak kami, dan dalam kaitannya dengan aplikasi ini kami tidak berkedudukan sebagai pengendali ataupun pemroses atas data pribadi Anda. Karena aplikasi tidak mengirim apa pun keluar dari iPhone Anda, aplikasi juga tidak memindahkan data ke negara lain. Email yang Anda kirim kepada kami dibahas di bagian <a href="#contact">Pertanyaan</a> di bawah.</p>
-    <p>Apa yang disimpan SoundPull sepenuhnya ada di tangan Anda: menghapus aplikasi akan menghapus nilai-nilai yang dijelaskan di atas beserta salinan apa pun yang tertinggal di cache, folder sementara, atau folder Inbox aplikasi, sedangkan file yang Anda simpan tetap berada di tempat Anda meletakkannya sampai Anda sendiri menghapusnya.</p>
+    <p>Hukum seperti GDPR Uni Eropa dan GDPR Inggris, California Consumer Privacy Act sebagaimana diubah oleh CPRA, serta LGPD Brasil memberi Anda hak atas data pribadi yang dipegang suatu pelaku usaha tentang Anda. Aplikasi ini tidak mengirimkan data pribadi apa pun tentang Anda kepada kami, sehingga untuk pemakaian SoundPull oleh Anda tidak ada yang perlu kami tunjukkan, koreksi, serahkan, atau hapus di pihak kami, dan dalam kaitannya dengan aplikasi ini kami tidak berkedudukan sebagai pengendali ataupun pemroses atas data pribadi Anda. Karena aplikasi tidak mengirim apa pun keluar dari ponsel Anda, aplikasi juga tidak memindahkan data ke negara lain. Email yang Anda kirim kepada kami dibahas di bagian <a href="#contact">Pertanyaan</a> di bawah.</p>
+    <p>Apa yang disimpan SoundPull sepenuhnya ada di tangan Anda: menghapus aplikasi akan menghapus nilai-nilai yang dijelaskan di atas beserta salinan apa pun yang tertinggal di cache, folder sementara, atau folder Inbox aplikasi, sedangkan file yang Anda simpan tetap berada di tempat Anda meletakkannya sampai Anda sendiri menghapusnya. Di Android, hal itu termasuk file yang Anda simpan ke folder Music, Ringtones, atau Movies.</p>
 
     <h2 id="changes">Jika kebijakan ini berubah</h2>
     <p>Kami dapat merevisi kebijakan ini, misalnya ketika versi baru SoundPull mengubah apa yang terjadi di perangkat. Setiap revisi yang material mendapat tanggal baru di bagian atas halaman ini, dan teks terbarunya selalu diterbitkan di <a href="https://naruberio.github.io/soundpull-legal/privacy-policy-id.html">naruberio.github.io/soundpull-legal/privacy-policy-id.html</a>. Jika Anda tetap memakai SoundPull setelah sebuah revisi berlaku, berarti Anda menerima kebijakan yang telah direvisi.</p>

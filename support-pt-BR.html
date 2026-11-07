@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Suporte do SoundPull</title>
-  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した -->
+  <!-- 英語版が正本（D-04 / D-06）。KAN-874 で、問い合わせの書き方と作業の段階（取り込み→変換・結合→文字起こし→購入→データ）の順に組み直した。
+       KAN-1227 で Android の節（#android）を足した。ボタン名はアプリの文言（soundpull-app/src/i18n/index.ts）と一字一句合わせる -->
   <style>
     /* 配色は変数で持ち、端末のダークモードに追従させる（アプリ本体が暗い画面のため） */
     :root {
@@ -69,13 +70,14 @@
 
   <main>
     <h1>Suporte do SoundPull</h1>
-    <p class="stamp">Atualizado em 2026-10-02 para o SoundPull 1.4 · funciona no iPhone com iOS 16.4 ou posterior</p>
+    <p class="stamp">Atualizado em 2026-11-07 · iPhone: SoundPull 1.4, iOS 16.4 ou posterior · Android: a primeira versão no Google Play, Android 7.0 ou posterior</p>
+    <p>A maioria das respostas abaixo descreve o SoundPull no iPhone. Se você usa um celular Android, veja <a href="#android">O SoundPull no Android</a> para saber o que muda nele.</p>
 
     <h2 id="write">Fale conosco</h2>
     <p>Mande um e-mail para <a href="mailto:konpei.work@gmail.com">konpei.work@gmail.com</a> com um problema, uma pergunta ou uma ideia. Nossa meta é responder em até três dias úteis.</p>
     <p>Se algo não funcionou, estas informações nos ajudam a reproduzir o problema:</p>
     <ul>
-      <li>a versão do SoundPull (aparece na tela Ajustes do app) e a versão do iOS;</li>
+      <li>a versão do SoundPull (aparece na tela Ajustes do app) e a versão do iOS ou do Android;</li>
       <li>o que você abriu, por exemplo “um vídeo MOV do Fotos” ou “um MP3 do Arquivos”, e o formato de saída que escolheu;</li>
       <li>a etapa em que deu errado e a mensagem exata que apareceu na tela.</li>
     </ul>
@@ -136,6 +138,20 @@
     <p>Eles ficam no seu iPhone. Converter, juntar e transcrever acontece tudo no aparelho, e o SoundPull não tem servidor algum para onde mandar qualquer coisa. Ao fim de uma tarefa, toque em <strong>Salvar / Compartilhar</strong> para salvar o resultado no Arquivos, enviá-lo por AirDrop ou mandá-lo para outro app. Os resultados que você não salva são apagados pelo SoundPull.</p>
     <h3>Como removo tudo o que o SoundPull guardou?</h3>
     <p>Apague o app. O iOS remove junto os ajustes e os arquivos de trabalho dele, enquanto os arquivos que você salvou em outro lugar continuam onde você os deixou.</p>
+
+    <h2 id="android">O SoundPull no Android</h2>
+    <h3>Onde estão os arquivos que salvei?</h3>
+    <p>No Android 10 e posteriores, toque em <strong>Salvar no dispositivo</strong> ao fim de uma tarefa. O áudio vai para <code>Music/SoundPull</code>, os toques para <code>Ringtones/SoundPull</code> e os vídeos sem som para <code>Movies/SoundPull</code>, e a tela mostra a pasta e o nome do arquivo. O seu player de música ou gerenciador de arquivos consegue abri-los de lá. No Android 9 e anteriores, esse botão não aparece; use <strong>Compartilhar</strong> para mandar o resultado para outro app.</p>
+    <h3>Como defino um toque?</h3>
+    <p>Escolha <strong>Toque</strong> como formato, deixe o som com 30 segundos ou menos e toque em <strong>Salvar no dispositivo</strong>. O toque é salvo como arquivo .m4a, que o Android adiciona à lista de toques. Depois, toque em <strong>Abrir configurações de som</strong>, abra Toque do telefone e escolha o arquivo pelo nome. Os nomes dessas configurações variam de um fabricante de celular para outro. O SoundPull não altera o seu toque sozinho.</p>
+    <h3>Dá para fazer transcrições ou legendas no Android?</h3>
+    <p>Não. A primeira versão no Google Play não inclui transcrições nem legendas. Extração, conversão, junção, extração em lote e vídeos sem som funcionam como no iPhone, e os formatos de saída são M4A, MP3, WAV e Toque.</p>
+    <h3>Compra, outros aparelhos e reembolsos no Google Play</h3>
+    <p>O SoundPull no Google Play é um app pago com uma única compra, sem compras dentro do app, assinaturas nem anúncios. Para instalá-lo em outro aparelho Android, entre com a mesma Conta do Google e baixe-o de novo no Google Play, sem custo. Quem decide sobre reembolsos de compras no Google Play é o Google; veja a <a href="https://support.google.com/googleplay/answer/2479637">ajuda de reembolso do Google Play</a>. Uma compra no Google Play não cobre a versão para iPhone, e uma compra na App Store não cobre a versão para Android.</p>
+    <h3>Por que o SoundPull me pediu uma avaliação?</h3>
+    <p>Depois de uma extração ou junção concluída, quando você já salvou ou compartilhou o resultado, o SoundPull pode pedir ao Google Play que mostre o aviso de avaliação, no máximo uma vez a cada 14 dias. É o Google Play que decide se ele realmente aparece.</p>
+    <h3>Como removo tudo o que o SoundPull guardou?</h3>
+    <p>Desinstale o app, ou abra a tela Informações do app dele e toque em Limpar armazenamento, em Armazenamento. Os arquivos que você salvou nas pastas Music, Ringtones ou Movies continuam lá até que você mesmo os apague.</p>
 
     <h2 id="docs">Políticas</h2>
     <p><a href="./privacy-policy-pt-BR.html">Política de Privacidade</a> · <a href="./terms-pt-BR.html">Termos de Uso</a></p>
