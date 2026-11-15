@@ -47,6 +47,14 @@ Do not add limits of SoundPull itself (DRM, iOS version, no crossfade, MP3 re-co
 The index blurb does not mention subtitles, matching the App Store listing (KAN-950, soundpull-app D-55 / D-60).
 Subtitles stay on the Support, Privacy and Terms pages, which describe what the App does.
 
+Each guide carries a `HowTo` + `FAQPage` JSON-LD block built from its visible steps (`ol.steps`) and FAQ (`dl.faq`)
+word for word (KAN-1242). When the steps or the FAQ change, change the JSON-LD in the same edit.
+Each guide has 3 FAQs; the third repeats a fact already stated on the same page (no new claims).
+The App Store link carries `ct=spweb-<guide>-<lang>` and the Google Play link a `referrer` with
+`utm_campaign=spweb-<guide>-<lang>`. The App Store link has no `pt`, so App Analytics does not list it as a campaign;
+read it from Web Referrer instead. The steps describe the iPhone app; the Google Play link is labelled as the Android version
+and makes no claim about Android features.
+
 ### Top page (KAN-1162)
 
 `index.html` is the product entrance: what the App does, its main uses, a link to the App Store
